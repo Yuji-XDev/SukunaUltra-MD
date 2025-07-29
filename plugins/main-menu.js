@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 let handler = async (m, { conn, args }) => {
   let userId = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
   let userData = global.db.data.users[userId] || {};
@@ -10,36 +12,43 @@ let handler = async (m, { conn, args }) => {
   let _uptime = process.uptime() * 1000;
   let uptime = clockString(_uptime);
   let totalreg = Object.keys(global.db.data.users).length;
-  let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length;
-  
+  let totalCommands = Object.values(global.plugins).filter(v => v.help && v.tags).length;
+
+  const loadingImage = 'https://files.catbox.moe/jiczl6.png';
+
+
+  const imgRandom = [
+    "https://iili.io/FKVDVAN.jpg",
+    "https://iili.io/FKVbUrJ.jpg"
+  ].getRandom();
+
   const text = [
-      "*Etiqueta General X  Shadow'Core*",
-      "𝙈𝙚𝙣𝙘𝙞𝙤𝙣 𝙂𝙚𝙣𝙚𝙧𝙖𝙡",
-      "𝙀𝙩𝙞𝙦𝙪𝙚𝙩𝙖𝙣𝙙𝙤 𝙖 𝙡𝙤𝙨 𝙉𝙋𝘾"
-    ].getRandom();
-    const imgRandom = [
-      "https://iili.io/FKVDVAN.jpg",
-      "https://iili.io/FKVbUrJ.jpg"
-    ].getRandom();
+    "*Etiqueta General X  Shadow'Core*",
+    "𝙈𝙚𝙣𝙘𝙞𝙤𝙣 𝙂𝙚𝙣𝙚𝙧𝙖𝙡",
+    "𝙀𝙩𝙞𝙦𝙪𝙚𝙩𝙖𝙣𝙙𝙤 𝙖 𝙡𝙤𝙨 𝙉𝙋𝘾"
+  ].getRandom();
 
-    const thumbnailBuffer = Buffer.from(
-      (await axios.get(imgRandom, { responseType: 'arraybuffer' })).data
-    );
+  const thumbnailBuffer = Buffer.from((await axios.get(imgRandom, { responseType: 'arraybuffer' })).data);
 
-    const shadow = {
-      key: { participants: "0@s.whatsapp.net", fromMe: false, id: "Halo" },
-      message: {
-        locationMessage: {
-          name: text,
-          jpegThumbnail: thumbnailBuffer,
-          vcard:
-            "BEGIN:VCARD\nVERSION:3.0\nN:;Unlimited;;;\nFN:Unlimited\nORG:Unlimited\nTITLE:\n" +
-            "item1.TEL;waid=19709001746:+1 (970) 900-1746\nitem1.X-ABLabel:Unlimited\n" +
-            "X-WA-BIZ-DESCRIPTION:ofc\nX-WA-BIZ-NAME:Unlimited\nEND:VCARD"
-        }
-      },
-      participant: "0@s.whatsapp.net"
-    };
+  const shadow = {
+    key: { participants: "0@s.whatsapp.net", fromMe: false, id: "Halo" },
+    message: {
+      locationMessage: {
+        name: text,
+        jpegThumbnail: thumbnailBuffer
+      }
+    },
+    participant: "0@s.whatsapp.net"
+  };
+
+  await conn.sendMessage(m.chat, {
+    image: { url: loadingImage },
+    caption: `╭─〔 ⚙️ 𝐂𝐀𝐑𝐆𝐀𝐍𝐃𝐎... 〕─⬣\n┃ 🛰️ *Conectando a la base de datos...*\n┃ 📡 *Sincronizando menú principal...*\n╰───────────────⬣`,
+  }, { quoted: m });
+
+  await new Promise(resolve => setTimeout(resolve, 2000));
+
+  let sukunaurl = 'https://files.catbox.moe/4kpxfk.png';
 
   let menuText = `
 🍭 Bienvenido a 𝑺𝒖𝒌𝒖𝒏𝒂 𝑴𝑫
@@ -688,12 +697,13 @@ let handler = async (m, { conn, args }) => {
 ര ׄ 🌪️˚ #tts2
 ┗━━━━━━━━━━━━━━━━━━━━
 
-𖤐     ${club}    𖤐`.trim();
-  let sukunaurl = 'https://files.catbox.moe/4kpxfk.png';
+𖤐     ${club}    𖤐
+𖤐    𝑺𝒉𝒂𝒅𝒐𝒘'𝑪𝒐𝒓𝒆    𖤐
+`.trim();
+
   await m.react('🌳');
   await conn.sendFile(m.chat, sukunaurl, 'menu.jpg', menuText, shadow, fake);
 };
-
 
 handler.help = ['menu'];
 handler.tags = ['main'];
