@@ -59,10 +59,7 @@ let handler = async (m, { conn, args }) => {
   await new Promise(resolve => setTimeout(resolve, 2000));
 
   let sukunaurl = 'https://files.catbox.moe/4kpxfk.png';
-  
-  
-  let hora = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
-    
+      
    let hora = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
    let fechaObj = new Date();
    let fecha = fechaObj.toLocaleDateString('es-PE', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Lima' });
