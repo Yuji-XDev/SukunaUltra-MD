@@ -1,4 +1,4 @@
-import yts from 'yt-search';
+/*import yts from 'yt-search';
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
@@ -60,4 +60,4 @@ handler.command = ['play'];
 handler.tags = ['descargas'];
 handler.limit = 6;
 
-export default handler;
+export default handler;*/
