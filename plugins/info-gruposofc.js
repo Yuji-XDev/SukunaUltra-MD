@@ -2,22 +2,26 @@ import fetch from 'node-fetch'
 
 let handler  = async (m, { conn, usedPrefix, command }) => {
 
-let grupos = `*Hola!, te invito a unirte a los grupos oficiales del Bot para convivir con la comunidad.....*
+let grupos = `╔═════『 🏮 𝐈𝐍𝐕𝐈𝐓𝐀𝐂𝐈𝐎𝐍 』═════╗
+┃  こんにちは, ${name}! 👋
+┃  Te invito a unirte a los grupos
+┃  oficiales del *Sukuna Bot* para 
+┃  convivir con la comunidad 🌸✨
+╚════════════════════════════╝
 
-- ${namegrupo}
+🏯 *Grupo Oficial:* ${namegrupo}  
 > *❀* ${gp1}
 
-${namecomu}
+🎎 *Comunidad:* ${namecomu}  
 > *❀* ${comunidad1}
 
 *ׄ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ─ׅ─ׄ⭒─ׄ*
 
-⚘ Enlace anulado? entre aquí! 
-
-- ${namechannel}
+⚘ ¿Enlace anulado? ¡Únete por aquí!  
+📢 *Canal Oficial:* ${namechannel}  
 > *❀* ${channel}
 
-> ${dev}`
+🧞‍♂️ *Atentamente:* ${dev}`
 
 await conn.sendFile(m.chat, catalogo, "grupos.jpg", grupos, m)
 
