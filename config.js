@@ -43,7 +43,7 @@ global.nameqr = '𖤐 𝐒𝐮𝐤𝐮𝐧𝐚 𝐌𝐃 𖤐'
 global.namebot = '⸸𝕊𝖚𝖐𝖚𝖓𝖆 𝕭𝖔𝖙⸸🎄'
 global.sessions = 'Sessions'
 global.jadi = 'JadiBots' 
-global.Dev.ShadowJadibts = true
+global.shadowJadibts = true
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
