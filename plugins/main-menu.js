@@ -40,11 +40,6 @@ let handler = async (m, { conn, args }) => {
     },
     participant: "0@s.whatsapp.net"
   };
-
- /* await conn.sendMessage(m.chat, {
-    image: { url: loadingImage },
-    caption: `╭─〔 ⚙️ 𝐂𝐀𝐑𝐆𝐀𝐍𝐃𝐎... 〕─⬣\n┃ 🛰️ *Conectando a la base de datos...*\n┃ 📡 *Sincronizando menú principal...*\n╰───────────────⬣`,
-  }, { quoted: m });*/
   
   await conn.sendMessage(m.chat, {
     text: '╭─〔 ⚙️ 𝐂𝐀𝐑𝐆𝐀𝐍𝐃𝐎... 〕─⬣\n┃ 🛰️ *Conectando a la base de datos...*\n┃ 📡 *Sincronizando menú principal...*\n╰───────────────⬣',
