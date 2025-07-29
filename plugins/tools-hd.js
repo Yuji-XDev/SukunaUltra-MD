@@ -7,7 +7,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
   if (!/image\/(jpe?g|png)/i.test(mime)) {
     await conn.sendMessage(m.chat, { react: { text: '❗', key: m.key } })
-    return m.reply(`Error responde o envia una imagen con el comando:\n*${usedPrefix + command}*`)
+    return m.reply(`⚽ Por favor, envie una imagen o responda a la imagen utilizando el comando.`)
   }
 
   try {
