@@ -20,7 +20,7 @@ global.owner = [
   ['51988013368'],
   ['59898719147', 'xD', true],
   ['525561587327', 'alv', true],
-  ['51919199620', 'shadow•core', true];
+  ['51919199620', 'shadow•core', true],
   
 // <-- Número @lid -->
   ['193196806148194', '🎄 Propietario', true],
