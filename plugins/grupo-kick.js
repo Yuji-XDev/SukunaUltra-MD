@@ -11,20 +11,25 @@ var handler = async (m, { conn, participants, usedPrefix, command }) => {
     //const nn = conn.getName(m.sender);
 
     if (user === conn.user.jid) {
-        return conn.reply(m.chat, `${emoji2} No puedo eliminar el bot del grupo.`, m);
+        return conn.reply(m.chat, `⚡ *No puedo eliminar el bot del grupo.*`, m, rcanal);
     }
 
     if (user === ownerGroup) {
-        return conn.reply(m.chat, `${emoji2} No puedo eliminar al propietario del grupo.`, m);
+        return conn.reply(m.chat, `⚡ *No puedo eliminar al propietario del grupo.*`, m, rcanal);
     }
 
     if (user === ownerBot) {
-        return conn.reply(m.chat, `${emoji2} No puedo eliminar al propietario del bot.`, m);
+        return conn.reply(m.chat, `⚡ *No puedo eliminar al propietario del bot.*`, m, rcanal);
     }
 
     await conn.groupParticipantsUpdate(m.chat, [user], 'remove');
 
-//conn.reply(`${suitag}@s.whatsapp.net`, `${emoji} Un Admin Acabo De Eliminar Un Usuario En El Grupo:\n> ${groupMetadata.subject}.`, m, rcanal, );
+/*conn.reply(`${suitag}@s.whatsapp.net`, `╭━〔 🛡️ 𝗔𝗰𝗰𝗶𝗼́𝗻 𝗔𝗱𝗺𝗶𝗻 〕━⬣
+┃
+┃ 🐛 Un usuario fue eliminado por un administrador.
+┃ 🌳 Grupo: *${groupMetadata.subject}*
+┃
+╰━━━━━━━━━━━━━━━━━━━━⬣`, m, rcanal, );*/
 };
 
 handler.help = ['kick'];

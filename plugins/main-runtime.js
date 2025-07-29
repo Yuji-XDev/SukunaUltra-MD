@@ -1,9 +1,11 @@
 let handler = async (m, { usedPrefix, command }) => {
 let uptime = await process.uptime()
-let runtime = `${global.botname}
+let runtime = `${packname}
 
-✰ Tiempo activo: ${rTime(uptime)}`
-conn.reply(m.chat, runtime, m)
+╭┅•×፝֟͜×  ┅𔒋 🍁 ♛ 🍁 𔒋┅  ×፝֟͜× •┅╮
+┃ *⡴ִ֢፝֟🍁𝗍іᥱm⍴᥆ ᥲᥴ𝗍і᥎᥆:* ${rTime(uptime)} 
+╰┄᷏•×፝֟͜×  ┅𔒋 🍁 ♛ 🍁 𔒋┅  ×፝֟͜× •┄᷏╯`
+conn.reply(m.chat, runtime, m, rcanal)
 }
 handler.help = ['runtime']
 handler.tags = ['main']

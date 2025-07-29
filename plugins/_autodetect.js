@@ -13,13 +13,52 @@ let chat = global.db.data.chats[m.chat]
 let usuario = `@${m.sender.split`@`[0]}`
 let pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || 'https://files.catbox.moe/xr2m6u.jpg'
 let nombre, foto, edit, newlink, status, admingp, noadmingp
-nombre = `❀ ${usuario} Ha cambiado el nombre del grupo.\n\n> ✦ Ahora el grupo se llama:\n> *${m.messageStubParameters[0]}*.`
-foto = `❀ Se ha cambiado la imagen del grupo.\n\n> ✦ Acción hecha por:\n> » ${usuario}`
-edit = `❀ ${usuario} Ha permitido que ${m.messageStubParameters[0] == 'on' ? 'solo admins' : 'todos'} puedan configurar el grupo.`
-newlink = `❀ El enlace del grupo ha sido restablecido.\n\n> ✦ Acción hecha por:\n> » ${usuario}`
-status = `❀ El grupo ha sido ${m.messageStubParameters[0] == 'on' ? '*cerrado*' : '*abierto*'} Por ${usuario}\n\n> ✦ Ahora ${m.messageStubParameters[0] == 'on' ? '*solo admins*' : '*todos*'} pueden enviar mensaje.`
-admingp = `❀ @${m.messageStubParameters[0].split`@`[0]} Ahora es admin del grupo.\n\n> ✦ Acción hecha por:\n> » ${usuario}`
-noadmingp = `❀ @${m.messageStubParameters[0].split`@`[0]} Deja de ser admin del grupo.\n\n> ✦ Acción hecha por:\n> » ${usuario}`
+nombre = `╭─⃟⃝💠 𝑴𝑶𝑫𝑰𝑭𝑰𝑪𝑨𝑪𝑰𝑶́𝑵 𝑫𝑬 𝑵𝑶𝑴𝑩𝑹𝑬 ─╮
+┃ 👤 Usuario: *${usuario}*
+┃ ✨ Ha cambiado el nombre del grupo.
+┃ 🆕 Nuevo nombre:
+┃ ❝ *${m.messageStubParameters[0]}* ❞
+╰───⃟⃝🌟━━━━━━━━━━━━━╯`
+
+foto = `╭─⃟📸 𝑰𝑴𝑨𝑮𝑬𝑵 𝑨𝑪𝑻𝑼𝑨𝑳𝑰𝒁𝑨𝑫𝑨 ─╮
+┃ 🧑 Usuario: *${usuario}*
+┃ 🔄 Ha cambiado la imagen del grupo.
+╰───⃟🎨━━━━━━━━━━━━━━╯`
+
+edit = `╭─⃟⚙️ 𝑪𝑶𝑵𝑭𝑰𝑮𝑼𝑹𝑨𝑪𝑰𝑶́𝑵 𝑮𝑹𝑼𝑷𝑨𝑳 ─╮
+┃ 👤 Usuario: *${usuario}*
+┃ 🔁 Modificó las opciones del grupo.
+${m.messageStubParameters[0] == 'on' ?
+'┃ 🔒 Modo actual: *Solo administradores* pueden configurar.'
+:
+'┃ 🔓 Modo actual: *Todos los miembros* pueden configurar.'}
+╰────⚙️━━━━━━━━━━━━━━╯`
+
+newlink = `╭─⃟🔗 𝑬𝑵𝑳𝑨𝑪𝑬 𝑹𝑬𝑵𝑶𝑽𝑨𝑫𝑶 ─╮
+┃ 👤 Generado por: *${usuario}*
+┃ 🌍 Se creó un nuevo enlace de invitación.
+╰────🔗━━━━━━━━━━━━━━╯`
+
+status = `
+╭─⃟🛡️ 𝑪𝑨𝑴𝑩𝑰𝑶 𝑫𝑬 𝑴𝑶𝑫𝑶 ─╮
+┃ 👤 Acción de: *${usuario}*
+${m.messageStubParameters[0] == 'on' ?
+'┃ 🔒 El grupo está *cerrado* — Solo los administradores pueden escribir.'
+:
+'┃ 🔓 El grupo está *abierto* — Todos los miembros pueden escribir.'}
+╰────🛡️━━━━━━━━━━━━━━╯`
+
+admingp = `╭─⃟👑 𝑨𝑫𝑴𝑰𝑵 𝑨𝑺𝑰𝑮𝑵𝑨𝑫𝑶 ─╮
+┃ 🔰 *@${m.messageStubParameters[0].split`@`[0]}*
+┃ Ahora tiene permisos de administrador.
+┃ 📌 Nombrado por: *${usuario}*
+╰──────👑━━━━━━━━━━━━╯`
+
+noadmingp = `╭─⃟⚠️ 𝑷𝑬𝑹𝑫𝑰𝑫𝑨 𝑫𝑬 𝑨𝑼𝑻𝑶𝑹𝑰𝑫𝑨𝑫 ─╮
+┃ 🔻 *@${m.messageStubParameters[0].split`@`[0]}*
+┃ Ha sido removido como administrador.
+┃ 🗑️ Ejecutado por: *${usuario}*
+╰──────⚠️━━━━━━━━━━━━╯`
 
 if (chat.detect && m.messageStubType == 2) {
 const uniqid = (m.isGroup ? m.chat : m.sender)

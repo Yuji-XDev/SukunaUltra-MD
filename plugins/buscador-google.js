@@ -33,6 +33,8 @@ m.react('✅')
   }
 };
 
+handler.help = ['google'];
+handler.tags = ['buscador'];
 handler.command = ['google'];
 
 export default handler;

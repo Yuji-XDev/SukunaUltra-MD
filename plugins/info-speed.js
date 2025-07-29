@@ -20,23 +20,32 @@ let chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats
 let groups = Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats && !chat.metadata?.read_only && !chat.metadata?.announce).map(v => v[0])
 
 
-let texto = `${emoji} *${packname}*
-🚀 *Velocidad:*
-→ ${latensi.toFixed(4)}
+let texto = `*${emoji}「 ${packname} 」*
 
-🕒 *Activo Durante:*
-→ ${muptime}
+╔═════🌟 𝙀𝙎𝙏𝘼𝘿𝙊 🌟════╗
+┃🚀 *⧼ 𝖁𝖊𝖑𝖔𝖈𝖎𝖉𝖆𝖉 ⧽* 
+┃⤷ ⚡ ${latensi.toFixed(4)} ms
+╚════════════════════╝
 
-💫 *Chats:*
-→ ${chats.length} *Chats privados*
-→ ${groups.length} *Grupos*
+╔═════⏳ 𝘼𝘾𝙏𝙄𝙑𝙄𝘿𝘼𝘿 ⏳═════╗
+┃🕒 *𝑇𝑖𝑒𝑚𝑝𝑜 𝑒𝑛 𝑙𝑖́𝑛𝑒𝑎:* 
+┃⤷ 🔄 ${muptime}
+╚═══════════════════════╝
 
-🏆 *Servidor:*
-➤ *Ram ⪼* ${format(totalmem() - freemem())} / ${format(totalmem())}`.trim()
+╔══════📬 𝘾𝙃𝘼𝙏𝙎 📬══════╗
+┃💬 *𝘾𝙝𝙖𝙩𝙨 𝘿𝙞𝙨𝙥𝙤𝙣𝙞𝙗𝙡𝙚𝙨:*
+┃⤷ 💌 ${chats.length} 𝘾𝙝𝙖𝙩𝙨 𝙋𝙧𝙞𝙫𝙖𝙙𝙤𝙨  
+┃⤷ 👥 ${groups.length} 𝙂𝙧𝙪𝙥𝙤𝙨
+╚══════════════════════╝
+
+╔═════🖥️ 𝙎𝙀𝙍𝙑𝙄𝘿𝙊𝙍 🖥️══════╗
+┃📊 *ℝ𝔸𝕄 𝕌𝕤𝕒𝕕𝕒 / 𝕋𝕠𝕥𝕒𝕝:*
+┃⤷ 💽 ${format(totalmem() - freemem())} / ${format(totalmem())}
+╚═══════════════════════╝`.trim()
 
 m.react('✈️')
 
-conn.reply(m.chat, texto, m, )
+conn.reply(m.chat, texto, m, rcanal, )
 
 }
 handler.help = ['speed']

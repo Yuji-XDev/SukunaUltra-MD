@@ -1,11 +1,11 @@
 import { exec } from 'child_process';
 
 let handler = async (m, { conn }) => {
-  m.reply(`${emoji2} Actualizando el bot...`);
+  m.reply(`Actualizando.`);
 
   exec('git pull', (err, stdout, stderr) => {
     if (err) {
-      conn.reply(m.chat, `${msm} Error: No se pudo realizar la actualización.\nRazón: ${err.message}`, m);
+      conn.reply(m.chat, `Error: No se pudo realizar la actualizacion.\nRazon: ${err.message}`, m);
       return;
     }
 
@@ -14,16 +14,16 @@ let handler = async (m, { conn }) => {
     }
 
     if (stdout.includes('Already up to date.')) {
-      conn.reply(m.chat, `${emoji4} El bot ya está actualizado.`, m);
+      conn.reply(m.chat, `*El bot ya esta actualizado.*`, m, fake);
     } else {
-      conn.reply(m.chat, `${emoji} Actualización realizada con éxito.\n\n${stdout}`, m);
+      conn.reply(m.chat, `*Actualizacion realizada con Exito.*\n\n${stdout}`, m, fake);
     }
   });
 };
 
 handler.help = ['update'];
 handler.tags = ['owner'];
-handler.command = ['update'];
+handler.command = ['update', 'fix'];
 handler.rowner = true;
 
 export default handler;
