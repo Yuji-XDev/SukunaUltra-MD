@@ -12,9 +12,8 @@ let handler = async (m, { conn, args }) => {
   let totalreg = Object.keys(global.db.data.users).length;
   let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length;
   
- /* 
   const text = [
-      "*Etiqueta General X Sasuke*",
+      "*Etiqueta General X  Shadow'Core*",
       "𝙈𝙚𝙣𝙘𝙞𝙤𝙣 𝙂𝙚𝙣𝙚𝙧𝙖𝙡",
       "𝙀𝙩𝙞𝙦𝙪𝙚𝙩𝙖𝙣𝙙𝙤 𝙖 𝙡𝙤𝙨 𝙉𝙋𝘾"
     ].getRandom();
@@ -27,7 +26,7 @@ let handler = async (m, { conn, args }) => {
       (await axios.get(imgRandom, { responseType: 'arraybuffer' })).data
     );
 
-    const izumi = {
+    const shadow = {
       key: { participants: "0@s.whatsapp.net", fromMe: false, id: "Halo" },
       message: {
         locationMessage: {
@@ -41,7 +40,7 @@ let handler = async (m, { conn, args }) => {
       },
       participant: "0@s.whatsapp.net"
     };
-*/
+
   let menuText = `
 🍭 Bienvenido a 𝑺𝒖𝒌𝒖𝒏𝒂 𝑴𝑫
 
@@ -692,7 +691,7 @@ let handler = async (m, { conn, args }) => {
 𖤐     ${club}    𖤐`.trim();
   let sukunaurl = 'https://files.catbox.moe/4kpxfk.png';
   await m.react('🌳');
-  await conn.sendFile(m.chat, sukunaurl, 'menu.jpg', menuText, fkontak, fake);
+  await conn.sendFile(m.chat, sukunaurl, 'menu.jpg', menuText, shadow, fake);
 };
 
 
