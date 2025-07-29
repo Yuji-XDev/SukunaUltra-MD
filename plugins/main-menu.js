@@ -41,9 +41,24 @@ let handler = async (m, { conn, args }) => {
     participant: "0@s.whatsapp.net"
   };
 
-  await conn.sendMessage(m.chat, {
+ /* await conn.sendMessage(m.chat, {
     image: { url: loadingImage },
     caption: `╭─〔 ⚙️ 𝐂𝐀𝐑𝐆𝐀𝐍𝐃𝐎... 〕─⬣\n┃ 🛰️ *Conectando a la base de datos...*\n┃ 📡 *Sincronizando menú principal...*\n╰───────────────⬣`,
+  }, { quoted: m });*/
+  
+  await conn.sendMessage(m.chat, {
+    text: '╭─〔 ⚙️ 𝐂𝐀𝐑𝐆𝐀𝐍𝐃𝐎... 〕─⬣\n┃ 🛰️ *Conectando a la base de datos...*\n┃ 📡 *Sincronizando menú principal...*\n╰───────────────⬣',
+    mentions: [m.sender],
+    contextInfo: {
+      externalAdReply: {
+        title: 'Dev.Shadow 🇦🇱',
+        body: '🌾◌*̥₊ 𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 𝑀𝐷 ◌❐🎋༉',
+        thumbnailUrl: loadingImage,
+        sourceUrl: 'https://github.com/Yuji-XDev',
+        mediaType: 1,
+        renderLargerThumbnail: true
+      }
+    }
   }, { quoted: m });
 
   await new Promise(resolve => setTimeout(resolve, 2000));
