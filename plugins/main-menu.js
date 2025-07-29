@@ -61,7 +61,7 @@ let handler = async (m, { conn, args }) => {
   let sukunaurl = 'https://files.catbox.moe/4kpxfk.png';
 
   let menuText = `
-🍭 ${ucapan()} hol
+🎄 ${ucapan()} @${userId.split('@')[0]}
 
 ╔════ ❖ •❁• ✦ •❁• ❖ ════╗
 ║      🌸 𝐒𝐔𝐊𝐔𝐍𝐀 - 𝐁𝐎𝐓 🌸
