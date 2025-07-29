@@ -1,81 +1,104 @@
 import fetch from 'node-fetch';
 
-const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
-
+const handler = async (m, { conn, usedPrefix }) => {
   try {
-    const img = './src/catalogo.jpg';
-    const more = String.fromCharCode(8206);
-    const readMore = more.repeat(850);
-    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
+    const img = './src/catalogo.jpg'; 
+    const taguser = '@' + m.sender.split('@')[0];
+    const invisible = String.fromCharCode(8206).repeat(850);
 
-    const str = `👋🏻 ¡Hᴏʟᴀ! ${taguser}
-Bɪᴇɴᴠᴇɴɪᴅᴏ ᴀʟ ᴍᴇɴᴜ *ɴsғᴡ* 🔞
+    const fkontak = {
+      key: {
+        fromMe: false,
+        participant: '0@s.whatsapp.net',
+        remoteJid: 'status@broadcast'
+      },
+      message: {
+        contactMessage: {
+          displayName: '𝙉𝙎𝙁𝙒 𝘽𝙊𝙏',
+          vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;NSFW;;;\nFN:NSFW\nitem1.TEL;waid=0:0\nitem1.X-ABLabel:Bot\nEND:VCARD`
+        }
+      }
+    };
+
+    const str = `
+╭━〔 🔞 𝙈𝙀𝙉𝙐 +𝟭𝟴 🔞 〕━⬣
+┃ 👋 Hola ${taguser}
+┃ Bienvenido al *Modo Caliente*
+┃ ${invisible}
+╰━━━━━━━━━━━━━━━━━━⬣
+
+🍑 *Búsquedas calientes:*
+› ${usedPrefix}xnxxsearch
+› ${usedPrefix}pornhubsearch
+› ${usedPrefix}xvsearch
+› ${usedPrefix}r34
+› ${usedPrefix}rule34search
 
 
-𓂂𓏸  𐅹੭੭   *\`ᑲᥙsᥴᥲძ᥆rᥱs\`* 🪱 ᦡᦡ
-ര ׄ⃟🪱˚ .xnxxsearch *<query>*
-ര ׄ⃟🪱˚ .pornhubsearch *texto*
-ര ׄ⃟🪱˚ .hentaisearch
-ര ׄ⃟🪱˚ .r34 *texto*
-ര ׄ⃟🪱˚ .xvsearch
+🎥 *Descargas para adultos:*
+› ${usedPrefix}xnxxdl
+› ${usedPrefix}xvideosdl
+› ${usedPrefix}pornhubdl
 
-━━━━━━━━━━━━━━━━━━━
 
-𓂂𓏸  𐅹੭੭   *\`ძᥱsᥴᥲrgᥲs\`* 🧋ᦡᦡ
-ര ׄ⃟🧋˚ .xnxxdl *ulr*
-ര ׄ⃟🧋˚ .xvideosdl *url*	
+👅 *Acciones roleplay NSFW:*
+› ${usedPrefix}sixnine/69 @tag
+› ${usedPrefix}anal/culiar @tag
+› ${usedPrefix}blowjob/mamada @tag
+› ${usedPrefix}boobjob/rusa @tag
+› ${usedPrefix}cum/leche @tag
+› ${usedPrefix}fap/paja @tag
+› ${usedPrefix}follar @tag
+› ${usedPrefix}footjob/pies @tag
+› ${usedPrefix}fuck/coger @tag
+› ${usedPrefix}grabboobs/agarrartetas @tag
+› ${usedPrefix}grop/manosear @tag
+› ${usedPrefix}pack / loli
+› ${usedPrefix}penetrar @user
+› ${usedPrefix}suckboobs/chupartetas @tag
+› ${usedPrefix}tetas
+› ${usedPrefix}spank/nalgada @tag
+› ${usedPrefix}sexo/sex @tag
+› ${usedPrefix}lickpussy/coño @tag
+› ${usedPrefix}videoxxx
+› ${usedPrefix}violar/perra @tag
+› ${usedPrefix}undress
+› ${usedPrefix}lesbianas/tijeras @tag
 
-━━━━━━━━━━━━━━━━━━━
 
-𓂂𓏸  𐅹੭੭   *\`gі𝖿s\`* 🦪 ᦡᦡ
-ര ׄ⃟🦪˚ .sixnine/69 @tag
-ര ׄ⃟🦪˚ .anal/culiar @tag
-ര ׄ⃟🦪˚ .blowjob/mamada @tag
-ര ׄ⃟🦪˚ .boobjob/rusa @tag
-ര ׄ⃟🦪˚ .cum/leche @tag
-ര ׄ⃟🦪˚ .fap/paja @tag
-ര ׄ⃟🦪˚ .follar @tag
-ര ׄ⃟🦪˚ .footjob/pies @tag
-ര ׄ⃟🦪˚ .fuck/coger @tag
-ര ׄ⃟🦪˚ .grabboobs/agarrartetas @tag
-ര ׄ⃟🦪˚ .grop/manosear @tag
-ര ׄ⃟🦪˚ .pack / loli
-ര ׄ⃟🦪˚ .penetrar @user
-ര ׄ⃟🦪˚ .suckboobs/chupartetas @tag
-ര ׄ⃟🦪˚ .tetas
-ര ׄ⃟🦪˚ .spank/nalgada @tag
-ര ׄ⃟🦪˚ .sexo/sex @tag
-ര ׄ⃟🦪˚ .lickpussy/coño @tag
-ര ׄ⃟🦪˚ .videoxxx
-ര ׄ⃟🦪˚ .violar/perra @tag
-ര ׄ⃟🦪˚ .undress
-ര ׄ⃟🦪˚ .lesbianas/tijeras @tag
+🍒 *Packs / Lolis:*
+› ${usedPrefix}pack
+› ${usedPrefix}pack2
+› ${usedPrefix}pack3
+› ${usedPrefix}videoxxx
+› ${usedPrefix}loli
+› ${usedPrefix}tetas
 
-━━━━━━━━━━━━━━━━━━━
 
-𓂂𓏸  𐅹੭੭   *\`ᥴ᥆ᥒ𝗍ᥱᥒіძ᥆\`* 🍒 ᦡᦡ
-ര ׄ⃟🍒˚ .pack
-ര ׄ⃟🍒˚ .pack2
-ര ׄ⃟🍒˚ .plack3
-ര ׄ⃟🍒˚ .plack4
-ര ׄ⃟🍒˚ .videoxxx
-ര ׄ⃟🍒˚ .loli
-ര ׄ⃟🍒˚ .tetas
-ര ׄ⃟🍒˚ .videoxxxlesbi
+🧃 *Contenido lésbico:*
+› ${usedPrefix}lesbianas
+› ${usedPrefix}videoxxxlesbi
 
-> © mᥱᥒᥙ *ᥒs𝖿ᥕ*`.trim();
+⚠️ *Solo mayores de edad. Usa bajo tu responsabilidad.*
 
-    conn.sendMessage(m.chat, { image: { url: img }, caption: str, mentions: [m.sender] }, { quoted: fkontak });
+> © nsғᴡ 𝙈𝙀𝙉𝙐 by sukuna Bot
+`.trim();
 
-await conn.sendMessage(m.chat, { react: { text: '🔥', key: m.key } });
+    await conn.sendMessage(m.chat, {
+      image: { url: img },
+      caption: str,
+      mentions: [m.sender]
+    }, { quoted: fkontak });
 
-  } catch {
-    conn.reply(m.chat,'* Error al enviar el menú.*\n\n> ${e}', m);
+    await conn.sendMessage(m.chat, { react: { text: '🍑', key: m.key } });
+
+  } catch (e) {
+    conn.reply(m.chat, `⚠️ Error al enviar el menú.\n\n${e}`, m);
   }
 };
 
-handler.help = ['menunsfw']
-handler.command = ['menunsfw', 'menu+18', 'menu18', 'menuhot']
+handler.help = ['menu18', 'menunsfw'];
+handler.command = ['menu18', 'menu+18', 'nsfwmenu', 'menuhot'];
 handler.fail = null;
 
 export default handler;

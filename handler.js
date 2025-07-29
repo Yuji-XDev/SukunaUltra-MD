@@ -556,7 +556,7 @@ global.dfail = (type, m, conn, comando = '') => {
     botAdmin: mensajes.smsbotAdmin,  
     unreg: `  ⬣〔 🚫 𝐀𝐂𝐂𝐄𝐒𝐎 𝐃𝐄𝐍𝐄𝐆𝐀𝐃𝐎 ❗ 〕⬣  
   
-> Para usar el comando *${comando} debes estar registrado* 
+> Para usar el comando *${comando}* debes estar registrado
 
 🔐 *¿𝐂Ó𝐌𝐎 𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐀𝐑𝐓𝐄?*  
 🌴 Usa: *.reg nombre.edad*  
