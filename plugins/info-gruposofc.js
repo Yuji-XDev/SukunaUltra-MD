@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 let handler  = async (m, { conn, usedPrefix, command }) => {
-
+let name = await conn.getName(userId);
 let grupos = `╔═════『 🏮 𝐈𝐍𝐕𝐈𝐓𝐀𝐂𝐈𝐎𝐍 』═════╗
 ┃  こんにちは, ${name}! 👋
 ┃  Te invito a unirte a los grupos
