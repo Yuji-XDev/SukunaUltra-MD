@@ -160,7 +160,8 @@ export async function before(m, { conn }) {
     footer: 'seleccione una opcion para obtener ayuda',
     buttons: [
       { buttonId: '#menu', buttonText: { displayText: '🌳 Menu Principal' }, type: 1 },
-      { buttonId: '#alv', buttonText: { displayText: '🌷 Información del Bot' }, type: 1 },
+      { buttonId: '#estado', buttonText: { displayText: '🌷 Información del Bot' }, type: 1 },
+      { buttonId: '#sistema', buttonText: { displayText: '🌾 Ver sistema del Bot' }, type: 1 },
     ],
     headerType: 4,
     contextInfo: {
