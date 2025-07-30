@@ -91,7 +91,6 @@ export async function before(m, { conn }) {
   }, { quoted: fkontak });
 }*/
 
-
 import { generateWAMessageFromContent } from '@whiskeysockets/baileys';
 
 export async function before(m, { conn }) {
@@ -116,7 +115,7 @@ export async function before(m, { conn }) {
 
     if (chat?.isBanned) {
       const avisoDesactivado = `╭─⭑❨ 🔒 𝐁𝐎𝐓 𝐃𝐄𝐒𝐀𝐂𝐓𝐈𝐕𝐀𝐃𝐎 ❩⭑─╮
-│ 🚫 *${bot}* está *desactivado* en este grupo.
+│ 🚫 *${global.botname || 'El bot'}* está *desactivado* en este grupo.
 │ 
 │ 🎮 Sin el sistema activo, no puedes usar comandos.
 │ 🧃 Solo un *administrador* puede volver a activarlo.
@@ -136,7 +135,7 @@ export async function before(m, { conn }) {
     return;
   }
 
-  await m.react('🍰');
+  await m.react('🎲');
 
   const mensajesNoEncontrado = [
     `╭─❍〔 ⚠️ 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐈𝐍𝐕Á𝐋𝐈𝐃𝐎 〕❍─╮\n│ 🚫 El comando *"${command}"* no está registrado.\n│ 🧭 Usa *${usedPrefix}menu* para ver las funciones.\n╰───────────────────────╯`,
@@ -189,7 +188,10 @@ export async function before(m, { conn }) {
         }
       }
     }
-  }, { quoted: m });
+  }, {
+    userJid: conn.user.id,
+    quoted: m
+  });
 
   await conn.relayMessage(m.chat, template.message, { messageId: template.key.id });
 }
