@@ -8,7 +8,10 @@ let handler = async (m, { conn }) => {
           let child = stdout.toString("utf-8");
           let ssd = child.replace(/Memory:/, "Ram:");
 
-          conn.reply(m.chat, `✰ *¡Pong!*\n> Tiempo ⴵ ${latensi.toFixed(4)}ms`, m, fake);
+          conn.reply(m.chat, `┏━❖『 🖤 𝐋𝐀𝐓𝐄𝐍𝐂𝐈𝐀 』❖━┓
+┃ ✰ *¡Pong recibido!*
+┃ 💔 \`Velocidad\`: ${latensi.toFixed(4)}ms
+┗━━━━━━━━━━━━━━━━━┛`, m, fake);
             });
 }
 handler.help = ['ping']

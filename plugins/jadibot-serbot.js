@@ -135,21 +135,17 @@ if (qr && mcode) {
 let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
 secret = secret.match(/.{1,4}/g)?.join("-")
 
-
-let title = "MODE: Code";
-let image = 'https://files.catbox.moe/jomenh.jpg';
-
-const txtCode = await conn.sendMessage(m.chat, {
-  image: { url: image },
-  caption: `${title}\n${rtx2}`,
+let txtCode = await conn.sendMessage(m.chat, {
+  image: { url: 'https://files.catbox.moe/jomenh.jpg' },
+  caption: rtx2,
   jpegThumbnail: imagen,
 }, { quoted: m });
 
 
-codeBot = await conn.reply(m.chat, `\`${secret}\``, m, fake);
+//codeBot = await conn.reply(m.chat, `\`${secret}\``, m, fake);
 
 //txtCode = await conn.sendMessage(m.chat, {text : rtx2}, { quoted: m })
-//codeBot = await m.reply(secret)
+codeBot = await m.reply(secret)
 
 
 console.log(secret)
