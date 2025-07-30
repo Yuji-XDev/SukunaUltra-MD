@@ -13,7 +13,7 @@ let old = performance.now()
 let neww = performance.now()
 let speed = neww - old
 const used = process.memoryUsage()
-let info = `╭╼✧ 📊 𝐄𝐒𝐓𝐀𝐃𝐎 𝐃𝐄 SUKUNA ⚙️ ✧\n`
+let info = `╭╼✧ 📊 𝐄𝐒𝐓𝐀𝐃𝐎 𝐃𝐄 SUKUNA ultra ⚙️ ✧\n`
 info += `┃\n`
 info += `├❍ 🌟 *𝐂𝐑𝐄𝐀𝐃𝐎𝐑:* ${etiqueta}\n`
 info += `├❍ 🥥 *𝐏𝐑𝐄𝐅𝐈𝐉𝐎:* [ ${usedPrefix} ]\n`
@@ -27,8 +27,8 @@ info += `├❍ 🚀 *𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃:* ${(speed * 1000).to
 info += `├❍ 🤖 *𝐒𝐔𝐁𝐁𝐎𝐓𝐒 𝐀𝐂𝐓𝐈𝐕𝐎𝐒:*\n`
 info += `├➤ 💥 ${totalUsers || '0'}\n`
 info += `╰╼♡✦ 𓆩 SUKUNA.MD 𓆪 ✦♡`
-await conn.sendFile(m.chat, banner, 'estado.jpg', info, fkontak)
-}
+await conn.sendFile(m.chat, banner, 'estado.jpg', info, fkontak, rcanal)
+};
 handler.help = ['estado']
 handler.tags = ['info']
 handler.command = ['estado', 'status', 'estate', 'state', 'stado', 'stats']
