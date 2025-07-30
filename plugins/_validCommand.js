@@ -175,28 +175,30 @@ export async function before(m, { conn }) {
   const mensaje = mensajesNoEncontrado[Math.floor(Math.random() * mensajesNoEncontrado.length)];
 
   await conn.sendMessage(m.chat, {
-    text: mensaje,
-    mentions: [m.sender],
-    contextInfo: {
-      externalAdReply: {
-        title: 'Dev.Shadow 🇦🇱',
-        body: '🌾◌*̥₊ 𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 𝑀𝐷 ◌❐🎋༉',
-        thumbnailUrl: 'https://files.catbox.moe/5spi6g.jpg',
-        sourceUrl: 'https://github.com/Yuji-XDev',
-        mediaType: 1,
-        renderLargerThumbnail: true,
-        isForwarded: true,
-        forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363401008003732@newsletter',
-          newsletterName: '=͟͟͞𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺',
-          serverMessageId: -1
-        }
+  text: mensaje,
+  footer: '🌾◌*̥₊ 𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 𝑀𝐷 ◌❐🎋༉',
+  templateButtons: [
+    { index: 1, urlButton: { displayText: '🌐 GitHub', url: 'https://github.com/Yuji-XDev' } },
+    { index: 2, callButton: { displayText: '📞 Llamar al Dev', phoneNumber: '+51987654321' } },
+    { index: 3, quickReplyButton: { displayText: '📜 Menú', id: '#menu' } },
+    { index: 4, quickReplyButton: { displayText: '💖 Donar', id: '#donar' } },
+    { index: 5, quickReplyButton: { displayText: '📎 InfoBot', id: '#infobot' } }
+  ],
+  contextInfo: {
+    externalAdReply: {
+      title: 'Dev.Shadow 🇦🇱',
+      body: '🌾◌*̥₊ 𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 𝑀𝐷 ◌❐🎋༉',
+      thumbnailUrl: 'https://files.catbox.moe/5spi6g.jpg',
+      sourceUrl: 'https://github.com/Yuji-XDev',
+      mediaType: 1,
+      renderLargerThumbnail: true,
+      isForwarded: true,
+      forwardedNewsletterMessageInfo: {
+        newsletterJid: '120363401008003732@newsletter',
+        newsletterName: '=͟͟͞𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺',
+        serverMessageId: -1
       }
-    },
-    buttons: [
-      { buttonId: '#menu', buttonText: { displayText: '📜 Menú' }, type: 1 },
-      { buttonId: '#donar', buttonText: { displayText: '💖 Donar' }, type: 1 },
-      { buttonId: '#infobot', buttonText: { displayText: '📎 InfoBot' }, type: 1 }
-    ]
-  }, { quoted: m });
+    }
+  }
+}, { quoted: m });
 }
