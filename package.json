@@ -39,8 +39,6 @@
     "aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",
     "awesome-phonenumber": "^3.4.0",
     "axios": "^1.1.2",
-    "acrcloud": "latest",
-    "google-play-scraper": "latest",
     "boxen": "^7.1.1",
     "chalk": "^5.1.0",
     "cfonts": "^3.3.0",
