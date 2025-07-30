@@ -27,8 +27,8 @@ info += `├❍ 🚀 *𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃:* ${(speed * 1000).to
 info += `├❍ 🤖 *𝐒𝐔𝐁𝐁𝐎𝐓𝐒 𝐀𝐂𝐓𝐈𝐕𝐎𝐒:*\n`
 info += `├➤ 💥 ${totalUsers || '0'}\n`
 info += `╰╼♡✦ 𓆩 SUKUNA.MD 𓆪 ✦♡`
-await conn.sendFile(m.chat, banner, 'estado.jpg', info, fkontak, rcanal)
-};
+await conn.sendFile(m.chat, banner, 'estado.jpg', info, fkontak)
+}
 handler.help = ['estado']
 handler.tags = ['info']
 handler.command = ['estado', 'status', 'estate', 'state', 'stado', 'stats']
