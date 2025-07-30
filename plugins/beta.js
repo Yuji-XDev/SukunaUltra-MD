@@ -46,6 +46,3 @@ handler.command = /^newsubbot$/i
 handler.owner = true // Solo dueños pueden registrar subbots
 
 export default handler
-
-
-=
