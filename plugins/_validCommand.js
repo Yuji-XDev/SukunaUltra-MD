@@ -157,16 +157,16 @@ export async function before(m, { conn }) {
   await conn.sendMessage(m.chat, {
     image: { url: imgurl },
     caption: texto,
-    footer: '📡 Canal oficial Sukuna\n🧿 Ver más contenido exclusivo aquí:',
+    footer: 'seleccione una opcion para obtener ayuda',
     buttons: [
-      { buttonId: '#menu', buttonText: { displayText: '🎴 Ver Menú' }, type: 1 },
-      { buttonId: '#alv', buttonText: { displayText: '💎 Donar' }, type: 1 },
+      { buttonId: '#menu', buttonText: { displayText: '🌳 Menu Principal' }, type: 1 },
+      { buttonId: '#alv', buttonText: { displayText: '🌷 Información del Bot' }, type: 1 },
     ],
     headerType: 4,
     contextInfo: {
       externalAdReply: {
-        title: '🌸 Sukuna Bot MD 🌸',
-        body: 'Canal Oficial del Sistema',
+        title: '🌸 Dev.Shadow 🌸',
+        body: '🌾◌*̥₊ 𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 𝑀𝐷 ◌❐🎋༉',
         thumbnailUrl: global.icono || imgurl,
         mediaType: 1,
         renderLargerThumbnail: true,
