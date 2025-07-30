@@ -33,7 +33,7 @@ global.namechannel = '=͟͟͞Sukuna bot • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺'
 global.namechannel2 = '=͟͟͞Sukuna bot • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺'
 global.namegrupo = '=͟͟͞Sukuna bot • 𝒐𝒇𝒊𝒄𝒊𝒂𝒍 ⌺'
 global.namecomu = '=͟͟͞Sukuna bot • 𝑪𝒐𝒎𝒖𝒏𝒊𝒕𝒚 ˟꘏꙳'
-global.listo = '*🌴 ＡＱＵＩ - ＴＩＥＮＥＳ ＭＥＮ*'
+global.listo = '- 🌀 *𝐓𝐔 𝐏𝐀𝐍𝐄𝐋 𝐄𝐒𝐓𝐀 𝐋𝐈𝐒𝐓𝐎...*'
 global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/vm6opf.jpg')
 
 global.canalIdM = ["120363401008003732@newsletter", "120363401008003732@newsletter"]
@@ -54,9 +54,9 @@ global.error = '✖️'
 global.msm = '⚠︎'
 
 global.emoji = '🍀'
-global.emoji2 = '(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧'
+global.emoji2 = '☆⌒(ゝ。∂)'
 global.emoji3 = '(✧ω✧)'
-global.emoji4 = '☆⌒(ゝ。∂)'
+global.emoji4 = '(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧'
 global.emoji5 = '(づ｡◕‿‿◕｡)づ'
 global.emoji6 = '★~(◠‿◕✿)'
 global.emojis = [emoji, emoji2, emoji3, emoji4, emoji5, emoji6].getRandom()
@@ -113,9 +113,7 @@ global.icono = [
 'https://files.catbox.moe/qnvpyq.jpg'
 ].getRandom()
 
-global.rcanal = global.fake
-
-//global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: packname, body: dev, mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
+global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: packname, body: dev, mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
 
 export default handler
 
