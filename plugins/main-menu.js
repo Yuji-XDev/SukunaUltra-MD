@@ -17,9 +17,14 @@ let handler = async (m, { conn, args }) => {
   const loadingImage = 'https://files.catbox.moe/jiczl6.png';
 
 
-  const imgRandom = [
+ /* const imgRandom = [
     "https://files.catbox.moe/51he8c.jpg",
     "https://files.catbox.moe/8ng4fs.jpg"
+  ].getRandom();*/
+  
+  const imgRandom = [
+    "https://iili.io/FKVDVAN.jpg",
+    "https://iili.io/FKVbUrJ.jpg"
   ].getRandom();
 
   const text = [
