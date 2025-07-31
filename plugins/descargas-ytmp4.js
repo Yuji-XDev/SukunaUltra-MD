@@ -10,21 +10,40 @@ import { createWriteStream } from 'fs'
 import { promisify } from 'util'
 const unlink = promisify(fs.unlink)
 
-let handler = async (m, { conn, text, args }) => {
-    const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/(?:v|e(?:mbed)?)\/|youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})|(?:https?:\/\/)?(?:www\.)?youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/
-    if (!text || !youtubeRegex.test(text)) {
-        return conn.reply(m.chat, `🌱 Uso correcto : ytmp4 https://youtube.com/watch?v=DLh9mnfZvc0`, m)
+// Función para obtener el MP4 desde la API
+async function ytmp4(url, calidad = "360") {
+  try {
+    const { data } = await axios.get(`https://api.vreden.my.id/api/ytmp4?url=${encodeURIComponent(url)}&quality=${calidad}`)
+    if (data.resultado && data.resultado.url) {
+      return {
+        dl_url: data.resultado.url,
+        titulo: data.resultado.metadatos?.titulo || 'video',
+        calidad: data.resultado.metadatos?.calidad || calidad
+      }
+    } else {
+      throw new Error('No se pudo obtener el enlace de descarga.')
     }
+  } catch (e) {
+    throw new Error('Error al obtener el MP4 desde la API.')
+  }
+}
 
-    const footer = '🌾 Sukuna Bot MD' // ✅ Footer definido aquí
+let handler = async (m, { conn, text, args }) => {
+  const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/(?:v|e(?:mbed)?)\/|youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})|(?:https?:\/\/)?(?:www\.)?youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/
+  if (!text || !youtubeRegex.test(text)) {
+    return conn.reply(m.chat, `🌱 Uso correcto : ytmp4 https://youtube.com/watch?v=DLh9mnfZvc0`, m)
+  }
 
-    try {
-        m.react('⏳')
-        const search = await yts(args[0])
-        const video = search.videos[0]
-        if (!video || !video.url) return conn.reply(m.chat, `No se encontró el video.`, m)
-        const isDoc = /doc$/.test(text)
-        const cap = `
+  const footer = '🌾 Sukuna Bot MD'
+
+  try {
+    m.react('⏳')
+    const search = await yts(args[0])
+    const video = search.videos[0]
+    if (!video || !video.url) return conn.reply(m.chat, `No se encontró el video.`, m)
+
+    const isDoc = /doc$/.test(text)
+    const cap = `
 \`\`\`
 ⊜─⌈ 📻 ◜YouTube MP4◞ 📻 ⌋─⊜
 
@@ -38,41 +57,44 @@ let handler = async (m, { conn, text, args }) => {
 \`\`\`
 ${footer}`
 
-        if (isDoc) m.reply(cap)
-        const vid = await ytmp4(video.url, args[1] || "360")
-        const path = `/tmp/${Date.now()}.mp4`
-        await new Promise((resolve, reject) => {
-            const file = createWriteStream(path)
-            get(vid.dl_url, (res) => {
-                res.pipe(file)
-                file.on('finish', () => file.close(resolve))
-                file.on('error', reject)
-            }).on('error', reject)
-        })
-        const stats = fs.statSync(path)
-        const sizeB = stats.size
-        const sizeMB = sizeB / (1024 * 1024)
-        const fDoc = sizeMB > 80
+    if (isDoc) m.reply(cap)
 
-        await conn.sendFile(
-            m.chat,
-            path,
-            `${video.title}.mp4`,
-            (isDoc || fDoc) ? "" : cap,
-            m,
-            null,
-            {
-                asDocument: isDoc || fDoc,
-                mimetype: "video/mp4"
-            }
-        )
+    const vid = await ytmp4(video.url, args[1] || "360")
+    const path = `/tmp/${Date.now()}.mp4`
 
-        await unlink(path)
-        m.react('✅')
-    } catch (error) {
-        console.error(error)
-        return conn.reply(m.chat, `Error al descargar el video.\n\n${error.message}`, m)
-    }
+    await new Promise((resolve, reject) => {
+      const file = createWriteStream(path)
+      get(vid.dl_url, (res) => {
+        res.pipe(file)
+        file.on('finish', () => file.close(resolve))
+        file.on('error', reject)
+      }).on('error', reject)
+    })
+
+    const stats = fs.statSync(path)
+    const sizeB = stats.size
+    const sizeMB = sizeB / (1024 * 1024)
+    const fDoc = sizeMB > 80
+
+    await conn.sendFile(
+      m.chat,
+      path,
+      `${video.title}.mp4`,
+      (isDoc || fDoc) ? "" : cap,
+      m,
+      null,
+      {
+        asDocument: isDoc || fDoc,
+        mimetype: "video/mp4"
+      }
+    )
+
+    await unlink(path)
+    m.react('✅')
+  } catch (error) {
+    console.error(error)
+    return conn.reply(m.chat, `Error al descargar el video.\n\n${error.message}`, m)
+  }
 }
 
 handler.command = ["ytv", "ytmp4", "ytmp4doc"]
