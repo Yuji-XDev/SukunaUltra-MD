@@ -64,7 +64,7 @@ let handler = async (m, { conn, args }) => {
   await new Promise(resolve => setTimeout(resolve, 2000));
 
  // let sukunaurl = 'https://files.catbox.moe/4kpxfk.png';
-  let sukunaurl = 'https://files.catbox.moe/i85pfi.mp4';
+ // let sukunaurl = 'https://files.catbox.moe/i85pfi.mp4';
       
    let hora = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
    let fechaObj = new Date();
@@ -730,29 +730,32 @@ let handler = async (m, { conn, args }) => {
 𖤐    𝑺𝒉𝒂𝒅𝒐𝒘'𝑪𝒐𝒓𝒆    𖤐
 `.trim();
 
-    await m.react('🌴');
+    //await m.react('🌴');
   /*await conn.sendFile(m.chat, sukunaurl, 'menu.jpg', menuText, shadow, fake);
 };*/
 
-await conn.sendMessage(
-  m.chat,
-  {
-    image: { url: sukunaurl },
-    caption: menuText,
-    contextInfo: {
-      externalAdReply: {
-        title: '🌾 Sukuna Ultra MD',
-        body: '☯︎ Dev by Shadow\'Core',
-        mediaType: 1,
-        thumbnailUrl: 'https://files.catbox.moe/4kpxfk.png',
-        mediaUrl: 'https://github.com/Yuji-XDev/SukunaUltra-MD',
-        sourceUrl: 'https://github.com/Yuji-XDev/SukunaUltra-MD',
-        renderLargerThumbnail: true
+  await m.react('🌳');
+
+  await conn.sendMessage(
+    m.chat,
+    {
+      image: { url: 'https://files.catbox.moe/i85pfi.mp4' },
+      caption: menuText,
+      contextInfo: {
+        externalAdReply: {
+          title: '🌾 Sukuna Ultra MD',
+          body: '☯︎ Dev by Shadow\'Core',
+          mediaType: 1,
+          thumbnailUrl: 'https://files.catbox.moe/4kpxfk.png',
+          mediaUrl: 'https://github.com/Yuji-XDev/SukunaUltra-MD',
+          sourceUrl: 'https://github.com/Yuji-XDev/SukunaUltra-MD',
+          renderLargerThumbnail: false
+        }
       }
-    }
-  },
-  { quoted: m }
-);
+    },
+    { quoted: m }
+  );
+};
 
 handler.help = ['menu'];
 handler.tags = ['main'];
