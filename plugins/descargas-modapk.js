@@ -5,19 +5,18 @@ var handler = async (m, { conn, usedPrefix, command, text }) => {
 
   try {
     await m.react(rwait);
-    conn.reply(m.chat, `\`🍰 Descargando su aplicación...\``, m, rcanal);
+    //conn.reply(m.chat, `\`🍰 Descargando su aplicación...\``, m, rcanal);
 
     let searchA = await search(text);
     let data5 = await download(searchA[0].id);
 
-    let txt = `╔═━「 *🌟 APTOIDE INFO* 」━═╗\n`;
-    txt += `║\n`;
-    txt += `║ 📌 *Nombre:* ${data5.name}\n`;
-    txt += `║ 🧩 *Paquete:* ${data5.package}\n`;
-    txt += `║ 🕒 *Actualización:* ${data5.lastup}\n`;
-    txt += `║ 📁 *Peso:* ${data5.size}\n`;
-    txt += `║\n`;
-    txt += `╚═━「 🧿 𝘽𝙔 𝙎𝙐𝙆𝙐𝙉𝘼 𝘽𝙊𝙏 」━═╝`;
+    let txt = `⚽ APK DOWNLOAD\n`;
+    txt += `\n`;
+    txt += `📌 *Nombre:* ${data5.name}\n`;
+    txt += `🧩 *Paquete:* ${data5.package}\n`;
+    txt += `🕒 *Actualización:* ${data5.lastup}\n`;
+    txt += `📁 *Peso:* ${data5.size}\n\n`;
+    txt += `> \`🍰 Descargando su aplicación...\``;
 
     await conn.sendFile(m.chat, data5.icon, 'thumbnail.jpg', txt, m);
     await m.react(done);
