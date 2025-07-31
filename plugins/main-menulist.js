@@ -64,7 +64,7 @@ const handler = async (m, { conn, usedPrefix }) => {
 ╰╌┈─━╌─━╌⃨╼⃛⬥⬥⃛╾⃨╌━─╌━─┈╌╯
 `.trim();
 
-    const image = 'https://files.catbox.moe/dwo9vm.jpg';
+    const image = 'https://files.catbox.moe/i85pfi.mp4';
     const buffer = await (await fetch(image)).buffer();
 
     const buttons = [

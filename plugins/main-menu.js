@@ -14,13 +14,7 @@ let handler = async (m, { conn, args }) => {
   let totalreg = Object.keys(global.db.data.users).length;
   let totalCommands = Object.values(global.plugins).filter(v => v.help && v.tags).length;
 
-  const loadingImage = 'https://files.catbox.moe/jiczl6.png';
-
-
- /* const imgRandom = [
-    "https://files.catbox.moe/51he8c.jpg",
-    "https://files.catbox.moe/8ng4fs.jpg"
-  ].getRandom();*/
+  const loadingImage = 'https://files.catbox.moe/q8b2br';
   
   const imgRandom = [
     "https://iili.io/FKVDVAN.jpg",
@@ -62,9 +56,6 @@ let handler = async (m, { conn, args }) => {
   }, { quoted: m });
 
   await new Promise(resolve => setTimeout(resolve, 2000));
-
- // let sukunaurl = 'https://files.catbox.moe/4kpxfk.png';
- // let sukunaurl = 'https://files.catbox.moe/i85pfi.mp4';
       
    let hora = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
    let fechaObj = new Date();
