@@ -730,30 +730,28 @@ let handler = async (m, { conn, args }) => {
 𖤐    𝑺𝒉𝒂𝒅𝒐𝒘'𝑪𝒐𝒓𝒆    𖤐
 `.trim();
 
-  await m.react('🌳');
+    await m.react('🌳');
   /*await conn.sendFile(m.chat, sukunaurl, 'menu.jpg', menuText, shadow, fake);
 };*/
 
-await conn.reply(
-  m.chat,
-  infoMessage, // El texto que quieres mostrar
-  shadow,
-  {
-    contextInfo: {
-      externalAdReply: {
-        title: wm, // Título superior (ej: nombre del bot)
-        body: club, // Texto inferior o frase especial
-        mediaType: 1,
-        previewType: 0,
-        mediaUrl: sukunaurl, // URL principal (enlace visible o clicable)
-        sourceUrl: sukunaurl, // El mismo o diferente si quieres redireccionar
-        thumbnail: sukunaurl, // Imagen miniatura (Buffer o URL)
-        renderLargerThumbnail: true
-      }
-    }
-  }
-);
-};
+    await conn.sendMessage(
+      m.chat,
+      {
+        image: { url: sukunaurl },
+        caption: menuText,
+        contextInfo: {
+          externalAdReply: {
+            title: track.name,
+            body: 'shadow',
+            thumbnailUrl: sukunaurl,
+            mediaUrl: 'https://github.com/Yuji-XDev/SukunaUltra-MD',
+            sourceUrl: 'https://github.com/Yuji-XDev/SukunaUltra-MD',
+            mediaType: 1,
+          },
+        },
+      },
+      { quoted: m }
+    );
 
 handler.help = ['menu'];
 handler.tags = ['main'];
