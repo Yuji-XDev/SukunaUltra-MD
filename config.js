@@ -48,7 +48,7 @@ global.shadowJadibts = true
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.packname = '🎄  ⸸𝕊𝖚𝖐𝖚𝖓𝖆 𝕭𝖔𝖙 𝑴𝑫⸸  🎋'
+global.packname = '🎄  ⸸ 𝕊𝖚𝖐𝖚𝖓𝖆 𝕭𝖔𝖙 𝑴𝑫 ⸸  🎋'
 global.botname = '✦⃟⛧ _𝑺𝑼𝑲𝑼𝑵𝑨⛧ 𝑩𝑶𝑻_ 🎄┋⃟✧'
 global.wm = '◟𝐒𝐮𝐤𝐮𝐧𝐚 𝐁𝐨𝐭◞'
 global.author = '★彡[𝓜𝓪𝓭𝓮 𝓫𝔂 𝓢ʜᴀᴅᴏᴡ𝓬𝓸𝓻𝓮]彡★'
