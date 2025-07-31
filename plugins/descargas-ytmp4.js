@@ -123,11 +123,6 @@ import axios from "axios";
 import { fetchYouTubeDownload } from '../lib/ytdll.js'
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-  let user = global.db.data.users[m.sender];
-
-  if (user.chocolates < 2) {
-    return conn.reply(m.chat, `ꕥ No tienes suficientes *Chocolates 🍫* Necesitas 2 más para usar este comando.`, m);
-  }
 
   try {
     if (!text.trim()) {
@@ -153,7 +148,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const vistas = formatViews(views);
     const canal = author.name ? author.name : 'Desconocido';
     const infoMessage = `
-*𖹭.╭╭ִ╼࣪━ִﮩ٨ـﮩ♡̫𝗆𝖾𝗀֟፝𝗎꯭𝗆𝗂꯭𝗇𖦹ׅ♡ִ̫ﮩ٨ـﮩ━ִ╾࣪╮╮.𖹭*
+
 > ♡ *Título:* ${title || 'Desconocido'}
 *°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
 > ♡ *Duración:* ${timestamp || 'Desconocido'}
@@ -227,9 +222,6 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     } else {
       return conn.reply(m.chat, '⚠︎ Comando no reconocido.', m);
     }
-
-    user.chocolates -= 2;
-    conn.reply(m.chat, `ꕥ Has utilizado 2 *Chocolates 🍫*`, m);
 
   } catch (error) {
     return m.reply(`⚠︎ Ocurrió un error: ${error}`);
