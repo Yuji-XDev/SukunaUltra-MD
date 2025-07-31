@@ -108,7 +108,7 @@ let handler = async (m, { conn, args }) => {
           thumbnailUrl: 'https://files.catbox.moe/4kpxfk.png',
           mediaUrl: 'https://github.com/Yuji-XDev/SukunaUltra-MD',
           sourceUrl: 'https://github.com/Yuji-XDev/SukunaUltra-MD',
-          renderLargerThumbnail: true
+          renderLargerThumbnail: false
         }
       }
     },
