@@ -99,7 +99,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 💌 *¡Bienvenid@! Siéntete como en casa~*
 > 🛠 \`\`\`ᴜsᴀ #ᴍᴇɴᴜ ᴘᴀʀᴀ ᴠᴇʀ ʟᴏs ᴄᴏᴍᴀɴᴅᴏs ᴅɪsᴘᴏɴɪʙʟᴇs.\`\`\``;
 
-    await conn.sendMini(m.chat, txt, dev, bienvenida, img, img, redes, fkontak);
+    await conn.sendMini(m.chat, txt, bienvenida, img, img, redes, fkontak);
   }
 
   if (chat?.welcome && (m.messageStubType == 28 || m.messageStubType == 32)) {
@@ -117,6 +117,6 @@ export async function before(m, { conn, participants, groupMetadata }) {
 🕊️ *Que los vientos te lleven a nuevos destinos...*
 > 🛠 \`\`\`ᴜsᴀ #ᴍᴇɴᴜ ᴘᴀʀᴀ ᴠᴇʀ ʟᴏs ᴄᴏᴍᴀɴᴅᴏs ᴅɪsᴘᴏɴɪʙʟᴇs.\`\`\``;
 
-    await conn.sendMini(m.chat, txt1, dev, bye, img, img, redes, fkontak);
+    await conn.sendMini(m.chat, txt1, bye, img, img, redes, fkontak);
   }
 }
