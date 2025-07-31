@@ -116,57 +116,39 @@ async function getSize(url) {
   }
 }*/
 
-
 import fetch from "node-fetch";
 import yts from 'yt-search';
 import axios from "axios";
-import { fetchYouTubeDownload } from '../lib/ytdll.js'
+import { fetchYouTubeDownload } from '../lib/ytdll.js';
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-
   try {
-    if (!text.trim()) {
-      return conn.reply(m.chat, `✧ Ingresa el nombre del video a descargar.`, m);
-    }
+    if (!text.trim()) return conn.reply(m.chat, `✧ Ingresa el nombre del video a descargar.`, m);
 
     const search = await yts(text);
-    if (!search.all || search.all.length === 0) {
-      return m.reply('No se encontraron resultados para tu búsqueda.');
-    }
+    if (!search.all || search.all.length === 0) return m.reply('No se encontraron resultados para tu búsqueda.');
 
     const videoInfo = search.all[0];
-    if (!videoInfo) {
-      return m.reply('No se pudo obtener información del video.');
-    }
+    if (!videoInfo) return m.reply('No se pudo obtener información del video.');
 
     const { title, thumbnail, timestamp, views, ago, url, author } = videoInfo;
-
-    if (!title || !thumbnail || !timestamp || !views || !ago || !url || !author) {
-      return m.reply('Información incompleta del video.');
-    }
-
     const vistas = formatViews(views);
-    const canal = author.name ? author.name : 'Desconocido';
-    const infoMessage = `
+    const canal = author?.name || 'Desconocido';
 
-> ♡ *Título:* ${title || 'Desconocido'}
-*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
-> ♡ *Duración:* ${timestamp || 'Desconocido'}
-*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
-> ♡ *Vistas:* ${vistas || 'Desconocido'}
-*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
+    const infoMessage = `
+> ♡ *Título:* ${title}
+> ♡ *Duración:* ${timestamp}
+> ♡ *Vistas:* ${vistas}
 > ♡ *Canal:* ${canal}
-*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
-> ♡ *Publicado:* ${ago || 'Desconocido'}
-*⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ*`;
+> ♡ *Publicado:* ${ago}
+`;
 
     const thumb = (await conn.getFile(thumbnail))?.data;
-
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: botname,
-          body: dev,
+          title: global.botname,
+          body: global.dev,
           mediaType: 1,
           previewType: 0,
           mediaUrl: url,
@@ -179,71 +161,85 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     await conn.reply(m.chat, infoMessage, m, JT);
 
-    if (command === 'play2' || command === 'mp4' || command === 'playvideo') {
-      try {
-        const apiVideoUrl = `https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=diamond`;
-        const response = await fetch(apiVideoUrl);
-        const json = await response.json();
-        const { title, dl } = json.data;
-
-        if (!dl) throw new Error('El enlace de video no se generó correctamente.');
-
-        await conn.sendMessage(m.chat, { video: { url: dl }, fileName: `${title}.mp4`, mimetype: 'video/mp4' }, { quoted: m });
-      } catch {
-        try {
-          const response = await fetch(`https://api.vreden.my.id/api/ytmp4?url=${url}`);
-          const json = await response.json();
-          const resultad = json.result;
-          const resultado = resultad.download.url;
-
-          if (!resultad || !resultado) throw new Error('El enlace de video no se generó correctamente.');
-
-          await conn.sendMessage(m.chat, { video: { url: resultado }, fileName: resultad.title, mimetype: 'video/mp4', caption: dev }, { quoted: m });
-        } catch (e) {
-          console.error('Error al enviar el video:', e.message);
-          try {
-            const { title, downloads } = await fetchYouTubeDownload(url);
-            const video = downloads.find(d => d.contentType?.startsWith('video'));
-
-            if (!video?.url) throw new Error('No se encontró video.');
-
-            await conn.sendMessage(m.chat, {
-              video: { url: video.url },
-              fileName: `${title}.mp4`,
-              mimetype: 'video/mp4',
-              caption: dev
-            }, { quoted: m });
-          } catch (e) {
-            console.error('Falló:', e.message);
-            return conn.reply(m.chat, '⚠︎ No se pudo enviar el video. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.', m);
-          }
-        }
-      }
-    } else {
+    if (!['ytmp4'].includes(command)) {
       return conn.reply(m.chat, '⚠︎ Comando no reconocido.', m);
     }
 
+    // Intento 1: API Stellar
+    try {
+      const api1 = await fetch(`https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=diamond`);
+      const json1 = await api1.json();
+      console.log('Stellar API:', json1);
+
+      const link1 = json1?.data?.dl;
+      const titulo1 = json1?.data?.title;
+
+      if (!link1) throw new Error('Stellar no generó link');
+
+      return await conn.sendMessage(m.chat, {
+        video: { url: link1 },
+        fileName: `${titulo1 || title}.mp4`,
+        mimetype: 'video/mp4'
+      }, { quoted: m });
+
+    } catch (e1) {
+      console.error('Error Stellar:', e1.message);
+
+      // Intento 2: API Vreden
+      try {
+        const api2 = await fetch(`https://api.vreden.my.id/api/ytmp4?url=${url}`);
+        const json2 = await api2.json();
+        console.log('Vreden API:', json2);
+
+        const link2 = json2?.result?.download?.url;
+        const titulo2 = json2?.result?.title;
+
+        if (!link2) throw new Error('Vreden no generó link');
+
+        return await conn.sendMessage(m.chat, {
+          video: { url: link2 },
+          fileName: `${titulo2 || title}.mp4`,
+          mimetype: 'video/mp4',
+          caption: global.dev
+        }, { quoted: m });
+
+      } catch (e2) {
+        console.error('Error Vreden:', e2.message);
+
+        try {
+          const { title: ytTitle, downloads } = await fetchYouTubeDownload(url);
+          const video = downloads.find(d => d.contentType?.startsWith('video') && d.url);
+
+          if (!video?.url) throw new Error('No se encontró video válido');
+
+          return await conn.sendMessage(m.chat, {
+            video: { url: video.url },
+            fileName: `${ytTitle || title}.mp4`,
+            mimetype: 'video/mp4',
+            caption: global.dev
+          }, { quoted: m });
+
+        } catch (e3) {
+          console.error('Error ytdll:', e3.message);
+          return conn.reply(m.chat, '❌ No se pudo enviar el video. Puede que el archivo sea muy pesado o la URL falló.', m);
+        }
+      }
+    }
+
   } catch (error) {
-    return m.reply(`⚠︎ Ocurrió un error: ${error}`);
+    console.error('Error general:', error);
+    return m.reply(`⚠︎ Ocurrió un error: ${error.message}`, m);
   }
 };
 
-handler.command = handler.help = ['play2', 'mp4', 'playvideo'];
+handler.command = handler.help = ['ytmp4'];
 handler.tags = ['downloader'];
-
 export default handler;
 
 function formatViews(views) {
-  if (views === undefined) {
-    return "No disponible";
-  }
-
-  if (views >= 1_000_000_000) {
-    return `${(views / 1_000_000_000).toFixed(1)}B (${views.toLocaleString()})`;
-  } else if (views >= 1_000_000) {
-    return `${(views / 1_000_000).toFixed(1)}M (${views.toLocaleString()})`;
-  } else if (views >= 1_000) {
-    return `${(views / 1_000).toFixed(1)}k (${views.toLocaleString()})`;
-  }
+  if (views == null) return "No disponible";
+  if (views >= 1_000_000_000) return `${(views / 1_000_000_000).toFixed(1)}B`;
+  if (views >= 1_000_000) return `${(views / 1_000_000).toFixed(1)}M`;
+  if (views >= 1_000) return `${(views / 1_000).toFixed(1)}k`;
   return views.toString();
 }
