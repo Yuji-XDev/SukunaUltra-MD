@@ -731,7 +731,28 @@ let handler = async (m, { conn, args }) => {
 `.trim();
 
   await m.react('🌳');
-  await conn.sendFile(m.chat, sukunaurl, 'menu.jpg', menuText, shadow, fake);
+  /*await conn.sendFile(m.chat, sukunaurl, 'menu.jpg', menuText, shadow, fake);
+};*/
+
+await conn.reply(
+  m.chat,
+  infoMessage, // El texto que quieres mostrar
+  shadow,
+  {
+    contextInfo: {
+      externalAdReply: {
+        title: wm, // Título superior (ej: nombre del bot)
+        body: club, // Texto inferior o frase especial
+        mediaType: 1,
+        previewType: 0,
+        mediaUrl: sukunaurl, // URL principal (enlace visible o clicable)
+        sourceUrl: sukunaurl, // El mismo o diferente si quieres redireccionar
+        thumbnail: sukunaurl, // Imagen miniatura (Buffer o URL)
+        renderLargerThumbnail: true
+      }
+    }
+  }
+);
 };
 
 handler.help = ['menu'];

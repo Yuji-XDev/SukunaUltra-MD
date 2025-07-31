@@ -1,4 +1,4 @@
-/*import fetch from 'node-fetch';
+import fetch from 'node-fetch';
 
 const handler = async (m, { conn, args, usedPrefix, command }) => {
   if (!args[0]) {
@@ -42,55 +42,5 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
 handler.command = ['playstore'];
 handler.help = ['playstore <nombre>'];
 handler.tags = ['buscador'];
-
-export default handler;*/
-
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) {
-    return conn.reply(m.chat, `✦ 𝗨𝘀𝗼 𝗰𝗼𝗿𝗿𝗲𝗰𝘁𝗼:\n*${usedPrefix + command} CapCut*\n\nIngresa el nombre de una aplicación para buscarla en la Play Store.`, m);
-  }
-
-  try {
-    const res = await fetch(`https://api.dhamzxploit.my.id/api/playstore?q=${encodeURIComponent(text)}`);
-    const json = await res.json();
-    
-    if (!json || !json.length) {
-      return conn.reply(m.chat, '⚠️ No se encontraron resultados.', m);
-    }
-
-    const app = json[0]; // Tomamos el primer resultado
-    let info = `╭─〔 *📱 Resultado de Play Store* 〕─⬣
-│🔍 *Nombre:* ${app.name}
-│👨‍💻 *Desarrollador:* ${app.developer}
-│📦 *Tamaño:* ${app.size}
-│⭐ *Puntuación:* ${app.scoreText || 'Sin puntuación'}
-│💵 *Precio:* ${app.price || 'Gratis'}
-│📎 *Link:* ${app.link}
-╰────⬣`;
-
-    await conn.sendMessage(m.chat, {
-      image: { url: app.icon },
-      caption: info,
-      contextInfo: {
-        externalAdReply: {
-          title: app.name,
-          body: app.developer,
-          thumbnailUrl: app.icon,
-          sourceUrl: app.link,
-          mediaType: 1,
-          renderLargerThumbnail: true
-        }
-      }
-    }, { quoted: m });
-
-  } catch (e) {
-    console.error(e);
-    conn.reply(m.chat, '❌ Error al buscar en Play Store. Intenta nuevamente más tarde.', m);
-  }
-};
-
-handler.help = ['playstoresearch *<texto>*'];
-handler.tags = ['buscador'];
-handler.command = /^(playstoresearch|pssearch)$/i;
 
 export default handler;
