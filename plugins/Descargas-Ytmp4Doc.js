@@ -16,7 +16,7 @@ let handler = async (m, { conn, text, args }) => {
     let sizeStr = size ? await formatSize(size) : 'Desconocido';
 
     const title = json.title;
-    const caption = `🌴 *${title}*\n*📦 Tamaño:* ${sizeStr}\n> ${dev}`;
+    const caption = `*${title}*\n*📦 Tamaño:* ${sizeStr}\n> ${dev}`;
     const url = args[0];
     const thumb = await getThumbnail(url);
 
@@ -30,7 +30,7 @@ let handler = async (m, { conn, text, args }) => {
       contextInfo: {
         externalAdReply: {
           title: title,
-          body: '🏞️⋋̳͡⊱𝗬𝗢𝗨𝗧𝗨𝗕𝗘𐚁๋࣭⭑ֶָ֢𝗠𝗣4 𝗗𝗢𝗖⊰͡⋌̳🎄',
+          body: 'ʏᴏᴜᴛᴜʙᴇ ᴅᴏᴄ',
           mediaUrl: url,
           sourceUrl: url,
           thumbnailUrl: url,
