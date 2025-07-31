@@ -38,19 +38,21 @@ export default handler;*/
 
 
 let handler = async (m, { conn, usedPrefix, command, isOwner }) => {
-  // Validación: Solo dueños principales o subbots pueden usar
-  if (!isOwner && !m.user && !global.opts['jadibot']) {
+  // Detecta si es subbot (diferente del bot principal)
+  const isSubBot = global.conn && conn.user?.jid !== global.conn.user?.jid;
+
+  if (!isOwner && !isSubBot) {
     return conn.reply(m.chat, '❌ Este comando solo funciona para el dueño del bot o subbots.\n\n💡 Si quieres usarlo, conéctate como subbot.', m);
   }
 
-  // Verifica si el mensaje contiene una imagen
+  // Verifica si hay imagen en mensaje o citado
   let media = m.quoted ? m.quoted : m;
   let mime = (media.msg || media).mimetype || '';
-  if (!/image\/(jpe?g|png)/.test(mime)) {
+  if (!/image\/(jpe?g|png)/i.test(mime)) {
     return conn.reply(m.chat, `📸 Envía o responde una imagen con el comando:\n\n*${usedPrefix + command}*`, m);
   }
 
-  // Descarga imagen y actualiza foto de perfil
+  // Intenta descargar imagen y cambiar PP
   try {
     let img = await media.download();
     await conn.updateProfilePicture(conn.user.jid, img);
@@ -62,11 +64,11 @@ let handler = async (m, { conn, usedPrefix, command, isOwner }) => {
 };
 
 handler.help = ['setppbot'];
-handler.tags = ['setppbot'];;
-handler.command = [];
+handler.tags = ['owner'];
+handler.command = /^setpp(bot)?$/i;
 
-handler.owner = true;
-handler.rowner = true;
+handler.owner = false;
+handler.rowner = false;
 handler.private = true;
 
 export default handler;
