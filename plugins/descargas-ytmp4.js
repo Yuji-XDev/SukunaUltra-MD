@@ -1,4 +1,4 @@
-/*import fetch from "node-fetch";
+import fetch from "node-fetch";
 import axios from 'axios';
 import yts from 'yt-search';
 
@@ -43,7 +43,7 @@ const handler = async (m, { conn, text, usedPrefix, command, args }) => {
     const canal = author.name || 'Desconocido';
     const vistas = views.toLocaleString('es-PE');
 
-    const { data } = await axios.get(`https://api.stellarwa.xyz/dow/ytmp4?url=${encodeURIComponent(url)}&apikey=stellar-ReKwdxiR`);
+    const { data } = await axios.get(`https://api.vreden.my.id/api/ytmp4?url=${encodeURIComponent(url)}`);
     if (!data?.status || !data?.data?.dl) {
       throw new Error("No se pudo obtener el enlace de descarga.");
     }
@@ -114,56 +114,4 @@ async function getSize(url) {
     console.error("Error al obtener el tamaño:", error.message);
     return null;
   }
-}*/
-
-
-import fetch from 'node-fetch';
-
-let handler = async (m, { conn, args, text, usedPrefix, command }) => {
-  if (!text) {
-    return conn.reply(m.chat, `🔎 *Ejemplo de uso:* ${usedPrefix + command} https://youtube.com/watch?v=KHgllosZ3kA`, m);
-  }
-
-  try {
-    let res = await fetch(`https://api.vreden.my.id/api/ytmp4?url=${encodeURIComponent(text)}`);
-    let json = await res.json();
-
-    if (!json?.resultado?.descargar?.url) {
-      return conn.reply(m.chat, '❌ No se pudo obtener el enlace de descarga.', m);
-    }
-
-    let meta = json.resultado.metadatos;
-    let download = json.resultado.descargar;
-
-    let caption = `
-╭━━━〔 🎬 𝚈𝚃 𝙼𝙿𝟺 〕━━⬣
-│📌 *Título:* ${meta.título}
-│🕰️ *Duración:* ${meta.duración.marca_de_tiempo}
-│👤 *Autor:* ${meta.autor.nombre}
-│📅 *Publicado:* ${meta.ago}
-│👁️ *Vistas:* ${meta.vistas.toLocaleString()}
-╰──────────────⬣`.trim();
-
-    await conn.sendMessage(m.chat, {
-      video: { url: download.url },
-      caption,
-      contextInfo: {
-        externalAdReply: {
-          title: meta.título,
-          body: meta.autor.nombre,
-          thumbnailUrl: meta.imagen,
-          mediaType: 1,
-          renderLargerThumbnail: true,
-          sourceUrl: meta.url
-        }
-      }
-    }, { quoted: m });
-
-  } catch (e) {
-    console.error(e);
-    conn.reply(m.chat, '❌ Error al procesar el video. Asegúrate de que el enlace sea válido.', m);
-  }
-};
-
-handler.command = /^yt(v|mp4)?$/i;
-export default handler;
+}
