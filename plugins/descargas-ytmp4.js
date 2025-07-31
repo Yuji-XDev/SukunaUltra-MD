@@ -4,6 +4,126 @@ import yts from 'yt-search';
 
 const handler = async (m, { conn, text, usedPrefix, command, args }) => {
   try {
+    if (!text) return conn.reply(m.chat, `🌾 *Ingresa un link o nombre de YouTube*`, m);
+
+    m.react('⏱️');
+
+    let videoInfo, urlYt;
+    const isYoutubeUrl = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/.test(text);
+
+    if (isYoutubeUrl) {
+      const id = text.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([^\s&]+)/)?.[1];
+      if (!id) return m.reply(`⚠️ No se pudo extraer el ID del video.`);
+
+      const result = await yts({ videoId: id });
+      videoInfo = result;
+      urlYt = text;
+    } else {
+      const search = await yts(text);
+      if (!search?.videos?.length) {
+        return conn.reply(m.chat, `⚠️ No se encontraron resultados para: *${text}*`, m);
+      }
+      videoInfo = search.videos[0];
+      urlYt = videoInfo.url;
+    }
+
+    const {
+      title = 'Sin título',
+      timestamp = 'Desconocido',
+      author = {},
+      views = 0,
+      ago = 'Desconocido',
+      thumbnail
+    } = videoInfo;
+
+    const canal = author.name || 'Desconocido';
+    const vistas = views.toLocaleString('es-PE');
+
+    const textoInfo = 
+      ` ⬣ *🎲  \`YOUTUBE - MP4\` 🇦🇱* ⬣\n\n` +
+      `> 📌 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title}\n` +
+      `> ⏱️ *𝑫𝒖𝒓𝒂𝒄𝒊𝒐𝒏:* ${timestamp}\n` +
+      `> 🧑‍🏫 *𝑪𝒂𝒏𝒂𝒍:* ${canal}\n` +
+      `> 👁️ *𝑽𝒊𝒔𝒕𝒂𝒔:* ${vistas}\n` +
+      `> 🗓️ *𝑷𝒖𝒃𝒍𝒊𝒄𝒂𝒅𝒐:* ${ago}\n` +
+      `> 🔗 *𝑳𝒊𝒏𝒌:* ${urlYt}\n\n` +
+      `*➭ 𝑬𝒍 𝒗𝒊𝒅𝒆𝒐 𝒔𝒆 𝒆𝒔𝒕𝒂 𝒆𝒏𝒗𝒊𝒂𝒏𝒅𝒐, 𝑬𝒔𝒑𝒆𝒓𝒆 𝒖𝒏 𝒎𝒐𝒎𝒆𝒏𝒕𝒊𝒕𝒐 𝒐𝒏𝒊𝒄𝒉𝒂𝒏~ 🌸*`;
+
+    await conn.sendMessage(m.chat, {
+      image: { url: thumbnail },
+      caption: textoInfo,
+      contextInfo: {
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363401008003732@newsletter',
+          newsletterName: '=͟͟͞𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺',
+          serverMessageId: -1
+        }
+      }
+    }, { quoted: m });
+
+    const sources = [
+      `https://api.siputzx.my.id/api/d/ytmp4?url=${urlYt}`,
+      `https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${urlYt}`,
+      `https://axeel.my.id/api/download/video?url=${encodeURIComponent(urlYt)}`,
+      `https://delirius-apiofc.vercel.app/download/ytmp4?url=${urlYt}`
+    ];
+
+    let success = false;
+    for (let source of sources) {
+      try {
+        const res = await fetch(source);
+        const json = await res.json();
+
+        const downloadUrl =
+          json?.data?.dl ||
+          json?.result?.download?.url ||
+          json?.downloads?.url ||
+          json?.data?.download?.url;
+
+        if (downloadUrl) {
+          await conn.sendMessage(m.chat, {
+            video: { url: downloadUrl },
+            fileName: `${title}.mp4`,
+            mimetype: "video/mp4",
+            caption: "📥 𝑨𝒒𝒖𝒊 𝒕𝒊𝒆𝒏𝒆𝒔 𝒕𝒖 𝒗𝒊𝒅𝒆𝒐, 𝒐𝒏𝒊𝒄𝒉𝒂𝒏~ 🌸",
+            thumbnail: thumbnail
+          }, { quoted: m });
+
+          success = true;
+          break;
+        }
+      } catch (err) {
+        console.warn(`❌ Error con ${source}: ${err.message}`);
+        continue;
+      }
+    }
+
+    if (!success) {
+      throw new Error("⚠️ Todas las fuentes de descarga fallaron.");
+    }
+
+    m.react('✅');
+
+  } catch (e) {
+    console.error(e);
+    m.reply(`❌ *Error inesperado:*\n${e.message}`);
+  }
+};
+
+handler.help = ['ytmp4 <link o nombre>'];
+handler.command = ['ytmp4'];
+handler.tags = ['descargas'];
+
+export default handler;
+
+
+/*import fetch from "node-fetch";
+import axios from 'axios';
+import yts from 'yt-search';
+
+const handler = async (m, { conn, text, usedPrefix, command, args }) => {
+  try {
     if (!text) {
       return conn.reply(m.chat, `🌾 *Ingresa un link de YouTub'e*`, m, rcanal);
     }
@@ -114,4 +234,4 @@ async function getSize(url) {
     console.error("Error al obtener el tamaño:", error.message);
     return null;
   }
-}
+}*/
