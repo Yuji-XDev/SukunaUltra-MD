@@ -23,7 +23,7 @@ let handler = async (m, { conn, usedPrefix, command, isOwner }) => {
 
 handler.help = ['setppbot'];
 handler.tags = ['owner'];
-handler.command = /^setpp(bot)?$/i;
+handler.command = ['setppbot'];
 
 handler.owner = true;
 handler.rowner = true;
