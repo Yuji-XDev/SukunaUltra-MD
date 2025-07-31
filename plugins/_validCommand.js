@@ -165,10 +165,10 @@ export async function before(m, { conn }) {
   ];
 
   const texto = mensajesNoEncontrado[Math.floor(Math.random() * mensajesNoEncontrado.length)];
-  const imgurl = 'https://files.catbox.moe/mez710.jpg';
+  const imgurl = 'https://files.catbox.moe/jyz3f8.jpg';
 
   await conn.sendMessage(m.chat, {
-    image: { url: imgurl },
+    image: { url: 'https://files.catbox.moe/js2plu.jpg' },
     caption: texto,
     footer: '\nseleccione una opcion para obtener ayuda',
     buttons: [
@@ -181,7 +181,7 @@ export async function before(m, { conn }) {
       externalAdReply: {
         title: '🌸 Dev.Shadow 🌸',
         body: '🌾◌*̥₊ 𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 𝑀𝐷 ◌❐🎋༉',
-        thumbnailUrl: global.icono || imgurl,
+        thumbnailUrl: imgurl,
         mediaType: 1,
         renderLargerThumbnail: true,
         showAdAttribution: true,
