@@ -65,8 +65,8 @@ ${lista}
         thumbnailUrl: 'https://files.catbox.moe/zgvj8c.jpg',
         sourceUrl: 'https://gituhb.com/Yuji-XDev/SukunaBot-V2',
         mediaType: 1,
-        renderLargerThumbnail: true,
-        showAdAttribution: false
+        renderLargerThumbnail: false,
+        showAdAttribution: true
       }
     },
     text: `${textoSubbots}`
