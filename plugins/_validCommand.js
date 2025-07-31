@@ -183,7 +183,7 @@ export async function before(m, { conn }) {
         body: '🌾◌*̥₊ 𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 𝑀𝐷 ◌❐🎋༉',
         thumbnailUrl: imgurl,
         mediaType: 1,
-        renderLargerThumbnail: true,
+        renderLargerThumbnail: false,
         showAdAttribution: true,
         sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U',
       }
