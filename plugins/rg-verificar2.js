@@ -96,7 +96,32 @@ let regbot = `✅ VERIFICACIÓN EXITOSA ✅
 > 💔 ${club}`;
 
 await m.react('📩')
-await conn.sendMessage(m.chat, {
+
+  await conn.sendMessage(m.chat, {
+    image: { url: pp },
+    caption: regbot,
+    footer: '\nseleccione una opcion para obtener ayuda',
+    buttons: [
+      { buttonId: '#menu', buttonText: { displayText: '🌳 Menu Principal' }, type: 1 },
+      { buttonId: '#profile', buttonText: { displayText: '🔥 Perfil' }, type: 1 },
+    ],
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: '🌸 Dev.Shadow 🌸',
+        body: '🌾◌*̥₊ 𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 𝑀𝐷 ◌❐🎋༉',
+        thumbnailUrl: 'https://files.catbox.moe/hwkp81.jpg',
+        mediaType: 1,
+        renderLargerThumbnail: true,
+        showAdAttribution: true,
+        sourceUrl: channel,
+      }
+    }
+  }, { quoted: fkontak });
+}
+
+
+/*await conn.sendMessage(m.chat, {
         text: regbot,
         contextInfo: {
             externalAdReply: {
@@ -110,7 +135,7 @@ await conn.sendMessage(m.chat, {
             }
         }
     }, { quoted: m });    
-}; 
+}; */
 handler.help = ['reg']
 handler.tags = ['rg']
 handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar'] 
