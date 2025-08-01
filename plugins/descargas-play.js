@@ -31,10 +31,20 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     url = url || 'no encontrado'
     author = author || 'no encontrado'
     
-    const tipo = command.startsWith("mp4") || command === "playvideo" ? "ᴠɪᴅᴇᴏ 🎞" : "ᴀᴜᴅɪᴏ ♫";
+    const tipo = (command === "mp4" || command === "playvideo") ? "ᴠɪᴅᴇᴏ 🎞" : "ᴀᴜᴅɪᴏ ♫";
     const emoji = tipo.includes("ᴠɪᴅᴇᴏ") ? "📹" : "🎧";
 
-    const tamaño = size ? await formatSize(size) : 'Desconocido';
+    let tamaño = 'Desconocido';
+
+    if (command === 'mp3' || command === 'playaudio') {
+      const api = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)).json()
+      tamaño = api.result?.size || 'Desconocido'
+    } else if (command === 'mp4' || command === 'playvideo') {
+      const response = await fetch(`https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=stellar-ReKwdxiR`)
+      const json = await response.json()
+      tamaño = json.data?.size || 'Desconocido'
+    }
+
     const vistas = formatViews(views)
     const canal = author.name ? author.name : 'Desconocido'
     const infoMessage = `
@@ -69,34 +79,24 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.reply(m.chat, infoMessage, m, JT)    
 
     if (command === 'mp3' || command === 'playaudio') {
-      try {
-        const api = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)).json()
-        const resulta = api.result
-        const result = resulta.download.url    
-        if (!result) throw new Error('⚠ El enlace de audio no se generó correctamente.')
+      const api = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)).json()
+      const resulta = api.result
+      const result = resulta.download.url    
+      if (!result) throw new Error('⚠ El enlace de audio no se generó correctamente.')
 
-        await conn.sendMessage(m.chat, {
-          audio: { url: result },
-          fileName: `${api.result.title}.mp3`,
-          mimetype: 'audio/mpeg'
-        }, { quoted: fkontak })
-        
-      } catch (e) {
-        return conn.reply(m.chat, '⚠︎ No se pudo enviar el audio. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.', m)
-      }
+      await conn.sendMessage(m.chat, {
+        audio: { url: result },
+        fileName: `${api.result.title}.mp3`,
+        mimetype: 'audio/mpeg'
+      }, { quoted: fkontak })
 
     } else if (command === 'mp4' || command === 'playvideo') {
-      try {
-        const response = await fetch(`https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=stellar-ReKwdxiR`)
-        const json = await response.json()
+      const response = await fetch(`https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=stellar-ReKwdxiR`)
+      const json = await response.json()
 
-        if (!json.status || !json.data?.dl) throw new Error('⚠ Enlace no válido o no se pudo generar el video.')
+      if (!json.status || !json.data?.dl) throw new Error('⚠ Enlace no válido o no se pudo generar el video.')
 
-        await conn.sendFile(m.chat, json.data.dl, `${json.data.title}.mp4`, title, fkontak)
-
-      } catch (e) {
-        return conn.reply(m.chat, '*⚠︎ No se pudo enviar el video. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.*', m)
-      }
+      await conn.sendFile(m.chat, json.data.dl, `${json.data.title}.mp4`, title, fkontak)
 
     } else {
       return conn.reply(m.chat, '✧︎ Comando no reconocido.', m)
