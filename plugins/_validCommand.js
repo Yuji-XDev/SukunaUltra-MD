@@ -174,7 +174,7 @@ export async function before(m, { conn }) {
     buttons: [
       { buttonId: '#menu', buttonText: { displayText: '🌳 Menu Principal' }, type: 1 },
       { buttonId: '#estado', buttonText: { displayText: '🌷 Información del Bot' }, type: 1 },
-      { buttonId: '#sistema', buttonText: { displayText: '🌾 Ver sistema del Bot' }, type: 1 },
+      { buttonId: '#info', buttonText: { displayText: '🌾 Estado del Bot' }, type: 1 },
     ],
     headerType: 4,
     contextInfo: {
