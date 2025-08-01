@@ -46,8 +46,8 @@ let handler = async(m, { conn, text }) => {
    }
 }
 
-handler.command = ["whatmusic", "shazam"]
-handler.help = ["whatmusic"]
+handler.command = ["whatmusic2", "shazam2"]
+handler.help = ["whatmusic2"]
 handler.tags = ["tools"]
 export default handler
 
