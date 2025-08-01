@@ -12,11 +12,38 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   let pp = await conn.profilePictureUrl(who, 'image').catch((_) => 'https://files.catbox.moe/xr2m6u.jpg')
   let user = global.db.data.users[m.sender]
   let name2 = conn.getName(m.sender)
-  if (user.registered === true) return m.reply(`➤ ⌬ \`ＡＶＩＳＯ\` ⌬
+  
+  
+  if (user.registered) {
+   const textoImg = `╭───⌬ 𝑨𝑫𝑽𝑬𝑹𝑻𝑬𝑵𝑪𝑰𝑨 ⌬───╮
+🚫 Ya estás registrado...
+¿Quieres reiniciar tu progreso?
+  
+⛩️ Usa *#unreg* para borrar tu registro y volver a empezar.
+╰───────────────────╯`;
+
+   const botones = [
+     { buttonId: `${usedPrefix}owner`, buttonText: { displayText: '👑 Owner' }, type: 1 },
+     { buttonId: `${usedPrefix}infobot`, buttonText: { displayText: '🌐 InfoBot' }, type: 1 },
+   ];
+
+   return await conn.sendMessage(m.chat, {
+     image: { url: 'https://files.catbox.moe/r3jdyl.jpg' },
+     caption: textoImg,
+     mentions: [m.sender],
+     footer: 'Sukuna Bot MD ✨',
+     buttons: botones,
+     headerType: 4
+   }, { quoted: m });
+
+  
+ /* if (user.registered === true) return m.reply(`➤ ⌬ \`ＡＶＩＳＯ\` ⌬
 *🚫 Ya estás registrado...*
 ¿ ǫᴜɪᴇʀᴇs ᴠᴏʟᴠᴇʀ ᴀ ʀᴇɢɪsᴛʀᴀʀᴛᴇ ?
   
-⛩️ Usa *#unreg* para borrar tu registro y volver a empezar.`)
+⛩️ Usa *#unreg* para borrar tu registro y volver a empezar.`)*/
+
+
   if (!Reg.test(text)) return m.reply(`*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*
 
 *${usedPrefix + command} nombre.edad*
