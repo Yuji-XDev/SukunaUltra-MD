@@ -67,9 +67,9 @@ ${lista}
     contextInfo: {
       externalAdReply: {
         title: `🍁 𝐒𝐎𝐂𝐊𝐄𝐓𝐒 𝐂𝐎𝐍𝐄𝐂𝐓𝐀𝐃𝐎𝐒 🏮`,
-        body: `🧪 connected: ${total}/${maxSubbots}`,
+        body: `🧪 ᴄᴏɴᴇᴄᴛᴀᴅᴏs: ${total}/${maxSubbots}`,
         thumbnailUrl: 'https://files.catbox.moe/zgvj8c.jpg',
-        sourceUrl: 'https://gituhb.com/Yuji-XDev/SukunaBot-V2',
+        sourceUrl: 'https://gituhb.com/Yuji-XDev/SukunaUltra-MD',
         mediaType: 1,
         renderLargerThumbnail: false,
         showAdAttribution: true
