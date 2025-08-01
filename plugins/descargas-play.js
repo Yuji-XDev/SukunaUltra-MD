@@ -1,4 +1,4 @@
-/*import fetch from "node-fetch"
+import fetch from "node-fetch"
 import yts from 'yt-search'
 import axios from "axios"
 const youtubeRegexID = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/
@@ -53,7 +53,7 @@ author = author || 'no encontrado'
       },
     }
     await conn.reply(m.chat, infoMessage, m, JT)    
-    if (command === 'play' || command === 'playaudio') {
+    if (command === 'mp3' || command === 'playaudio') {
       try {
         const api = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)).json()
         const resulta = api.result
@@ -63,7 +63,7 @@ author = author || 'no encontrado'
       } catch (e) {
         return conn.reply(m.chat, '⚠︎ No se pudo enviar el audio. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.', m)
       }
-    } else if (command === 'play2' || command === 'playvideo') {
+    } else if (command === 'mp4' || command === 'playvideo') {
       try {
         const response = await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=video&quality=480p&apikey=GataDios`)
         const json = await response.json()
@@ -78,7 +78,7 @@ author = author || 'no encontrado'
     return m.reply(`⚠︎ Ocurrió un error: ${error}`)
   }
 }
-handler.command = handler.help = ['play', 'play2', 'playaudio', 'playvideo']
+handler.command = handler.help = ['mp3', 'mp4', 'playaudio', 'playvideo']
 handler.tags = ['descargas']
 //handler.group = true
 
@@ -97,4 +97,4 @@ function formatViews(views) {
     return `${(views / 1_000).toFixed(1)}k (${views.toLocaleString()})`
   }
   return views.toString()
-}*/
+}
