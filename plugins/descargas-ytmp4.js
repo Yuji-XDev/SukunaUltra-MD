@@ -90,7 +90,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   await m.react('📀');
 
   try {
-    // Buscar metadatos antes
     const search = await yts({ query: text, pages: 1 });
     const video = search.videos[0];
     const { title, timestamp, views, ago, author, thumbnail, url: videoUrl } = video || {};
@@ -113,7 +112,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
           newsletterJid: '120363401008003732@newsletter',
-          newsletterName: '=͟͟͞𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺',
+          newsletterName: '=͟͟͞🔥 𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺',
           serverMessageId: -1
         }
       }
