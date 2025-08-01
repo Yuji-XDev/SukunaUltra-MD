@@ -34,7 +34,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const tipo = (command === "mp4" || command === "playvideo") ? "ᴠɪᴅᴇᴏ 🎞" : "ᴀᴜᴅɪᴏ ♫";
     const emoji = tipo.includes("ᴠɪᴅᴇᴏ") ? "📹" : "🎧";
 
-     const size = await getSize(videoUrl);
+    const size = await getSize(url);
     const sizeStr = size ? await formatSize(size) : 'Desconocido';
 
     if (command === 'mp3' || command === 'playaudio') {
