@@ -1,19 +1,16 @@
 import fetch from "node-fetch";
 import axios from 'axios';
-import yts from 'yt-search'; // agregado
+import yts from 'yt-search';
 
-// Constantes
 const MAX_FILE_SIZE = 280 * 1024 * 1024; // 280 MB
 const VIDEO_THRESHOLD = 70 * 1024 * 1024; // 70 MB
 const HEAVY_FILE_THRESHOLD = 100 * 1024 * 1024; // 100 MB
 
 let isProcessingHeavy = false;
 
-// Validación de URL de YouTube
 const isValidYouTubeUrl = (url) =>
   /^(?:https?:\/\/)?(?:www\.|m\.|music\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?/.test(url);
 
-// Formateo de tamaño
 function formatSize(bytes) {
   if (!bytes || isNaN(bytes)) return 'Desconocido';
   const units = ['B', 'KB', 'MB', 'GB', 'TB'];
@@ -26,7 +23,6 @@ function formatSize(bytes) {
   return `${bytes.toFixed(2)} ${units[i]}`;
 }
 
-// Obtener tamaño del archivo
 async function getSize(url) {
   try {
     const response = await axios.head(url, { timeout: 10000 });
@@ -38,7 +34,6 @@ async function getSize(url) {
   }
 }
 
-// Descarga de video
 async function ytdl(url) {
   const headers = {
     accept: '*/*',
@@ -84,7 +79,7 @@ async function ytdl(url) {
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return conn.reply(m.chat, `🌴 Uso: ${usedPrefix}${command} https://youtube.com/watch?v=iQEVguV71sI`, m);
+    return conn.reply(m.chat, `🌴 Uso: ${usedPrefix}${command} https://youtube.com/watch?v=iQEVguV71sI`, m, fake);
   }
 
   if (!isValidYouTubeUrl(text)) {
@@ -152,7 +147,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       buffer,
       `${titleVid}.mp4`,
       caption,
-      m,
+      fkontak,
       null,
       {
         mimetype: 'video/mp4',
