@@ -53,10 +53,11 @@ let handler = async (m, { conn }) => {
     ? '𝙉𝙤 𝙝𝙖𝙮 𝙎𝙪𝙗-𝘽𝙤𝙩𝙨 𝙖𝙘𝙩𝙞𝙫𝙤𝙨 𝙥𝙤𝙧 𝙖𝙝𝙤𝙧𝙖. 🌙'
     : `*✦ Sockets Activos de Sukuna Ultra-MD ✦*
 
-> ⌛ *Tiempo Activo:* ${uptime}
-> 🎄 *Subs conectados:* ${totalSubs}
+> ⌛ *Tiempo Activo:* _[ ${uptime} ]_
+> 🌳 *Sessions Libres:* _[ ${disponibles} ]_
+> 🎄 *Subs conectados:* _[ ${totalSubs} ]_
 
-    •-  List de Subs Conectados  -•
+    -  List de Subs Conectados  -
 
 ${lista}
 
@@ -66,7 +67,7 @@ ${lista}
     contextInfo: {
       externalAdReply: {
         title: `🍁 𝐒𝐎𝐂𝐊𝐄𝐓𝐒 𝐂𝐎𝐍𝐄𝐂𝐓𝐀𝐃𝐎𝐒 🏮`,
-        body: `🧪 connected: ${total}/${maxSubbots}  • ${disponibles }`,
+        body: `🧪 connected: ${total}/${maxSubbots}`,
         thumbnailUrl: 'https://files.catbox.moe/zgvj8c.jpg',
         sourceUrl: 'https://gituhb.com/Yuji-XDev/SukunaBot-V2',
         mediaType: 1,
