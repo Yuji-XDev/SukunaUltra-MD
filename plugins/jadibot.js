@@ -35,7 +35,7 @@ let handler = async (m, { conn }) => {
   }
 
   const total = subbotsUnicos.length;
-  const maxSubbots = 30;
+  const maxSubbots = 50;
   const disponibles = maxSubbots - total;
   const mentions = [];
 
