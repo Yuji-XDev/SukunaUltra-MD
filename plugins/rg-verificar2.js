@@ -93,15 +93,14 @@ let regbot = `✅ VERIFICACIÓN EXITOSA ✅
 🍹 RECOMPENSAS 🧪
 🪙 \`COINS:\` +40
 🏮 \`EXP:\` +300
-🔰 \`TOKENS:\` +20
-> 💔 ${club}`;
+🔰 \`TOKENS:\` +20\n`;
 
 await m.react('📩')
 
   await conn.sendMessage(m.chat, {
     image: { url: pp },
     caption: regbot,
-    footer: '\nseleccione una opcion para obtener ayuda',
+    footer: club,
     buttons: [
       { buttonId: '#menu', buttonText: { displayText: '🌳 Menu Principal' }, type: 1 },
       { buttonId: '#profile', buttonText: { displayText: '🔥 Perfil' }, type: 1 },
