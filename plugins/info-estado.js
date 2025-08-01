@@ -13,7 +13,7 @@ let old = performance.now()
 let neww = performance.now()
 let speed = neww - old
 const used = process.memoryUsage()
-let info = `╭══🎯⃟⃟⃢⃟⃢⟡⃝⃟⃢⃟⃢⃟⃟🎯══⬣
+let info = `╭════🎯⃟⃟⃢⃟⃢⟡⃝⃟⃢⃟⃢⃟⃟🎯════⬣
 ┃     🌐 *『 SUKUNA - STATUS 』* ⚙️
 ┃────────────────────────
 ┃ ✦🧠 *Creador:* ${etiqueta}
