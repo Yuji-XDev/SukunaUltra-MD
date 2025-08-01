@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+/*import fetch from 'node-fetch';
 
 let handler = async (m, { conn, args, command, usedPrefix }) => {
   const text = args.join(" ");
@@ -12,14 +12,6 @@ let handler = async (m, { conn, args, command, usedPrefix }) => {
   }
 
   await m.react('💻');
-
- /* await m.reply(
-    `┌──〔 🔍 𝙎𝙐𝘽𝙎𝙔𝙎𝙏𝙀𝙈 𝘼𝘾𝙏𝙄𝙑𝙀 〕──┐
-│ 📡 Buscando en redes oscuras . . .
-│ 💾 Término: ${text}
-│ ⏳ Descifrando resultados...
-└────────────────────────────┘`
-  );*/
 
   try {
     const res = await fetch(`https://api.nekorinn.my.id/downloader/spotifyplay?q=${encodeURIComponent(text)}`);
@@ -36,17 +28,6 @@ let handler = async (m, { conn, args, command, usedPrefix }) => {
 
     const { title, artist, duration, cover, url } = json.result.metadata;
     const audio = json.result.downloadUrl;
-
-    /*await conn.sendMessage(m.chat, {
-      image: { url: cover },
-      caption: 
-`┌─〔 𝙈𝙀𝙏𝘼𝘿𝘼𝙏𝘼 𝘿𝙀 𝙇𝘼 𝘾𝘼𝙉𝘾𝙄Ó𝙉 〕─┐
-│ 🧬 𝙏𝙞́𝙩𝙪𝙡𝙤: ${title}
-│ 🎙️ 𝘼𝙧𝙩𝙞𝙨𝙩𝙖: ${artist}
-│ ⏱️ 𝘿𝙪𝙧𝙖𝙘𝙞ó𝙣: ${duration}
-│ 🌐 𝙎𝙥𝙤𝙩𝙞𝙛𝙮: ${url}
-└────〔 𝙎𝙪𝙠𝙪𝙣𝙖_𝙎𝙮𝙨𝙩𝙚𝙢 🌳〕────┘`
-    }, { quoted: m });*/
 
     await m.reply(
       `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...
@@ -91,4 +72,47 @@ handler.help = ['music <nombre>'];
 handler.tags = ['descargas'];
 handler.register = true;
 
+export default handler;*/
+
+
+import fetch from 'node-fetch';
+
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+  if (!text || !text.includes('spotify.com/track')) {
+    return conn.reply(m.chat, `🌿 *Ingresa una URL válida de Spotify*\n\n📌 Ejemplo:\n${usedPrefix + command} https://open.spotify.com/track/37ZtpRBkHcaq6hHy0X98zn`, m);
+  }
+
+  try {
+    m.react('🎧');
+    
+    let api = `https://delirius-apiofc.vercel.app/download/spotifydl?url=${encodeURIComponent(text)}`;
+    let res = await fetch(api);
+    let json = await res.json();
+
+    if (!json.status || !json.data?.url) {
+      return conn.reply(m.chat, `❌ No se pudo obtener el audio.\n📌 Verifica que la URL sea correcta.`, m);
+    }
+
+    const { title, author, duration, image, url } = json.data;
+
+    let textoInfo = `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...
+> [▰▰▰▰▰▱▱▱▱▱] 50%
+> Archivo: 🎧 ${title}
+> Espera unos segundos...`;
+
+    await conn.sendMessage(m.chat, { image: { url: image }, caption: textoInfo.trim() }, { quoted: m });
+    await conn.sendMessage(m.chat, { audio: { url }, mimetype: 'audio/mpeg' }, { quoted: m });
+
+  } catch (e) {
+    console.error(e);
+    conn.reply(m.chat, '❌ Error al procesar la descarga. Intenta más tarde.', m);
+  }
+};
+
+handler.command = ['music'];
+handler.help = ['music <nombre>'];
+handler.tags = ['descargas'];
+handler.register = true;
+
 export default handler;
+
