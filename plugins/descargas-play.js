@@ -21,16 +21,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const emoji = tipo.includes("ᴠɪᴅᴇᴏ") ? "📹" : "🎧"
     const canal = author?.name || "Desconocido"
     const vistas = formatViews(views)
-    const size = await getSize(url)
-    const sizeStr = await formatSize(size)
-
+  
     const infoMessage = `╔═══『 ✨ 𝚄𝚃𝙸𝙻 𝙸𝙽𝙵𝙾 ✨ 』═══╗
 ╟─ 🍬 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title}
 ╟─ 🌵 *𝑫𝒖𝒓𝒂𝒄𝒊ó𝒏:* ${timestamp}
 ╟─ 🍃 *𝑪𝒂𝒏𝒂𝒍:* ${canal}
 ╟─ 🍁 *𝑽𝒊𝒔𝒕𝒂𝒔:* ${vistas}
 ╟─ 🌳 *𝑭𝒆𝒄𝒉𝒂:* ${ago}
-╟─ 🍯 *𝑻𝒂𝒎𝒂ñ𝒐:* ${sizeStr}
 ╟─ 📡 *𝑻𝒊𝒑𝒐:* ${tipo}
 ╟─ 🔗 *𝑬𝒏𝒍𝒂𝒄𝒆:* ${url}
 ╚═════════════════════╝`
@@ -40,7 +37,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.sendMessage(m.chat, { text: infoMessage, contextInfo: {
       externalAdReply: {
         title: "📻 YouTube Downloader",
-        body: "Descarga multimedia al instante",
+        body: "Descargas multimedia",
         mediaType: 1,
         previewType: 0,
         mediaUrl: url,
@@ -63,7 +60,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         audio: { url: result },
         fileName: `${json.result.title}.mp3`,
         mimetype: 'audio/mpeg'
-      }, { quoted: m })
+      }, { quoted: fkontak })
 
     } else if (/mp4|playvideo/.test(command)) {
       const res = await fetch(`https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=stellar-ReKwdxiR`)
@@ -74,7 +71,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         video: { url: json.data.dl },
         fileName: `${json.data.title}.mp4`,
         caption: `🎬 ${json.data.title}`
-      }, { quoted: m })
+      }, { quoted: fkontak })
 
     }
 
@@ -88,33 +85,10 @@ handler.command = ['mp3', 'mp4', 'playaudio', 'playvideo']
 handler.tags = ['descargas']
 export default handler
 
-// Funciones auxiliares
 function formatViews(views) {
   if (!views) return "No disponible"
   if (views >= 1e9) return `${(views / 1e9).toFixed(1)}B (${views.toLocaleString()})`
   if (views >= 1e6) return `${(views / 1e6).toFixed(1)}M (${views.toLocaleString()})`
   if (views >= 1e3) return `${(views / 1e3).toFixed(1)}k (${views.toLocaleString()})`
   return views.toString()
-}
-
-async function formatSize(bytes) {
-  if (!bytes || isNaN(bytes)) return 'Desconocido'
-  const units = ['B', 'KB', 'MB', 'GB']
-  let i = 0
-  while (bytes >= 1024 && i < units.length - 1) {
-    bytes /= 1024
-    i++
-  }
-  return `${bytes.toFixed(2)} ${units[i]}`
-}
-
-async function getSize(url) {
-  try {
-    const response = await axios.head(url)
-    return response.headers['content-length']
-      ? parseInt(response.headers['content-length'], 10)
-      : null
-  } catch {
-    return null
-  }
 }
