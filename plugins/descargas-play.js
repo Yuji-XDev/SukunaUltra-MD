@@ -21,6 +21,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const canal = author?.name || "Desconocido"
     const vistas = formatViews(views)
     
+    const res2 = await fetch('https://files.catbox.moe/qzp733.jpg');
+    const thumb2 = await res2.buffer();
     const fkontak = {
       key: {
         participants: "0@s.whatsapp.net",
