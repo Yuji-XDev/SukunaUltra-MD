@@ -43,7 +43,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 ⛩️ Usa *#unreg* para borrar tu registro y volver a empezar.`)*/
 
 
-    if (!Reg.test(text)) {
+ /*   if (!Reg.test(text)) {
      const text = `╭─『 ❌ 𝙀𝙍𝙍𝙊𝙍 𝘿𝙀 𝙁𝙊𝙍𝙈𝘼𝙏𝙊 ❌ 』─╮  
 ☄️ Debes escribirlo así:
 *${usedPrefix + command} Nombre.Edad*
@@ -68,15 +68,15 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
      headerType: 4
    }, { quoted: m });
  }
+*/
 
 
-
-/*  if (!Reg.test(text)) return m.reply(`*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*
+  if (!Reg.test(text)) return m.reply(`*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*
 
 *${usedPrefix + command} nombre.edad*
 
 🎄 \`Ejemplo:\`
-*${usedPrefix + command} ${name2}.18*`)*/
+*${usedPrefix + command} ${name2}.18*`)
 
 
   let hora = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
