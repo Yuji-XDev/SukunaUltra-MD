@@ -30,16 +30,38 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     ago = ago || 'no encontrado'
     url = url || 'no encontrado'
     author = author || 'no encontrado'
+    
+    const tipoMensaje = (videoUrl) => {
+  const extensionesVideo = ['mp4', 'playvideo'];
+  const extensionesAudio = ['mp3', 'playaudio'];
 
+  if (!videoUrl) return '📦 Contenido desconocido';
+
+  const url = videoUrl.toLowerCase();
+
+  if (extensionesVideo.some(ext => url.includes(ext))) {
+    return '🎞️ *Tipo:* Video';
+  } else if (extensionesAudio.some(ext => url.includes(ext))) {
+    return '🎧 *Tipo:* Audio';
+  } else {
+    return '📁 *Tipo:* Desconocido';
+  }
+};
+
+    const tamaño = size ? await formatSize(size) : 'Desconocido';
     const vistas = formatViews(views)
     const canal = author.name ? author.name : 'Desconocido'
-    const infoMessage = `≡ 🍭 *\`Titulo:\`* ${title || 'Desconocido'}
-
-≡ 🌵 *\`Duración:\`* ${timestamp || 'Desconocido'}
-≡ 🌿 *\`Canal:\`* ${canal}
-≡ 🍁 *\`Vistas:\`* ${vistas || 'Desconocido'}
-≡ 🌳 *\`Publicado:\`* ${ago || 'Desconocido'}
-≡ 🔗 *\`Link:\`* ${url}`
+    const infoMessage = `
+╔═══『 ✨ 𝚄𝚃𝙸𝙻 𝙸𝙽𝙵𝙾 ✨ 』═══╗
+╟─ 🍬 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title || 'Desconocido'}
+╟─ 🌵 *𝑫𝒖𝒓𝒂𝒄𝒊ó𝒏:* ${timestamp || 'Desconocido'}
+╟─ 🍃 *𝑪𝒂𝒏𝒂𝒍:* ${canal}
+╟─ 🍁 *𝑽𝒊𝒔𝒕𝒂𝒔:* ${vistas || 'Desconocido'}
+╟─ 🌳 *𝑭𝒆𝒄𝒉𝒂:* ${ago || 'Desconocido'}
+╟─ 🍯 *𝑻𝒂𝒎𝒂𝒏̃𝒐:* ${tamaño}
+╟─ 📡 *𝑪𝒂𝒍𝒊𝒅𝒂𝒅:* ${tipoMensaje}
+╟─ 🔗 *𝑬𝒏𝒍𝒂𝒄𝒆:* ${url}
+╚═════════════════════╝`
 
     const thumb = (await conn.getFile(thumbnail))?.data
     const JT = {
