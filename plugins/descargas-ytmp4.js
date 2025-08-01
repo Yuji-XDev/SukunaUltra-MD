@@ -8,8 +8,8 @@ const HEAVY_FILE_THRESHOLD = 100 * 1024 * 1024; // 100 MB
 
 let isProcessingHeavy = false;
 
-const isValidYouTubeUrl = (url) =>
-  /^(?:https?:\/\/)?(?:www\.|m\.|music\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?/.test(url);
+//const isValidYouTubeUrl = (url) =>
+ // /^(?:https?:\/\/)?(?:www\.|m\.|music\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?/.test(url);
 
 function formatSize(bytes) {
   if (!bytes || isNaN(bytes)) return 'Desconocido';
@@ -82,10 +82,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     return conn.reply(m.chat, `🌴 Uso: ${usedPrefix}${command} https://youtube.com/watch?v=iQEVguV71sI`, m, fake);
   }
 
-  if (!isValidYouTubeUrl(text)) {
+  /*if (!isValidYouTubeUrl(text)) {
     await m.react('🔴');
     return m.reply('🚫 Enlace de YouTube inválido');
-  }
+  }*/
 
   await m.react('📀');
 
