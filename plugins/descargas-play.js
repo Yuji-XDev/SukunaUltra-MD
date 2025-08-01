@@ -31,22 +31,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     url = url || 'no encontrado'
     author = author || 'no encontrado'
     
-    const tipoMensaje = (videoUrl) => {
-  const extensionesVideo = ['mp4', 'playvideo'];
-  const extensionesAudio = ['mp3', 'playaudio'];
-
-  if (!videoUrl) return '📦 Contenido desconocido';
-
-  const url = videoUrl.toLowerCase();
-
-  if (extensionesVideo.some(ext => url.includes(ext))) {
-    return '🎞️ *Tipo:* Video';
-  } else if (extensionesAudio.some(ext => url.includes(ext))) {
-    return '🎧 *Tipo:* Audio';
-  } else {
-    return '📁 *Tipo:* Desconocido';
-  }
-};
+    const tipo = command.startsWith("play2") || command === "ytv" || command === "ytmp4" ? "ᴠɪᴅᴇᴏ 🎞" : "ᴀᴜᴅɪᴏ ♫";
+    const emoji = tipo.includes("ᴠɪᴅᴇᴏ") ? "📹" : "🎧";
 
     const tamaño = size ? await formatSize(size) : 'Desconocido';
     const vistas = formatViews(views)
@@ -59,10 +45,11 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 ╟─ 🍁 *𝑽𝒊𝒔𝒕𝒂𝒔:* ${vistas || 'Desconocido'}
 ╟─ 🌳 *𝑭𝒆𝒄𝒉𝒂:* ${ago || 'Desconocido'}
 ╟─ 🍯 *𝑻𝒂𝒎𝒂𝒏̃𝒐:* ${tamaño}
-╟─ 📡 *𝑪𝒂𝒍𝒊𝒅𝒂𝒅:* ${tipo}
+╟─ 📡 *tipo:* ${tipo}
 ╟─ 🔗 *𝑬𝒏𝒍𝒂𝒄𝒆:* ${url}
 ╚═════════════════════╝`
 
+    await m.react(emoji);
     const thumb = (await conn.getFile(thumbnail))?.data
     const JT = {
       contextInfo: {
