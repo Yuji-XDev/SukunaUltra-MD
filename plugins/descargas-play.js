@@ -20,6 +20,22 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const tipo = /mp4|playvideo/.test(command) ? "📽️ ᴠɪᴅᴇᴏ" : "🎧 ᴀᴜᴅɪᴏ"
     const canal = author?.name || "Desconocido"
     const vistas = formatViews(views)
+    
+    const fkontak = {
+      key: {
+        participants: "0@s.whatsapp.net",
+        remoteJid: "status@broadcast",
+        fromMe: false,
+        id: "Halo"
+      },
+      message: {
+        locationMessage: {
+          name: `𝙳𝙴𝚂𝙲𝙰𝚁𝙰𝙶𝙰 𝙲𝙾𝙼𝙿𝙻𝙴𝚃𝙰 / ${tipo}`,
+          jpegThumbnail: thumb2
+        }
+      },
+      participant: "0@s.whatsapp.net"
+    };
 
     const infoMessage = `
 ╭━━━〔 🔎 𝙸𝙽𝙵𝙾 𝙳𝙴 𝚅𝙸𝙳𝙴𝙾/𝙰𝚄𝙳𝙸𝙾 〕━━⬣
@@ -62,7 +78,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         audio: { url: result },
         fileName: `${json.result.title}.mp3`,
         mimetype: 'audio/mpeg'
-      }, { quoted: m })
+      }, { quoted: fkontak })
 
     } else if (/mp4|playvideo/.test(command)) {
       const res = await fetch(`https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=stellar-ReKwdxiR`)
@@ -72,8 +88,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       await conn.sendMessage(m.chat, {
         video: { url: json.data.dl },
         fileName: `${json.data.title}.mp4`,
-        caption: `🎬 ${json.data.title}`
-      }, { quoted: m })
+        caption: `🎬 *${json.data.title}*`
+      }, { quoted: fkontak })
     }
 
   } catch (error) {
