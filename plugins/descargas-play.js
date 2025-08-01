@@ -34,29 +34,26 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const tipo = (command === "mp4" || command === "playvideo") ? "ᴠɪᴅᴇᴏ 🎞" : "ᴀᴜᴅɪᴏ ♫";
     const emoji = tipo.includes("ᴠɪᴅᴇᴏ") ? "📹" : "🎧";
 
-    let tamaño = 'Desconocido';
+     const size = await getSize(videoUrl);
+    const sizeStr = size ? await formatSize(size) : 'Desconocido';
 
     if (command === 'mp3' || command === 'playaudio') {
       const api = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)).json()
-      let sizeRaw = api.result?.size
-      tamaño = typeof sizeRaw === 'number' ? formatBytes(sizeRaw) : (sizeRaw || 'Desconocido')
+      
     } else if (command === 'mp4' || command === 'playvideo') {
       const response = await fetch(`https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=stellar-ReKwdxiR`)
       const json = await response.json()
-      let sizeRaw = json.data?.size
-      tamaño = typeof sizeRaw === 'number' ? formatBytes(sizeRaw) : (sizeRaw || 'Desconocido')
     }
 
     const vistas = formatViews(views)
     const canal = author.name ? author.name : 'Desconocido'
-    const infoMessage = `
-╔═══『 ✨ 𝚄𝚃𝙸𝙻 𝙸𝙽𝙵𝙾 ✨ 』═══╗
+    const infoMessage = `╔═══『 ✨ 𝚄𝚃𝙸𝙻 𝙸𝙽𝙵𝙾 ✨ 』═══╗
 ╟─ 🍬 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title || 'Desconocido'}
 ╟─ 🌵 *𝑫𝒖𝒓𝒂𝒄𝒊ó𝒏:* ${timestamp || 'Desconocido'}
 ╟─ 🍃 *𝑪𝒂𝒏𝒂𝒍:* ${canal}
 ╟─ 🍁 *𝑽𝒊𝒔𝒕𝒂𝒔:* ${vistas || 'Desconocido'}
 ╟─ 🌳 *𝑭𝒆𝒄𝒉𝒂:* ${ago || 'Desconocido'}
-╟─ 🍯 *𝑻𝒂𝒎𝒂𝒏̃𝒐:* ${tamaño}
+╟─ 🍯 *𝑻𝒂𝒎𝒂𝒏̃𝒐:* ${sizeStr}
 ╟─ 📡 *𝑻𝒊𝒑𝒐:* ${tipo}
 ╟─ 🔗 *𝑬𝒏𝒍𝒂𝒄𝒆:* ${url}
 ╚═════════════════════╝`
@@ -127,11 +124,25 @@ function formatViews(views) {
   return views.toString()
 }
 
-function formatBytes(bytes, decimals = 2) {
-  if (!+bytes) return '0 Bytes'
-  const k = 1024
-  const dm = decimals < 0 ? 0 : decimals
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
-  const i = Math.floor(Math.log(bytes) / Math.log(k))
-  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
+async function formatSize(bytes) {
+  const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+  let i = 0;
+  if (!bytes || isNaN(bytes)) return 'Desconocido';
+  while (bytes >= 1024 && i < units.length - 1) {
+    bytes /= 1024;
+    i++;
+  }
+  return `${bytes.toFixed(2)} ${units[i]}`;
+}
+
+async function getSize(url) {
+  try {
+    const response = await axios.head(url);
+    return response.headers['content-length']
+      ? parseInt(response.headers['content-length'], 10)
+      : null;
+  } catch (error) {
+    console.error("Error al obtener el tamaño:", error.message);
+    return null;
+  }
 }
