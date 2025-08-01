@@ -35,7 +35,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
      buttons: botones,
      headerType: 4
    }, { quoted: m });
-
+ }
   
  /* if (user.registered === true) return m.reply(`➤ ⌬ \`ＡＶＩＳＯ\` ⌬
 *🚫 Ya estás registrado...*
