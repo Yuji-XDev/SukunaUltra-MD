@@ -6,7 +6,7 @@ const youtubeRegexID = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-z
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, `🎲 Por favor, ingresa el nombre de la música a descargar.`, m, fake)
+      return conn.reply(m.chat, `*🎲 Por favor, ingresa el nombre de la música a descargar.*`, m, fake)
     }
 
     let videoIdToFind = text.match(youtubeRegexID) || null
@@ -38,11 +38,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     if (command === 'mp3' || command === 'playaudio') {
       const api = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)).json()
-      tamaño = api.result?.size || 'Desconocido'
+      let sizeRaw = api.result?.size
+      tamaño = typeof sizeRaw === 'number' ? formatBytes(sizeRaw) : (sizeRaw || 'Desconocido')
     } else if (command === 'mp4' || command === 'playvideo') {
       const response = await fetch(`https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=stellar-ReKwdxiR`)
       const json = await response.json()
-      tamaño = json.data?.size || 'Desconocido'
+      let sizeRaw = json.data?.size
+      tamaño = typeof sizeRaw === 'number' ? formatBytes(sizeRaw) : (sizeRaw || 'Desconocido')
     }
 
     const vistas = formatViews(views)
@@ -55,7 +57,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 ╟─ 🍁 *𝑽𝒊𝒔𝒕𝒂𝒔:* ${vistas || 'Desconocido'}
 ╟─ 🌳 *𝑭𝒆𝒄𝒉𝒂:* ${ago || 'Desconocido'}
 ╟─ 🍯 *𝑻𝒂𝒎𝒂𝒏̃𝒐:* ${tamaño}
-╟─ 📡 *tipo:* ${tipo}
+╟─ 📡 *𝑻𝒊𝒑𝒐:* ${tipo}
 ╟─ 🔗 *𝑬𝒏𝒍𝒂𝒄𝒆:* ${url}
 ╚═════════════════════╝`
 
@@ -96,7 +98,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
       if (!json.status || !json.data?.dl) throw new Error('⚠ Enlace no válido o no se pudo generar el video.')
 
-      await conn.sendFile(m.chat, json.data.dl, `${json.data.title}.mp4`, title, fkontak)
+      await conn.sendFile(m.chat, json.data.dl, `${json.data.title}.mp4`, `*${title}*`, fkontak)
 
     } else {
       return conn.reply(m.chat, '✧︎ Comando no reconocido.', m)
@@ -115,7 +117,6 @@ export default handler
 
 function formatViews(views) {
   if (views === undefined) return "No disponible"
-
   if (views >= 1_000_000_000) {
     return `${(views / 1_000_000_000).toFixed(1)}B (${views.toLocaleString()})`
   } else if (views >= 1_000_000) {
@@ -123,6 +124,14 @@ function formatViews(views) {
   } else if (views >= 1_000) {
     return `${(views / 1_000).toFixed(1)}k (${views.toLocaleString()})`
   }
-
   return views.toString()
+}
+
+function formatBytes(bytes, decimals = 2) {
+  if (!+bytes) return '0 Bytes'
+  const k = 1024
+  const dm = decimals < 0 ? 0 : decimals
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
+  const i = Math.floor(Math.log(bytes) / Math.log(k))
+  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
 }
