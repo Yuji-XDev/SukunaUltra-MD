@@ -83,7 +83,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 
   if (!isValidYouTubeUrl(text)) {
-    await m.react('🔴');
+    await m.react('✖️');
     return m.reply('🚫 Enlace de YouTube inválido');
   }
 
@@ -134,7 +134,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     if (size > HEAVY_FILE_THRESHOLD) {
       isProcessingHeavy = true;
-      await conn.reply(m.chat, '🤨 Espera, estoy lidiando con un archivo pesado', m);
+      await conn.reply(m.chat, '🤨 Espera, estoy lidiando con un archivo pesado', m, fake);
     }
 
     await m.react('✅️');
