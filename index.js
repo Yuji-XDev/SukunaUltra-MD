@@ -39,7 +39,9 @@ const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 
 let { say } = cfonts
 
-console.log(chalk.bold.redBright(`\n✰ Iniciando Sukuna Ultra ✰\n`))
+console.log(chalk.bold.redBright(`\n▨────────────────────────▨`))
+console.log(chalk.bold.cyanBright(`⛗ INICIANDO SUKUNA ULTRA MD 🔥`))
+console.log(chalk.bold.redBright(`▨────────────────────────▨`))
 
 say('SUKUNA ULTRA', {
 font: 'block',
