@@ -1,17 +1,12 @@
 import fetch from "node-fetch";
 import axios from 'axios';
+import yts from 'yt-search'; // agregado
 
 // Constantes
 const MAX_FILE_SIZE = 280 * 1024 * 1024; // 280 MB
 const VIDEO_THRESHOLD = 70 * 1024 * 1024; // 70 MB
 const HEAVY_FILE_THRESHOLD = 100 * 1024 * 1024; // 100 MB
-const REQUEST_LIMIT = 3; // Máximo 3 solicitudes
-const REQUEST_WINDOW_MS = 10000; // Ventana de 10 segundos
-const COOLDOWN_MS = 120000; // 2 minutos
 
-// Estado para control de solicitudes
-const requestTimestamps = [];
-let isCooldown = false;
 let isProcessingHeavy = false;
 
 // Validación de URL de YouTube
@@ -76,7 +71,7 @@ async function ytdl(url) {
       if (!progressRes.ok) throw new Error('Fallo al obtener el progreso');
       info = await progressRes.json();
       if (info.progress === 3) break;
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Espera 1s entre intentos
+      await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
     if (!info || !convert.downloadURL) throw new Error('No se pudo obtener la URL de descarga');
@@ -86,28 +81,10 @@ async function ytdl(url) {
   }
 }
 
-// Verificar límite de solicitudes
-const checkRequestLimit = () => {
-  const now = Date.now();
-  requestTimestamps.push(now);
-  while (requestTimestamps.length > 0 && now - requestTimestamps[0] > REQUEST_WINDOW_MS) {
-    requestTimestamps.shift();
-  }
-  if (requestTimestamps.length >= REQUEST_LIMIT) {
-    isCooldown = true;
-    setTimeout(() => {
-      isCooldown = false;
-      requestTimestamps.length = 0;
-    }, COOLDOWN_MS);
-    return false;
-  }
-  return true;
-};
 
-// Handler principal
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return conn.reply(m.chat, `👉 Uso: ${usedPrefix}${command} https://youtube.com/watch?v=iQEVguV71sI`, m);
+    return conn.reply(m.chat, `🌴 Uso: ${usedPrefix}${command} https://youtube.com/watch?v=iQEVguV71sI`, m);
   }
 
   if (!isValidYouTubeUrl(text)) {
@@ -115,19 +92,39 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     return m.reply('🚫 Enlace de YouTube inválido');
   }
 
-  // Verificar límite de solicitudes y archivo pesado
-  if (isCooldown || !checkRequestLimit()) {
-    await m.react('🔴');
-    return conn.reply(m.chat, '⏳ Demasiadas solicitudes rápidas. Por favor, espera 2 minutos.', m);
-  }
-  if (isProcessingHeavy) {
-    await m.react('🔴');
-    return conn.reply(m.chat, '⏳ Espera, estoy procesando un archivo pesado.', m);
-  }
+  await m.react('📀');
 
-  await m.react('📀'); // Inicio
   try {
-    const { url, title } = await ytdl(text);
+    // Buscar metadatos antes
+    const search = await yts({ query: text, pages: 1 });
+    const video = search.videos[0];
+    const { title, timestamp, views, ago, author, thumbnail, url: videoUrl } = video || {};
+
+    const textoInfo = `⬣ *🎲  \`YOUTUBE - MP4\` 🇦🇱* ⬣\n\n`
+      + `> 🌾 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title}\n`
+      + `> ⏱️ *𝑫𝒖𝒓𝒂𝒄𝒊𝒐𝒏:* ${timestamp}\n`
+      + `> 🍰 *𝑪𝒂𝒏𝒂𝒍:* ${author?.name}\n`
+      + `> 🌧️ *𝑽𝒊𝒔𝒕𝒂𝒔:* ${views}\n`
+      + `> 🌳 *𝑷𝒖𝒃𝒍𝒊𝒄𝒂𝒅𝒐:* ${ago}\n`
+      + `> 🔗 *𝑳𝒊𝒏𝒌:* ${videoUrl}\n\n`
+      + ` *➭ 𝑬𝒍 𝒗𝒊𝒅𝒆𝒐 𝒔𝒆 𝒆𝒔𝒕𝒂 𝒆𝒏𝒗𝒊𝒂𝒏𝒅𝒐, 𝑬𝒔𝒑𝒆𝒓𝒆 𝒖𝒏 𝒎𝒐𝒎𝒆𝒏𝒕𝒊𝒕𝒐 𝒐𝒏𝒊𝒄𝒉𝒂𝒏~ 🌸*`;
+      
+    const thumbnailBuffer = await (await fetch(thumbnail)).buffer();
+
+    await conn.sendMessage(m.chat, {
+      image: thumbnailBuffer,
+      caption: textoInfo,
+      contextInfo: {
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363401008003732@newsletter',
+          newsletterName: '=͟͟͞𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺',
+          serverMessageId: -1
+        }
+      }
+    }, { quoted: m });
+
+    const { url, title: titleVid } = await ytdl(text);
     const size = await getSize(url);
 
     if (!size) {
@@ -145,31 +142,31 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       await conn.reply(m.chat, '🤨 Espera, estoy lidiando con un archivo pesado', m);
     }
 
-    await m.react('✅️'); // Descarga iniciada
-    const caption = `*💌 ${title}*\n> ⚖️ Peso: ${formatSize(size)}\n> 🌎 URL: ${text}`;
+    await m.react('✅️');
+    const caption = `*💌 ${titleVid}*\n> ⚖️ Peso: ${formatSize(size)}\n> 🌎 URL: ${text}`;
     const isSmallVideo = size < VIDEO_THRESHOLD;
 
     const buffer = await (await fetch(url)).buffer();
     await conn.sendFile(
       m.chat,
       buffer,
-      `${title}.mp4`,
+      `${titleVid}.mp4`,
       caption,
       m,
       null,
       {
         mimetype: 'video/mp4',
         asDocument: !isSmallVideo,
-        filename: `${title}.mp4`
+        filename: `${titleVid}.mp4`
       }
     );
 
-    await m.react('🟢'); // Completado
-    isProcessingHeavy = false; // Liberar estado
+    await m.react('🟢');
+    isProcessingHeavy = false;
   } catch (e) {
     await m.react('🔴');
     await m.reply(`❌ Error: ${e.message || 'No se pudo procesar la solicitud'}`);
-    isProcessingHeavy = false; // Liberar estado en caso de error
+    isProcessingHeavy = false;
   }
 };
 
@@ -179,7 +176,6 @@ handler.tags = ['descargas'];
 handler.diamond = true;
 
 export default handler;
-
 
 /*import fetch from "node-fetch";
 import axios from 'axios';
