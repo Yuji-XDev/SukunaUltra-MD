@@ -15,23 +15,22 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   
   
   if (user.registered) {
-   const textoImg = `╭───⌬ 𝑨𝑫𝑽𝑬𝑹𝑻𝑬𝑵𝑪𝑰𝑨 ⌬───╮
-🚫 Ya estás registrado...
-¿Quieres reiniciar tu progreso?
+   const texto = `➤ ⌬ \`ＡＶＩＳＯ\` ⌬
+*🚫 Ya estás registrado...*
+¿ ǫᴜɪᴇʀᴇs ᴠᴏʟᴠᴇʀ ᴀ ʀᴇɢɪsᴛʀᴀʀᴛᴇ ?
   
-⛩️ Usa *#unreg* para borrar tu registro y volver a empezar.
-╰───────────────────╯`;
+⛩️ Usa *#unreg* para borrar tu registro y volver a empezar.`;
 
    const botones = [
-     { buttonId: `${usedPrefix}owner`, buttonText: { displayText: '👑 Owner' }, type: 1 },
-     { buttonId: `${usedPrefix}infobot`, buttonText: { displayText: '🌐 InfoBot' }, type: 1 },
+     { buttonId: `${usedPrefix}ping`, buttonText: { displayText: '🌳 Velocidad del Bot' }, type: 1 },
+     { buttonId: `${usedPrefix}unreg`, buttonText: { displayText: '🌷 Unreg' }, type: 1 },
    ];
 
    return await conn.sendMessage(m.chat, {
-     image: { url: 'https://files.catbox.moe/r3jdyl.jpg' },
-     caption: textoImg,
+     image: { url: 'https://files.catbox.moe/r2ixaj.jpg' },
+     caption: texto,
      mentions: [m.sender],
-     footer: 'Sukuna Bot MD ✨',
+     footer: '🌾 Sukuna Ultra MD',
      buttons: botones,
      headerType: 4
    }, { quoted: m });
@@ -44,12 +43,40 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 ⛩️ Usa *#unreg* para borrar tu registro y volver a empezar.`)*/
 
 
-  if (!Reg.test(text)) return m.reply(`*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*
+    if (!Reg.test(text)) {
+     const text = `╭─『 ❌ 𝙀𝙍𝙍𝙊𝙍 𝘿𝙀 𝙁𝙊𝙍𝙈𝘼𝙏𝙊 ❌ 』─╮  
+☄️ Debes escribirlo así:
+*${usedPrefix + command} Nombre.Edad*
+
+💥 Ejemplo válido:
+*${usedPrefix + command} ${name2}.18*
+
+✔ Usa un punto (.) para separar nombre y edad.
+╰──────────────────────────╯`,
+
+   const botones = [
+     { buttonId: `${usedPrefix}ping`, buttonText: { displayText: '🌳 Velocidad del Bot' }, type: 1 },
+     { buttonId: `${usedPrefix}unreg`, buttonText: { displayText: '🌷 Unreg' }, type: 1 },
+   ];
+
+   return await conn.sendMessage(m.chat, {
+     image: { url: 'https://files.catbox.moe/r2ixaj.jpg' },
+     caption: text,
+     mentions: [m.sender],
+     footer: '🌾 Sukuna Ultra MD',
+     buttons: botones,
+     headerType: 4
+   }, { quoted: m });
+ }
+
+
+
+/*  if (!Reg.test(text)) return m.reply(`*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*
 
 *${usedPrefix + command} nombre.edad*
 
 🎄 \`Ejemplo:\`
-*${usedPrefix + command} ${name2}.18*`)
+*${usedPrefix + command} ${name2}.18*`)*/
 
 
   let hora = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
