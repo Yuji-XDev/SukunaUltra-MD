@@ -36,49 +36,38 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
    }, { quoted: m });
  }
   
- /* if (user.registered === true) return m.reply(`➤ ⌬ \`ＡＶＩＳＯ\` ⌬
-*🚫 Ya estás registrado...*
-¿ ǫᴜɪᴇʀᴇs ᴠᴏʟᴠᴇʀ ᴀ ʀᴇɢɪsᴛʀᴀʀᴛᴇ ?
-  
-⛩️ Usa *#unreg* para borrar tu registro y volver a empezar.`)*/
+   if (!Reg.test(text)) {
+     const mensaje = `*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*
+
+*${usedPrefix + command} nombre.edad*
+
+🎄 \`Ejemplo:\`
+*${usedPrefix + command} ${name2}.18*`;
+
+     const botones = [
+       { buttonId: `${usedPrefix}reg ${name2}.18`, buttonText: { displayText: '🖍️ Auto Verificacion' }, type: 1 },
+       { buttonId: `${usedPrefix}menu`, buttonText: { displayText: '🎲 Menu All' }, type: 1 },
+     ];
+
+     return await conn.sendMessage(m.chat, {
+       image: { url: 'https://files.catbox.moe/r2ixaj.jpg' },
+       caption: mensaje,
+       mentions: [m.sender],
+       footer: '🌾 Sukuna Ultra MD',
+       buttons: botones,
+       headerType: 4
+     }, { quoted: m });
+  }
 
 
- /*   if (!Reg.test(text)) {
-     const text = `╭─『 ❌ 𝙀𝙍𝙍𝙊𝙍 𝘿𝙀 𝙁𝙊𝙍𝙈𝘼𝙏𝙊 ❌ 』─╮  
-☄️ Debes escribirlo así:
-*${usedPrefix + command} Nombre.Edad*
-
-💥 Ejemplo válido:
-*${usedPrefix + command} ${name2}.18*
-
-✔ Usa un punto (.) para separar nombre y edad.
-╰──────────────────────────╯`,
-
-   const botones = [
-     { buttonId: `${usedPrefix}ping`, buttonText: { displayText: '🌳 Velocidad del Bot' }, type: 1 },
-     { buttonId: `${usedPrefix}unreg`, buttonText: { displayText: '🌷 Unreg' }, type: 1 },
-   ];
-
-   return await conn.sendMessage(m.chat, {
-     image: { url: 'https://files.catbox.moe/r2ixaj.jpg' },
-     caption: text,
-     mentions: [m.sender],
-     footer: '🌾 Sukuna Ultra MD',
-     buttons: botones,
-     headerType: 4
-   }, { quoted: m });
- }
-*/
-
-
-  if (!Reg.test(text)) return m.reply(`*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*
+ /* if (!Reg.test(text)) return m.reply(`*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*
 
 *${usedPrefix + command} nombre.edad*
 
 🎄 \`Ejemplo:\`
 *${usedPrefix + command} ${name2}.18*`)
 
-
+*/
   let hora = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
     
   let fechaObj = new Date();
