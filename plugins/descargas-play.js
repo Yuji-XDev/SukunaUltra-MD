@@ -31,7 +31,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     url = url || 'no encontrado'
     author = author || 'no encontrado'
     
-    const tipo = command.startsWith("play2") || command === "ytv" || command === "ytmp4" ? "ᴠɪᴅᴇᴏ 🎞" : "ᴀᴜᴅɪᴏ ♫";
+    const tipo = command.startsWith("mp4") || command === "playvideo" ? "ᴠɪᴅᴇᴏ 🎞" : "ᴀᴜᴅɪᴏ ♫";
     const emoji = tipo.includes("ᴠɪᴅᴇᴏ") ? "📹" : "🎧";
 
     const tamaño = size ? await formatSize(size) : 'Desconocido';
