@@ -17,38 +17,40 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!video) return m.reply(`❌ No se encontraron resultados.`)
 
     const { title, thumbnail, timestamp, views, ago, url, author } = video
-    const tipo = /mp4|playvideo/.test(command) ? "ᴠɪᴅᴇᴏ 🎞" : "ᴀᴜᴅɪᴏ ♫"
-    const emoji = tipo.includes("ᴠɪᴅᴇᴏ") ? "📹" : "🎧"
+    const tipo = /mp4|playvideo/.test(command) ? "📽️ ᴠɪᴅᴇᴏ" : "🎧 ᴀᴜᴅɪᴏ"
     const canal = author?.name || "Desconocido"
     const vistas = formatViews(views)
-  
-    const infoMessage = `╔═══『 ✨ 𝚄𝚃𝙸𝙻 𝙸𝙽𝙵𝙾 ✨ 』═══╗
-╟─ 🍬 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title}
-╟─ 🌵 *𝑫𝒖𝒓𝒂𝒄𝒊ó𝒏:* ${timestamp}
-╟─ 🍃 *𝑪𝒂𝒏𝒂𝒍:* ${canal}
-╟─ 🍁 *𝑽𝒊𝒔𝒕𝒂𝒔:* ${vistas}
-╟─ 🌳 *𝑭𝒆𝒄𝒉𝒂:* ${ago}
-╟─ 📡 *𝑻𝒊𝒑𝒐:* ${tipo}
-╟─ 🔗 *𝑬𝒏𝒍𝒂𝒄𝒆:* ${url}
-╚═════════════════════╝`
+
+    const infoMessage = `
+╭━━━〔 🔎 𝙸𝙽𝙵𝙾 𝙳𝙴 𝚅𝙸𝙳𝙴𝙾/𝙰𝚄𝙳𝙸𝙾 〕━━⬣
+┃📌 *Título:* ${title}
+┃⏱️ *Duración:* ${timestamp || "No disponible"}
+┃🧑‍💻 *Canal:* ${canal}
+┃👁️ *Vistas:* ${vistas}
+┃📆 *Publicado:* ${ago}
+┃🎞️ *Tipo:* ${tipo}
+┃🔗 *Enlace:* ${url}
+╰━━━━━━━━━━━━━━━━━━⬣`
 
     const thumb = (await conn.getFile(thumbnail)).data
 
-    await conn.sendMessage(m.chat, { text: infoMessage, contextInfo: {
-      externalAdReply: {
-        title: "📻 YouTube Downloader",
-        body: "Descargas multimedia",
-        mediaType: 1,
-        previewType: 0,
-        mediaUrl: url,
-        sourceUrl: url,
-        thumbnail: thumb,
-        renderLargerThumbnail: true,
+    await conn.sendMessage(m.chat, {
+      text: infoMessage,
+      contextInfo: {
+        externalAdReply: {
+          title: "📻 YouTube Downloader",
+          body: "Descargas multimedia al instante",
+          mediaType: 1,
+          previewType: 0,
+          mediaUrl: url,
+          sourceUrl: url,
+          thumbnail: thumb,
+          renderLargerThumbnail: true,
+        }
       }
-    }}, { quoted: m })
+    }, { quoted: m })
 
-    await m.react(emoji)
-
+    await m.react(tipo.includes('ᴀᴜᴅɪᴏ') ? "🎧" : "📹")
 
     if (/mp3|playaudio/.test(command)) {
       const api = await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)
@@ -60,7 +62,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         audio: { url: result },
         fileName: `${json.result.title}.mp3`,
         mimetype: 'audio/mpeg'
-      }, { quoted: fkontak })
+      }, { quoted: m })
 
     } else if (/mp4|playvideo/.test(command)) {
       const res = await fetch(`https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=stellar-ReKwdxiR`)
@@ -71,8 +73,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         video: { url: json.data.dl },
         fileName: `${json.data.title}.mp4`,
         caption: `🎬 ${json.data.title}`
-      }, { quoted: fkontak })
-
+      }, { quoted: m })
     }
 
   } catch (error) {
