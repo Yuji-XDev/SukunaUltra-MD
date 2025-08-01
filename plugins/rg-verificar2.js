@@ -59,15 +59,6 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
      }, { quoted: m });
   }
 
-
- /* if (!Reg.test(text)) return m.reply(`*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*
-
-*${usedPrefix + command} nombre.edad*
-
-🎄 \`Ejemplo:\`
-*${usedPrefix + command} ${name2}.18*`)
-
-*/
   let hora = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
     
   let fechaObj = new Date();
@@ -90,19 +81,21 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   global.db.data.users[m.sender].exp += 300
   global.db.data.users[m.sender].joincount += 20
   let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20)
-let regbot = `✅ VERIFICACIÓN EXITOSA ✅\n\n`
-regbot += `🌾 \`NOMBRE\` » \`\`\`${name}\`\`\`\n`
-regbot += `🌀 \`EDAD\` » \`\`\`${age} años\`\`\`\n`
-regbot += `🕸️ \`FECHA\` » \`\`\`${fecha}\`\`\`\n`
-regbot += `🐋 \`HORA\` » \`\`\`${hora}\`\`\`\n`
-regbot += `🌿 \`DIA\` » \`\`\`${dia}\`\`\`\n\n`
-regbot += `🍹 RECOMPENSAS 🧪\n`
-regbot += `🪙 \`COINS:\` +40\n`
-regbot += `🏮 \`EXP:\` +300\n`
-regbot += `🔰 \`TOKENS:\` +20\n`
-regbot += `> ${club}`
-await m.react('📩')
+let regbot = `✅ VERIFICACIÓN EXITOSA ✅
 
+🌾 \`NOMBRE\` » \`\`\`${name}\`\`\`
+🌀 \`EDAD\` » \`\`\`${age} años\`\`\`
+🕸️ \`FECHA\` » \`\`\`${fecha}\`\`\`
+🐋 \`HORA\` » \`\`\`${hora}\`\`\`
+🌿 \`DIA\` » \`\`\`${dia}\`\`\`
+
+🍹 RECOMPENSAS 🧪
+🪙 \`COINS:\` +40
+🏮 \`EXP:\` +300
+🔰 \`TOKENS:\` +20
+> 💔 ${club}`;
+
+await m.react('📩')
 await conn.sendMessage(m.chat, {
         text: regbot,
         contextInfo: {
