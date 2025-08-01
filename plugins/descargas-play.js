@@ -1,4 +1,4 @@
-import fetch from "node-fetch"
+/*import fetch from "node-fetch"
 import yts from 'yt-search'
 import axios from "axios"
 const youtubeRegexID = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/
@@ -97,4 +97,4 @@ function formatViews(views) {
     return `${(views / 1_000).toFixed(1)}k (${views.toLocaleString()})`
   }
   return views.toString()
-}
+}*/

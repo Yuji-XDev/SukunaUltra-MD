@@ -34,8 +34,13 @@ let handler = async (m, { conn }) => {
     return resultado.trim();
   }
 
-  const totalSubs = subbotsUnicos.length;
+  const total = subbotsUnicos.length;
+  const maxSubbots = 30;
+  const disponibles = maxSubbots - total;
+  const mentions = [];
 
+
+  const totalSubs = subbotsUnicos.length;
   const lista = subbotsUnicos.map((bot, i) => {
     return `╭➤ Sσƈƙꫀƚ #${i + 1} 𓆩🌳𓆪
 │⤿ 🧪 \`Usuario:\` ${bot.user?.name || '𝚂𝚄𝙱 𝙱𝙾𝚃 𝚂𝚄𝙺𝚄𝙽𝙰'}
@@ -61,7 +66,7 @@ ${lista}
     contextInfo: {
       externalAdReply: {
         title: `🍁 𝐒𝐎𝐂𝐊𝐄𝐓𝐒 𝐂𝐎𝐍𝐄𝐂𝐓𝐀𝐃𝐎𝐒 🏮`,
-        body: `🧪 connected: ${totalSubs}`,
+        body: `🧪 connected: ${total}/${maxSubbots}  • ${disponibles }`,
         thumbnailUrl: 'https://files.catbox.moe/zgvj8c.jpg',
         sourceUrl: 'https://gituhb.com/Yuji-XDev/SukunaBot-V2',
         mediaType: 1,

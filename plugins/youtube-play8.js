@@ -92,7 +92,7 @@ const caption = `*🌳  YOUTUBE PLAY 🎬*
       },
       buttons: [
         {
-          buttonId: `${usedPrefix}ytmp3 ${video.url}`,
+          buttonId: `${usedPrefix}yta ${video.url}`,
           buttonText: { displayText: '🌳 𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂𝒓 𝑨𝒖𝒅𝒊𝒐' },
           type: 1,
         },
@@ -144,9 +144,9 @@ const caption = `*🌳  YOUTUBE PLAY 🎬*
   }
 };
 
-handler.help = ['play8 *<texto>*'];
+handler.help = ['play2 *<texto>*'];
 handler.tags = ['downloader'];
-handler.command = ['play8'];
+handler.command = ['play2'];
 export default handler;
 
 async function searchVideos(query) {
