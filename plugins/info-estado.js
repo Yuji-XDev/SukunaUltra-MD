@@ -13,20 +13,20 @@ let old = performance.now()
 let neww = performance.now()
 let speed = neww - old
 const used = process.memoryUsage()
-let info = `╭╼✧ 📊 𝐄𝐒𝐓𝐀𝐃𝐎 𝐃𝐄 SUKUNA ultra ⚙️ ✧\n`
-info += `┃\n`
-info += `├❍ 🌟 *𝐂𝐑𝐄𝐀𝐃𝐎𝐑:* ${etiqueta}\n`
-info += `├❍ 🥥 *𝐏𝐑𝐄𝐅𝐈𝐉𝐎:* [ ${usedPrefix} ]\n`
-info += `├❍ 🌱 *𝐕𝐄𝐑𝐒𝐈𝐎́𝐍:* ${vs}\n`
-info += `├❍ 🔒 *𝐂𝐇𝐀𝐓𝐒 𝐏𝐑𝐈𝐕𝐀𝐃𝐎𝐒:* ${chats.length - groupsIn.length}\n`
-info += `├❍ ⚙️ *𝐂𝐇𝐀𝐓𝐒 𝐓𝐎𝐓𝐀𝐋𝐄𝐒:* ${chats.length}\n`
-info += `├❍ 👻 *𝐔𝐒𝐔𝐀𝐑𝐈𝐎𝐒:* ${totalreg}\n`
-info += `├❍ 🦠 *𝐆𝐑𝐔𝐏𝐎𝐒:* ${groupsIn.length}\n`
-info += `├❍ ⏱️ *𝐀𝐂𝐓𝐈𝐕𝐈𝐃𝐀𝐃:* ${uptime}\n`
-info += `├❍ 🚀 *𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃:* ${(speed * 1000).toFixed(0) / 1000} s\n`
-info += `├❍ 🤖 *𝐒𝐔𝐁𝐁𝐎𝐓𝐒 𝐀𝐂𝐓𝐈𝐕𝐎𝐒:*\n`
-info += `├➤ 💥 ${totalUsers || '0'}\n`
-info += `╰╼♡✦ 𓆩 SUKUNA.MD 𓆪 ✦♡`
+let info = `╭══🎯⃟⃟⃢⃟⃢⟡⃝⃟⃢⃟⃢⃟⃟🎯══⬣
+┃     🌐 *『 SUKUNA - STATUS 』* ⚙️
+┃────────────────────────
+┃ ✦🧠 *Creador:* ${etiqueta}
+┃ ✦💬 *Prefijo:* [ ${usedPrefix} ]
+┃ ✦🔖 *Versión:* ${vs}
+┃ ✦💌 *Chats Privados:* ${chats.length - groupsIn.length}
+┃ ✦🌐 *Total de Chats:* ${chats.length}
+┃ ✦👥 *Usuarios:* ${totalreg}
+┃ ✦👑 *Grupos:* ${groupsIn.length}
+┃ ✦🕰️ *Actividad:* ${uptime}
+┃ ✦⚡ *Velocidad:* ${(speed * 1000).toFixed(0) / 1000} ms
+┃ ✦🤖 *Subbots Activos:* ${totalUsers || '0'}
+╰═════⊷ 🧧 *SUKUNA.MD* 🧧`;
 await conn.sendFile(m.chat, banner, 'estado.jpg', info, fkontak)
 }
 handler.help = ['estado']
