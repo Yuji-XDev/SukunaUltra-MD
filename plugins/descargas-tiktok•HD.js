@@ -10,22 +10,22 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
   try {
     await m.react('⏳');
 
-    const videoUrl = await getTiktokVideoHD(text);
+    let videoUrl = await getTiktokHDPrimary(text);
+    if (!videoUrl) videoUrl = await getTiktokHDBackup(text);
 
-    if (!videoUrl) throw new Error('No se pudo obtener el video.');
+    if (!videoUrl) throw new Error('No se pudo obtener el video HD.');
 
-   
     const head = await axios.head(videoUrl);
     const contentLength = head.headers['content-length'];
     const fileSizeMB = parseInt(contentLength) / (1024 * 1024);
 
     if (fileSizeMB > MAX_MB) {
-      return conn.reply(m.chat, `❌ El video pesa *${fileSizeMB.toFixed(2)} MB* y excede el límite de ${MAX_MB}MB.`, m);
+      return conn.reply(m.chat, `❌ El video pesa *${fileSizeMB.toFixed(2)} MB* y excede el límite de ${MAX_MB}MB.\n\n💡 Puedes descargarlo manualmente:\n${videoUrl}`, m);
     }
 
     await conn.sendMessage(m.chat, {
       video: { url: videoUrl },
-      caption: '*[ TIKTOK SIN MARCA DE AGUA - HD ]* ✅'
+      caption: '*[ TIKTOK HD SIN MARCA DE AGUA ]* 🎬'
     }, { quoted: m });
 
     await m.react('✅');
@@ -42,11 +42,11 @@ handler.command = ['tiktokhd', 'th'];
 
 export default handler;
 
-// ─────────────────────────────────────
+// ─────────────── FUNCIONES API ───────────────
 
-async function getTiktokVideoHD(url) {
+async function getTiktokHDPrimary(url) {
   try {
-    const { data } = await axios.get(`https://www.tikwm.com/api/`, {
+    const { data } = await axios.get('https://www.tikwm.com/api/', {
       params: { url },
       headers: {
         'User-Agent': 'Mozilla/5.0'
@@ -56,10 +56,21 @@ async function getTiktokVideoHD(url) {
     const result = data?.data;
     if (!result) return null;
 
-   
     return result.hdplay || result.play_2 || result.play;
   } catch (e) {
-    console.error('Error en getTiktokVideoHD:', e);
+    console.error('Error API primaria:', e);
+    return null;
+  }
+}
+
+async function getTiktokHDBackup(url) {
+  try {
+    const { data } = await axios.get(`https://api.tiklydown.me/download?url=${encodeURIComponent(url)}`);
+    const video = data?.video?.no_watermark_hd || data?.video?.no_watermark;
+
+    return video || null;
+  } catch (e) {
+    console.error('Error API backup:', e);
     return null;
   }
 }
