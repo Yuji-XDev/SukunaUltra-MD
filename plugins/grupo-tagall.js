@@ -39,7 +39,7 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
 
   textoFinal.push(`╰⊰━━━━━━⊱⬣\n> ${wm}`);
 
-  await conn.sendMessage(m.chat, {
+/*  await conn.sendMessage(m.chat, {
     text: textoFinal.join('\n'),
     mentions: participants.map(p => p.id),
     contextInfo: {
@@ -55,6 +55,18 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
       }
     }
   }, { quoted: fkontak });
+};*/
+await conn.sendMessage(m.chat, {
+    text: textoFinal.join('\n'),
+    contextInfo: {
+      externalAdReply: {
+        mediaType: 1,
+        renderLargerThumbnail: true,
+        thumbnailUrl: logo,
+        sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U',
+      }
+    }
+  }, { quoted: m });
 };
 
 handler.help = ['todos *<mensaje>*'];

@@ -12,8 +12,8 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
 ┃ 🧩 *𝐎𝐧𝐥𝐲 𝐭𝐡𝐞 𝐛𝐫𝐚𝐯𝐞 𝐚𝐝𝐦𝐢𝐧𝐬 𝐜𝐚𝐧 𝐜𝐨𝐧𝐭𝐫𝐨𝐥 𝐒𝐮𝐤𝐮𝐧𝐚.*
 ┃
 ┣━⪻ 𝐂𝐎𝐌𝐀𝐍𝐃𝐎𝐒 𝐃𝐈𝐒𝐏𝐎𝐍𝐈𝐁𝐋𝐄𝐒 ⪼━⬤
-┃ ⚡ ${usedPrefix}bot on ➤ *𝐄𝐧𝐜𝐞𝐧𝐝𝐞𝐫 𝐞𝐥 𝐜𝐚𝐨𝐬*
-┃ 🔕 ${usedPrefix}bot off ➤ *𝐂𝐚𝐥𝐥𝐚𝐫 𝐚 𝐥𝐚 𝐛𝐞𝐬𝐭𝐢𝐚*
+┃ ⚡ ${usedPrefix}bot on ➤ *𝙰𝚌𝚝𝚒𝚟𝚊𝚛 𝙱𝚘𝚝*
+┃ 🔕 ${usedPrefix}bot off ➤ *𝙳𝚎𝚜𝚊𝚌𝚝𝚒𝚟𝚊𝚛 𝙱𝚘𝚝*
 ┃
 ┣━⪻ 𝐄𝐒𝐓𝐀𝐃𝐎 𝐀𝐂𝐓𝐔𝐀𝐋 ⪼━⬤
 ┃ 📶 𝐒𝐮𝐤𝐮𝐧𝐚 ➤ ${estado}
