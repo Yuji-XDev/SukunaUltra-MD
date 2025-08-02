@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 
 const handler = async (m, { conn, usedPrefix }) => {
   await m.react('🌳');
-  //------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------
   let loading = [
     '🌘 [█░░░░░░░░░] 10%',
     '🌗 [██░░░░░░░░] 20%',
@@ -24,7 +24,7 @@ const handler = async (m, { conn, usedPrefix }) => {
     await conn.sendMessage(m.chat, { text: paso, edit: key });
     await new Promise(r => setTimeout(r, 500));
   }
-  //------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------
   try {
     const uptime = clockString(process.uptime() * 1000);
     const now = new Date();
@@ -161,7 +161,7 @@ const handler = async (m, { conn, usedPrefix }) => {
 
     await conn.sendMessage(m.chat, {
       document: docBuffer,
-      fileName: `SUKUNA ULTRA.png`,
+      fileName: `SUKUNA ULTRA 💚`,
       mimetype: 'image/PNG',
       caption: texto,
       jpegThumbnail: thumb2,
