@@ -2,13 +2,13 @@ import yts from 'yt-search';
 
 const traducirAgo = (texto) => {
   return texto
-    .replace(/second[s]? ago/i, 'hace unos segundos')
-    .replace(/minute[s]? ago/i, 'hace minutos')
-    .replace(/hour[s]? ago/i, 'hace horas')
-    .replace(/day[s]? ago/i, 'hace días')
-    .replace(/week[s]? ago/i, 'hace semanas')
-    .replace(/month[s]? ago/i, 'hace meses')
-    .replace(/year[s]? ago/i, 'hace años')
+    .replace(/second[s]? ago/i, 'unos segundos')
+    .replace(/minute[s]? ago/i, 'minutos')
+    .replace(/hour[s]? ago/i, 'horas')
+    .replace(/day[s]? ago/i, 'días')
+    .replace(/week[s]? ago/i, 'semanas')
+    .replace(/month[s]? ago/i, 'meses')
+    .replace(/year[s]? ago/i, 'año')
     .replace(/\b1 (segundo|minuto|hora|día|semana|mes|año)s?\b/g, 'hace 1 $1')
     .replace(/\b(\d+)\b/, 'hace $1');
 };
