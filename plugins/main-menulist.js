@@ -49,17 +49,16 @@ const handler = async (m, { conn, usedPrefix }) => {
     const thumb2 = await sharp(imagenBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
     const docBuffer = await sharp(imagenBuffer).webp({ quality: 90 }).toBuffer();*/
     
+    const imgUrl = 'https://files.catbox.moe/97lre0.jpg';
+    const imagenBuffer = await (await fetch(imgUrl)).buffer();    
+    const thumb2 = await sharp(imagenBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
     
     
-
-     const imgUrlDoc = 'https://files.catbox.moe/97lre0.jpg';
-     const bufferDoc = await (await fetch(imgUrlDoc)).buffer();
-     const docBuffer = await sharp(bufferDoc).webp({ quality: 90 }).toBuffer();
-
-
-    const imgUrlThumb = 'https://files.catbox.moe/jyz3f8.jpg';
-    const bufferThumb = await (await fetch(imgUrlThumb)).buffer();
-    const thumb = await sharp(bufferThumb).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
+    const imgenUrl = 'https://files.catbox.moe/jyz3f8.jpg';
+    const imgBuffer = await (await fetch(imgenUrl)).buffer();
+     
+    const thumb = await sharp(imgBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
+    const docBuffer = await sharp(imagenBuffer).webp({ quality: 90 }).toBuffer();
     
     
 
@@ -90,7 +89,7 @@ const handler = async (m, { conn, usedPrefix }) => {
       fileName: `📦 MENÚ - SukunaBot.png`,
       mimetype: 'image/webp',
       caption: texto,
-      jpegThumbnail: thumb,
+      jpegThumbnail: thumb2,
       footer: '⌬ Sistema Operativo: *SUᴋᴜɴᴀ.ᴇxᴇ*',
       buttons: [
         ...buttons,
