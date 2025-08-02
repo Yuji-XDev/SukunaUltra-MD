@@ -1,4 +1,4 @@
-let media = './src/catalogo.jpg'
+let media = 'https://files.catbox.moe/ur3ocy.jpg'
 let handler = async (m, { conn, command }) => {
 let user = db.data.users[m.sender]
 let str = `╭─〔 ⚔️ 𝐒𝐔𝐊𝐔𝐍𝐀 𝐌𝐄𝐍𝐔 𝐗𝐃 🐾 〕─╮
