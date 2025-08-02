@@ -117,7 +117,7 @@ const handler = async (m, { conn, usedPrefix }) => {
 
     const buttons = [
       { buttonId: `${usedPrefix}creador`, buttonText: { displayText: '📞 Creador' }, type: 1 },
-      { buttonId: `${usedPrefix}reg ..18`, buttonText: { displayText: '👤 Auto Verificar' }, type: 1 },
+      { buttonId: `${usedPrefix}reg dv.Shadow.18`, buttonText: { displayText: '👤 Auto Verificar' }, type: 1 },
       { buttonId: `${usedPrefix}sistema`, buttonText: { displayText: '🌾 Ver Sistema del Bot' }, type: 1 }
     ];
 
