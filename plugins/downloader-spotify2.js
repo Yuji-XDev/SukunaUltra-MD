@@ -79,7 +79,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text || !text.includes('spotify.com/track')) {
-    return conn.reply(m.chat, `🌿 *Ingresa una URL válida de Spotify*\n\n📌 Ejemplo:\n${usedPrefix + command} https://open.spotify.com/track/37ZtpRBkHcaq6hHy0X98zn`, m);
+    return conn.reply(m.chat, `🌿 *Ingresa una URL válida de Spotify*\n\n📌 Ejemplo:\n${usedPrefix + command} https://open.spotify.com/track/5xSt1wxZobFcLzHrFakv6z?si=bMp7vXRTTLK2PkzceN9Imw%0A&context=spotify%3Aplaylist%3A37i9dQZF1EIUCUEDwM1AZV`, m);
   }
 
   try {
