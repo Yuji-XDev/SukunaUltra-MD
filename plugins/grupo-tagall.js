@@ -13,26 +13,26 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
 
   const mensaje = args.length ? args.join(' ') : '⚠️ *No se proporcionó mensaje.*';
   const grupo = await conn.getName(m.chat);
-  const wm = '◟𝐒𝐮𝐤𝐮𝐧𝐚 𝐁𝐨𝐭◞';
+  const wm = club;
   const mencionados = participants.map(p => p.id);
 
   let textoFinal = [
-    `╭─〔 ⚡ 𝙎𝙐𝙆𝙐𝙉𝘼 𝘽𝙊𝙏 𝙄𝙉𝙑𝙊𝘾𝘼𝙏𝙄𝙊𝙉 🌳 〕─╮`,
-    `┃ 🔱 𝐋𝐥𝐚𝐦𝐚𝐝𝐨 𝐝𝐞 𝐥𝐚𝐬 𝐬𝐨𝐦𝐛𝐫𝐚𝐬…`,
-    `┃`,
-    `┃ 📣 *MENSAJE:*`,
-    `┃ ⤷ ${mensaje}`,
-    `┃`,
-    `┃ 🕷️ *Grupo:* ${grupo}`,
-    `┃ 👥 *Miembros:* ${participants.length}`,
-    `┃━━━━━━━━━━━━━━━━━━⬣`
+    `╔═✦〘 🕸️ 𝙎𝙐𝙆𝙐𝙉𝘼 𝙎𝙐𝙈𝙈𝙊𝙉 〙✦═╗`,
+    `║ 🧿 *Invocación Espiritual Activada...*`,
+    `║`,
+    `║ 💬 *Mensaje del abismo:*`,
+    `║    ↳ ${mensaje}`,
+    `║`,
+    `║ 🏚️ *Reino:* ${grupo}`,
+    `║ 🧍‍♂️ *Almas Presentes:* ${participants.length}`,
+    `╚══════⟢⟣══════╝`
   ];
 
   for (const user of participants) {
-    textoFinal.push(`┃ ✦ @${user.id.split('@')[0]}`);
+    textoFinal.push(` ✦ ${customEmoji} @${user.id.split('@')[0]}`);
   }
 
-  textoFinal.push(`╰⊰━━━━━━⊱⬣\n> ${wm}`);
+  textoFinal.push(`\n> ${wm}`);
 
   await conn.sendMessage(m.chat, {
     text: textoFinal.join('\n'),
