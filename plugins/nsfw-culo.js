@@ -1,9 +1,4 @@
 let handler = async (m, { conn }) => {
-m.private = !m.isGroup;
-
-if (!m.private) {
-  return await conn.reply(m.chat, '🚫 Este comando solo funciona en privado.', m);
-}
 
   let img = 'https://dark-core-api.vercel.app/api/random/ass?key=api';
   let text = '🍑 *Disfruta tu ración de... arte digital 🙈*';
