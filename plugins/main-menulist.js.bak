@@ -1,133 +1,81 @@
 import sharp from 'sharp';
-import fetch from 'node-fetch';
 import fs from 'fs';
+import fetch from 'node-fetch';
 
 const handler = async (m, { conn, usedPrefix }) => {
   await m.react('📦');
+
   try {
-    // Estados y fechas
-    const uptime = clockString(process.uptime() * 1000);
-    const now = new Date();
-    const hora = now.toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
-    const fecha = now.toLocaleDateString('es-PE', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Lima' });
-    const dia = now.toLocaleDateString('es-PE', { weekday: 'long', timeZone: 'America/Lima' });
+    // Datos base
+    const nombreBot = 'SUKUNA BOT MD';
+    const fecha = new Date().toLocaleDateString('es-PE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    const hora = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
+    const versionBot = 'v9.3.0';
+    const totalComandos = 840;
 
-    const totalUsers = Object.keys(global.db.data.users).length;
-    const totalCommands = Object.values(global.plugins).filter(p => p.help && p.tags).length;
-    const user = global.db.data.users[m.sender] || {};
+    // Imagen original JPG
+    const imageBuffer = fs.readFileSync('./media/menufull.jpg');
 
-    // Texto decorativo (igual al tuyo, respetando estilos)
-    const texto = `❀•° ʜᴏʟᴀ ʙɪᴇɴᴠᴇɴɪᴅ/ᴀ ᴀʟ ᴍᴇɴᴜ ʟɪsᴛ, sᴏʏ ${global.namebot} °•❀
-˚̩̩̥͙°̩̥〔 ${global.etiqueta} 〕°̩̥˚̩̩̥͙°̩̥ ·͙*̩̩͙
-┏━━━━━━⬣
-┃ ⌬ 𝗜𝗡𝗙𝗢 𝗗𝗘𝗟 𝗕𝗢𝗧 📟
-┃ 🧠 \`ᴄʀᴇᴀᴅᴏʀ:\` *[ Dev.Shadow ]*
-┃ 🔗 \`ᴄᴏɴᴛᴀᴄᴛᴏ:\` *[ wa.link/z1w9sq ]*
-┃ 📁 \`ᴠᴇʀsɪᴏɴ:\` *[ 2.2.5 ]*
-┃ 👥 \`ᴜsᴜᴀʀɪᴏs:\` *[ ${totalUsers} ]*
-┃ 📦 \`ᴄᴏᴍᴀɴᴅᴏs:\` *[ ${totalCommands} ]*
-┃ ⚙️ \`ᴍᴏᴅᴏ:\` *[ Privado ]*
-┃ 📚 \`ʟɪʙʀᴇʀɪᴀ:\` *[ Baileys‑MD ]*
-┃ 🕰️ \`ᴀᴄᴛɪᴠᴏ:\` *[ ${uptime} ]*
-┗━━━━━━⬣
+    // Convertir a .webp con sharp
+    const webpBuffer = await sharp(imageBuffer)
+      .webp({ quality: 80 })
+      .toBuffer();
 
-┏━━━━━━⬣
-┃ ⌬ 𝗧𝗨 𝗣𝗘𝗥𝗙𝗜𝗟 👤
-┃ 🧬 \`ɪᴅ:\` *[ ${conn.getName(m.sender)} ]*
-┃ 💰 \`ᴍᴏɴᴇᴅᴀs:\` *[ ${user.coin || 0} ]*
-┃ 📊 \`ɴɪᴠᴇʟ:\` *[ ${user.level || 0} ]*
-┃ ⚡ \`ᴇxᴘ:\` *[ ${user.exp || 0} ]*
-┃ 👑 \`ʀᴀɴɢᴏ:\` [ ${user.role || 'Sin Rango'} ]
-┗━━━━━━⬣
+    // Guardar temporalmente como .webp para adjuntar
+    const path = './src/catalogo.jpg';
+    fs.writeFileSync(path, webpBuffer);
 
-┏━━━━━━⬣
-┃ ⌬ 𝗙𝗘𝗖𝗛𝗔 & 𝗛𝗢𝗥𝗔 🕒
-┃ 🗓️ \`ғᴇᴄʜᴀ:\` *[ ${fecha} ]*
-┃ 📅 \`ᴅɪᴀ:\` *[ ${dia} ]*
-┃ ⏰ \`ʜᴏʀᴀ:\` *[ ${hora} ]*
-┗━━━━━━⬣`;
-
-    const imageUrl = 'https://files.catbox.moe/jyz3f8.jpg';
-    const imgBuffer = await (await fetch(imageUrl)).buffer();
-
-    // Convertir miniatura para jpegThumbnail
-    const thumb = await sharp(imgBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
-
-    // Convertir a WEBP para archivo si quieres enviarlo como documento webp
-    const docBuffer = await sharp(imgBuffer).webp({ quality: 80 }).toBuffer();
-
-    // Botones rápidos
-    const buttons = [
-      { buttonId: `${usedPrefix}creador`, buttonText: { displayText: '✐ ꒷📞ദ ᴄʀᴇᴀᴅᴏʀ' }, type: 1 },
-      { buttonId: `${usedPrefix}reg ..18`, buttonText: { displayText: '✐ ꒷👤ദ ᴀᴜᴛᴏ ᴠᴇʀɪғɪᴄᴀʀ' }, type: 1 },
-      { buttonId: `${usedPrefix}sistema`, buttonText: { displayText: '✐ ꒷🌾ദ ᴠᴇʀ sɪsᴛᴇᴍᴀ' }, type: 1 }
-    ];
-
-    const sections = [{
-      title: "🥮 MENÚS DISPONIBLES 🐛",
-      rows: [
-        { title: "📥 Mᴇɴᴜ [ DL ]", description: "🎧 descargar", rowId: `${usedPrefix}menudl` },
-        { title: "⛏️ Mᴇɴᴜ [ RPG ]", description: "🎮 rpg", rowId: `${usedPrefix}menurpg` },
-        { title: "🔍 Mᴇɴᴜ [ SEARCH ]", description: "🌾 search", rowId: `${usedPrefix}menuse` }
-      ]
-    }];
-
-    // Primero: enviar como documento (webp) debajo de miniatura
+    // Enviar mensaje como documento con botones
     await conn.sendMessage(m.chat, {
-      document: docBuffer,
-      fileName: `📦 MENÚ ${global.namebot}.webp`,
-      mimetype: 'image/webp',
-      caption: texto,
-      jpegThumbnail: thumb,
-      contextInfo: {
-        mentionedJid: [m.sender],
-        isForwarded: true,
-        externalAdReply: {
-          title: '',
-          body: `あ ${global.namebot}`,
-          thumbnail: thumb,
-          mediaType: 1,
-          renderLargerThumbnail: true
-        }
-      }
-    }, { quoted: m });
-
-    // Luego: repetir como imagen con botones y lista
-    await conn.sendMessage(m.chat, {
-      image: imgBuffer,
-      caption: texto,
-      footer: '⌬ Sistema Operativo: *SUᴋᴜɴᴀ.ᴇxᴇ*',
+      document: fs.readFileSync(path),
+      fileName: `📦 MENÚ ${nombreBot} - ${totalComandos} comandos`,
+      mimetype: 'application/pdf', // puedes poner image/webp si prefieres enviarlo como imagen
+      caption: `╭━━〔 ${nombreBot} 🌸 〕━━⬣
+┃ 🌟 *Fecha:* ${fecha}
+┃ 🕓 *Hora:* ${hora}
+┃ 🧠 *Versión:* ${versionBot}
+┃ 🧰 *Comandos:* ${totalComandos}
+╰━━━━━━━━━━━━━━━━⬣`,
+      footer: '✨ Usa los botones para explorar el menú completo',
       buttons: [
-        ...buttons,
-        { type: 4, nativeFlowInfo: { name: 'single_select', paramsJson: JSON.stringify({ title: '✐ ꒷ꕤ🎄ದ ʟɪsᴛ ‑ ᴍᴇɴᴜ', sections }) } }
+        { buttonId: `${usedPrefix}infobot`, buttonText: { displayText: '🔍 INFO BOT' }, type: 1 },
+        { buttonId: `${usedPrefix}donar`, buttonText: { displayText: '💖 DONAR' }, type: 1 },
+        {
+          buttonText: { displayText: '📚 CATEGORÍAS' },
+          type: 4,
+          sections: [
+            {
+              title: "🧩 Menús disponibles",
+              rows: [
+                { title: "🎮 Juegos", rowId: `${usedPrefix}juegos` },
+                { title: "🎵 Música", rowId: `${usedPrefix}musica` },
+                { title: "🛠️ Herramientas", rowId: `${usedPrefix}herramientas` },
+                { title: "📂 Todo el Menú", rowId: `${usedPrefix}menucompleto` }
+              ]
+            }
+          ]
+        }
       ],
-      headerType: 1,
-      viewOnce: true,
       contextInfo: {
-        mentionedJid: [m.sender],
-        isForwarded: true,
-        forwardingScore: 1000
+        externalAdReply: {
+          title: '👑 Sukuna Bot MD',
+          body: `✨ ${totalComandos} comandos disponibles`,
+          thumbnail: webpBuffer,
+          mediaType: 1,
+          renderLargerThumbnail: true,
+          sourceUrl: 'https://github.com'
+        }
       }
     }, { quoted: m });
 
   } catch (e) {
     console.error(e);
-    await m.react('❌');
-    await conn.reply(m.chat, `❌ *Error al mostrar el menú.*\n${e.message}`, m);
+    conn.reply(m.chat, '❌ Error al generar el menú', m);
   }
 };
 
-handler.command = ['menulist'];
-handler.help = ['menulist'];
-handler.tags = ['menus'];
+handler.command = ['menu', 'menú', 'help'];
 export default handler;
-
-function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
-  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
-  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
-  return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
-}
 
 /*import fetch from 'node-fetch';
 
