@@ -14,7 +14,7 @@ const handler = async (m, { conn, usedPrefix }) => {
     const totalCommands = Object.values(global.plugins).filter(p => p.help && p.tags).length;
     const user = global.db.data.users[m.sender] || {};
     
-    const res2 = await fetch('https://files.catbox.moe/stogkb.jpg');
+    const res2 = await fetch('https://iili.io/FKVDVAN.jpg');
     const dvshadow = await res2.buffer();
     const shadow = {
       key: {
