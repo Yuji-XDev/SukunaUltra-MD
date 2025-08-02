@@ -1,37 +1,65 @@
-/*import fetch from 'node-fetch';
+import fs from 'fs';
+import axios from 'axios';
+import FormData from 'form-data';
 
-const handler = async (m, { conn, text, command }) => {
-  if (!text || !text.includes('youtu')) {
-    return m.reply('🎥 *Por favor, proporciona un enlace válido de YouTube.*');
-  }
+const CUSTOM_FILENAME = '';
+const EXPIRE_VALUE = 365;
+const EXPIRE_UNIT = 'days';
 
-  await m.react('⏳');
+let handler = async (m, { conn, args }) => {
+  const q = m.quoted && m.quoted.download ? m.quoted : m;
+
+  if (!q || !q.download) return m.reply('🌷 Responde o envía directamente una imagen, video o archivo para subirlo.');
 
   try {
-    if (command === 'ytmp33') {
-      const res = await fetch(`https://dark-core-api.vercel.app/api/download/YTMP3?key=api&url=${encodeURIComponent(text)}`);
-      const json = await res.json();
+    const media = await q.download();
+    const ext = q.mimetype?.split('/')[1] || 'bin';
+    const filename = `${Date.now()}.${ext}`;
+    const filepath = `./${filename}`;
 
-      if (!json.status) throw '❌ No se pudo obtener el audio.';
+    fs.writeFileSync(filepath, media);
+    let { file_url } = await upload(filepath);
+    fs.unlinkSync(filepath);
 
-      await conn.sendFile(m.chat, json.download, 'audio.mp3', `🎧 *Título:* ${json.title}\n📥 *Audio descargado con éxito.*`, m);
-
-    } else if (command === 'ytmp44') {
-      const res = await fetch(`https://dark-core-api.vercel.app/api/download/ytmp4/v2?key=api&url=${encodeURIComponent(text)}`);
-      const json = await res.json();
-
-      if (!json.download) throw '❌ No se pudo obtener el video.';
-
-      await conn.sendFile(m.chat, json.download, 'video.mp4', `🎬 *Título:* ${json.title}\n📽️ *Calidad:* ${json.quality}p\n📥 *Video descargado con éxito.*`, m);
-    }
+    await m.reply(`🌱 Archivo subido:\n${file_url}`);
   } catch (e) {
     console.error(e);
-    m.reply('⚠️ Error al procesar la descarga. Intenta más tarde.');
+    m.reply('🌷 Error al subir el archivo: ' + (e?.message || e));
   }
 };
 
-handler.help = ['ytmp33 <url>', 'ytmp44 <url>'];
-handler.tags = ['downloader'];
-handler.command = /^ytmp33|ytmp44$/i;
+handler.help = ["tourl2"];
+handler.command = ["tourl2"];
+export default handler;
 
-export default handler;*/
+async function upload(filePath) {
+  if (!fs.existsSync(filePath)) throw "Archivo no encontrado.";
+
+  const form = new FormData();
+  form.append('file', fs.createReadStream(filePath));
+  if (CUSTOM_FILENAME) form.append('filename', CUSTOM_FILENAME);
+  form.append('expire_value', EXPIRE_VALUE);
+  form.append('expire_unit', EXPIRE_UNIT);
+
+  const contentLength = await new Promise((resolve, reject) => {
+    form.getLength((err, length) => {
+      if (err) reject(err);
+      else resolve(length);
+    });
+  });
+
+  try {
+    const response = await axios.post('https://sylphy.xyz/upload', form, {
+      headers: {
+        ...form.getHeaders(),
+        'Content-Length': contentLength
+      },
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity
+    });
+    return response.data;
+  } catch (err) {
+    if (err.response?.data) throw err.response.data;
+    else throw err.message;
+  }
+}
