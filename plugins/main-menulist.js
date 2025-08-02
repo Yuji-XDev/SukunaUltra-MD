@@ -122,7 +122,7 @@ const handler = async (m, { conn, usedPrefix }) => {
     await conn.sendMessage(m.chat, {
       document: docBuffer,
       fileName: `SUKUNA ULTRA.png`,
-      mimetype: 'image/webp',
+      mimetype: 'image/PNG',
       caption: texto,
       jpegThumbnail: thumb2,
       footer: '[⚙] Sistema: *SU₭Ʉ₦₳.EXΞ*',
