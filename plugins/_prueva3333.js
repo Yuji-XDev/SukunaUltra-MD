@@ -36,7 +36,7 @@ handler.participantsUpdate = async function ({ id, participants, action }, conn)
 
     if (!isAddedByOwner) {
       await conn.sendMessage(id, {
-        text: `⚠️ *Modo Protección Activado*\n\nEste bot fue agregado sin autorización de un dueño.\nPor seguridad, salgo del grupo.\n\nActiva o desactiva con *.antiadd on/off*`,
+        text: `⚠️ *Modo Protección Activado* 💚\n\nEste bot fue agregado sin autorización de un dueño.\nPor seguridad, salgo del grupo.\n\n> si quiere el bot en su grupo puede solicitarlo con el creador use #owner para contactarlo`,
       })
       await conn.groupLeave(id)
     } else {
