@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, command, usedPrefix }) => {
   if (usedPrefix.toLowerCase() === 'a') return;
 
-  const customEmoji = global.db.data.chats[m.chat]?.customEmoji || '🌑';
+  const customEmoji = global.db.data.chats[m.chat]?.customEmoji || '☘️';
   await m.react(customEmoji);
 
   if (!(isAdmin || isOwner)) {
@@ -42,9 +42,9 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
       externalAdReply: {
         //title: '✧ 𝙄𝙉𝙑𝙊𝘾𝘼𝙉𝘿𝙊 𝙀𝙎𝙋𝙄𝙍𝙄𝙏𝙐𝙎 ꦿ✧',
         body: grupo,
-        thumbnailUrl: logo,
+        thumbnailUrl: 'https://files.catbox.moe/vs2uvc.jpg',
         mediaType: 1,
-        renderLargerThumbnail: true,
+        renderLargerThumbnail: false,
         sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
       }
     }
