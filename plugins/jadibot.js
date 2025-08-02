@@ -1,6 +1,7 @@
 import ws from 'ws';
 
-let handler = async (m, { conn }) => {
+//let handler = async (m, { conn }) => {
+let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
 if (!globalThis.db.data.settings[conn.user.jid].jadibotmd) return conn.reply(m.chat,`🌳 El Comando *${command}* está desactivado temporalmente.`, m, fake)
 
   const connsActivas = global.conns.filter(conn =>
