@@ -58,15 +58,7 @@ const handler = async (m, { conn, text, command }) => {
     }
 
     await conn.sendMessage(m.chat, { react: { text: '📀', key: m.key }});
-    await m.reply(
-      `📦 𝐈𝐍𝐈𝐂𝐈𝐀𝐍𝐃𝐎 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀...
-
-> [▓▓▓▓▓▓░░░░░░] 50%
-> 🎶 *Archivo:* ${title}
-> ☘️ *Url:* ${url}
-> ⏳ *Estado:* Procesando, espera unos instantes...`
-    );
-
+    
     const search = await yts(text);
     if (!search.all || search.all.length === 0) {
       return m.reply('❌ No se encontraron resultados para tu búsqueda.');
@@ -78,7 +70,15 @@ const handler = async (m, { conn, text, command }) => {
     const downloadUrl = await ddownr.download(url, format);
     const size = await getSize(downloadUrl);
     const sizeStr = size ? await formatSize(size) : 'Desconocido';
-   
+    await m.reply(
+      `📦 𝐈𝐍𝐈𝐂𝐈𝐀𝐍𝐃𝐎 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀...
+
+> [▓▓▓▓▓▓░░░░░░] 50%
+> 🎶 *Archivo:* ${title}
+> ☘️ *Url:* ${url}
+> ⏳ *Estado:* Procesando, espera unos instantes...`
+     );
+    
     if (downloadUrl) {
       const fileName = `${title.replace(/[^a-zA-Z0-9 ]/g, '').trim().replace(/ +/g, '_')}.${format}`;
       const caption = `*${title}*\n> *📦 Tamaño:* ${sizeStr}\n> ${club}`;

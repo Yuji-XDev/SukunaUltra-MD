@@ -9,11 +9,19 @@ let handler = async (m, { conn, text, args }) => {
       return m.reply(`*⚠️ Enlace inválido, por favor coloca un enlace válido de YouTube.*`);
     }
 
-    await conn.sendMessage(m.chat, { react: { text: '🕒', key: m.key } });
+    await conn.sendMessage(m.chat, { react: { text: '📀', key: m.key } });
 
     let json = await ytdl(args[0]);
     let size = await getSize(json.url);
     let sizeStr = size ? await formatSize(size) : 'Desconocido';
+    await m.reply(
+      `📦 𝐈𝐍𝐈𝐂𝐈𝐀𝐍𝐃𝐎 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀...
+
+> [▓▓▓▓▓▓░░░░░░] 50%
+> 🎶 *Archivo:* ${title}
+> ☘️ *Url:* ${url}
+> ⏳ *Estado:* Procesando, espera unos instantes...`
+     );
 
     const title = json.title;
     const caption = `*${title}*\n*📦 Tamaño:* ${sizeStr}\n> ${dev}`;
@@ -40,7 +48,7 @@ let handler = async (m, { conn, text, args }) => {
       }
     }, { quoted: m });
 
-    await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
+    await conn.sendMessage(m.chat, { react: { text: '☑️', key: m.key } });
 
   } catch (e) {
     console.error(e);
