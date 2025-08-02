@@ -5,7 +5,6 @@ import fs from 'fs';
 const handler = async (m, { conn, usedPrefix }) => {
   await m.react('📦');
   try {
-    // Estados y fechas
     const uptime = clockString(process.uptime() * 1000);
     const now = new Date();
     const hora = now.toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
@@ -16,7 +15,6 @@ const handler = async (m, { conn, usedPrefix }) => {
     const totalCommands = Object.values(global.plugins).filter(p => p.help && p.tags).length;
     const user = global.db.data.users[m.sender] || {};
 
-    // Texto decorativo (igual al tuyo, respetando estilos)
     const texto = `❀•° ʜᴏʟᴀ ʙɪᴇɴᴠᴇɴɪᴅ/ᴀ ᴀʟ ᴍᴇɴᴜ ʟɪsᴛ, sᴏʏ ${global.namebot} °•❀
 ˚̩̩̥͙°̩̥〔 ${global.etiqueta} 〕°̩̥˚̩̩̥͙°̩̥ ·͙*̩̩͙
 ┏━━━━━━⬣
@@ -49,14 +47,9 @@ const handler = async (m, { conn, usedPrefix }) => {
 
     const imageUrl = 'https://files.catbox.moe/jyz3f8.jpg';
     const imgBuffer = await (await fetch(imageUrl)).buffer();
-
-    // Convertir miniatura para jpegThumbnail
     const thumb = await sharp(imgBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
-
-    // Convertir a WEBP para archivo si quieres enviarlo como documento webp
     const docBuffer = await sharp(imgBuffer).webp({ quality: 80 }).toBuffer();
 
-    // Botones rápidos
     const buttons = [
       { buttonId: `${usedPrefix}creador`, buttonText: { displayText: '✐ ꒷📞ദ ᴄʀᴇᴀᴅᴏʀ' }, type: 1 },
       { buttonId: `${usedPrefix}reg ..18`, buttonText: { displayText: '✐ ꒷👤ദ ᴀᴜᴛᴏ ᴠᴇʀɪғɪᴄᴀʀ' }, type: 1 },
@@ -72,16 +65,32 @@ const handler = async (m, { conn, usedPrefix }) => {
       ]
     }];
 
-    // Primero: enviar como documento (webp) debajo de miniatura
     await conn.sendMessage(m.chat, {
       document: docBuffer,
       fileName: `📦 MENÚ ${global.namebot}.webp`,
       mimetype: 'image/webp',
       caption: texto,
       jpegThumbnail: thumb,
+      footer: '⌬ Sistema Operativo: *SUᴋᴜɴᴀ.ᴇxᴇ*',
+      buttons: [
+        ...buttons,
+        {
+          type: 4,
+          nativeFlowInfo: {
+            name: 'single_select',
+            paramsJson: JSON.stringify({
+              title: '✐ ꒷ꕤ🎄ದ ʟɪsᴛ ‑ ᴍᴇɴᴜ',
+              sections
+            })
+          }
+        }
+      ],
+      headerType: 1,
+      viewOnce: true,
       contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
+        forwardingScore: 999,
         externalAdReply: {
           title: '',
           body: `あ ${global.namebot}`,
@@ -89,24 +98,6 @@ const handler = async (m, { conn, usedPrefix }) => {
           mediaType: 1,
           renderLargerThumbnail: true
         }
-      }
-    }, { quoted: m });
-
-    // Luego: repetir como imagen con botones y lista
-    await conn.sendMessage(m.chat, {
-      image: imgBuffer,
-      caption: texto,
-      footer: '⌬ Sistema Operativo: *SUᴋᴜɴᴀ.ᴇxᴇ*',
-      buttons: [
-        ...buttons,
-        { type: 4, nativeFlowInfo: { name: 'single_select', paramsJson: JSON.stringify({ title: '✐ ꒷ꕤ🎄ದ ʟɪsᴛ ‑ ᴍᴇɴᴜ', sections }) } }
-      ],
-      headerType: 1,
-      viewOnce: true,
-      contextInfo: {
-        mentionedJid: [m.sender],
-        isForwarded: true,
-        forwardingScore: 1000
       }
     }, { quoted: m });
 
@@ -128,6 +119,9 @@ function clockString(ms) {
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
   return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
 }
+
+
+
 
 /*import fetch from 'node-fetch';
 
