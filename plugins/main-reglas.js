@@ -16,23 +16,6 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 
   const imgCarga = 'https://files.catbox.moe/19azgy.mp4';
 
-  let { key } = await conn.sendMessage(m.chat, {
-    image: { url: imgCarga },
-    caption: '╭━〔 *⏳ CARGANDO SISTEMA...* 〕━⬣\n┃\n┃ Espera mientras se prepara todo\n┃\n╰━━━━━━━━━━━━━━━━⬣',
-    contextInfo: {
-      externalAdReply: {
-        title: '⏳ SUᴋᴜɴᴀ.ᴇxᴇ está iniciando...',
-        body: 'Preparando entorno virtual...',
-        thumbnailUrl: imgCarga,
-        mediaType: 1,
-        renderLargerThumbnail: true,
-        showAdAttribution: false,
-        sourceUrl: 'https://github.com'
-      }
-    },
-    quoted: m
-  });
-
   for (let paso of loading) {
     await conn.sendMessage(m.chat, {
       text: paso,
