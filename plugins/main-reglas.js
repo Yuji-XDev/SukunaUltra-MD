@@ -10,7 +10,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     '《▰▰▰▰▰▰▰▰▱▱》80%',
     '《▰▰▰▰▰▰▰▰▰▱》90%',
     '《▰▰▰▰▰▰▰▰▰▰》100%',
-    '━━━〔 ✅ 𝗖𝗔𝗥𝗚𝗔 𝗖𝗢𝗠𝗣𝗟𝗘𝗧𝗔 〕━━⬣''
+    '━━━〔 ✅ 𝗖𝗔𝗥𝗚𝗔 𝗖𝗢𝗠𝗣𝗟𝗘𝗧𝗔 〕━━⬣',
     'Enviando reglas del bot'
   ];
 
