@@ -66,18 +66,18 @@ const handler = async (m, { conn, text, command }) => {
 
     const videoInfo = search.all[0];
     const { title, url, image, timestamp: duration } = videoInfo;
+    const format = 'mp3';
     const downloadUrl = await ddownr.download(url, format);
     const size = await getSize(downloadUrl);
     const sizeStr = size ? await formatSize(size) : 'Desconocido';
-    const format = 'mp3';
 
     await m.reply(
       `📥 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀 𝐄𝐍 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐎...
 > [▓▓▓▓▓▓░░░░░░] 50%
 > 🎧 *Título:* ${title}
 > 🕒 *Duración:* ${duration}
-> 🔗 *Enlace:* ${url}
 > 🌳 *Tamaño:* ${sizeStr}
+> 🔗 *Enlace:* ${url}
 > ⏳ *Estado:* Preparando audio...`
     );
     
