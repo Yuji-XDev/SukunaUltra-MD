@@ -3,7 +3,7 @@ import axios from 'axios';
 
 let handler = async (m, { conn, text, args }) => {
   try {
-    if (!text) return conn.reply(m.chat, `💔 *Por favor, ingresa la URL del vídeo de YouTube.*`, m);
+    if (!text) return conn.reply(m.chat, `💔 *Por favor, ingresa la URL del vídeo de YouTube.*`, m, fake);
 
     if (!/^(?:https?:\/\/)?(?:www\.|m\.|music\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?/.test(args[0])) {
       return conn.reply(m.chat, `⚠️ *Enlace inválido.* Por favor, ingresa una URL válida de YouTube.`, m);
@@ -41,11 +41,11 @@ let handler = async (m, { conn, text, args }) => {
     await m.reply(
       `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n` +
       `[▓▓▓▓▓▓░░░░░░] 50%\n` +
-      `🎶 *Archivo:* ${title}\n` +
-      `⏱️ *Duración:* ${duration}\n` +
-      `💾 *Tamaño estimado:* ${sizeStr}\n` +
-      `📎 *Enlace:* ${args[0]}\n` +
-      `⏳ *Estado:* Procesando...`
+      `> 🎶 *Archivo:* ${title}\n` +
+      `> ⏱️ *Duración:* ${duration}\n` +
+      `> 💾 *Tamaño estimado:* ${sizeStr}\n` +
+      `> 📎 *Enlace:* ${args[0]}\n` +
+      `> ⏳ *Estado:* Procesando...`
     );
 
     const caption = `*📥 Descarga completa:*\n> 🎧 *Título:* ${title}\n> ⏱️ *Duración:* ${duration}\n> 💾 *Tamaño:* ${sizeStr}`;
@@ -71,7 +71,7 @@ let handler = async (m, { conn, text, args }) => {
       }, { quoted: fkontak });
     } catch (err) {
       console.warn('❗ Error al enviar como documento. Se enviará como video.');
-      // Fallback como VIDEO normal
+      // por si falla en enviar el video en documento 😃
       await conn.sendMessage(m.chat, {
         video: { url },
         caption,

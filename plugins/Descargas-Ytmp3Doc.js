@@ -54,7 +54,7 @@ const ddownr = {
 const handler = async (m, { conn, text, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, `👻 Ingresa el nombre del video a descargar.`, m);
+      return conn.reply(m.chat, `*👻 Ingresa el nombre del video a descargar.*`, m, fake);
     }
 
     await conn.sendMessage(m.chat, { react: { text: '📀', key: m.key }});
