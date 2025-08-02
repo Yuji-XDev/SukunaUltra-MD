@@ -53,7 +53,7 @@ const handler = async (m, { conn, text, command }) => {
       throw new Error('⚠️ No se pudo generar el enlace de descarga.');
     }
 
-   /* await conn.sendMessage(m.chat, {
+    await conn.sendMessage(m.chat, {
       audio: { url: json.download },
       mimetype: 'audio/mpeg',
       fileName: `${json.title}.mp3`,
@@ -65,12 +65,12 @@ const handler = async (m, { conn, text, command }) => {
           thumbnail: thumbnailBuffer,
           mediaUrl: url,
           sourceUrl: url,
-          renderLargerThumbnail: true
+          renderLargerThumbnail: false // true para otra cosa xd 
         }
       }
-    }, { quoted: fkontak });*/
+    }, { quoted: fkontak });
     
-    await conn.sendMessage(m.chat, { audio: { url: json.download }, fileName: `${json.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: fkontak })
+    //await conn.sendMessage(m.chat, { audio: { url: json.download }, fileName: `${json.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: fkontak })
 
     await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
 
