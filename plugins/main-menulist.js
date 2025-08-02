@@ -76,7 +76,7 @@ const handler = async (m, { conn, usedPrefix }) => {
       fileName: `📦 MENÚ - SukunaBot.png`,
       mimetype: 'image/webp',
       caption: texto,
-      jpegThumbnail: thumb2,
+      jpegThumbnail: 'https://files.catbox.moe/jyz3f8.jpg',
       footer: '⌬ Sistema Operativo: *SUᴋᴜɴᴀ.ᴇxᴇ*',
       buttons: [
         ...buttons,
