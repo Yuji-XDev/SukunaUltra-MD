@@ -22,12 +22,16 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const url = videoInfo.url || '';
     const thumbnail = videoInfo.thumbnail || null;
 
-    const body = `╭⊱🎵 *Título:* ${title}
-╰⊱⏳ *Duración:* ${duration}
-╰⊱📈 *Vistas:* ${views}
-╰⊱🎙️ *Canal:* ${canal}
-╰⊱📆 *Publicado:* ${ago}
-╰⊱🔗 *Enlace:* ${url}`;
+    const body = `╭══🎶『 𝙄𝙉𝙁𝙊 𝘿𝙀 𝙇𝘼 𝘾𝘼𝙉𝘾𝙄𝙊́𝙉 』🎶══⬣  
+┃✨ *Título:* "${title}"
+┃⏱️ *Duración:* ${duration}
+┃📊 *Vistas:* ${views}
+┃🎤 *Canal:* ${canal}
+┃📅 *Publicado:* ${ago}
+┃🔗 *Enlace:* ${url}
+┃💽 *Formato:* 𝑴𝒑𝟑 / 𝑴𝒑𝟒 disponible
+┃📥 *¿Quieres descargarlo?* Solo elige una opción abajo
+╰═══⭓ 𝙎𝙐𝙆𝙐𝙉𝘼 𝘽𝙊𝙏 𝙈𝘿 ⭒══⬣`;
 
     await conn.sendMessage(
       m.chat,
