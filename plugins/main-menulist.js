@@ -1,124 +1,81 @@
-import { createCanvas } from 'canvas';
+import sharp from 'sharp';
+import fs from 'fs';
+import fetch from 'node-fetch';
 
 const handler = async (m, { conn, usedPrefix }) => {
   await m.react('📦');
 
   try {
-    const uptime = clockString(process.uptime() * 1000);
+    // Datos base
+    const nombreBot = 'SUKUNA BOT MD';
+    const fecha = new Date().toLocaleDateString('es-PE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     const hora = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
-    const fechaObj = new Date();
-    const fecha = fechaObj.toLocaleDateString('es-PE', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Lima' });
-    const dia = fechaObj.toLocaleDateString('es-PE', { weekday: 'long', timeZone: 'America/Lima' });
+    const versionBot = 'v9.3.0';
+    const totalComandos = 840;
 
-    const totalUsers = Object.keys(global.db.data.users).length;
-    const totalCommands = Object.values(global.plugins).filter(p => p.help && p.tags).length;
-    const user = global.db.data.users[m.sender];
+    // Imagen original JPG
+    const imageBuffer = fs.readFileSync('./media/menufull.jpg');
 
-    const texto = `❀•° ʜᴏʟᴀ ʙɪᴇɴᴠᴇɴɪᴅ/ᴀ ᴀʟ ᴍᴇɴᴜ ʟɪsᴛ, sᴏʏ ${global.namebot} °•❀
-˚̩̩̥͙°̩̥〔 ${global.etiqueta} 〕°̩̥˚̩̩̥͙°̩̥ ·͙*̩̩͙
-┏━━━━━━⬣
-┃ ⌬ 𝗜𝗡𝗙𝗢 𝗗𝗘𝗟 𝗕𝗢𝗧 📟
-┃ 🧠 Creador: *Dev.Shadow*
-┃ 🔗 Contacto: *wa.link/z1w9sq*
-┃ 📁 Versión: *2.2.5*
-┃ 👥 Usuarios: *${totalUsers}*
-┃ 📦 Comandos: *${totalCommands}*
-┃ ⚙️ Modo: *Privado*
-┃ 📚 Librería: *Baileys-MD*
-┃ 🕰️ Activo: *${uptime}*
-┗━━━━━━⬣
+    // Convertir a .webp con sharp
+    const webpBuffer = await sharp(imageBuffer)
+      .webp({ quality: 80 })
+      .toBuffer();
 
-┏━━━━━━⬣
-┃ ⌬ 𝗧𝗨 𝗣𝗘𝗥𝗙𝗜𝗟 👤
-┃ 🧬 ID: *${conn.getName(m.sender)}*
-┃ 💰 Monedas: *${user.coin || 0}*
-┃ 📊 Nivel: *${user.level || 0}*
-┃ ⚡ Exp: *${user.exp || 0}*
-┃ 👑 Rango: *${user.role || 'Sin Rango'}*
-┗━━━━━━⬣
+    // Guardar temporalmente como .webp para adjuntar
+    const path = './media/menu.webp';
+    fs.writeFileSync(path, webpBuffer);
 
-┏━━━━━━⬣
-┃ ⌬ 𝗙𝗘𝗖𝗛𝗔 & 𝗛𝗢𝗥𝗔 🕒
-┃ 🗓️ Fecha: *${fecha}*
-┃ 📅 Día: *${dia}*
-┃ ⏰ Hora: *${hora}*
-┗━━━━━━⬣`;
-
-    // Crear imagen con canvas
-    const canvas = createCanvas(1080, 1800);
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#fff';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = '#111';
-    ctx.font = '28px sans-serif';
-    let y = 50;
-    for (const line of texto.split('\n')) {
-      ctx.fillText(line.trim(), 40, y);
-      y += 40;
-    }
-
-    const buffer = canvas.toBuffer('image/png');
-
-    // Botones rápidos (type 1)
-    const buttonsQuick = [
-      { buttonId: `${usedPrefix}menu`, buttonText: { displayText: '📖 Menú General' }, type: 1 },
-      { buttonId: `${usedPrefix}owner`, buttonText: { displayText: '👑 Creador' }, type: 1 },
-      { buttonId: `${usedPrefix}estado`, buttonText: { displayText: '📊 Estado' }, type: 1 }
-    ];
-
-    // Botones Flow (tipo lista)
-    const sections = [
-      {
-        title: "🌟 Menús disponibles",
-        rows: [
-          { title: "🎮 Menú Juegos", rowId: `${usedPrefix}juegos` },
-          { title: "🛠️ Menú Herramientas", rowId: `${usedPrefix}herramientas` },
-          { title: "🎵 Menú Música", rowId: `${usedPrefix}musica` },
-          { title: "🖼️ Menú Efectos", rowId: `${usedPrefix}efectos` },
-          { title: "📦 Menú Convertidores", rowId: `${usedPrefix}convertidores` },
-          { title: "👑 Menú Premium", rowId: `${usedPrefix}premium` }
-        ]
-      }
-    ];
-
+    // Enviar mensaje como documento con botones
     await conn.sendMessage(m.chat, {
-      document: buffer,
-      mimetype: 'image/png',
-      fileName: '📦 Menú de comandos.png',
-      caption: texto,
-      footer: 'Selecciona una opción del menú:',
-      buttons: buttonsQuick,
+      document: fs.readFileSync(path),
+      fileName: `📦 MENÚ ${nombreBot} - ${totalComandos} comandos`,
+      mimetype: 'application/pdf', // puedes poner image/webp si prefieres enviarlo como imagen
+      caption: `╭━━〔 ${nombreBot} 🌸 〕━━⬣
+┃ 🌟 *Fecha:* ${fecha}
+┃ 🕓 *Hora:* ${hora}
+┃ 🧠 *Versión:* ${versionBot}
+┃ 🧰 *Comandos:* ${totalComandos}
+╰━━━━━━━━━━━━━━━━⬣`,
+      footer: '✨ Usa los botones para explorar el menú completo',
+      buttons: [
+        { buttonId: `${usedPrefix}infobot`, buttonText: { displayText: '🔍 INFO BOT' }, type: 1 },
+        { buttonId: `${usedPrefix}donar`, buttonText: { displayText: '💖 DONAR' }, type: 1 },
+        {
+          buttonText: { displayText: '📚 CATEGORÍAS' },
+          type: 4,
+          sections: [
+            {
+              title: "🧩 Menús disponibles",
+              rows: [
+                { title: "🎮 Juegos", rowId: `${usedPrefix}juegos` },
+                { title: "🎵 Música", rowId: `${usedPrefix}musica` },
+                { title: "🛠️ Herramientas", rowId: `${usedPrefix}herramientas` },
+                { title: "📂 Todo el Menú", rowId: `${usedPrefix}menucompleto` }
+              ]
+            }
+          ]
+        }
+      ],
       contextInfo: {
-        forwardingScore: 999,
-        isForwarded: true
+        externalAdReply: {
+          title: '👑 Sukuna Bot MD',
+          body: `✨ ${totalComandos} comandos disponibles`,
+          thumbnail: webpBuffer,
+          mediaType: 1,
+          renderLargerThumbnail: true,
+          sourceUrl: 'https://github.com'
+        }
       }
-    }, { quoted: m });
-
-    // Enviar Flow (menú tipo lista)
-    await conn.sendMessage(m.chat, {
-      title: '🌐 Lista de menús',
-      text: 'Selecciona una categoría:',
-      buttonText: '📂 Menús',
-      sections
     }, { quoted: m });
 
   } catch (e) {
     console.error(e);
-    await m.react('❌');
-    await conn.reply(m.chat, `❌ *Ocurrió un error al mostrar el menú.*\n\n${e.message}`, m);
+    conn.reply(m.chat, '❌ Error al generar el menú', m);
   }
 };
 
-handler.command = ['menulist'];
+handler.command = ['menu', 'menú', 'help'];
 export default handler;
-
-function clockString(ms) {
-  const h = Math.floor(ms / 3600000);
-  const m = Math.floor(ms / 60000) % 60;
-  const s = Math.floor(ms / 1000) % 60;
-  return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
-}
 
 /*import fetch from 'node-fetch';
 
