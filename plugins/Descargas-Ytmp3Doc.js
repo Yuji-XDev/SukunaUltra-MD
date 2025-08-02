@@ -57,7 +57,15 @@ const handler = async (m, { conn, text, command }) => {
       return conn.reply(m.chat, `👻 Ingresa el nombre del video a descargar.`, m, fake);
     }
 
-    await conn.sendMessage(m.chat, { react: { text: '🎶', key: m.key }});
+    await conn.sendMessage(m.chat, { react: { text: '📀', key: m.key }});
+    await m.reply(
+      `📦 𝐈𝐍𝐈𝐂𝐈𝐀𝐍𝐃𝐎 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀...
+
+> [▓▓▓▓▓▓░░░░░░] 50%
+> 🎶 *Archivo:* ${title}
+> ☘️ *Url:* ${url}
+> ⏳ *Estado:* Procesando, espera unos instantes...`
+    );
 
     const search = await yts(text);
     if (!search.all || search.all.length === 0) {
@@ -71,16 +79,6 @@ const handler = async (m, { conn, text, command }) => {
     const size = await getSize(downloadUrl);
     const sizeStr = size ? await formatSize(size) : 'Desconocido';
    
-    await m.reply(
-      `📦 𝐈𝐍𝐈𝐂𝐈𝐀𝐍𝐃𝐎 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀...
-
-> [▓▓▓▓▓▓░░░░░░] 50%
-> 🎶 *Archivo:* ${title}
-> ☘️ *Url:* ${url}
-> ⏳ *Estado:* Procesando, espera unos instantes...`
-    );
-
-
     if (downloadUrl) {
       const fileName = `${title.replace(/[^a-zA-Z0-9 ]/g, '').trim().replace(/ +/g, '_')}.${format}`;
       const caption = `*${title}*\n> *📦 Tamaño:* ${sizeStr}\n> ${club}`;
@@ -93,7 +91,7 @@ const handler = async (m, { conn, text, command }) => {
         contextInfo: {
           externalAdReply: {
             title: title,
-            body: `𝗬𝗢𝗨𝗧𝗨𝗕𝗘 𝗗𝗢𝗖`,
+            body: `💿 YOUTUBE DOC ☘️`,
             mediaUrl: url,
             sourceUrl: url,
             thumbnailUrl: image,
@@ -103,7 +101,7 @@ const handler = async (m, { conn, text, command }) => {
         }
       }, { quoted: m });
 
-      await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key }});
+      await conn.sendMessage(m.chat, { react: { text: '☑️', key: m.key }});
     } else {
       return m.reply(`⚠️ No se pudo descargar el audio.`);
     }
