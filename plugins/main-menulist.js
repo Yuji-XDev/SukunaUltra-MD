@@ -47,8 +47,12 @@ const handler = async (m, { conn, usedPrefix }) => {
 
     const imageUrl = 'https://files.catbox.moe/jyz3f8.jpg';
     const imgBuffer = await (await fetch(imageUrl)).buffer();
-    const thumb = await sharp(imgBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
-    const docBuffer = await sharp(imgBuffer).webp({ quality: 80 }).toBuffer();
+    
+    const imgUrl = 'https://files.catbox.moe/97lre0.jpg';
+    const imagenBuffer = await (await fetch(imgUrl)).buffer();
+    
+    const thumb2 = await sharp(imgBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
+    const docBuffer = await sharp(imagenBuffer).webp({ quality: 80 }).toBuffer();
 
     const buttons = [
       { buttonId: `${usedPrefix}creador`, buttonText: { displayText: '✐ ꒷📞ദ ᴄʀᴇᴀᴅᴏʀ' }, type: 1 },
@@ -59,18 +63,25 @@ const handler = async (m, { conn, usedPrefix }) => {
     const sections = [{
       title: "🥮 MENÚS DISPONIBLES 🐛",
       rows: [
-        { title: "📥 Mᴇɴᴜ [ DL ]", description: "🎧 descargar", rowId: `${usedPrefix}menudl` },
-        { title: "⛏️ Mᴇɴᴜ [ RPG ]", description: "🎮 rpg", rowId: `${usedPrefix}menurpg` },
-        { title: "🔍 Mᴇɴᴜ [ SEARCH ]", description: "🌾 search", rowId: `${usedPrefix}menuse` }
+        { title: "📥 Mᴇɴᴜ [ 𝗗𝗟 ]", description: "🎧 ᴠᴇʀ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ ᴅᴇsᴄᴀʀɢᴀs", id: `${usedPrefix}menudl` },
+          { title: "⛏️ Mᴇɴᴜ [ 𝗥𝗣𝗚 ]", description: "🎮 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ʀᴘɢ", id: `${usedPrefix}menurpg` },
+          { title: "🔍 Mᴇɴᴜ [ 𝗦𝗘𝗔𝗥𝗖𝗛 ]", description: "🌾 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ sᴇᴀʀᴄʜ", id: `${usedPrefix}menuse` },
+          { title: "🖍️ Mᴇɴᴜ [ 𝗢𝗪𝗡𝗘𝗥 ]", description: "🧙‍♂️ ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ ᴏᴡɴᴇʀ", id: `${usedPrefix}dev` },
+          { title: "🌈 Mᴇɴᴜ [ 𝗔𝗨𝗗𝗜𝗢𝗦 ]", description: "🎃 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ ᴀᴜᴅɪᴏs", id: `${usedPrefix}menu2` },
+          { title: "⛩️ Mᴇɴᴜ [ 𝗣𝗘𝗥𝗙𝗜𝗟 ]", description: "☂️ ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴘᴀʀᴀ ᴇᴅɪᴛᴀʀ ᴛᴜ ᴘᴇʀғɪʟ", id: `${usedPrefix}perfildates` },
+          { title: "🌞 Mᴇɴᴜ [ 𝗚𝗥𝗨𝗣𝗢 ]", description: "💫 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴘᴀʀᴀ ᴀᴅᴍɪɴɪsᴛʀᴀʀ ᴛᴜ ɢʀᴜᴘᴏ", id: `${usedPrefix}menugp` },
+          { title: "🔞 Mᴇɴᴜ [ 𝗡𝗦𝗙𝗪 ]", description: "💨 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ ɴsғᴡ", id: `${usedPrefix}menu18` },
+          { title: "💖 Mᴇɴᴜ [ 𝗟𝗢𝗚𝗢𝗧𝗜𝗣𝗢𝗦 ]", description: "🐥 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ ʟᴏɢᴏᴛɪᴘᴏs", id: `${usedPrefix}menulogos` },
+          { title: "🐛 Mᴇɴᴜ [ 𝗦𝗧𝗜𝗖𝗞𝗘𝗥𝗦 ]", description: "🐾 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ sᴛɪᴄᴋᴇʀs", id: `${usedPrefix}menusticker` }
       ]
     }];
 
     await conn.sendMessage(m.chat, {
       document: docBuffer,
-      fileName: `📦 MENÚ ${global.namebot}.webp`,
+      fileName: `📦 MENÚ\n👾 𝕊𝐮𝐤𝐮𝐧𝐚 𝕌𝐥𝐭𝐫𝐚.PNG`,
       mimetype: 'image/webp',
       caption: texto,
-      jpegThumbnail: thumb,
+      jpegThumbnail: imgBuffer,
       footer: '⌬ Sistema Operativo: *SUᴋᴜɴᴀ.ᴇxᴇ*',
       buttons: [
         ...buttons,
@@ -94,7 +105,7 @@ const handler = async (m, { conn, usedPrefix }) => {
         externalAdReply: {
           title: '',
           body: `あ ${global.namebot}`,
-          thumbnail: thumb,
+          thumbnail: thumb2,
           mediaType: 1,
           renderLargerThumbnail: true
         }
