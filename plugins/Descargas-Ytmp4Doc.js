@@ -3,7 +3,7 @@ import axios from 'axios';
 
 let handler = async (m, { conn, text, args }) => {
   try {
-    if (!text) return conn.reply(m.chat, `💔 *Por favor, ingresa la URL del vídeo de YouTube.*`, m, rcanal);
+    if (!text) return conn.reply(m.chat, `💔 *Por favor, ingresa la URL del vídeo de YouTube.*`, m, fake);
 
     if (!/^(?:https?:\/\/)?(?:www\.|m\.|music\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?/.test(args[0])) {
       return m.reply(`*⚠️ Enlace inválido, por favor coloca un enlace válido de YouTube.*`);
@@ -12,22 +12,24 @@ let handler = async (m, { conn, text, args }) => {
     await conn.sendMessage(m.chat, { react: { text: '📀', key: m.key } });
 
     let json = await ytdl(args[0]);
+    let title = json.title;
+    let duration = json.duration || 'Desconocido';
+    let url = args[0];
     let size = await getSize(json.url);
     let sizeStr = size ? await formatSize(size) : 'Desconocido';
-    await m.reply(
-      `📦 𝐈𝐍𝐈𝐂𝐈𝐀𝐍𝐃𝐎 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀...
+    let thumb = await getThumbnail(url);
 
+    await m.reply(
+      `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...
 > [▓▓▓▓▓▓░░░░░░] 50%
 > 🎶 *Archivo:* ${title}
-> ☘️ *Url:* ${url}
+> ⏱️ *Duración:* ${duration}
+> 💾 *Tamaño estimado:* ${sizeStr}
+> 📎 *Enlace:* ${url}
 > ⏳ *Estado:* Procesando, espera unos instantes...`
-     );
+    );
 
-    const title = json.title;
-    const caption = `*${title}*\n*📦 Tamaño:* ${sizeStr}\n> ${dev}`;
-    const url = args[0];
-    const thumb = await getThumbnail(url);
-
+    const caption = `*📥 Descarga completa:*\n> ☁️ *Título:* ${title}\n> ⏱️ *Duración:* ${duration}\n> 💾 *Tamaño:* ${sizeStr}`;
 
     await conn.sendMessage(m.chat, {
       document: { url: json.url },
@@ -38,7 +40,7 @@ let handler = async (m, { conn, text, args }) => {
       contextInfo: {
         externalAdReply: {
           title: title,
-          body: 'ʏᴏᴜᴛᴜʙᴇ ᴅᴏᴄ',
+          body: 'YouTube Doc',
           mediaUrl: url,
           sourceUrl: url,
           thumbnailUrl: url,
@@ -48,7 +50,7 @@ let handler = async (m, { conn, text, args }) => {
       }
     }, { quoted: m });
 
-    await conn.sendMessage(m.chat, { react: { text: '☑️', key: m.key } });
+    await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
 
   } catch (e) {
     console.error(e);
@@ -56,12 +58,10 @@ let handler = async (m, { conn, text, args }) => {
   }
 };
 
-handler.command = ['ytmp4doc'];
-handler.tags = ['descargas'];
 handler.command = ['ytmp4doc', 'ytvdoc', 'ytdoc'];
+handler.tags = ['descargas'];
 
 export default handler;
-
 
 async function ytdl(url) {
   const headers = {
@@ -88,7 +88,8 @@ async function ytdl(url) {
 
   return {
     url: convert.downloadURL,
-    title: info.title || 'video'
+    title: info.title || 'video',
+    duration: info.duration || 'Desconocido'
   };
 }
 
