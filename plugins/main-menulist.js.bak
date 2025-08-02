@@ -127,7 +127,7 @@ const handler = async (m, { conn, usedPrefix }) => {
       mimetype: 'image/webp',
       caption: texto,
       jpegThumbnail: thumb2,
-      footer: '[⚙] Sistema: *SU₭Ʉ₦₳.EXΞ*,
+      footer: '[⚙] Sistema: *SU₭Ʉ₦₳.EXΞ*',
       buttons: [
         ...buttons,
         {
