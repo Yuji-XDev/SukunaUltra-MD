@@ -22,7 +22,7 @@ const handler = async (m, { conn, usedPrefix }) => {
       .toBuffer();
 
     // Guardar temporalmente como .webp para adjuntar
-    const path = './media/menu.webp';
+    const path = './src/catalogo.jpg';
     fs.writeFileSync(path, webpBuffer);
 
     // Enviar mensaje como documento con botones
