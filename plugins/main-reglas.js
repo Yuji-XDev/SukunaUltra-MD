@@ -1,4 +1,24 @@
 let handler = async (m, { conn, usedPrefix, command, text }) => {
+let loading = [
+  '《▰▱▱▱▱▱▱▱▱▱》10%',
+  '《▰▰▱▱▱▱▱▱▱▱》20%',
+  '《▰▰▰▱▱▱▱▱▱▱》30%',
+  '《▰▰▰▰▱▱▱▱▱▱》40%',
+  '《▰▰▰▰▰▱▱▱▱▱》50%',
+  '《▰▰▰▰▰▰▱▱▱▱》60%',
+  '《▰▰▰▰▰▰▰▱▱▱》70%',
+  '《▰▰▰▰▰▰▰▰▱▱》80%',
+  '《▰▰▰▰▰▰▰▰▰▱》90%',
+  '《▰▰▰▰▰▰▰▰▰▰》100%',
+  '*✅ Carga completada...*'
+];
+
+let { key } = await conn.sendMessage(m.chat, { text: '_Cargando..._' });
+
+for (let paso of loading) {
+  await conn.sendMessage(m.chat, { text: paso, edit: key });
+  await new Promise(r => setTimeout(r, 500)); // espera medio segundo
+}
   let texto = '';
 
   if (['botreglas', 'reglasdelbot', 'reglasbot', 'reglas'].includes(command)) {
