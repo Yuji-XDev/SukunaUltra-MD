@@ -13,13 +13,8 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
 
   const mensaje = args.length ? args.join(' ') : '⚠️ *No se proporcionó mensaje.*';
   const grupo = await conn.getName(m.chat);
-
-  const encabezado = `
-╭━━━〔 ⚠️ 𝙈𝙀𝙉𝙎𝘼𝙅𝙀 𝙋𝘼𝙍𝘼 𝙏𝙊𝘿𝙊𝙎 ⚠️ 〕━━⬣
-┃ 💬 *𝙈𝙀𝙉𝙎𝘼𝙅𝙀:* ${mensaje}
-┃ 🧿 *𝙂𝙍𝙐𝙋𝙊:* ${grupo}
-┃ 👥 *𝙈𝙄𝙀𝙈𝘽𝙍𝙊𝙎:* ${participants.length}
-╰━━━━━━━━━━━━━━━━━━⬣`.trim();
+  const wm = '◟𝐒𝐮𝐤𝐮𝐧𝐚 𝐁𝐨𝐭◞';
+  const mencionados = participants.map(p => p.id);
 
   let textoFinal = [
     `╭─〔 ⚡ 𝙎𝙐𝙆𝙐𝙉𝘼 𝘽𝙊𝙏 𝙄𝙉𝙑𝙊𝘾𝘼𝙏𝙄𝙊𝙉 🌳 〕─╮`,
@@ -39,31 +34,18 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
 
   textoFinal.push(`╰⊰━━━━━━⊱⬣\n> ${wm}`);
 
-/*  await conn.sendMessage(m.chat, {
+  await conn.sendMessage(m.chat, {
     text: textoFinal.join('\n'),
-    mentions: participants.map(p => p.id),
+    mentions: mencionados,
     contextInfo: {
-      mentionedJid: participants.map(p => p.id),
+      mentionedJid: mencionados,
       externalAdReply: {
         title: '✧ 𝙄𝙉𝙑𝙊𝘾𝘼𝙉𝘿𝙊 𝙀𝙎𝙋𝙄𝙍𝙄𝙏𝙐𝙎 ꦿ✧',
-        body: club,
+        body: grupo,
         thumbnailUrl: logo,
         mediaType: 1,
-        showAdAttribution: true,
         renderLargerThumbnail: true,
-        sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U',
-      }
-    }
-  }, { quoted: fkontak });
-};*/
-await conn.sendMessage(m.chat, {
-    text: textoFinal.join('\n'),
-    contextInfo: {
-      externalAdReply: {
-        mediaType: 1,
-        renderLargerThumbnail: true,
-        thumbnailUrl: logo,
-        sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U',
+        sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
       }
     }
   }, { quoted: m });
