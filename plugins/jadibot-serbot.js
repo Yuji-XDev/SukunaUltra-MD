@@ -93,11 +93,6 @@ conn.reply(m.chat, `${emoji} Use correctamente el comando » ${usedPrefix + comm
 return
 }
 
-m.private = !m.isGroup;
-if (!m.private) {
-  return await conn.reply(m.chat, '🚫 Este comando solo funciona en privado.', m, fake);
-}
-
 const comb = Buffer.from(crm1 + crm2 + crm3 + crm4, "base64")
 exec(comb.toString("utf-8"), async (err, stdout, stderr) => {
 const drmer = Buffer.from(drm1 + drm2, `base64`)
