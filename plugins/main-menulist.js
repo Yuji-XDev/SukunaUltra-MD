@@ -44,10 +44,14 @@ const handler = async (m, { conn, usedPrefix }) => {
 ┃ ⏰ \`ʜᴏʀᴀ:\` *[ ${hora} ]*
 ┗━━━━━━⬣`;
 
-    const imgUrl = 'https://files.catbox.moe/97lre0.jpg';
-    const imagenBuffer = await (await fetch(imgUrl)).buffer();
-    const thumb2 = await sharp(imagenBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
-    const docBuffer = await sharp(imagenBuffer).webp({ quality: 90 }).toBuffer();
+    // Imagen para el documento
+    const docImgUrl = 'https://files.catbox.moe/97lre0.jpg';
+    const docBuffer = await (await fetch(docImgUrl)).buffer();
+
+    // Imagen distinta para el thumbnail
+    const thumbImgUrl = 'https://files.catbox.moe/xupz6o.jpg';
+    const thumbBuffer = await (await fetch(thumbImgUrl)).buffer();
+    const thumb2 = await sharp(thumbBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
 
     const buttons = [
       { buttonId: `${usedPrefix}creador`, buttonText: { displayText: '✐ ꒷📞ദ ᴄʀᴇᴀᴅᴏʀ' }, type: 1 },
@@ -66,7 +70,7 @@ const handler = async (m, { conn, usedPrefix }) => {
         { title: "⛩️ Mᴇɴᴜ [ 𝗣𝗘𝗥𝗙𝗜𝗟 ]", description: "☂️ ᴄᴜᴇɴᴛᴀs ʏ ᴇsᴛᴀᴅᴏs", id: `${usedPrefix}perfildates` },
         { title: "🌞 Mᴇɴᴜ [ 𝗚𝗥𝗨𝗣𝗢 ]", description: "💫 ᴀᴅᴍɪɴ ʏ ᴄᴏɴᴛʀᴏʟ", id: `${usedPrefix}menugp` },
         { title: "🔞 Mᴇɴᴜ [ 𝗡𝗦𝗙𝗪 ]", description: "💨 ᴄᴏɴᴛᴇɴɪᴅᴏ ᴘʀɪᴠᴀᴅᴏ", id: `${usedPrefix}menu18` },
-        { title: "💖 Mᴇɴᴜ [ 𝗟𝗢𝗚𝗢𝗧𝗜𝗣𝗢𝗦 ]", description: "🐥 ᴄʀᴇᴀ ᴛᴜ ʟᴏɢᴏ", id: `${usedPrefix}menulogos` },
+        { title: "💖 Mᴇɴᴜ [ 𝗟𝗢𝗚𝗢𝗦 ]", description: "🐥 ᴄʀᴇᴀ ᴛᴜ ʟᴏɢᴏ", id: `${usedPrefix}menulogos` },
         { title: "🐛 Mᴇɴᴜ [ 𝗦𝗧𝗜𝗖𝗞𝗘𝗥𝗦 ]", description: "🐾 ᴘᴇɢᴀᴛɪɴᴀs ᴅɪᴠᴇʀᴛɪᴅᴀs", id: `${usedPrefix}menusticker` }
       ]
     }];
@@ -76,7 +80,7 @@ const handler = async (m, { conn, usedPrefix }) => {
       fileName: `📦 MENÚ - SukunaBot.png`,
       mimetype: 'image/webp',
       caption: texto,
-      jpegThumbnail: 'https://files.catbox.moe/jyz3f8.jpg',
+      jpegThumbnail: thumb2,
       footer: '⌬ Sistema Operativo: *SUᴋᴜɴᴀ.ᴇxᴇ*',
       buttons: [
         ...buttons,
@@ -125,7 +129,6 @@ function clockString(ms) {
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
   return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
 }
-
 
 
 
