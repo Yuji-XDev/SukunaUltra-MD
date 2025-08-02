@@ -153,7 +153,7 @@ const handler = async (m, { conn, usedPrefix }) => {
           renderLargerThumbnail: true
         }
       }
-    }, { quoted: m });
+    }, { quoted: fkontak });
 
   } catch (e) {
     console.error(e);
