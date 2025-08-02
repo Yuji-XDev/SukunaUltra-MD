@@ -54,7 +54,7 @@ const ddownr = {
 const handler = async (m, { conn, text, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, `👻 Ingresa el nombre del video a descargar.`, m);
+      return conn.reply(m.chat, `👻 Ingresa el nombre del video a descargar.`, m, fake);
     }
 
     await conn.sendMessage(m.chat, { react: { text: '🎶', key: m.key }});
@@ -70,10 +70,20 @@ const handler = async (m, { conn, text, command }) => {
     const downloadUrl = await ddownr.download(url, format);
     const size = await getSize(downloadUrl);
     const sizeStr = size ? await formatSize(size) : 'Desconocido';
+   
+    await m.reply(
+      `📦 𝐈𝐍𝐈𝐂𝐈𝐀𝐍𝐃𝐎 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀...
+
+> [▓▓▓▓▓▓░░░░░░] 50%
+> 🎶 *Archivo:* ${title}
+> ☘️ *Url:* ${url}
+> ⏳ *Estado:* Procesando, espera unos instantes...`
+    );
+
 
     if (downloadUrl) {
       const fileName = `${title.replace(/[^a-zA-Z0-9 ]/g, '').trim().replace(/ +/g, '_')}.${format}`;
-      const caption = `😁 *${title}*\n*📦 Tamaño:* ${sizeStr}\n> ${dev}`;
+      const caption = `*${title}*\n> *📦 Tamaño:* ${sizeStr}\n> ${club}`;
 
       await conn.sendMessage(m.chat, {
         document: { url: downloadUrl },
