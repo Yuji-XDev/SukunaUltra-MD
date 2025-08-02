@@ -66,8 +66,8 @@ ${listaComandos }
   }
 };
 
-handler.help = ['prueba'];
+handler.help = ['menu anime'];
 handler.tags = ['menus'];
-handler.command = ['prueba'];
+handler.command = ['menu anime'];
 
 export default handler;
