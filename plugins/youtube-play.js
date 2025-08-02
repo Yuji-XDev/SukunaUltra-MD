@@ -10,7 +10,7 @@ const traducirAgo = (texto) => {
     .replace(/month[s]? ago/i, 'meses')
     .replace(/year[s]? ago/i, 'año')
     .replace(/\b1 (segundo|minuto|hora|día|semana|mes|año)s?\b/g, '1 $1')
-    .replace(/\b(\d+)\b/, '$1');
+    .replace(/\b(\d+)\b/, 'hace $1');
 };
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
