@@ -63,6 +63,24 @@ const handler = async (m, { conn, text, command }) => {
     if (!search.all || search.all.length === 0) {
       return m.reply('❌ No se encontraron resultados para tu búsqueda.');
     }
+    
+    const res2 = await fetch('https://files.catbox.moe/qzp733.jpg');
+    const thumb2 = await res2.buffer();
+    const fkontak = {
+      key: {
+        participants: "0@s.whatsapp.net",
+        remoteJid: "status@broadcast",
+        fromMe: false,
+        id: "Halo"
+      },
+      message: {
+        locationMessage: {
+          name: `DESCARGA COMPLETA\n[▓▓▓▓▓▓░░░░░░] 100%`,
+          jpegThumbnail: thumb2
+        }
+      },
+      participant: "0@s.whatsapp.net"
+    };
 
     const videoInfo = search.all[0];
     const { title, url, image, timestamp: duration } = videoInfo;
@@ -83,7 +101,7 @@ const handler = async (m, { conn, text, command }) => {
     
     if (downloadUrl) {
       const fileName = `${title.replace(/[^a-zA-Z0-9 ]/g, '').trim().replace(/ +/g, '_')}.${format}`;
-      const caption = `📼 *${title}*\n🎧 *Duración:* ${duration}\n📦 *Tamaño:* ${sizeStr}\n🔗 ${url}`;
+      const caption = `📼 *${title}*\n> 🎧 *Duración:* ${duration}\n> 📦 *Tamaño:* ${sizeStr}\n> 🔗 ${url}`;
 
       await conn.sendMessage(m.chat, {
         document: { url: downloadUrl },
@@ -101,7 +119,7 @@ const handler = async (m, { conn, text, command }) => {
             renderLargerThumbnail: true
           }
         }
-      }, { quoted: m });
+      }, { quoted: fkontak });
 
       await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key }});
     } else {

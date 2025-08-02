@@ -40,7 +40,7 @@ let handler = async (m, { conn, text, args }) => {
       contextInfo: {
         externalAdReply: {
           title: title,
-          body: 'YouTube Doc',
+          body: '💿 YOUTUBE DOC ☘️',
           mediaUrl: url,
           sourceUrl: url,
           thumbnailUrl: url,
