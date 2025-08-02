@@ -10,6 +10,24 @@ let handler = async (m, { conn, text, args }) => {
     }
 
     await conn.sendMessage(m.chat, { react: { text: '📀', key: m.key } });
+    
+    const res2 = await fetch('https://files.catbox.moe/qzp733.jpg');
+    const thumb2 = await res2.buffer();
+    const fkontak = {
+      key: {
+        participants: "0@s.whatsapp.net",
+        remoteJid: "status@broadcast",
+        fromMe: false,
+        id: "Halo"
+      },
+      message: {
+        locationMessage: {
+          name: `DESCARGA COMPLETA\n[▓▓▓▓▓▓░░░░░░] 100%`,
+          jpegThumbnail: thumb2
+        }
+      },
+      participant: "0@s.whatsapp.net"
+    };
 
     let json = await ytdl(args[0]);
     let title = json.title;
@@ -48,9 +66,9 @@ let handler = async (m, { conn, text, args }) => {
           renderLargerThumbnail: true
         }
       }
-    }, { quoted: m });
+    }, { quoted: fkontak });
 
-    await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
+    await conn.sendMessage(m.chat, { react: { text: '☑️', key: m.key } });
 
   } catch (e) {
     console.error(e);
