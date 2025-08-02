@@ -36,7 +36,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const thumbnail = videoInfo.thumbnail || null;
 
     const body = ` *"${title}"*
-    
+
 > ⏱️ *Duración:* ${duration}
 > 📊 *Vistas:* ${views}
 > 🎤 *Canal:* ${canal}
@@ -51,9 +51,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         caption: body,
         footer: `📥 *¿Quieres descargarlo?* Solo elige una opción abajo`,
         buttons: [
-          { buttonId: `${usedPrefix}ytmp3 ${url}`, buttonText: { displayText: '🎧 ᴅᴇsᴄᴀʀɢᴀʀ ᴀᴜᴅɪᴏ' }, type: 1 },
-          { buttonId: `${usedPrefix}ytmp4 ${url}`, buttonText: { displayText: '📽️ ᴅᴇsᴄᴀʀɢᴀʀ ᴠɪᴅᴇᴏ' }, type: 1 },
-          { buttonId: `${usedPrefix}menu`, buttonText: { displayText: 'ᴠᴏʟᴠᴇʀ ᴍᴇɴᴜ ᴅʟ' }, type: 1 },
+          { buttonId: `${usedPrefix}ytmp3 ${url}`, buttonText: { displayText: '💿 Audio' }, type: 1 },
+          { buttonId: `${usedPrefix}ytmp4 ${url}`, buttonText: { displayText: '☘️ Video' }, type: 1 },
+          { buttonId: `${usedPrefix}ytmp3doc ${url}`, buttonText: { displayText: '💚 Audio Doc' }, type: 1 },
+          { buttonId: `${usedPrefix}ytmp4doc ${url}`, buttonText: { displayText: '☁️ Video Doc' }, type: 1 },
         ],
         viewOnce: true,
         headerType: 4,
