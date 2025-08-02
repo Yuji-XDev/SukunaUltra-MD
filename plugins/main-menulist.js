@@ -44,10 +44,25 @@ const handler = async (m, { conn, usedPrefix }) => {
 ┃ ⏰ \`ʜᴏʀᴀ:\` *[ ${hora} ]*
 ┗━━━━━━⬣`;
 
-    const imgUrl = 'https://files.catbox.moe/97lre0.jpg';
+   /* const imgUrl = 'https://files.catbox.moe/97lre0.jpg';
     const imagenBuffer = await (await fetch(imgUrl)).buffer();
     const thumb2 = await sharp(imagenBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
+    const docBuffer = await sharp(imagenBuffer).webp({ quality: 90 }).toBuffer();*/
+    
+    
+    const imgUrl = 'https://files.catbox.moe/97lre0.jpg';
+    const imagenBuffer = await (await fetch(imgUrl)).buffer();
+    
+    const thumb2 = await sharp(imagenBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
+    
+    
+    const imgenUrl = 'https://files.catbox.moe/jyz3f8.jpg';
+    const imgBuffer = await (await fetch(imgenUrl)).buffer();
+    
+    const thumb = await sharp(imgBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
     const docBuffer = await sharp(imagenBuffer).webp({ quality: 90 }).toBuffer();
+    
+    
 
     const buttons = [
       { buttonId: `${usedPrefix}creador`, buttonText: { displayText: '✐ ꒷📞ദ ᴄʀᴇᴀᴅᴏʀ' }, type: 1 },
@@ -100,7 +115,7 @@ const handler = async (m, { conn, usedPrefix }) => {
         externalAdReply: {
           title: '',
           body: `あ ${global.namebot}`,
-          thumbnail: thumb2,
+          thumbnail: thumb,
           mediaType: 1,
           renderLargerThumbnail: true
         }
