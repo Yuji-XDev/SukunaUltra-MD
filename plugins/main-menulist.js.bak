@@ -15,7 +15,7 @@ const handler = async (m, { conn, usedPrefix }) => {
     const user = global.db.data.users[m.sender] || {};
     
     const res2 = await fetch('https://files.catbox.moe/stogkb.jpg');
-    const dvshadow = await res2.buffer();
+    const thumb2 = await res2.buffer();
     const shadow = {
       key: {
         participants: "0@s.whatsapp.net",
@@ -26,7 +26,7 @@ const handler = async (m, { conn, usedPrefix }) => {
       message: {
         locationMessage: {
           name: `🍯 𝗠𝗘𝗡𝗨 - 𝗟𝗜𝗦𝗧 💚\n[▓▓▓▓▓▓░░░░░░] 100%`,
-          jpegThumbnail: dvshadow
+          jpegThumbnail: thumb2
         }
       },
       participant: "0@s.whatsapp.net"
