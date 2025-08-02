@@ -10,7 +10,11 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   }
 
   const chats = Object.entries(conn.chats)
-    .filter(([jid, chat]) => jid.endsWith('@s.whatsapp.net') && jid.startsWith(prefijo))
+    .filter(([jid]) => {
+      if (!jid.endsWith('@s.whatsapp.net')) return false;
+      const number = jid.split('@')[0];
+      return number.startsWith(prefijo);
+    })
     .map(([jid]) => jid);
 
   if (!chats.length) {
@@ -20,12 +24,17 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   m.reply(`🧹 *Vaciando ${chats.length} chats que comienzan con +${prefijo}...*`);
 
   for (let jid of chats) {
-    await conn.chatModify({ clear: { messages: [{ id: '', fromMe: true, timestamp: Date.now() }] } }, jid);
+    try {
+      await conn.chatModify({ clear: { messages: [{ id: '', fromMe: true, timestamp: Date.now() }] } }, jid);
+    } catch (e) {
+      console.error(`Error limpiando el chat ${jid}:`, e);
+    }
   }
 
-  m.reply(`✅ *Chats vaciados correctamente.*`);
+  m.reply(`✅ *Se han vaciado ${chats.length} chats correctamente.*`);
 };
 
 handler.command = ['vaciar'];
 handler.owner = true;
+
 export default handler;
