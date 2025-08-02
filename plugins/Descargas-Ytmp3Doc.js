@@ -54,34 +54,36 @@ const ddownr = {
 const handler = async (m, { conn, text, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, `👻 Ingresa el nombre del video a descargar.`, m, fake);
+      return conn.reply(m.chat, `👻 Ingresa el nombre del video a descargar.`, m);
     }
 
     await conn.sendMessage(m.chat, { react: { text: '📀', key: m.key }});
-    
+
     const search = await yts(text);
     if (!search.all || search.all.length === 0) {
       return m.reply('❌ No se encontraron resultados para tu búsqueda.');
     }
 
     const videoInfo = search.all[0];
-    const { title, url, image } = videoInfo;
-    const format = 'mp3';
+    const { title, url, image, timestamp: duration } = videoInfo;
     const downloadUrl = await ddownr.download(url, format);
     const size = await getSize(downloadUrl);
     const sizeStr = size ? await formatSize(size) : 'Desconocido';
-    await m.reply(
-      `📦 𝐈𝐍𝐈𝐂𝐈𝐀𝐍𝐃𝐎 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀...
+    const format = 'mp3';
 
+    await m.reply(
+      `📥 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀 𝐄𝐍 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐎...
 > [▓▓▓▓▓▓░░░░░░] 50%
-> 🎶 *Archivo:* ${title}
-> ☘️ *Url:* ${url}
-> ⏳ *Estado:* Procesando, espera unos instantes...`
-     );
+> 🎧 *Título:* ${title}
+> 🕒 *Duración:* ${duration}
+> 🔗 *Enlace:* ${url}
+> 🌳 *Tamaño:* ${sizeStr}
+> ⏳ *Estado:* Preparando audio...`
+    );
     
     if (downloadUrl) {
       const fileName = `${title.replace(/[^a-zA-Z0-9 ]/g, '').trim().replace(/ +/g, '_')}.${format}`;
-      const caption = `*${title}*\n> *📦 Tamaño:* ${sizeStr}\n> ${club}`;
+      const caption = `📼 *${title}*\n🎧 *Duración:* ${duration}\n📦 *Tamaño:* ${sizeStr}\n🔗 ${url}`;
 
       await conn.sendMessage(m.chat, {
         document: { url: downloadUrl },
@@ -101,7 +103,7 @@ const handler = async (m, { conn, text, command }) => {
         }
       }, { quoted: m });
 
-      await conn.sendMessage(m.chat, { react: { text: '☑️', key: m.key }});
+      await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key }});
     } else {
       return m.reply(`⚠️ No se pudo descargar el audio.`);
     }
@@ -116,7 +118,6 @@ handler.tags = ['descargas'];
 
 export default handler;
 
-
 async function getSize(url) {
   try {
     const response = await axios.head(url);
@@ -127,7 +128,6 @@ async function getSize(url) {
     return null;
   }
 }
-
 
 async function formatSize(bytes) {
   const units = ['B', 'KB', 'MB', 'GB'];
