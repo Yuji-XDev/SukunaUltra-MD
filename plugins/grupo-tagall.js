@@ -40,7 +40,7 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
     contextInfo: {
       mentionedJid: mencionados,
       externalAdReply: {
-        title: '✧ 𝙄𝙉𝙑𝙊𝘾𝘼𝙉𝘿𝙊 𝙀𝙎𝙋𝙄𝙍𝙄𝙏𝙐𝙎 ꦿ✧',
+        //title: '✧ 𝙄𝙉𝙑𝙊𝘾𝘼𝙉𝘿𝙊 𝙀𝙎𝙋𝙄𝙍𝙄𝙏𝙐𝙎 ꦿ✧',
         body: grupo,
         thumbnailUrl: logo,
         mediaType: 1,
