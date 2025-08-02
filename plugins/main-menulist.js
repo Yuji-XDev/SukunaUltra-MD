@@ -1,6 +1,5 @@
 import sharp from 'sharp';
 import fetch from 'node-fetch';
-import fs from 'fs';
 
 const handler = async (m, { conn, usedPrefix }) => {
   await m.react('📦');
@@ -45,14 +44,10 @@ const handler = async (m, { conn, usedPrefix }) => {
 ┃ ⏰ \`ʜᴏʀᴀ:\` *[ ${hora} ]*
 ┗━━━━━━⬣`;
 
-    const imageUrl = 'https://files.catbox.moe/jyz3f8.jpg';
-    const imgBuffer = await (await fetch(imageUrl)).buffer();
-    
     const imgUrl = 'https://files.catbox.moe/97lre0.jpg';
     const imagenBuffer = await (await fetch(imgUrl)).buffer();
-    
-    const thumb2 = await sharp(imgBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
-    const docBuffer = await sharp(imagenBuffer).webp({ quality: 80 }).toBuffer();
+    const thumb2 = await sharp(imagenBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
+    const docBuffer = await sharp(imagenBuffer).webp({ quality: 90 }).toBuffer();
 
     const buttons = [
       { buttonId: `${usedPrefix}creador`, buttonText: { displayText: '✐ ꒷📞ദ ᴄʀᴇᴀᴅᴏʀ' }, type: 1 },
@@ -64,24 +59,24 @@ const handler = async (m, { conn, usedPrefix }) => {
       title: "🥮 MENÚS DISPONIBLES 🐛",
       rows: [
         { title: "📥 Mᴇɴᴜ [ 𝗗𝗟 ]", description: "🎧 ᴠᴇʀ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ ᴅᴇsᴄᴀʀɢᴀs", id: `${usedPrefix}menudl` },
-          { title: "⛏️ Mᴇɴᴜ [ 𝗥𝗣𝗚 ]", description: "🎮 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ʀᴘɢ", id: `${usedPrefix}menurpg` },
-          { title: "🔍 Mᴇɴᴜ [ 𝗦𝗘𝗔𝗥𝗖𝗛 ]", description: "🌾 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ sᴇᴀʀᴄʜ", id: `${usedPrefix}menuse` },
-          { title: "🖍️ Mᴇɴᴜ [ 𝗢𝗪𝗡𝗘𝗥 ]", description: "🧙‍♂️ ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ ᴏᴡɴᴇʀ", id: `${usedPrefix}dev` },
-          { title: "🌈 Mᴇɴᴜ [ 𝗔𝗨𝗗𝗜𝗢𝗦 ]", description: "🎃 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ ᴀᴜᴅɪᴏs", id: `${usedPrefix}menu2` },
-          { title: "⛩️ Mᴇɴᴜ [ 𝗣𝗘𝗥𝗙𝗜𝗟 ]", description: "☂️ ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴘᴀʀᴀ ᴇᴅɪᴛᴀʀ ᴛᴜ ᴘᴇʀғɪʟ", id: `${usedPrefix}perfildates` },
-          { title: "🌞 Mᴇɴᴜ [ 𝗚𝗥𝗨𝗣𝗢 ]", description: "💫 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴘᴀʀᴀ ᴀᴅᴍɪɴɪsᴛʀᴀʀ ᴛᴜ ɢʀᴜᴘᴏ", id: `${usedPrefix}menugp` },
-          { title: "🔞 Mᴇɴᴜ [ 𝗡𝗦𝗙𝗪 ]", description: "💨 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ ɴsғᴡ", id: `${usedPrefix}menu18` },
-          { title: "💖 Mᴇɴᴜ [ 𝗟𝗢𝗚𝗢𝗧𝗜𝗣𝗢𝗦 ]", description: "🐥 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ ʟᴏɢᴏᴛɪᴘᴏs", id: `${usedPrefix}menulogos` },
-          { title: "🐛 Mᴇɴᴜ [ 𝗦𝗧𝗜𝗖𝗞𝗘𝗥𝗦 ]", description: "🐾 ᴠᴇʀ ᴍᴇɴᴜ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ sᴛɪᴄᴋᴇʀs", id: `${usedPrefix}menusticker` }
+        { title: "⛏️ Mᴇɴᴜ [ 𝗥𝗣𝗚 ]", description: "🎮 ᴠᴇʀ ᴍᴇɴᴜ ʀᴘɢ", id: `${usedPrefix}menurpg` },
+        { title: "🔍 Mᴇɴᴜ [ 𝗦𝗘𝗔𝗥𝗖𝗛 ]", description: "🌾 ʙᴜsᴄᴀʀ ᴄᴏɴᴛᴇɴɪᴅᴏ", id: `${usedPrefix}menuse` },
+        { title: "🖍️ Mᴇɴᴜ [ 𝗢𝗪𝗡𝗘𝗥 ]", description: "🧙‍♂️ ᴘᴀʀᴀ ᴏᴡɴᴇʀ", id: `${usedPrefix}dev` },
+        { title: "🌈 Mᴇɴᴜ [ 𝗔𝗨𝗗𝗜𝗢𝗦 ]", description: "🎃 sᴏɴɪᴅᴏs ᴅɪᴠᴇʀᴛɪᴅᴏs", id: `${usedPrefix}menu2` },
+        { title: "⛩️ Mᴇɴᴜ [ 𝗣𝗘𝗥𝗙𝗜𝗟 ]", description: "☂️ ᴄᴜᴇɴᴛᴀs ʏ ᴇsᴛᴀᴅᴏs", id: `${usedPrefix}perfildates` },
+        { title: "🌞 Mᴇɴᴜ [ 𝗚𝗥𝗨𝗣𝗢 ]", description: "💫 ᴀᴅᴍɪɴ ʏ ᴄᴏɴᴛʀᴏʟ", id: `${usedPrefix}menugp` },
+        { title: "🔞 Mᴇɴᴜ [ 𝗡𝗦𝗙𝗪 ]", description: "💨 ᴄᴏɴᴛᴇɴɪᴅᴏ ᴘʀɪᴠᴀᴅᴏ", id: `${usedPrefix}menu18` },
+        { title: "💖 Mᴇɴᴜ [ 𝗟𝗢𝗚𝗢𝗧𝗜𝗣𝗢𝗦 ]", description: "🐥 ᴄʀᴇᴀ ᴛᴜ ʟᴏɢᴏ", id: `${usedPrefix}menulogos` },
+        { title: "🐛 Mᴇɴᴜ [ 𝗦𝗧𝗜𝗖𝗞𝗘𝗥𝗦 ]", description: "🐾 ᴘᴇɢᴀᴛɪɴᴀs ᴅɪᴠᴇʀᴛɪᴅᴀs", id: `${usedPrefix}menusticker` }
       ]
     }];
 
     await conn.sendMessage(m.chat, {
       document: docBuffer,
-      fileName: `📦 MENÚ\n👾 𝕊𝐮𝐤𝐮𝐧𝐚 𝕌𝐥𝐭𝐫𝐚.PNG`,
+      fileName: `📦 MENÚ - SukunaBot.png`,
       mimetype: 'image/webp',
       caption: texto,
-      jpegThumbnail: imgBuffer,
+      jpegThumbnail: thumb2,
       footer: '⌬ Sistema Operativo: *SUᴋᴜɴᴀ.ᴇxᴇ*',
       buttons: [
         ...buttons,
