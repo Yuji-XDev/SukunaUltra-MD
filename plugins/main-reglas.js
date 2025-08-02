@@ -1,5 +1,5 @@
 let handler = async (m, { conn, usedPrefix, command, text }) => {
-  const loading = [
+  let loading = [
     '《▰▱▱▱▱▱▱▱▱▱》10%',
     '《▰▰▱▱▱▱▱▱▱▱》20%',
     '《▰▰▰▱▱▱▱▱▱▱》30%',
@@ -14,14 +14,10 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     '📜 Enviando reglas del bot...'
   ];
 
-  const imgCarga = 'https://files.catbox.moe/19azgy.mp4';
-
+  let { key } = await conn.sendMessage(m.chat, { text: '_Cargando..._' });
   for (let paso of loading) {
-    await conn.sendMessage(m.chat, {
-      text: paso,
-      edit: key
-    });
-    await new Promise(r => setTimeout(r, 400));
+    await conn.sendMessage(m.chat, { text: paso, edit: key });
+    await new Promise(r => setTimeout(r, 500));
   }
 
   if (['botreglas', 'reglasdelbot', 'reglasbot', 'reglas'].includes(command)) {
@@ -48,10 +44,11 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 \`\`\`
 ╰──────────────────────────╯
 
-> ${md || 'https://github.com'}
-> ${textbot || '@SukunaBotMD'}`.trim();
+> ${md}
+> ${textbot}
+    `.trim();
 
-    await conn.sendFile(m.chat, imgCarga, 'sukuna.mp4', texto, fkontak);
+    await conn.sendFile(m.chat, logo, 'sukuna.mp4', texto, fkontak);
   }
 
   else if (['gruporeglas', 'reglasgp'].includes(command)) {
@@ -60,8 +57,6 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     try {
       const groupInfo = await conn.groupMetadata(m.chat);
       const url = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null);
-      const fallbackImage = global.logo || imgCarga;
-
       const texto = `
 📜 *Reglas del grupo:*
 *"${groupInfo.subject}"*
@@ -69,7 +64,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 ${groupInfo.desc?.trim() || 'No hay reglas establecidas en la descripción del grupo.'}
       `.trim();
 
-      await conn.sendFile(m.chat, url || fallbackImage, 'group.jpg', texto, m);
+      await conn.sendFile(m.chat, url || img, 'group.jpg', texto, m);
     } catch (e) {
       console.error(e);
       await conn.reply(m.chat, '❌ No se pudieron obtener las reglas del grupo. Asegúrate de usar este comando en un grupo válido.', m);
