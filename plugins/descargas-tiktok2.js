@@ -3,75 +3,78 @@ import cheerio from "cheerio";
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return conn.reply(m.chat, `Usa el formato: ${usedPrefix + command} <enlace de TikTok>`, m);
+    return conn.reply(m.chat, `🚫 *Formato incorrecto.*\n\n📌 Usa: ${usedPrefix + command} <enlace de TikTok>`, m, fake);
   }
 
   try {
     await m.react('🕒');
 
     const videoResult = await ttsave.video(text);
-    const { 
-      type, 
-      nickname, 
-      username, 
-      description, 
-      videoInfo, 
-      slides, 
-      audioUrl 
+    const {
+      type,
+      nickname,
+      username,
+      description,
+      videoInfo,
+      slides,
+      audioUrl
     } = videoResult;
 
-    let message = `*✔️🍟 𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽𝖾𝗋 𝖳𝗂𝗄𝖳𝗈𝗄.*
-
-> • *Nombre*: ${nickname || "-"}
-> • *Usuario*: ${username || "-"}
-> • *Descripción*: ${description || "-"}
+    let message = `
+╭━〔 *📥 TIKTOK DOWNLOADER* 〕━⬣
+┃ 👤 *Nombre:* ${nickname || "-"}
+┃ 🆔 *Usuario:* ${username || "-"}
+┃ 📝 *Descripción:* ${description || "Sin descripción disponible..."}
 `.trim();
 
     if (type === "slide") {
-      message += "\n> • *Tipo*: Presentación (Imágenes)";
+      message += `\n┃ 🖼️ *Tipo:* Presentación (Imágenes)\n╰━━━━━━━━━━━━⬣`;
       await conn.reply(m.chat, message, m);
 
       for (let slide of slides) {
         await m.react('🍁');
-        await conn.sendFile(m.chat, slide.url, `presentación-${slide.number}.jpg`, "", m);
+        await conn.sendFile(m.chat, slide.url, `slide-${slide.number}.jpg`, "", m);
       }
-    } 
-    else if (type === "video") {
-      message += "\n> • *Tipo*: Video";
+
+    } else if (type === "video") {
+      message += `\n┃ 🎬 *Tipo:* Video\n╰━━━━━━━━━━━━⬣`;
 
       if (videoInfo.nowm) {
         await m.react('🍓');
-await conn.sendMessage(m.chat, {
-  video: { url: videoInfo.nowm },
-  caption: message,
-  footer: dev,
-  buttons: [
-    {
-      buttonId: `.tiktokmp3 ${text}`,
-      buttonText: {
-        displayText: 'Audio 🎧',
-      },
-    },
-    {
-      buttonId: `.tiktokhd ${text}`,
-      buttonText: {
-        displayText: 'Calidad HD',
-      },
-    },
-  ],
-  viewOnce: true,
-  headerType: 4,
-}, { quoted: m });
+
+        await conn.sendMessage(m.chat, {
+          video: { url: videoInfo.nowm },
+          caption: message,
+          footer: dev,
+          buttons: [
+            {
+              buttonId: `.tiktokmp3 ${text}`,
+              buttonText: {
+                displayText: '🎧 Extraer Audio',
+              },
+            },
+            {
+              buttonId: `.tiktokhd ${text}`,
+              buttonText: {
+                displayText: '📺 Descargar en HD',
+              },
+            },
+          ],
+          viewOnce: true,
+          headerType: 4,
+        }, { quoted: m });
+
       } else {
-        conn.reply(m.chat, "No se pudo obtener el video sin marca de agua.", m);
+        conn.reply(m.chat, "⚠️ No se pudo obtener el video sin marca de agua.", m);
       }
     }
 
     if (audioUrl) {
     }
+
   } catch (error) {
     console.error(error);
-    conn.reply(m.chat, `Ocurrió un error al procesar la solicitud. Asegúrate de que el enlace de TikTok sea válido e inténtalo nuevamente.`, m);
+    conn.reply(m.chat, `❌ *Ocurrió un error al procesar el enlace.*\n\n📌 Asegúrate de que el enlace de TikTok sea válido y vuelve a intentarlo.`, m);
   }
 };
 
