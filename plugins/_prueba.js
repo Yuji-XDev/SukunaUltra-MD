@@ -28,8 +28,8 @@ let handler = async (m, { conn, args }) => {
   }
 };
 
-handler.help = ["tourl3"];
-handler.command = ["tourl3"];
+handler.help = ["tourl30"];
+handler.command = ["tourl30"];
 export default handler;
 
 async function upload(filePath) {
