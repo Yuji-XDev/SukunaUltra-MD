@@ -19,7 +19,7 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
 ┃ 📶 𝐒𝐮𝐤𝐮𝐧𝐚 ➤ ${estado}
 ┃
 ╰══ ⪻ 𝐓𝐇𝐄 𝐊𝐈𝐍𝐆 𝐎𝐅 𝐂𝐔𝐑𝐒𝐄𝐒 ⪼ ══⬤`
-      return conn.reply(m.chat, info, fkontak, rcanal)
+      return conn.reply(m.chat, info, fkontak, fake)
     }
 
     if (args[0] === 'off') {
