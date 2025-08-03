@@ -50,11 +50,28 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         const json = await res.json()
         if (!json.result?.download?.url) throw '⚠ No se obtuvo un enlace válido.'
 
-        await conn.sendMessage(m.chat, {
+        /*await conn.sendMessage(m.chat, {
           audio: { url: json.result.download.url },
           fileName: `${json.result.title}.mp3`,
           mimetype: 'audio/mpeg'
-        }, { quoted: m })
+        }, { quoted: m })*/
+        
+    await conn.sendMessage(m.chat, {
+      audio: { url: json.result.download.url },
+      mimetype: 'audio/mpeg',
+      fileName: `${json.result.title}.mp3`,
+      contextInfo: {
+        externalAdReply: {
+          title: json.result.title,
+          body: 'YOUTUBE • PLAY',
+          mediaType: 1,
+          thumbnail: thumb,
+          mediaUrl: url,
+          sourceUrl: url,
+          renderLargerThumbnail: true
+        }
+      }
+    }, { quoted: fkontak })
       } catch (e) {
         return conn.reply(m.chat, '⚠︎ No se pudo enviar el audio. El archivo podría ser demasiado pesado o hubo un error en la generación del enlace.', m)
       }
