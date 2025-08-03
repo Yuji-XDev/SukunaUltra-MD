@@ -135,8 +135,26 @@ if (qr && mcode) {
 let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
 secret = secret.match(/.{1,4}/g)?.join("-")
 
-txtCode = await conn.sendMessage(m.chat, {text : rtx2}, { quoted: m })
+
+
+//txtCode = await conn.sendMessage(m.chat, {text : rtx2}, { quoted: m })
+
+txtCode = await conn.sendMessage(m.chat, {
+      image: logo,
+      caption: rtx2,
+      contextInfo: {
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363401008003732@newsletter',
+          newsletterName: '=͟͟͞𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺',
+          serverMessageId: -1
+        }
+      }
+    }, { quoted: m })
+
+
 codeBot = await m.reply(secret)
+
 
 
 console.log(secret)
