@@ -49,6 +49,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 
 handler.help = ['togifurl'];
 handler.tags = ['tools'];
-handler.command = /^togifurl$/i;
+handler.command = ['togifurl'];
 
 export default handler;
