@@ -14,6 +14,24 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       : search.videos?.[0]
 
     if (!video) return conn.reply(m.chat, '✧ No se encontraron resultados para tu búsqueda.', m)
+    
+    const res2 = await fetch('https://files.catbox.moe/qzp733.jpg');
+    const thumb2 = await res2.buffer();
+    const Shadow = {
+      key: {
+        participants: "0@s.whatsapp.net",
+        remoteJid: "status@broadcast",
+        fromMe: false,
+        id: "Halo"
+      },
+      message: {
+        locationMessage: {
+          name: `DESCARGA COMPLETA\n[▓▓▓▓▓▓▓▓░░░░] 100%`,
+          jpegThumbnail: thumb2
+        }
+      },
+      participant: "0@s.whatsapp.net"
+    };
 
     const { title, thumbnail, timestamp, views, ago, url, author } = video
     const vistas = formatViews(views)
@@ -71,7 +89,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
           renderLargerThumbnail: true
         }
       }
-    }, { quoted: fkontak })
+    }, { quoted: Shadow })
       } catch (e) {
         return conn.reply(m.chat, '⚠︎ No se pudo enviar el audio. El archivo podría ser demasiado pesado o hubo un error en la generación del enlace.', m)
       }
@@ -85,7 +103,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         if (!json.download) throw '⚠ No se obtuvo enlace de video.'
         
         await m.react('✅');
-        await conn.sendFile(m.chat, json.download, `${json.title || 'video'}.mp4`, `🎬 *Título:* ${json.title}\n📽️ *Calidad:* ${json.quality}p\n📥 *Video descargado con éxito.*`, m)
+        await conn.sendFile(m.chat, json.download, `${json.title || 'video'}.mp4`, `🎬 *Título:* ${json.title}\n📽️ *Calidad:* ${json.quality}p\n📥 *Video descargado con éxito.*`, Shadow)
       } catch (e) {
         return conn.reply(m.chat, '⚠︎ No se pudo enviar el video. El archivo podría ser muy pesado o hubo un error en el enlace.', m)
       }
