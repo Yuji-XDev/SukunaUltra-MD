@@ -101,11 +101,17 @@ await conn.sendMessage(m.chat, {
   caption: regbot,
   footer: '',
   buttons: [
-      { buttonId: '#menu', buttonText: { displayText: '🌳 Menu Principal' }, type: 1 },
-      { buttonId: '#profile', buttonText: { displayText: '🔥 Perfil' }, type: 1 }
+    { buttonId: '#profile', buttonText: { displayText: '🔥 Perfil' }, type: 1 },
+    { buttonId: '/menu', buttonText: { displayText: '☘️ 𝗠𝗘𝗡𝗨 • 𝗔𝗟𝗟' }, type: 1 },
+    { buttonText: { displayText: '🌐 𝗚𝗜𝗧𝗛𝗨𝗕' }, type: 2, url: 'https://github.com/Yuji-XDev/SukunaUltra-MD' }
   ],
   headerType: 4,
-  contextInfo: { mentionedJid: [m.sender], forwardingScore: 9999, isForwarded: true, externalAdReply: fkontak }
+  contextInfo: {
+    mentionedJid: [m.sender],
+    forwardingScore: 9999,
+    isForwarded: true,
+    externalAdReply: fkontak
+  }
 });
 };
 
