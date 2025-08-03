@@ -96,24 +96,11 @@ let regbot = `✅ VERIFICACIÓN EXITOSA ✅
 🔰 \`TOKENS:\` +20\n`;
 
 await m.react('📩')
-await conn.sendMessage(m.chat, {
-  image: { url: pp },
-  caption: regbot,
-  footer: '',
-  buttons: [
-    { buttonId: '#profile', buttonText: { displayText: '🔥 Perfil' }, type: 1 },
-    { buttonId: '/menu', buttonText: { displayText: '☘️ 𝗠𝗘𝗡𝗨 • 𝗔𝗟𝗟' }, type: 1 },
-    { buttonText: { displayText: '🌐 𝗚𝗜𝗧𝗛𝗨𝗕' }, type: 2, url: 'https://github.com/Yuji-XDev/SukunaUltra-MD' }
-  ],
-  headerType: 4,
-  contextInfo: {
-    mentionedJid: [m.sender],
-    forwardingScore: 9999,
-    isForwarded: true,
-    externalAdReply: fkontak
-  }
-});
-};
+await conn.sendButton(m.chat, regbot, `☁️ 𝐃𝐄𝐕.𝐒𝐇𝐀𝐃𝐎𝐖\n${club}\n\n` + wm, pp, [
+['📢 𝗚𝗥𝗨𝗣𝗢𝗦 ~', '.grupos'],
+['👤 𝗖𝗥𝗘𝗔𝗗𝗢𝗥 • 𝗢𝗙𝗖', '#owner'],
+['☘️ 𝗠𝗘𝗡𝗨 • 𝗔𝗟𝗟', '/menu']], null, [
+['🌐 𝗚𝗜𝗧𝗛𝗨𝗕', `https://github.com/Yuji-XDev/SukunaUltra-MD`]], fkontak)}
 
 /*  await conn.sendMessage(m.chat, {
     image: { url: pp },
