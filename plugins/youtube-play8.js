@@ -4,7 +4,7 @@ import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysoc
 
 const handler = async (m, { conn, args, usedPrefix, command }) => {
   const fake = { key: { remoteJid: '0@s.whatsapp.net', fromMe: false, id: 'ABCD' }, message: { conversation: 'Sukuna Bot MD' } };
-  const club = '🎧 𝗦𝘂𝗸𝘂𝗻𝗮 𝗕𝗼𝘁 𝗠𝗗';
+  const club = '🎧 𝗦𝘂𝗸𝘂𝗻𝗮 𝗨𝗹𝘁𝗿𝗮 𝗠𝗗';
 
   if (!args[0]) return conn.reply(m.chat, `*🌾 Ingresa un título para buscar en YouTube.*\n✧ \`Ejemplo:\` ${usedPrefix}${command} Joji - Ew`, m, fake);
 
