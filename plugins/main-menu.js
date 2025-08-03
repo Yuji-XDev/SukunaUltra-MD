@@ -61,9 +61,12 @@ let handler = async (m, { conn, args }) => {
    let fechaObj = new Date();
    let fecha = fechaObj.toLocaleDateString('es-PE', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Lima' });
    let dia = fechaObj.toLocaleDateString('es-PE', { weekday: 'long', timeZone: 'America/Lima' });
+   
+  let userId = m.sender;
+  let taguser = '@' + userId.replace(/@.+/, '');
 
   let menuText = `
-🎄 ${ucapan()} @${userId.split('@')[0]}
+🎄 ${ucapan()} ${taguser}
 
 ╔════ ❖ •❁• ✦ •❁• ❖ ════╗
 ║      🌸 𝐒𝐔𝐊𝐔𝐍𝐀 - 𝐁𝐎𝐓 🌸
