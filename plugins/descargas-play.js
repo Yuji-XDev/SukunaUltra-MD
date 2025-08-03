@@ -30,14 +30,14 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const external = {
       contextInfo: {
         externalAdReply: {
-          title: botname,
-          body: dev,
+          title: title,
+          body: wm,
           mediaType: 1,
           previewType: 0,
           mediaUrl: url,
           sourceUrl: url,
           thumbnail: thumb,
-          renderLargerThumbnail: true
+          renderLargerThumbnail: false
         }
       }
     }
