@@ -96,11 +96,11 @@ let regbot = `✅ VERIFICACIÓN EXITOSA ✅
 🔰 \`TOKENS:\` +20\n`;
 
 await m.react('📩')
-await conn.sendButton(m.chat, regbot, `☁️ 𝐃𝐄𝐕.𝐒𝐇𝐀𝐃𝐎𝐖\n${club}\n\n` + wm, pp, [
-['📢 𝗚𝗥𝗨𝗣𝗢𝗦 ~', '.grupos'],
-['👤 𝗖𝗥𝗘𝗔𝗗𝗢𝗥 • 𝗢𝗙𝗖', '#owner'],
-['☘️ 𝗠𝗘𝗡𝗨 • 𝗔𝗟𝗟', '/menu']], null, [
-['🌐 𝗚𝗜𝗧𝗛𝗨𝗕', `https://github.com/Yuji-XDev/SukunaUltra-MD`]], fkontak)}
+await conn.sendButton(m.chat, regbot, club, pp, [
+['👤 𝗢𝗪𝗡𝗘𝗥', '#owner'],
+['🌾 𝗣𝗘𝗥𝗙𝗜𝗟', '#perfil'],
+['☘️ 𝗠𝗘𝗡𝗨 • 𝗔𝗟𝗟', '#menu']], null, [
+['🌐 𝗖𝗔𝗡𝗔𝗟', `https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U`]], fkontak)}
 
 /*  await conn.sendMessage(m.chat, {
     image: { url: pp },
