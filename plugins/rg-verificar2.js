@@ -99,7 +99,7 @@ await m.react('📩')
 await conn.sendButton(m.chat, regbot, club, pp, [
 ['👤 𝗢𝗪𝗡𝗘𝗥', '#owner'],
 ['🌾 𝗣𝗘𝗥𝗙𝗜𝗟', '#perfil'],
-['☘️ 𝗠𝗘𝗡𝗨 • 𝗔𝗟𝗟', '#menu']], true, [
+['☘️ 𝗠𝗘𝗡𝗨 • 𝗔𝗟𝗟', '#menu']], null, [
 ['🌐 𝗖𝗔𝗡𝗔𝗟', `https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U`]], fkontak)}
 
 /*  await conn.sendMessage(m.chat, {
