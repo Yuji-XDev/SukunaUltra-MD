@@ -96,8 +96,17 @@ let regbot = `✅ VERIFICACIÓN EXITOSA ✅
 🔰 \`TOKENS:\` +20\n`;
 
 await m.react('📩')
-await conn.sendFile(m.chat, pp, 'registro.jpg', regbot, fkontak);
-};
+await conn.sendMessage(m.chat, {
+  image: { url: pp },
+  caption: regbot,
+  footer: '',
+  buttons: [
+      { buttonId: '#menu', buttonText: { displayText: '🌳 Menu Principal' }, type: 1 },
+      { buttonId: '#profile', buttonText: { displayText: '🔥 Perfil' }, type: 1 }
+  ],
+  headerType: 4,
+  contextInfo: { mentionedJid: [m.sender], forwardingScore: 9999, isForwarded: true, externalAdReply: fkontak }
+});
 
 /*  await conn.sendMessage(m.chat, {
     image: { url: pp },
