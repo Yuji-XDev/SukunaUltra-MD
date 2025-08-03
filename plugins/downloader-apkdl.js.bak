@@ -66,7 +66,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let { app } = session;
     const downloadUrl = app.download;
 
-    await conn.sendMessage(
+   /* await conn.sendMessage(
       m.chat,
       {
         document: { url: downloadUrl },
@@ -74,7 +74,27 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         fileName: `${app.name}.apk`,
         caption: `🌪️ ${app.name}\n> ⋆⬪࣪ꥈ🥮★ 𝖯𑄜𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 𝖲𝗁⍺𝖽ᦅ𝗐′core 𝖢𝗅𝗎𝖻𓆪`
       },
-      { quoted: m }
+      { quoted: m }*/
+      
+      await conn.sendMessage(m.chat, {
+      document: { url: downloadUrl },
+      fileName: `${app.name}.apk`,
+      mimetype: 'application/vnd.android.package-archive',
+      caption: club,
+      thumbnail: data5.icon,
+      contextInfo: {
+        externalAdReply: {
+          title: app.name,
+          body: `Powered by Dev.Shadow 👻`,
+          mediaUrl: null,
+          sourceUrl: null,
+          thumbnailUrl: app.image,
+          mediaType: 1,
+          renderLargerThumbnail: true
+        }
+      }
+    }, { quoted: m }
+      
     );
     return;
   }

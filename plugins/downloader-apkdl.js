@@ -81,7 +81,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       fileName: `${app.name}.apk`,
       mimetype: 'application/vnd.android.package-archive',
       caption: club,
-      thumbnail: data5.icon,
+      thumbnail: app.image,
       contextInfo: {
         externalAdReply: {
           title: app.name,
