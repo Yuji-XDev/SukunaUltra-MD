@@ -27,14 +27,13 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
       thumbnail = await (await fetch('https://telegra.ph/file/36f2a1bd2aaf902e4d1ff.jpg')).buffer();
     }
 
-    const caption = `*🌳  YOUTUBE PLAY ☘️*
+    const caption = `    *"${video.titulo || 'no encontrado'}"*
 
-*✧ titulo:* ${video.titulo || 'no encontrado'}
-*✧ duracion:* ${video.duracion || 'no encontrado'}
-*✧ publicado:* ${video.publicado || 'no encontrado'}
-*✧ canal:* ${video.canal || 'no encontrado'}
-*✧ vistas:* ${video.vistas || 'no encontrado'}
-*✧ url:* ${video.url}`;
+> ⏱️ *Duración:* ${video.duracion || 'no encontrado'}
+> 📊 *Vistas:* ${video.vistas || 'no encontrado'}
+> 🎤 *Canal:* ${video.canal || 'no encontrado'}
+> 📅 *Publicado:* ${video.publicado || 'no encontrado'}
+> 🔗 *Url:* ${video.url}`;
 
     let ytSections = searchResults.slice(1, 11).map((v, index) => ({
       title: `${index + 1}┃ ${v.titulo}`,
@@ -96,12 +95,12 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
       buttons: [
         {
           buttonId: `${usedPrefix}yta ${video.url}`,
-          buttonText: { displayText: '🌳 𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂𝒓 𝑨𝒖𝒅𝒊𝒐' },
+          buttonText: { displayText: '💿 Audio' },
           type: 1,
         },
         {
           buttonId: `${usedPrefix}ytv ${video.url}`,
-          buttonText: { displayText: '🌾 𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂𝒓 𝑽𝒊𝒅𝒆𝒐' },
+          buttonText: { displayText: '☘️ Video' },
           type: 1,
         },
         {
@@ -137,9 +136,9 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
   }
 };
 
-handler.help = ['play2 *<texto>*'];
+handler.help = ['play *<texto>*'];
 handler.tags = ['downloader'];
-handler.command = ['play2'];
+handler.command = ['play', 'play2'];
 export default handler;
 
 async function searchVideos(query) {
