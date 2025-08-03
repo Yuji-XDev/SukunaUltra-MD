@@ -37,7 +37,7 @@ function formatViews(views) {
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
-    if (!text.trim()) return conn.reply(m.chat, `✎ Por favor, ingresa el nombre o enlace del video.`, m)
+    if (!text.trim()) return conn.reply(m.chat, ` Por favor, ingresa el nombre o enlace del video.`, m)
 
     let videoIdMatch = text.match(youtubeRegexID)
     let search = await yts(videoIdMatch ? 'https://youtu.be/' + videoIdMatch[1] : text)
@@ -51,7 +51,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const vistas = formatViews(views)
     const canal = author?.name || 'Desconocido'
 
-        const infoMessage = `     *<${title}>*\n\n` +
+    const infoMessage = `     *<${title}>*\n\n` +
       `> ✧ Canal » *${canal}*\n` +
       `> ✰ Vistas » *${vistas}*\n` +
       `> ⴵ Duración » *${timestamp}*\n` +
@@ -88,13 +88,11 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       }, { quoted: m })
 
     } else if (['play2', 'playvideo'].includes(command)) {
-      let apis = `https://d.ymcdn.org/api/v1/init?p=y&23=1llum1n471&_=${Date.now()}`
-
-
+      let api1 = `https://d.ymcdn.org/api/v1/init?p=y&23=1llum1n471&_=${Date.now()}`
       let finalUrl = null, fileTitle = null
 
       try {
-        const res1 = await fetch(apis[0])
+        const res1 = await fetch(api1)
         const json1 = await res1.json()
         if (json1?.result?.url) {
           finalUrl = json1.result.url
@@ -109,8 +107,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
             'accept-language': 'es-ES',
             'referer': 'https://id.ytmp3.mobi/',
           }
-          const init = await (await fetch(apis[1], { headers })).json()
           const id = url.match(/(?:v=|\/)([0-9A-Za-z_-]{11})/)?.[1]
+          const init = await (await fetch(api1, { headers })).json()
           const convertRes = await fetch(`${init.convertURL}&v=${id}&f=mp4`, { headers })
           const convert = await convertRes.json()
           const progress = await (await fetch(convert.progressURL, { headers })).json()
