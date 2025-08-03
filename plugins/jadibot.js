@@ -65,6 +65,7 @@ ${lista}
 > ${club}`;
 
 await _envio.sendMessage(m.chat, {text: textoSubbots, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
+ };
   
 
  /* await conn.sendMessage(m.chat, {
