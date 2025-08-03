@@ -62,7 +62,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       contextInfo: {
         externalAdReply: {
           title: title,
-          body: 'YOUTUBE • PLAY',
+          body: author,
           mediaType: 1,
           thumbnail: thumb,
           mediaUrl: url,
