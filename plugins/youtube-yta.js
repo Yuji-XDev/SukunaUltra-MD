@@ -8,13 +8,12 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     return m.reply(`🌾 *Ejemplo de uso:*\n\n✎ ✧ \`${usedPrefix + command}\` https://youtube.com/watch?v=KHgllosZ3kA\n✎ ✧ \`${usedPrefix + command}\` DJ malam pagi slowed`);
   }
 
-  await m.react('🔍');
+  await m.react('💿');
 
   const isYoutubeUrl = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\//i.test(text);
   let info = null;
 
   try {
-
     if (isYoutubeUrl) {
       try {
         const res = await fetch(`https://api.vreden.my.id/api/ytmp3?url=${encodeURIComponent(text)}`);
@@ -27,38 +26,52 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             duration: json.resultado.metadata.duración?.marca_de_tiempo,
             thumb: json.resultado.metadata.image,
             download: json.resultado.descarga.url,
-            filename: json.resultado.descarga.filename
+            filename: json.resultado.descarga.filename,
+            size: json.resultado.descarga.size
           };
         }
-      } catch {
-
+      } catch (e) {
+        console.error('Error en ytmp3:', e);
       }
     }
 
     if (!info) {
-      const res = await fetch(`https://api.vreden.my.id/api/ytplaymp3?query=${encodeURIComponent(text)}`);
-      const json = await res.json();
+      try {
+        const res = await fetch(`https://api.vreden.my.id/api/ytplaymp3?query=${encodeURIComponent(text)}`);
+        const json = await res.json();
 
-      if (json?.result?.download?.url) {
-        info = {
-          title: json.result.metadata.title,
-          author: json.result.metadata.author?.name,
-          duration: json.result.metadata.duration?.timestamp,
-          thumb: json.result.metadata.thumbnail,
-          download: json.result.download.url,
-          filename: json.result.download.filename
-        };
+        if (json?.result?.download?.url) {
+          info = {
+            title: json.result.metadata.title,
+            author: json.result.metadata.author?.name,
+            duration: json.result.metadata.duration?.timestamp,
+            thumb: json.result.metadata.thumbnail,
+            download: json.result.download.url,
+            filename: json.result.download.filename,
+            size: json.result.download.size
+          };
+        }
+      } catch (e) {
+        console.error('Error en yta:', e);
       }
     }
 
     if (!info) throw '❌ No se pudo obtener información de ninguna API.';
 
-
     await conn.sendMessage(m.chat, {
       image: { url: info.thumb },
-      caption: `╭━━⬣「 🧃 𝙈𝙋𝟯 𝘿𝙚𝙩𝙖𝙡𝙡𝙚𝙨 」\n┃\n┃📀 *Título:* ${info.title}\n┃👤 *Autor:* ${info.author}\n┃⏱ *Duración:* ${info.duration}\n┃\n╰━━⬣ *🎧 Enviando audio...*`,
+      caption: `╭━━━〔 𝙳𝙴𝚂𝙲𝙰𝚁𝙶𝙰 𝙴𝙽 𝙲𝚄𝚁𝚂𝙾 ⬇️ 〕━━━⬣
+┃
+┃ 📥 𝙿𝚛𝚘𝚐𝚛𝚎𝚜𝚘: ▓▓▓▓▓▓░░░░░░ 50%
+┃
+┃ 🎵 𝚃𝚒́𝚝𝚞𝚕𝚘: *${info.title}*
+┃ 👤 𝙰𝚞𝚝𝚘𝚛: *${info.author || 'Desconocido'}*
+┃ ⏱️ 𝙳𝚞𝚛𝚊𝚌𝚒𝚘́𝚗: *${info.duration || 'Desconocida'}*
+┃ 📦 𝚃𝚊𝚖𝚊𝚗̃𝚘: *${info.size || 'Calculando...'}*
+┃ ⏳ 𝙴𝚜𝚝𝚊𝚍𝚘: *Preparando audio...*
+┃
+╰━━━━━━━━━━━━━━━━━━━━⬣`
     }, { quoted: m });
-
 
     await conn.sendMessage(m.chat, {
       audio: { url: info.download },
