@@ -16,7 +16,7 @@ const handler = async (m, { conn, usedPrefix }) => {
     '🌀 [█████████░] 90%',
     '🌟 [██████████] 100%',
     '✅ 𝗖𝗔𝗥𝗚𝗔 𝗠𝗔́𝗫𝗜𝗠𝗔 𝗔𝗟𝗖𝗔𝗡𝗭𝗔𝗗𝗔',
-    '📂 Enviando menú list del bot...'
+    '╭━━━〔 🧩 MENÚ LIST EN PROCESO 〕━━⬣\n┃ 📂 Enviando *Menú Lista*...\n┃ ⏳ Por favor, espera unos segundos.\n┃ 🧠 Cargando módulos, funciones y comandos...\n╰━━━〔 🔮 Sukuna System.EXE 〕━━⬣'
   ];
 
   let { key } = await conn.sendMessage(m.chat, { text: '_Cargando..._' });
@@ -55,10 +55,9 @@ const handler = async (m, { conn, usedPrefix }) => {
     };
 
     const texto = `🌸・┈┈・┈┈・✦・┈┈・┈┈・🌸  
-         ʜᴏʟᴀ, ʙɪᴇɴᴠᴇɴɪᴅ@ ᴀʟ ✧ ᴍᴇɴᴜ-ʟɪsᴛ ✧  
-        𝙎𝙤𝙮 ${global.namebot} 𖥔 ༘⋆  
+    ʜᴏʟᴀ, ʙɪᴇɴᴠᴇɴɪᴅ@ ᴀʟ ✧ ᴍᴇɴᴜ-ʟɪsᴛ ✧  
+    𝙎𝙤𝙮 ${global.namebot} 𖥔 ༘⋆  
 🌸・┈┈・┈┈・✦・┈┈・┈┈・🌸  
-
 ⌬ 𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚: 「 ${global.etiqueta} 」
 ❀─────────────────────❀
 
