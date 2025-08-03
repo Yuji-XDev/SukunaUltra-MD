@@ -27,7 +27,17 @@ let handler = async (m, { conn, usedPrefix }) => {
     info += `❒ *NodeJS Uso de memoria* :\n`
     info += `${'```' + Object.keys(process.memoryUsage()).map((key) => `${key}: ${format(process.memoryUsage()[key])}`).join('\n') + '```'}`
 
-    await conn.reply(m.chat, info, fkontak, { contextInfo: { mentionedJid: [owner[0][0] + '@s.whatsapp.net'] } })
+    let imagenURL = 'https://files.catbox.moe/kqurpy.jpg'
+
+    await conn.sendFile(
+        m.chat,
+        imagenURL,
+        'info.jpg',
+        info,
+        fkontak,
+        false,
+        { contextInfo: { mentionedJid: [owner[0][0] + '@s.whatsapp.net'] } }
+    )
 }
 
 handler.help = ['botinfo']
