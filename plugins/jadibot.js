@@ -1,6 +1,5 @@
 import ws from 'ws';
 
-//let handler = async (m, { conn }) => {
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
 if (!globalThis.db.data.settings[conn.user.jid].jadibotmd) return conn.reply(m.chat,`🌳 El Comando *${command}* está desactivado temporalmente.`, m, fake)
 
@@ -11,6 +10,7 @@ if (!globalThis.db.data.settings[conn.user.jid].jadibotmd) return conn.reply(m.c
   const _muptime = process.uptime() * 1000
   const uptime = clockString(_muptime)
 
+  const imagen = 'https://files.catbox.moe/zgvj8c.jpg',
   const vistos = new Set();
   const subbotsUnicos = connsActivas.filter(conn => {
     const jid = conn.user?.jid;
@@ -65,7 +65,11 @@ ${lista}
 
 > ${club}`;
 
-  await conn.sendMessage(m.chat, {
+await conn.sendMini(m.chat, textoSubbots, dev, bienvenida, imagen, redes, fkontak);
+  };
+  
+
+ /* await conn.sendMessage(m.chat, {
     contextInfo: {
       externalAdReply: {
         title: `🍁 𝐒𝐎𝐂𝐊𝐄𝐓𝐒 𝐂𝐎𝐍𝐄𝐂𝐓𝐀𝐃𝐎𝐒 🏮`,
@@ -79,7 +83,7 @@ ${lista}
     },
     text: `${textoSubbots}`
   }, { quoted: fkontak });
-};
+};*/
 
 handler.command = ['sockets', 'bots', 'socket'];
 handler.tags = ['jadibot'];
