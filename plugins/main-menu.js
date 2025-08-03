@@ -62,12 +62,9 @@ let handler = async (m, { conn, args }) => {
    let fecha = fechaObj.toLocaleDateString('es-PE', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Lima' });
    let dia = fechaObj.toLocaleDateString('es-PE', { weekday: 'long', timeZone: 'America/Lima' });
    
-   let saludosukuna = ucapanCompleto();
-  conn.sendMessage(m.chat, { text: `${saludoPersonalizado}\n @${userId.split('@')[0]}}` });
-  
    
   let menuText = `
-☁️ ${saludosukuna}
+☁️ ${ucapan()} @${userId.split('@')[0]}
 
 ╔════ ❖ •❁• ✦ •❁• ❖ ════╗
 ║      🌸 𝐒𝐔𝐊𝐔𝐍𝐀 - 𝐁𝐎𝐓 🌸
@@ -761,30 +758,11 @@ function clockString(ms) {
   return `${h}H ${m}M ${s}S`;
 }
 
-/*function ucapan() {
+function ucapan() {
   const time = moment.tz('America/Lima').format('HH');
   let res = "Buenas Noches🌙";
-  if (time >= 5 && time < 12) res = "Buenos Días☀️";
-  else if (time >= 12 && time < 18) res = "Buenas Tardes🌤️";
-  else if (time >= 18) res = "Buenas Noches🌙";
+  if (time >= 5 && time < 12) res = "Buenos Días☀️ Que tengas un excelente inicio de día.\n🌞 ¡Aprovecha cada momento!";
+  else if (time >= 12 && time < 18) res = "Buenas Tardes🌤️ Espero que tu tarde esté siendo productiva.\n📚 ¡Sigue con todo!";
+  else if (time >= 18) res = "Buenas Noches🌙 Que descanses bien esta noche.\n🛌 ¡Recarga energías para mañana!";
   return res;
-}*/
-
-function ucapanCompleto() {
-  const hora = moment.tz('America/Lima').format('HH');
-  let saludo = '';
-  let mensaje = '';
-
-  if (hora >= 5 && hora < 12) {
-    saludo = "🌅 𝘽𝙐𝙀𝙉𝙊𝙎 𝘿Í𝘼𝙎 ☕";
-    mensaje = "✨ Que tengas un excelente inicio de día.\n🌞 ¡Aprovecha cada momento!";
-  } else if (hora >= 12 && hora < 18) {
-    saludo = "🌤️ 𝘽𝙐𝙀𝙉𝘼𝙎 𝙏𝘼𝙍𝘿𝙀𝙎 🍃";
-    mensaje = "💼 Espero que tu tarde esté siendo productiva.\n📚 ¡Sigue con todo!";
-  } else {
-    saludo = "🌙 𝘽𝙐𝙀𝙉𝘼𝙎 𝙉𝙊𝘾𝙃𝙀𝙎 🌌";
-    mensaje = "😴 Que descanses bien esta noche.\n🛌 ¡Recarga energías para mañana!";
-  }
-
-  return `${saludo}\n\n${mensaje}`;
 }
