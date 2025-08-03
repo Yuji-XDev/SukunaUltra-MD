@@ -14,17 +14,17 @@ let handler = async (m, { conn, usedPrefix }) => {
     let bot = global.db.data.settings[conn.user.jid]
     let totalStats = Object.values(global.db.data.stats).reduce((total, stat) => total + stat.total, 0)
     let totalf = Object.values(global.plugins).filter((v) => v.help && v.tags).length
-    let users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
-    let totalUsers = users.length;
+    let subBots = Object.keys(global.conns).length
 
     let info = `✿  *Informacion de ${global.botname}*\n\n`
     info += `✎˚₊· ͟͟͞͞➳❥ *Prefijo* : [  ${usedPrefix}  ]\n`
     info += `✥˚₊· ͟͟͞͞➳❥ *Total Plugins* : ${totalf}\n`
-    info += `✦˚₊· ͟͟͞͞➳❥ *Comandos Ejecutados* : ${toNum(totalStats)} ( *${totalStats}* )\n\n`
+    info += `✦˚₊· ͟͟͞͞➳❥ *Comandos Ejecutados* : ${toNum(totalStats)} ( *${totalStats}* )\n`
+    info += `✧˚₊· ͟͟͞͞➳❥ *SubBots Conectados* : ${subBots}\n\n`
     info += `*◤ Hosts:*\n`
     info += `✰˚₊· ͟͟͞͞➳❥ *Plataforma* : ${platform()}\n`
     info += `✿˚₊· ͟͟͞͞➳❥ *Servidor* : ${hostname()}\n`
-    info += `✧˚₊· ͟͟͞͞➳❥ *RAM* : ${format(totalmem() - freemem())} / ${format(totalmem())}\n user ${totalUsers || '0'}`
+    info += `✧˚₊· ͟͟͞͞➳❥ *RAM* : ${format(totalmem() - freemem())} / ${format(totalmem())}\n`
     info += `⚘˚₊· ͟͟͞͞➳❥ *Free-RAM* : ${format(freemem())}\n\n`
     info += `❒ *NodeJS Uso de memoria* :\n`
     info += `${'```' + Object.keys(process.memoryUsage()).map((key) => `${key}: ${format(process.memoryUsage()[key])}`).join('\n') + '```'}`
