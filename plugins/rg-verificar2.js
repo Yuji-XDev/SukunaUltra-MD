@@ -107,6 +107,7 @@ await conn.sendMessage(m.chat, {
   headerType: 4,
   contextInfo: { mentionedJid: [m.sender], forwardingScore: 9999, isForwarded: true, externalAdReply: fkontak }
 });
+};
 
 /*  await conn.sendMessage(m.chat, {
     image: { url: pp },
