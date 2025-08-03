@@ -8,7 +8,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
 
   if (!args[0]) return conn.reply(m.chat, `*🌾 Ingresa un título para buscar en YouTube.*\n✧ \`Ejemplo:\` ${usedPrefix}${command} Joji - Ew`, m, fake);
 
-  await m.react('🎲');
+  await m.react('💚');
   try {
     let query = args.join(" ");
     let searchResults = await searchVideos(query);
