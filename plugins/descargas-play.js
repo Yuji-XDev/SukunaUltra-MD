@@ -103,7 +103,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         if (!json.download) throw '⚠ No se obtuvo enlace de video.'
         
         await m.react('✅');
-        await conn.sendFile(m.chat, json.download, `${json.title || 'video'}.mp4`, `🎬 *Título:* ${json.title}\n📽️ *Calidad:* ${json.quality}p\n📥 *Video descargado con éxito.*`, Shadow)
+        await conn.sendFile(m.chat, json.download, `📥 *Video descargado con éxito.*\n> ${json.title || 'video'}.mp4`, `> 🎬 *Título:* ${json.title}\n> 📽️ *Calidad:* ${json.quality}\n> 🔗 *link:* ${url}`, Shadow)
       } catch (e) {
         return conn.reply(m.chat, '⚠︎ No se pudo enviar el video. El archivo podría ser muy pesado o hubo un error en el enlace.', m)
       }
