@@ -27,7 +27,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
           type: 1
         }
       ];
-
+      await m.react('✅')
       await conn.sendMessage(
         m.chat,
         {
@@ -75,7 +75,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         caption: `🌪️ ${app.name}\n> ⋆⬪࣪ꥈ🥮★ 𝖯𑄜𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 𝖲𝗁⍺𝖽ᦅ𝗐′core 𝖢𝗅𝗎𝖻𓆪`
       },
       { quoted: m }*/
-      
+      await m.react('⌛')
       await conn.sendMessage(m.chat, {
       document: { url: downloadUrl },
       fileName: `${app.name}.apk`,
@@ -85,7 +85,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       contextInfo: {
         externalAdReply: {
           title: app.name,
-          body: `Powered by Dev.Shadow 👻`,
+          body: packname,
           mediaUrl: null,
           sourceUrl: null,
           thumbnailUrl: app.image,
@@ -93,6 +93,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
           renderLargerThumbnail: true
         }
       }
+      await m.react('☑️')
     }, { quoted: m }
       
     );
