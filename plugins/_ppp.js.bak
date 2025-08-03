@@ -36,11 +36,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 
   await conn.sendMessage(m.chat, {
     image: gifBuffer,
-    caption: `✅ *GIF generado exitosamente*\n\n🌐 URL directa: ${gifUrl}`,
-    footer: '💠 Convertidor Video → GIF',
-    buttons: [
-      { buttonId: gifUrl, buttonText: { displayText: '🌐 VER GIF ONLINE' }, type: 1 }
-    ]
+    caption: `✅ *GIF generado exitosamente*\n\n🌐 URL directa: ${gifUrl}\n💠 Convertidor Video → GIF`
   }, { quoted: m });
 
   fs.unlinkSync(tempInput);

@@ -1,46 +1,75 @@
-import { toBuffer } from 'node:buffer'
-import { uploadFile } from '../lib/uploadFile.js'
-import ffmpeg from 'fluent-ffmpeg'
-import fs from 'fs'
-import path from 'path'
-import { tmpdir } from 'os'
+import { tmpdir } from 'os';
+import path from 'path';
+import fs from 'fs';
+import ffmpeg from 'fluent-ffmpeg';
+import { uploadFile } from '../lib/uploadFile.js';
 
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-  if (!m.quoted || !m.quoted.video) {
-    return m.reply(`🎬 *Responde a un video corto para convertirlo en GIF*\n\n📌 Ejemplo:\n${usedPrefix + command}`);
+let handler = async (m, { conn, usedPrefix, command }) => {
+  if (!m.quoted || m.quoted.mtype !== 'videoMessage') {
+    return m.reply(`🎥 *Responde a un video corto para convertirlo en GIF*\n\n📌 Ejemplo:\n${usedPrefix + command}`);
   }
 
-  const qVideo = await m.quoted.download();
-  const tempInput = path.join(tmpdir(), `input_${Date.now()}.mp4`);
-  const tempOutput = path.join(tmpdir(), `output_${Date.now()}.gif`);
+  m.reply('🎬 *Descargando video...*');
 
-  fs.writeFileSync(tempInput, qVideo);
+  // Descargar el video
+  let videoBuffer;
+  try {
+    videoBuffer = await m.quoted.download();
+  } catch (e) {
+    return m.reply('❌ Error al descargar el video.');
+  }
+
+  const inputPath = path.join(tmpdir(), `input_${Date.now()}.mp4`);
+  const outputPath = path.join(tmpdir(), `output_${Date.now()}.gif`);
+
+  fs.writeFileSync(inputPath, videoBuffer);
+
   m.reply('⏳ *Convirtiendo video a GIF...*');
 
-  await new Promise((resolve, reject) => {
-    ffmpeg(tempInput)
-      .setStartTime('0')
-      .setDuration(6)
-      .outputOptions([
-        '-vf', 'fps=10,scale=320:-1:flags=lanczos',
-        '-loop', '0'
-      ])
-      .toFormat('gif')
-      .save(tempOutput)
-      .on('end', resolve)
-      .on('error', reject);
-  });
+  try {
+    await new Promise((resolve, reject) => {
+      ffmpeg(inputPath)
+        .setStartTime(0)
+        .duration(6)
+        .outputOptions([
+          '-vf', 'fps=10,scale=320:-1:flags=lanczos',
+          '-loop', '0'
+        ])
+        .toFormat('gif')
+        .on('end', resolve)
+        .on('error', reject)
+        .save(outputPath);
+    });
+  } catch (e) {
+    fs.unlinkSync(inputPath);
+    return m.reply('❌ Error durante la conversión a GIF.');
+  }
 
-  const gifBuffer = fs.readFileSync(tempOutput);
-  const gifUrl = await uploadFile(tempOutput);
+  // Leer el archivo GIF
+  let gifBuffer;
+  try {
+    gifBuffer = fs.readFileSync(outputPath);
+  } catch {
+    return m.reply('❌ Error al leer el GIF generado.');
+  }
 
+  // Subir a URL
+  let gifUrl;
+  try {
+    gifUrl = await uploadFile(outputPath);
+  } catch {
+    return m.reply('❌ No se pudo subir el GIF a una URL.');
+  }
+
+  // Enviar el resultado
   await conn.sendMessage(m.chat, {
     image: gifBuffer,
-    caption: `✅ *GIF generado exitosamente*\n\n🌐 URL directa: ${gifUrl}\n💠 Convertidor Video → GIF`
+    caption: `✅ *GIF generado correctamente*\n\n🌐 URL directa:\n${gifUrl}`
   }, { quoted: m });
 
-  fs.unlinkSync(tempInput);
-  fs.unlinkSync(tempOutput);
+  // Limpieza
+  fs.unlinkSync(inputPath);
+  fs.unlinkSync(outputPath);
 };
 
 handler.help = ['togifurl'];
