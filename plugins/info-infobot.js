@@ -16,7 +16,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let totalf = Object.values(global.plugins).filter((v) => v.help && v.tags).length
     let subBots = Object.keys(global.conns).length
     
-    let info = `╭━━━〔 \`𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗖𝗜𝗢́𝗡 - 𝗕𝗢𝗧\` 〕━━⬣\n\n`
+    let info = `╭━━━〔 \`𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗖𝗜𝗢́𝗡 - 𝗕𝗢𝗧\` 〕━━⬣\n`
     info += `┃🧩 *Prefijo:* ${usedPrefix}\n`
     info += `┃📦 *Plugins activos:* ${totalf}\n`
     info += `┃📊 *Comandos usados:* ${toNum(totalStats)} (${totalStats})\n`
