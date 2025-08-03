@@ -37,7 +37,7 @@ function formatViews(views) {
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
-    if (!text.trim()) return conn.reply(m.chat, `✎ Por favor, ingresa el nombre o enlace del video.`, m)
+    if (!text.trim()) return conn.reply(m.chat, `✎ 💿 Por favor, ingresa el nombre o enlace del video.`, m)
 
     let videoIdMatch = text.match(youtubeRegexID)
     let search = await yts(videoIdMatch ? 'https://youtu.be/' + videoIdMatch[1] : text)
@@ -88,8 +88,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       }, { quoted: m })
 
     } else if (['play2', 'playvideo'].includes(command)) {
-      let apis = `https://d.ymcdn.org/api/v1/init?p=y&23=1llum1n471&_=${Date.now()}`
-
+      let apis = [
+        `https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=stellar-ReKwdxiR`,
+        `https://d.ymcdn.org/api/v1/init?p=y&23=1llum1n471&_=${Date.now()}`
+      ]
 
       let finalUrl = null, fileTitle = null
 
