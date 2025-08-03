@@ -80,12 +80,20 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
           document: { url: downloadUrl },
           fileName: `${app.name}.apk`,
           mimetype: 'application/vnd.android.package-archive',
-          caption: `> ⋆⬪࣪ꥈ🥮★ 𝖯𑄜𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 𝖲𝗁⍺𝖽ᦅ𝗐′core 𝖢𝗅𝗎𝖻𓆪`,
+          caption: `╭━━━〔 📦 *APK INFO* 〕━━⬣
+┃
+┃ ✦ *📌 Nombre:* ${app.name}
+┃ ✦ *👨‍💻 Desarrollador:* ${app.developer}
+┃ ✦ *📅 Publicado:* ${app.publish}
+┃ ✦ *📂 Tamaño:* ${app.size}
+┃ ✦ *📈 Descargas:* ${app.stats.downloads.toLocaleString()}
+┃
+╰━━━〔 🔰 Shadow'core 〕━━⬣`,
           thumbnail: app.image,
           contextInfo: {
             externalAdReply: {
               title: app.name,
-              body: '🔰 APK Oficial',
+              body: packname,
               mediaUrl: null,
               sourceUrl: null,
               thumbnailUrl: app.image,
@@ -117,14 +125,13 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     return conn.sendMessage(
       m.chat,
       {
-        text: `❗ Ingresa un término de búsqueda.\n\n📌 Ejemplo:\n${usedPrefix}apk2 WhatsApp`
+        text: `❗ Ingresa un término de búsqueda.\n\n💚 Ejemplo:\n${usedPrefix}apk2 WhatsApp`
       },
       { quoted: m }
     );
   }
 };
 
-// META
 handler.tags = ['descargas'];
 handler.help = ['apk2', 'apk_download'];
 handler.command = ['apk2', 'apk_download'];
