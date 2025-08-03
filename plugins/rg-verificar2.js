@@ -96,8 +96,10 @@ let regbot = `✅ VERIFICACIÓN EXITOSA ✅
 🔰 \`TOKENS:\` +20\n`;
 
 await m.react('📩')
+await conn.sendFile(m.chat, pp, 'registro.jpg', regbot, fkontak);
+};
 
-  await conn.sendMessage(m.chat, {
+/*  await conn.sendMessage(m.chat, {
     image: { url: pp },
     caption: regbot,
     footer: club,
@@ -118,24 +120,8 @@ await m.react('📩')
       }
     }
   }, { quoted: fkontak });
-}
+}*/
 
-
-/*await conn.sendMessage(m.chat, {
-        text: regbot,
-        contextInfo: {
-            externalAdReply: {
-                title: 'ּ໋۪֔⛩️⣴ ⵿ּׄ🫧 ⃝̸̶⵿ᩫᰰᮬ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐕𝐄𝐑𝐈𝐅𝐈𝐂𝐀𝐃𝐎🎄᮫๋໋֢᳝ꨪᰰ⃟ુ᭡̵໋࡙',
-                body: ' . ݁ ּ ּ۪ ࣭֔𔓕⃘᜔𑵅᮫ּ߲֧߲۪۪〫֔࠭🌧️ꨩּֽ֪۪۪〫ࣳׄ꩖ּ߲߲֧۪۪߲߲࣪𝐁𝐲: 𓆩𝑺𝒉𝒂֟፝𝑫𝒐𝒘•𝒄𝒐𝒓𝒆𓆪',
-                thumbnailUrl: pp,
-                sourceUrl: channel,
-                mediaType: 1,
-                showAdAttribution: true,
-                renderLargerThumbnail: true
-            }
-        }
-    }, { quoted: m });    
-}; */
 handler.help = ['reg']
 handler.tags = ['rg']
 handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar'] 
