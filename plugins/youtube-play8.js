@@ -90,7 +90,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
       contextInfo: {
         mentionedJid: [m.sender],
         forwardingScore: 999,
-        isForwarded: true
+        isForwarded: false
       },
       buttons: [
         {
