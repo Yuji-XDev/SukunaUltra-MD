@@ -17,35 +17,14 @@ let handler = async (m, { conn, text, usedPrefix, command, args }) => {
     let size = await getSize(json.url);
     let sizeStr = size ? await formatSize(size) : 'Desconocido';
     
-    
-    let loading = [
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* Procesando...`,
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 10%`,
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 20%`,
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 30%`,
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 40%`,
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 50%`,
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 60%`,
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 70%`,
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 80%`,
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 90%`,
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 100%`,
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* ✅ Descarga Completa enviando video...`
-  ];
 
-  let { key } = await conn.sendMessage(m.chat, { text: '_Cargando..._' });
-  for (let paso of loading) {
-    await conn.sendMessage(m.chat, { text: paso, edit: key });
-    await new Promise(r => setTimeout(r, 500));
-  }
-
-    /*await m.reply(
-      `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n` +
+    await m.reply(
+      `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n\n` +
       `╭━━🎵 *${json.title}*\n` +
       `┃ 📦 *Tamaño:* ${sizeStr}\n` +
       `┃ 🔗 *Link:* ${args[0]}\n` +
       `╰⏳ *Estado:* Procesando...\n`
-    );*/
+    );
 
     const caption = `*${json.title}*`;
 
