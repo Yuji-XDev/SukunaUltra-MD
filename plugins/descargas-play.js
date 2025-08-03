@@ -1,113 +1,96 @@
 import fetch from "node-fetch"
-import yts from 'yt-search'
-import axios from "axios"
-
+import yts from "yt-search"
 const youtubeRegexID = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
-    if (!text?.trim()) return conn.reply(m.chat, `*🎲 Por favor, ingresa el nombre o URL del video.*`, m)
+    if (!text.trim()) return conn.reply(m.chat, `💿 Por favor, ingresa el nombre o enlace del video.`, m, fake)
 
     let videoIdMatch = text.match(youtubeRegexID)
-    let search = videoIdMatch ? await yts({ videoId: videoIdMatch[1] }) : await yts(text)
+    let search = await yts(videoIdMatch ? 'https://youtu.be/' + videoIdMatch[1] : text)
     let video = videoIdMatch
       ? search.all.find(v => v.videoId === videoIdMatch[1]) || search.videos.find(v => v.videoId === videoIdMatch[1])
-      : search.videos[0]
+      : search.videos?.[0]
 
-    if (!video) return m.reply(`❌ No se encontraron resultados.`)
+    if (!video) return conn.reply(m.chat, '✧ No se encontraron resultados para tu búsqueda.', m)
 
     const { title, thumbnail, timestamp, views, ago, url, author } = video
-    const tipo = /mp4|playvideo/.test(command) ? "📽️ ᴠɪᴅᴇᴏ" : "🎧 ᴀᴜᴅɪᴏ"
-    const canal = author?.name || "Desconocido"
     const vistas = formatViews(views)
-    
-    const res2 = await fetch('https://files.catbox.moe/qzp733.jpg');
-    const thumb2 = await res2.buffer();
-    const fkontak = {
-      key: {
-        participants: "0@s.whatsapp.net",
-        remoteJid: "status@broadcast",
-        fromMe: false,
-        id: "Halo"
-      },
-      message: {
-        locationMessage: {
-          name: `𝙳𝙴𝚂𝙲𝙰𝚁𝙰𝙶𝙰 𝙲𝙾𝙼𝙿𝙻𝙴𝚃𝙰 / ${tipo}`,
-          jpegThumbnail: thumb2
-        }
-      },
-      participant: "0@s.whatsapp.net"
-    };
+    const canal = author?.name || 'Desconocido'
 
-    const infoMessage = `
-╭━━━〔 🔎 𝙸𝙽𝙵𝙾 𝙳𝙴 𝚅𝙸𝙳𝙴𝙾/𝙰𝚄𝙳𝙸𝙾 〕━━⬣
-┃📌 *Título:* ${title}
-┃⏱️ *Duración:* ${timestamp || "No disponible"}
-┃🧑‍💻 *Canal:* ${canal}
-┃👁️ *Vistas:* ${vistas}
-┃📆 *Publicado:* ${ago}
-┃🎞️ *Tipo:* ${tipo}
-┃🔗 *Enlace:* ${url}
-╰━━━━━━━━━━━━━━━━━━⬣`
+    const infoMessage = `     *<${title}>*\n\n` +
+      `> ✧ Canal » *${canal}*\n` +
+      `> ✰ Vistas » *${vistas}*\n` +
+      `> ⴵ Duración » *${timestamp}*\n` +
+      `> ✐ Publicado » *${ago}*\n` +
+      `> 🜸 Link » ${url}`
 
-    const thumb = (await conn.getFile(thumbnail)).data
-
-    await conn.sendMessage(m.chat, {
-      text: infoMessage,
+    const thumb = (await conn.getFile(thumbnail))?.data
+    const external = {
       contextInfo: {
         externalAdReply: {
-          title: "📻 YouTube Downloader",
-          body: "Descargas multimedia al instante",
+          title: botname,
+          body: dev,
           mediaType: 1,
           previewType: 0,
           mediaUrl: url,
           sourceUrl: url,
           thumbnail: thumb,
-          renderLargerThumbnail: true,
+          renderLargerThumbnail: true
         }
       }
-    }, { quoted: m })
-
-    await m.react(tipo.includes('ᴀᴜᴅɪᴏ') ? "🎧" : "📹")
-
-    if (/mp3|playaudio/.test(command)) {
-      const api = await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)
-      const json = await api.json()
-      const result = json.result?.download?.url
-      if (!result) throw new Error("❌ No se pudo generar el enlace del audio.")
-
-      await conn.sendMessage(m.chat, {
-        audio: { url: result },
-        fileName: `${json.result.title}.mp3`,
-        mimetype: 'audio/mpeg'
-      }, { quoted: fkontak })
-
-    } else if (/mp4|playvideo/.test(command)) {
-      const res = await fetch(`https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=stellar-ReKwdxiR`)
-      const json = await res.json()
-      if (!json.status || !json.data?.dl) throw new Error("❌ No se pudo generar el enlace del video.")
-
-      await conn.sendMessage(m.chat, {
-        video: { url: json.data.dl },
-        fileName: `${json.data.title}.mp4`,
-        caption: `🎬 *${json.data.title}*`
-      }, { quoted: fkontak })
     }
 
-  } catch (error) {
-    console.error(error)
-    return m.reply(`⚠️ Error: ${error.message}`)
+    await conn.reply(m.chat, infoMessage, m, external)
+
+    if (['play', 'playaudio'].includes(command)) {
+      try {
+        const res = await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)
+        const json = await res.json()
+        if (!json.result?.download?.url) throw '⚠ No se obtuvo un enlace válido.'
+
+        await conn.sendMessage(m.chat, {
+          audio: { url: json.result.download.url },
+          fileName: `${json.result.title}.mp3`,
+          mimetype: 'audio/mpeg'
+        }, { quoted: m })
+      } catch (e) {
+        return conn.reply(m.chat, '⚠︎ No se pudo enviar el audio. El archivo podría ser demasiado pesado o hubo un error en la generación del enlace.', m)
+      }
+    }
+
+    else if (['play2', 'playvideo'].includes(command)) {
+      try {
+        const res = await fetch(`https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=stellar-ReKwdxiR`)
+        const json = await res.json()
+
+        if (!json?.result?.url) throw '⚠ No se obtuvo enlace de video.'
+
+        await conn.sendFile(m.chat, json.result.url, `${json.result.title}.mp4`, title, m)
+      } catch (e) {
+        return conn.reply(m.chat, '⚠︎ No se pudo enviar el video. El archivo podría ser muy pesado o hubo un error en el enlace.', m)
+      }
+    }
+
+    else {
+      return conn.reply(m.chat, '✧︎ Comando no reconocido.', m)
+    }
+
+  } catch (err) {
+    return m.reply(`⚠︎ Ocurrió un error:\n${err}`)
   }
 }
 
-handler.command = ['mp3', 'mp4', 'playaudio', 'playvideo']
+handler.command = handler.help = ['play', 'play2', 'playaudio', 'playvideo']
 handler.tags = ['descargas']
+handler.group = true
+
 export default handler
 
 function formatViews(views) {
-  if (!views) return "No disponible"
+  if (views === undefined) return "No disponible"
   if (views >= 1e9) return `${(views / 1e9).toFixed(1)}B (${views.toLocaleString()})`
   if (views >= 1e6) return `${(views / 1e6).toFixed(1)}M (${views.toLocaleString()})`
-  if (views >= 1e3) return `${(views / 1e3).toFixed(1)}k (${views.toLocaleString()})`
+  if (views >= 1e3) return `${(views / 1e3).toFixed(1)}K (${views.toLocaleString()})`
   return views.toString()
 }
