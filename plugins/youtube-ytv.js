@@ -19,7 +19,7 @@ let handler = async (m, { conn, text, usedPrefix, command, args }) => {
     
     
     let loading = [
-    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* Procesando...`
+    `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* Procesando...`,
     `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 10%`,
     `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 20%`,
     `📥 𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔 𝗘𝗡 𝗖𝗨𝗥𝗦𝗢...\n╭━━🎵 *${json.title}*\n┃ 📦 *Tamaño:* ${sizeStr}\n┃ 🔗 *Link:* ${args[0]}\n╰⏳ *Estado:* 30%`,
