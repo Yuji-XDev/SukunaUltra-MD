@@ -18,7 +18,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const { title, thumbnail, timestamp, views, ago, url, author } = video
     const vistas = formatViews(views)
     const canal = author?.name || 'Desconocido'
-
+    await m.react('☁️');
     const infoMessage = `     *<${title}>*\n\n` +
       `> 📺 Canal » *${canal}*\n` +
       `> 👁️ Vistas » *${vistas}*\n` +
@@ -55,6 +55,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
           fileName: `${json.result.title}.mp3`,
           mimetype: 'audio/mpeg'
         }, { quoted: m })*/
+    await m.react('✅');
     await conn.sendMessage(m.chat, {
       audio: { url: json.result.download.url },
       mimetype: 'audio/mpeg',
@@ -82,7 +83,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         const json = await res.json()
 
         if (!json.download) throw '⚠ No se obtuvo enlace de video.'
-
+        
+        await m.react('✅');
         await conn.sendFile(m.chat, json.download, `${json.title || 'video'}.mp4`, `🎬 *Título:* ${json.title}\n📽️ *Calidad:* ${json.quality}p\n📥 *Video descargado con éxito.*`, m)
       } catch (e) {
         return conn.reply(m.chat, '⚠︎ No se pudo enviar el video. El archivo podría ser muy pesado o hubo un error en el enlace.', m)
