@@ -63,7 +63,7 @@ let handler = async (m, { conn, args }) => {
    let dia = fechaObj.toLocaleDateString('es-PE', { weekday: 'long', timeZone: 'America/Lima' });
    
    let saludosukuna = ucapanCompleto();
-  conn.sendMessage(m.chat, { text: `${saludoPersonalizado}\n @${mem.id.split('@')[0]}` });
+  conn.sendMessage(m.chat, { text: `${saludoPersonalizado}\n @${userId.split('@')[0]}}` });
   
    
   let menuText = `
