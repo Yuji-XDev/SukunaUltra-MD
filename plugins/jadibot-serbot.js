@@ -139,7 +139,7 @@ secret = secret.match(/.{1,4}/g)?.join("-")
 
 //txtCode = await conn.sendMessage(m.chat, {text : rtx2}, { quoted: m })
 
-txtCode = await conn.sendMessage(m.chat, {
+    await conn.sendMessage(m.chat, {
       image: logo,
       caption: rtx2,
       contextInfo: {
