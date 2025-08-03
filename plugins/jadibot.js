@@ -10,8 +10,6 @@ if (!globalThis.db.data.settings[conn.user.jid].jadibotmd) return conn.reply(m.c
   const _muptime = process.uptime() * 1000
   const uptime = clockString(_muptime)
 
-  const imagen = 'https://files.catbox.moe/zgvj8c.jpg'
-  const txt = 'Sukuna'
   const vistos = new Set();
   const subbotsUnicos = connsActivas.filter(conn => {
     const jid = conn.user?.jid;
@@ -66,8 +64,7 @@ ${lista}
 
 > ${club}`;
 
-await conn.sendMini(m.chat, txt, dev, textoSubbots, imagen, redes, fkontak);
-  };
+await _envio.sendMessage(m.chat, {text: textoSubbots, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
   
 
  /* await conn.sendMessage(m.chat, {
