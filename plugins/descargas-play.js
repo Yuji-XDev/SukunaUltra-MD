@@ -20,12 +20,12 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const canal = author?.name || 'Desconocido'
 
     const infoMessage = `     *<${title}>*\n\n` +
-      `> ✧ Canal » *${canal}*\n` +
-      `> ✰ Vistas » *${vistas}*\n` +
-      `> ⴵ Duración » *${timestamp}*\n` +
-      `> ✐ Publicado » *${ago}*\n` +
-      `> 🜸 Link » ${url}`
-
+      `> 📺 Canal » *${canal}*\n` +
+      `> 👁️ Vistas » *${vistas}*\n` +
+      `> ⏱ Duración » *${timestamp}*\n` +
+      `> 📆 Publicado » *${ago}*\n` +
+      `> 🔗 Link » ${url}`
+ 
     const thumb = (await conn.getFile(thumbnail))?.data
     const external = {
       contextInfo: {
@@ -55,7 +55,6 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
           fileName: `${json.result.title}.mp3`,
           mimetype: 'audio/mpeg'
         }, { quoted: m })*/
-        
     await conn.sendMessage(m.chat, {
       audio: { url: json.result.download.url },
       mimetype: 'audio/mpeg',
