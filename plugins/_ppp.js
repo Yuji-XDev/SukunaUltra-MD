@@ -11,7 +11,6 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
   m.reply('🎬 *Descargando video...*');
 
-  // Descargar el video
   let videoBuffer;
   try {
     videoBuffer = await m.quoted.download();
@@ -21,7 +20,6 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
   const inputPath = path.join(tmpdir(), `input_${Date.now()}.mp4`);
   const outputPath = path.join(tmpdir(), `output_${Date.now()}.gif`);
-
   fs.writeFileSync(inputPath, videoBuffer);
 
   m.reply('⏳ *Convirtiendo video a GIF...*');
@@ -45,7 +43,6 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     return m.reply('❌ Error durante la conversión a GIF.');
   }
 
-  // Leer el archivo GIF
   let gifBuffer;
   try {
     gifBuffer = fs.readFileSync(outputPath);
@@ -53,7 +50,6 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     return m.reply('❌ Error al leer el GIF generado.');
   }
 
-  // Subir a URL
   let gifUrl;
   try {
     gifUrl = await uploadFile(outputPath);
@@ -61,19 +57,17 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     return m.reply('❌ No se pudo subir el GIF a una URL.');
   }
 
-  // Enviar el resultado
   await conn.sendMessage(m.chat, {
     image: gifBuffer,
     caption: `✅ *GIF generado correctamente*\n\n🌐 URL directa:\n${gifUrl}`
   }, { quoted: m });
 
-  // Limpieza
   fs.unlinkSync(inputPath);
   fs.unlinkSync(outputPath);
 };
 
 handler.help = ['togifurl'];
 handler.tags = ['tools'];
-handler.command = ['togifurl'];
+handler.command = ['togifurl']; // ESTE nombre debe ser EXACTO como el que escribes en WhatsApp
 
 export default handler;
