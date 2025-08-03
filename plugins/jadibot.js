@@ -64,11 +64,7 @@ ${lista}
 
 > ${club}`;
 
-await _envio.sendMessage(m.chat, {text: textoSubbots, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
- };
-  
-
- /* await conn.sendMessage(m.chat, {
+  await conn.sendMessage(m.chat, {
     contextInfo: {
       externalAdReply: {
         title: `🍁 𝐒𝐎𝐂𝐊𝐄𝐓𝐒 𝐂𝐎𝐍𝐄𝐂𝐓𝐀𝐃𝐎𝐒 🏮`,
@@ -80,9 +76,9 @@ await _envio.sendMessage(m.chat, {text: textoSubbots, mentions: _envio.parseMent
         showAdAttribution: true
       }
     },
-    text: `${textoSubbots}`
+    text: textoSubbots
   }, { quoted: fkontak });
-};*/
+};
 
 handler.command = ['sockets', 'bots', 'socket'];
 handler.tags = ['jadibot'];
