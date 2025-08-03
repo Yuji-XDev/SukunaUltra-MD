@@ -3,7 +3,10 @@ import fetch from 'node-fetch';
 import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
 
 const handler = async (m, { conn, args, usedPrefix, command }) => {
-  if (!args[0]) return conn.reply(m.chat, `*❗ Ingresa un título para buscar en YouTube.*\n✧ \`Ejemplo:\` ${usedPrefix}${command} Joji - Ew`, m, fake);
+  const fake = { key: { remoteJid: '0@s.whatsapp.net', fromMe: false, id: 'ABCD' }, message: { conversation: 'Sukuna Bot MD' } };
+  const club = '🎧 𝗦𝘂𝗸𝘂𝗻𝗮 𝗕𝗼𝘁 𝗠𝗗';
+
+  if (!args[0]) return conn.reply(m.chat, `*🌾 Ingresa un título para buscar en YouTube.*\n✧ \`Ejemplo:\` ${usedPrefix}${command} Joji - Ew`, m, fake);
 
   await m.react('🎲');
   try {
@@ -24,8 +27,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
       thumbnail = await (await fetch('https://telegra.ph/file/36f2a1bd2aaf902e4d1ff.jpg')).buffer();
     }
 
-
-const caption = `*🌳  YOUTUBE PLAY 🎬*
+    const caption = `*🌳  YOUTUBE PLAY ☘️*
 
 *✧ titulo:* ${video.titulo || 'no encontrado'}
 *✧ duracion:* ${video.duracion || 'no encontrado'}
@@ -33,6 +35,7 @@ const caption = `*🌳  YOUTUBE PLAY 🎬*
 *✧ canal:* ${video.canal || 'no encontrado'}
 *✧ vistas:* ${video.vistas || 'no encontrado'}
 *✧ url:* ${video.url}`;
+
     let ytSections = searchResults.slice(1, 11).map((v, index) => ({
       title: `${index + 1}┃ ${v.titulo}`,
       rows: [
@@ -69,8 +72,8 @@ const caption = `*🌳  YOUTUBE PLAY 🎬*
         }
       ]
     }));
-    
-    let applemusicSections = AppleMusicResult.data.result.slice(0, 5).map((a, index) => ({
+
+    let applemusicSections = (AppleMusicResult?.data?.result || []).slice(0, 5).map((a, index) => ({
       title: `${index + 1}┃ ${a.title}`,
       rows: [
         {
@@ -111,16 +114,6 @@ const caption = `*🌳  YOUTUBE PLAY 🎬*
             }),
           },
         },
-/*        {
-          type: 4,
-          nativeFlowInfo: {
-            name: 'single_select',
-            paramsJson: JSON.stringify({
-              title: '𝖱𝖾𝗌𝗎𝗅𝗍𝖺𝖽𝗈𝗌 De Apple Music',
-              sections: applemusicSections,
-            }),
-          },
-        },*/
         {
           type: 4,
           nativeFlowInfo: {
@@ -157,9 +150,9 @@ async function searchVideos(query) {
       url: video.url,
       miniatura: video.thumbnail,
       canal: video.author.name,
-      publicado: video.timestamp || 'No disponible',
+      publicado: video.ago || 'No disponible',
       vistas: video.views || 'No disponible',
-      duracion: video.duration?.timestamp || 'No disponible'
+      duracion: video.duration || 'No disponible'
     }));
   } catch (error) {
     console.error('Error en yt-search:', error.message);
@@ -180,13 +173,4 @@ async function searchSpotify(query) {
     console.error('Error en Spotify API:', error.message);
     return [];
   }
-}
-
-function convertTimeToSpanish(timeText) {
-  return timeText
-    .replace(/year/, 'año').replace(/years/, 'años')
-    .replace(/month/, 'mes').replace(/months/, 'meses')
-    .replace(/day/, 'día').replace(/days/, 'días')
-    .replace(/hour/, 'hora').replace(/hours/, 'horas')
-    .replace(/minute/, 'minuto').replace(/minutes/, 'minutos');
 }
