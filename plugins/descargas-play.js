@@ -36,12 +36,12 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const { title, thumbnail, timestamp, views, ago, url, author } = video
     const vistas = formatViews(views)
     const canal = author?.name || 'Desconocido'
-    await m.react('☁️');
-    const infoMessage = `     *<${title}>*\n\n` +
+    await m.react('⏱️');
+    const infoMessage = `     *<${title || 'Desconocido'}>*\n\n` +
       `> 📺 Canal » *${canal}*\n` +
-      `> 👁️ Vistas » *${vistas}*\n` +
-      `> ⏱ Duración » *${timestamp}*\n` +
-      `> 📆 Publicado » *${ago}*\n` +
+      `> 👁️ Vistas » *${vistas || 'Desconocido'}*\n` +
+      `> ⏱ Duración » *${timestamp || 'Desconocido'}*\n` +
+      `> 📆 Publicado » *${ago || 'Desconocido'}*\n` +
       `> 🔗 Link » ${url}`
  
     const thumb = (await conn.getFile(thumbnail))?.data
