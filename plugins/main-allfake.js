@@ -27,7 +27,7 @@ return res.data
 console.log(`Error : ${e}`)
 }}
   
-global.creador = 'wa.me/51969214380'
+global.creador = 'wa.me/51919199620'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.namechannel = '=͟͟͞Sukuna bot • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺'
 global.namechannel2 = '=͟͟͞Sukuna bot • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺'
@@ -92,14 +92,13 @@ global.taguser = '@' + m.sender.split("@s.whatsapp.net")
 var more = String.fromCharCode(8206)
 global.readMore = more.repeat(850)
 
-global.packsticker = `╭─🔥 𝙋𝙊𝘿𝙀𝙍 𝙎𝙏𝙄𝘾𝙆𝙀𝙍 ──⬣
-┃👤 𝙉𝙤𝙢𝙗𝙧𝙚: ${nombre}
-┃🤖 𝘽𝙤𝙩 𝘼𝙘𝙩𝙞𝙫𝙤: ${botname}
-┃📆 𝘿𝙞́𝙖: ${fecha}
-┃🕓 𝙃𝙤𝙧𝙖: ${tiempo}
-╰──────────────⬣`;
+global.packsticker = `⬣──🔥 𝙋𝙊𝘿𝙀𝙍 𝙎𝙏𝙄𝘾𝙆𝙀𝙍 ──⬣
+👤 𝙉𝙤𝙢𝙗𝙧𝙚: ${nombre}
+🤖 𝘽𝙤𝙩 𝘼𝙘𝙩𝙞𝙫𝙤: ${botname}
+📆 𝘿𝙞́𝙖: ${fecha}
+🕓 𝙃𝙤𝙧𝙖: ${tiempo}`;
 
-global.packsticker2 = `╰⛩️ 𝘾𝙤𝙣 𝙙𝙚𝙙𝙞𝙘𝙖𝙘𝙞𝙤́𝙣 𝙙𝙚: ${dev} ⊰╯`
+global.packsticker2 = `> ⛩️ 𝘾𝙤𝙣 𝙙𝙚𝙙𝙞𝙘𝙖𝙘𝙞𝙤́𝙣 𝙙𝙚: ${dev} ⊰╯`
   
 global.fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `6285600793871-1614953337@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `${nombre}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${nombre},;;;\nFN:${nombre},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': null, thumbnail: null,sendEphemeral: true}}}
 
