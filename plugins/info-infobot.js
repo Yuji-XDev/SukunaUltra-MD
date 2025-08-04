@@ -20,7 +20,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     info += `┃🧩 *Prefijo:* ${usedPrefix}\n`
     info += `┃📦 *Plugins activos:* ${totalf}\n`
     info += `┃📊 *Comandos usados:* ${toNum(totalStats)} (${totalStats})\n`
-    info += `┃🤖 *SubBots conectados:* ${subBots}\n`
+    info += `┃🌲 *SubBots conectados:* ${subBots}\n`
     info += `╰━━━━━━━━━━━━━━━━━━━━⬣\n\n`
     info += `╭━━━〔 \`𝗦𝗜𝗦𝗧𝗘𝗠𝗔 𝗛𝗢𝗦𝗧\` 〕━━⬣\n`
     info += `┃🖥️ *Plataforma:* ${platform()}\n`
@@ -31,7 +31,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     info += `╭━━━〔 \`𝗠𝗘𝗠𝗢𝗥𝗜𝗔 𝗗𝗘 𝗡𝗢𝗗𝗘𝗝𝗦\` 〕━━⬣\n`
     info += `${'```' + Object.keys(process.memoryUsage()).map((key) => `${key}: ${format(process.memoryUsage()[key])}`).join('\n') + '```'}`
 
-    let imagenURL = 'https://files.catbox.moe/kqurpy.jpg'
+    let imagenURL = 'https://files.catbox.moe/b4b495.jpg'
 
     await conn.sendFile(
         m.chat,
