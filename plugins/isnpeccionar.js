@@ -21,7 +21,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                     xmlns: "w:newsletter",
                     to: `newsletter.${channelCode}@newsletter.whatsapp.net`,
                 },
-                content: [{ tag: "newsletter", attrs: {}, content: null }],
+                content: [] // ← corrección aquí
             });
 
             if (!node || !node.content || !node.content[0] || !node.content[0].attrs) {
@@ -30,7 +30,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
             const meta = node.content[0].attrs;
             const creationDate = new Date(Number(meta.creation || 0));
-            const formattedDate = creationDate.toLocaleDateString("es-ES", {
+            const formattedDate = isNaN(creationDate.getTime()) ? "Desconocida" : creationDate.toLocaleDateString("es-ES", {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
