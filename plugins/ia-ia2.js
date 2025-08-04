@@ -51,5 +51,9 @@ console.error(error)
 m.reply('Ocurrió un error al buscar las imágenes. Inténtalo de nuevo.')
 }
 }
-handler.command = /^(bingsearch)$/i
+
+handler.help = ['bingsearch']
+handler.tags = ['buscador']
+handler.command = ['bingsearch']
+
 export default handler
