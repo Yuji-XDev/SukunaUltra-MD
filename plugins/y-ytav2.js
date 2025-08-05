@@ -69,18 +69,13 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       console.error('Error al obtener el tamaño del archivo:', e);
     }
 
-    await conn.sendMessage(m.chat, {
-      image: { url: info.thumb },
-      caption: `🎵 𝚃𝚒́𝚝𝚞𝚕𝚘: *${info.title}*\n👤 𝙰𝚞𝚝𝚘𝚛: *${info.author || 'Desconocido'}*\n⏱️ 𝙳𝚞𝚛𝚊𝚌𝚒𝚘́𝚗: *${info.duration || 'Desconocida'}*\n📦 𝚃𝚊𝚖𝚊𝚗̃𝚘: *${sizeStr}*`
-    }, { quoted: m });
-
     const fileName = `${info.title.replace(/[^a-zA-Z0-9 ]/g, '').trim().replace(/ +/g, '_')}.mp3`;
 
     await conn.sendMessage(m.chat, {
       document: { url: info.download },
       fileName,
       mimetype: 'audio/mpeg',
-      caption: `*${info.title}*`,
+      caption: `🎵 𝚃𝚒́𝚝𝚞𝚕𝚘: *${info.title}*\n👤 𝙰𝚞𝚝𝚘𝚛: *${info.author || 'Desconocido'}*\n⏱️ 𝙳𝚞𝚛𝚊𝚌𝚒𝚘́𝚗: *${info.duration || 'Desconocida'}*\n📦 𝚃𝚊𝚖𝚊𝚗̃𝚘: *${sizeStr}*`,
       contextInfo: {
         externalAdReply: {
           title: info.title,
