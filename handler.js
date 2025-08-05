@@ -349,7 +349,7 @@ typeof plugin.command === 'string' ?
 plugin.command === command :
 false
 
-global.comando = command
+global.comando2 = command
 
 if ((m.id.startsWith('NJX-') || (m.id.startsWith('BAE5') && m.id.length === 16) || (m.id.startsWith('B24E') && m.id.length === 20))) return
 
@@ -554,9 +554,9 @@ global.dfail = (type, m, conn, comando = '') => {
     admin: mensajes.smsadmin,
     private: mensajes.smsprivate,
     botAdmin: mensajes.smsbotAdmin,  
-    unreg: `*Para usar " ${comando} " primero debes registrarte.*
+    unreg: `*Para usar " ${comando2} " primero debes registrarte.*
 
-*Utiliza:* _#${verifyaleatorio} ${user2}.${edadaleatoria}_`,
+*🔥 Utiliza:* _#${verifyaleatorio} ${user2}.${edadaleatoria}_`,
     restrict: mensajes.smsrestrict
   }[type]
 
