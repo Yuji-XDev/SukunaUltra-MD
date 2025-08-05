@@ -1,62 +1,49 @@
-import fetch from 'node-fetch'
-import axios from 'axios'
-import fs from 'fs'
-import FormData from 'form-data'
-import { fileTypeFromBuffer } from 'file-type'
+import fetch from 'node-fetch';
 
-const auddApiKey = '18a49217b6dea2e9ce6a143ad7a1d530' // Gratis en https://audd.io/
-
-let handler = async (m, { conn, usedPrefix, command }) => {
-  if (!(m.quoted && (m.quoted.mimetype?.includes('audio') || m.quoted.mimetype?.includes('video')))) {
-    return m.reply(`🎧 *Responde a un audio o video para detectar la canción.* ☘️`)
-  }
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+  if (!text) return m.reply(`🌐 *Ejemplo:* ${usedPrefix + command} DJ malam pagi slowed`);
 
   try {
-    let media = await m.quoted.download()
-    let type = await fileTypeFromBuffer(media)
-    if (!type) return m.reply('❌ No se pudo determinar el tipo de archivo.')
+    const res = await fetch(`https://api.vreden.my.id/api/ytplaymp4?query=${encodeURIComponent(text)}`);
+    const json = await res.json();
 
-    if (!fs.existsSync('./tmp')) fs.mkdirSync('./tmp')
-    let filename = `./tmp/detect_audio.${type.ext}`
-    fs.writeFileSync(filename, media)
-
-    let form = new FormData()
-    form.append('file', fs.createReadStream(filename))
-    form.append('return', 'spotify,apple_music') // Orden correcto
-    form.append('api_token', auddApiKey)
-
-    const response = await axios.post('https://api.audd.io/', form, {
-      headers: form.getHeaders()
-    })
-
-    let json = response.data
-    if (json.status !== 'success' || !json.result) {
-      fs.unlinkSync(filename)
-      return m.reply(`❌ No se pudo detectar ninguna canción.\n🔍 Estado: ${json.status}\n📝 Mensaje: ${json.error?.message || 'No disponible'}`)
+    if (!json.result?.download?.url) {
+      return m.reply('❌ No se encontró ningún resultado o no hay enlace de descarga.');
     }
 
-    let res = json.result
-    let msg = `
-╭━━〔 *🎶 Canción Detectada* 〕━━⬣
-┃💿 *Título:* ${res.title}
-┃🎤 *Artista:* ${res.artist}
-┃💽 *Álbum:* ${res.album || 'Desconocido'}
-┃🌐 *Género:* ${res.genre || 'Desconocido'}
-┃🕒 *Duración:* ${res.duration || 'No disponible'}
-┃🔗 *Spotify:* ${res.spotify?.external_urls?.spotify || 'No disponible'}
-┃🍎 *Apple:* ${res.apple_music?.url || 'No disponible'}
-╰━━━━━━━━━━━━━━━━━━⬣`.trim()
+    const {
+      metadata,
+      download
+    } = json.result;
 
-    await conn.reply(m.chat, msg, m)
-    fs.unlinkSync(filename)
+    const caption = `
+╭━━〔 *📼 VIDEO ENCONTRADO* 〕━━⬣
+┃🎧 *Título:* ${metadata.title}
+┃👤 *Autor:* ${metadata.author.name}
+┃⏱️ *Duración:* ${metadata.duration.timestamp}
+┃👀 *Vistas:* ${metadata.views.toLocaleString()}
+┃🔗 *Enlace:* ${metadata.url}
+╰━━━━━━━━━━━━━━━━━━⬣`;
 
-  } catch (e) {
-    console.error(e)
-    m.reply('❌ Error al detectar la canción. Intenta nuevamente.')
+    await conn.sendMessage(m.chat, {
+      image: { url: metadata.thumbnail },
+      caption: caption
+    }, { quoted: m });
+
+    await conn.sendMessage(m.chat, {
+      document: { url: download.url },
+      fileName: download.filename,
+      mimetype: 'video/mp4'
+    }, { quoted: m });
+
+  } catch (err) {
+    console.error(err);
+    m.reply('🚫 Ocurrió un error al procesar tu solicitud.');
   }
-}
+};
 
-handler.help = ['adivinaaudio']
-handler.tags = ['audio']
-handler.command = /^(adivinaaudio|shazam|whatsong)$/i
-export default handler
+handler.command = ['playvideo1', 'ytmp'];
+handler.help = ['playvideo1 <texto>'];
+handler.tags = ['downloader'];
+
+export default handler;
