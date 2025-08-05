@@ -19,31 +19,10 @@ const handler = async (m, { conn, text, command }) => {
 
     const { title, timestamp, views, ago, url, author, thumbnail } = video;
     const canal = author?.name || 'Desconocido';
-    const vistas = views.toLocaleString();
+    const vistas = new Intl.NumberFormat('es-PE').format(views); // Con puntos
 
-    const textoInfo = `⬣ *🎲  \`YOUTUBE - MP3\` 🇦🇱* ⬣\n\n`
-      + `> 🌾 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title}\n`
-      + `> ⏱️ *𝑫𝒖𝒓𝒂𝒄𝒊𝒐𝒏:* ${timestamp}\n`
-      + `> 🍰 *𝑪𝒂𝒏𝒂𝒍:* ${canal}\n`
-      + `> 🌧️ *𝑽𝒊𝒔𝒕𝒂𝒔:* ${vistas}\n`
-      + `> 🌳 *𝑷𝒖𝒃𝒍𝒊𝒄𝒂𝒅𝒐:* ${ago}\n`
-      + `> 🔗 *𝑳𝒊𝒏𝒌:* ${url}\n\n`
-      + `*➭ 𝑬𝒍 𝒂𝒖𝒅𝒊𝒐 𝒔𝒆 𝒆𝒔𝒕𝒂 𝒆𝒏𝒗𝒊𝒂𝒏𝒅𝒐, 𝑬𝒔𝒑𝒆𝒓𝒆 𝒖𝒏 𝒎𝒐𝒎𝒆𝒏𝒕𝒊𝒕𝒐~ 🌸*`;
-
-    const thumbnailBuffer = await (await fetch(thumbnail)).buffer();
-
-    await conn.sendMessage(m.chat, {
-      image: thumbnailBuffer,
-      caption: textoInfo,
-      contextInfo: {
-        isForwarded: true,
-        forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363401008003732@newsletter',
-          newsletterName: '=͟͟͞𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺',
-          serverMessageId: -1
-        }
-      }
-    }, { quoted: m });
+    const [min, seg] = timestamp.split(':');
+    const duracion = `${parseInt(min)} minutos, ${min === '1' ? '' : 's'}, ${parseInt(seg)} segundo${seg === '1' ? '' : 's'}`;
 
     const api = `https://dark-core-api.vercel.app/api/download/YTMP3?key=api&url=${url}`;
     const res = await fetch(api);
@@ -52,6 +31,38 @@ const handler = async (m, { conn, text, command }) => {
     if (!json || !json.status || !json.download) {
       throw new Error('⚠️ No se pudo generar el enlace de descarga.');
     }
+
+    const textoInfo = `╭━━⬣『 *🎲 YOUTUBE - MP3* 』⬣━━⬣
+┃
+┃ 🍃 *Titulo:* ${title}
+┃ ⏱️ *Duración:* ${duracion}
+┃ 🍰 *Canal:* ${canal}
+┃ 👀 *Vistas:* ${vistas}
+┃ 🌱 *Publicado:* ${ago}
+┃ 🔗 *Link:* ${url}
+┃
+╰━━━━⬣\n\n*➭ El audio se está enviando... 🌸*`;
+
+    const thumbnailBuffer = await (await fetch(thumbnail)).buffer();
+
+    await conn.sendMessage(m.chat, {
+      image: thumbnailBuffer,
+      caption: textoInfo,
+      contextInfo: {
+        title: title,
+        body: grupo,
+        thumbnailUrl: thumbnailBuffer,
+        mediaType: 1,
+        renderLargerThumbnail: false,
+        sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U',
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363401008003732@newsletter',
+          newsletterName: '=͟͟͞𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺',
+          serverMessageId: -1
+        }
+      }
+    }, { quoted: m });
 
     await conn.sendMessage(m.chat, {
       audio: { url: json.download },
@@ -65,12 +76,10 @@ const handler = async (m, { conn, text, command }) => {
           thumbnail: thumbnailBuffer,
           mediaUrl: url,
           sourceUrl: url,
-          renderLargerThumbnail: false // true para otra cosa xd 
+          renderLargerThumbnail: false
         }
       }
     }, { quoted: fkontak });
-    
-    //await conn.sendMessage(m.chat, { audio: { url: json.download }, fileName: `${json.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: fkontak })
 
     await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
 
