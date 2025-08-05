@@ -75,7 +75,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
   const txt = `▧▧▧ BIENVENIDO / @ ▧▧▧`;
   const txt1 = `▧▧▧ ADIOS ▧▧▧`;
    
-  let redes = ' https://gituh.com/Yuji-XDev';
+  let redes = ' https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U';
   let groupSize = participants.length;
   if (m.messageStubType == WAMessageStubType.GROUP_PARTICIPANT_ADD) groupSize++;
   else if (

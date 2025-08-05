@@ -1,9 +1,8 @@
-
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return m.reply(`🌾 *Ejemplo de uso:*\n\n✎ ✧ \`${usedPrefix + command}\` https://youtube.com/watch?v=KHgllosZ3kA\n✎ ✧ \`${usedPrefix + command}\` DJ malam pagi slowed`);
+    return m.reply(`☘️ *Ejemplo de uso:*\n\n✎ ✧ \`${usedPrefix + command}\` https://youtube.com/watch?v=KHgllosZ3kA\n✎ ✧ \`${usedPrefix + command}\` DJ malam pagi slowed`);
   }
 
   await m.react('⏱️');
@@ -25,7 +24,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             thumb: json.resultado.metadata.image,
             download: json.resultado.descarga.url,
             filename: json.resultado.descarga.filename,
-            size: json.resultado.descarga.size
+            size: json.resultado.descarga.size,
+            url: json.resultado.metadata.url || text
           };
         }
       } catch (e) {
@@ -46,7 +46,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             thumb: json.result.metadata.thumbnail,
             download: json.result.download.url,
             filename: json.result.download.filename,
-            size: json.result.download.size
+            size: json.result.download.size,
+            url: json.result.metadata.url || text
           };
         }
       } catch (e) {
@@ -64,10 +65,27 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 📦 𝚃𝚊𝚖𝚊𝚗̃𝚘: *${info.size || 'Calculando...'}*`
     }, { quoted: m });
 
+    // Preparar nombre y caption
+    const fileName = `${info.title.replace(/[^a-zA-Z0-9 ]/g, '').trim().replace(/ +/g, '_')}.mp3`;
+    const caption = `📼 *${info.title}*\n> 🎧 *Duración:* ${info.duration}\n> 📦 *Tamaño:* ${info.size}\n> 🔗 ${info.url}`;
+
+    // Enviar audio como documento con estilo completo
     await conn.sendMessage(m.chat, {
       document: { url: info.download },
-      fileName: info.filename.endsWith('.mp3') ? info.filename : `${info.title}.mp3`,
-      mimetype: 'audio/mpeg'
+      fileName,
+      mimetype: 'audio/mpeg',
+      caption,
+      contextInfo: {
+        externalAdReply: {
+          title: info.title,
+          body: `💿 YOUTUBE DOC ☘️`,
+          mediaUrl: info.url,
+          sourceUrl: info.url,
+          thumbnailUrl: info.thumb,
+          mediaType: 1,
+          renderLargerThumbnail: true
+        }
+      }
     }, { quoted: m });
 
     await m.react('✅');
