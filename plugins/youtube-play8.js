@@ -46,7 +46,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
         {
           title: `📦 Descargar MP3 Documento`,
           description: `Duración: ${v.duracion || 'No disponible'}`,
-          id: `${usedPrefix}ytmp3doc ${v.url}`
+          id: `${usedPrefix}yta-v2 ${v.url}`
         },
         {
           title: `🎥 Descargar MP4`,
@@ -94,7 +94,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
       },
       buttons: [
         {
-          buttonId: `${usedPrefix}ytmp3 ${video.url}`,
+          buttonId: `${usedPrefix}yta ${video.url}`,
           buttonText: { displayText: '💿 Audio' },
           type: 1,
         },
@@ -136,9 +136,9 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
   }
 };
 
-handler.help = ['play8 *<texto>*'];
+handler.help = ['play *<texto>*'];
 handler.tags = ['downloader'];
-handler.command = ['play8'];
+handler.command = ['play', 'play2'];
 export default handler;
 
 async function searchVideos(query) {
