@@ -23,13 +23,13 @@ const getDiskSpace = () => {
 
 const handler = async (m, { conn }) => {
 
-    const rin = `╭━〔 ⚙️ 𝐂𝐀𝐑𝐆𝐀𝐍𝐃𝐎 𝐃𝐀𝐓𝐎𝐒 ⚙️ 〕━⬣
+    /*const rin = `╭━〔 ⚙️ 𝐂𝐀𝐑𝐆𝐀𝐍𝐃𝐎 𝐃𝐀𝐓𝐎𝐒 ⚙️ 〕━⬣
 ┃
 ┃ 🚧 𝐂 𝐀 𝐑 𝐆 𝐀 𝐍 𝐃 𝐎 - 𝐒𝐘𝐒𝐓𝐄𝐌...
 ┃ 🚀 *𝙀𝙉𝙑𝙄𝘼𝙉𝘿𝙊 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊́𝙉 𝘿𝙀𝙇 𝙎𝙄𝙎𝙏𝙀𝙈𝘼...*
 ┃
 ╰━━━━━━〔 🛰️ 〕━━━━━━⬣`
-    await conn.reply(m.chat, rin.trim(), m, fake);
+    await conn.reply(m.chat, rin.trim(), m, fake);*/
     
     const totalMem = os.totalmem();
     const freeMem = os.freemem();
@@ -67,7 +67,20 @@ ${diskSpace ? `╭─❍ *𝘿𝙄𝙎𝘾𝙊 𝘿𝙐𝙍𝙊* ❍─╮
 │ ✦ 🔮 *Uso:* ${diskSpace.usePercent}
 ╰──────────────────⬣` : '🚫 *No se pudo obtener el espacio en disco.*'}`;
 
-    await conn.reply(m.chat, message.trim(), m);
+    await conn.sendMessage(m.chat, {
+        text: message,
+        mentions: [],
+        contextInfo: {
+            mentionedJid: [],
+            externalAdReply: {
+                body: 'Sistema del bot',
+                thumbnailUrl: 'https://files.catbox.moe/vs2uvc.jpg',
+                mediaType: 1,
+                renderLargerThumbnail: false,
+                sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
+            }
+        }
+    }, { quoted: m });
 };
 
 handler.help = ['sistema'];
