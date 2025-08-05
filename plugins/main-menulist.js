@@ -35,24 +35,6 @@ const handler = async (m, { conn, usedPrefix }) => {
     const totalUsers = Object.keys(global.db.data.users).length;
     const totalCommands = Object.values(global.plugins).filter(p => p.help && p.tags).length;
     const user = global.db.data.users[m.sender] || {};
-    
-    const res2 = await fetch('https://iili.io/FKVDVAN.jpg');
-    const dvshadow = await res2.buffer();
-    const shadow = {
-      key: {
-        participants: "0@s.whatsapp.net",
-        remoteJid: "status@broadcast",
-        fromMe: false,
-        id: "Halo"
-      },
-      message: {
-        locationMessage: {
-          name: `🍯 𝗠𝗘𝗡𝗨 - 𝗟𝗜𝗦𝗧 💚\n[▓▓▓▓▓▓░░░░░░] 100%`,
-          jpegThumbnail: dvshadow
-        }
-      },
-      participant: "0@s.whatsapp.net"
-    };
 
     const texto = `            *_HOLA y ADIOS_*
 ✦─────────────────────✦
@@ -163,7 +145,7 @@ const handler = async (m, { conn, usedPrefix }) => {
           nativeFlowInfo: {
             name: 'single_select',
             paramsJson: JSON.stringify({
-              title: '🌳 MENU - list ☘️',
+              title: '🌳 MENU - LIST ☘️',
               sections
             })
           }
@@ -183,7 +165,7 @@ const handler = async (m, { conn, usedPrefix }) => {
           renderLargerThumbnail: true
         }
       }
-    }, { quoted: shadow });
+    }, { quoted: m });
 
   } catch (e) {
     console.error(e);
