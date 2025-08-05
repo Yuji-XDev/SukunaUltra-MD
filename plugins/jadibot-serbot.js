@@ -213,13 +213,13 @@ console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺�
 sock.isInit = true
 global.conns.push(sock)
 
-m?.chat ? await conn.sendMessage(m.chat, {text: args[0] ? `@${m.sender.split('@')[0]}, ya estás conectado, leyendo mensajes entrantes...` : `╭━━〔 🤖 ¡𝚂𝙾𝙲𝙺𝙴𝚃 𝙲𝙾𝙽𝙴𝙲𝚃𝙰𝙳𝙾! 〕━━⬣  
-┃  
-┃ 🌳 @${m.sender.split('@')[0]}  
-┃ 🧩 Ya formas parte de la familia *Sub-Bots*  
-┃ 🌾 ¡Prepárate para disfrutar al máximo!  
-┃  
-╰━━━━━━━━━━━━━━━━━━━━⬣`, mentions: [m.sender]}, { quoted: m }) : ''
+m?.chat ? await conn.sendMessage(m.chat, {text: args[0] ? `@${m.sender.split('@')[0]}, ya estás conectado, leyendo mensajes entrantes...` : `╭─〔 🚀 𝚂𝙾𝙲𝙺𝙴𝚃 𝙸𝙽𝙸𝙲𝙸𝙰𝙳𝙾 〕─⬣  
+│  
+│ 🔗 Usuario: @${m.sender.split('@')[0]}  
+│ 🤖 Conexión establecida con *Sub-Bots*  
+│ ✨ Acceso completo al sistema activado  
+│  
+╰─〔 ¡𝙳𝙸𝚂𝙵𝚁𝚄𝚃𝙰 𝙻𝙰 𝙴𝚇𝙿𝙴𝚁𝙸𝙴𝙽𝙲𝙸𝙰! 〕─⬣`, mentions: [m.sender]}, { quoted: m }) : ''
 
 }}
 setInterval(async () => {
