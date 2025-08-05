@@ -8,15 +8,16 @@ let res = await fetch('https://api.github.com/repos/Yuji-XDev/SukunaUltra-MD')
 if (!res.ok) throw new Error('Error al obtener datos del repositorio')
 let json = await res.json()
 
-let txt = `*乂  S C R I P T  -  M A I N  乂*\n\n`
-txt += `✩  *Nombre* : ${json.name}\n`
-txt += `✩  *Visitas* : ${json.watchers_count}\n`
-txt += `✩  *Peso* : ${(json.size / 1024).toFixed(2)} MB\n`
-txt += `✩  *Actualizado* : ${moment(json.updated_at).format('DD/MM/YY - HH:mm:ss')}\n`
-txt += `✩  *Url* : ${json.html_url}\n`
-txt += `✩  *Forks* : ${json.forks_count}\n`
-txt += `✩  *Stars* : ${json.stargazers_count}\n\n`
-txt += `> *${dev}*`
+let txt = `╭━━❰ 🌟 𝗜𝗡𝗙𝗢 𝗗𝗘𝗟 𝗦𝗖𝗥𝗜𝗣𝗧 🌟 ❱━━⬣\n`
+txt += `┃✨ 𝙉𝙤𝙢𝙗𝙧𝙚: *${json.name}*\n`
+txt += `┃👁️‍🗨️ 𝙑𝙞𝙨𝙞𝙩𝙖𝙨: *${json.watchers_count}*\n`
+txt += `┃🧮 𝙋𝙚𝙨𝙤: *${(json.size / 1024).toFixed(2)} MB*\n`
+txt += `┃⏰ 𝘼𝙘𝙩𝙪𝙖𝙡𝙞𝙯𝙖𝙙𝙤: *${moment(json.updated_at).format('DD/MM/YY - HH:mm:ss')}*\n`
+txt += `┃🔗 𝙐𝙧𝙡: ${json.html_url}\n`
+txt += `┃🍴 𝙁𝙤𝙧𝙠𝙨: *${json.forks_count}*\n`
+txt += `┃🌟 𝙎𝙩𝙖𝙧𝙨: *${json.stargazers_count}*\n`
+txt += `╰━━━◇◆◇━━━━━━⬣\n\n`
+txt += `👾 𝘿𝙚𝙨𝙖𝙧𝙧𝙤𝙡𝙡𝙖𝙙𝙤𝙧:\n> *${dev}*`
 
 await conn.sendMessage(m.chat, {text: txt, contextInfo: { forwardingScore: 999, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterName: channelRD.name, newsletterJid: channelRD.id, }, externalAdReply: { title: packname, body: dev, thumbnailUrl: 'https://files.catbox.moe/1ips7f.jpg', sourceUrl: redes, mediaType: 1, renderLargerThumbnail: true }}}, {quoted: m})
 
