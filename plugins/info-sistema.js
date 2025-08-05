@@ -43,37 +43,34 @@ const handler = async (m, { conn }) => {
     const nodeUsage = process.memoryUsage();
     const diskSpace = getDiskSpace();
 
-    const message = `𓆩 𖤐 𓈒 𓂃 𝑺.𝑰.𝑺.𝑻.𝑬.𝑴.𝑨 𝑫𝑨𝑺𝑯𝑩𝑶𝑨𝑹𝑫 𓂃 𓈒 𖤐 𓆪
-╭══• ༻✦༺•═══•༻✦༺•══╮
-   ${done} *🧩 Estado del Sistema*
-╰══• ༻✦༺•═══•༻✦༺•══╯
+    const message = `𖥔 𓆩⟡𓂃 𝑺𝒀𝑺𝑻𝑬𝑴 𝑺𝑻𝑨𝑻𝑼𝑺 𓂃⟡𓆪 𖥔
+╭─❍ *𝙄𝙉𝙁𝙊 𝘿𝙀 𝙃𝙊𝙎𝙏* ❍─╮
+│ ✦ 🛰️ *Host:* ${hostname}
+│ ✦ 🧬 *Sistema:* ${platform} (${arch})
+│ ✦ 🔋 *RAM Total:* ${formatBytes(totalMem)}
+│ ✦ 🪄 *RAM Libre:* ${formatBytes(freeMem)}
+│ ✦ 🧁 *RAM Usada:* ${formatBytes(usedMem)}
+│ ✦ ⏳ *Uptime:* ${muptime}
+╰──────────────────⬣\n
 
-🛰️ *Host:* ${hostname}  
-🧬 *Plataforma:* ${platform}  
-🔧 *Arquitectura:* ${arch}  
-🔋 *RAM Total:* ${formatBytes(totalMem)}  
-🪄 *RAM Libre:* ${formatBytes(freeMem)}  
-🧁 *RAM Usada:* ${formatBytes(usedMem)}  
-⏳ *Tiempo Activo:* ${muptime}
-
-╭── ⌬ 𝘜𝘴𝘰 𝘥𝘦 𝘔𝘦𝘮𝘰𝘳𝘪𝘢 𝘕𝘰𝘥𝘦.js ⌬ ──╮
-✶ 📦 *RSS:* ${formatBytes(nodeUsage.rss)}  
-✶ 🧠 *Heap Total:* ${formatBytes(nodeUsage.heapTotal)}  
-✶ 🧃 *Heap Usado:* ${formatBytes(nodeUsage.heapUsed)}  
-✶ 📂 *Externa:* ${formatBytes(nodeUsage.external)}  
-✶ 🎯 *Buffers:* ${formatBytes(nodeUsage.arrayBuffers)}  
-╰────────────────────────────╯
+╭─❍ *𝙈𝙀𝙈𝙊𝙍𝙄𝘼 𝙉𝙊𝘿𝙀.𝙅𝙎* ❍─╮
+│ ✦ 📦 *RSS:* ${formatBytes(nodeUsage.rss)}
+│ ✦ 🧠 *Heap Total:* ${formatBytes(nodeUsage.heapTotal)}
+│ ✦ 🧃 *Heap Usado:* ${formatBytes(nodeUsage.heapUsed)}
+│ ✦ 📂 *Externa:* ${formatBytes(nodeUsage.external)}
+│ ✦ 🎯 *Buffers:* ${formatBytes(nodeUsage.arrayBuffers)}
+╰─────────────────────⬣
 
 ${diskSpace ? `
-╭── ❄️ 𝘌𝘴𝘱𝘢𝘤𝘪𝘰 𝘦𝘯 𝘋𝘪𝘴𝘤𝘰 ─────────╮
-✧ 💽 *Total:* ${diskSpace.size}  
-✧ 📀 *Usado:* ${diskSpace.used}  
-✧ 🪐 *Libre:* ${diskSpace.available}  
-✧ 🔮 *Uso:* ${diskSpace.usePercent}  
-╰────────────────────────────╯
+╭─❍ *𝘿𝙄𝙎𝘾𝙊 𝘿𝙐𝙍𝙊* ❍─╮
+│ ✦ 💽 *Total:* ${diskSpace.size}
+│ ✦ 📀 *Usado:* ${diskSpace.used}
+│ ✦ 🪐 *Libre:* ${diskSpace.available}
+│ ✦ 🔮 *Uso:* ${diskSpace.usePercent}
+╰──────────────────⬣ 
 ` : '🚫 *No se pudo obtener el espacio en disco.*'}`;
 
-    await conn.reply(m.chat, message.trim(), m, rcanal, );
+    await conn.reply(m.chat, message.trim(), m, fakel, );
 };
 
 handler.help = ['sistema'];
