@@ -50,8 +50,8 @@ const handler = async (m, { conn }) => {
 │ ✦ 🔋 *RAM Total:* ${formatBytes(totalMem)}
 │ ✦ 🪄 *RAM Libre:* ${formatBytes(freeMem)}
 │ ✦ 🧁 *RAM Usada:* ${formatBytes(usedMem)}
-│ ✦ ⏳ *Uptime:* ${muptime}
-╰──────────────────⬣\n
+│ ✦ ⏳ *Uptime:* ${uptime}
+╰──────────────────⬣
 
 ╭─❍ *𝙈𝙀𝙈𝙊𝙍𝙄𝘼 𝙉𝙊𝘿𝙀.𝙅𝙎* ❍─╮
 │ ✦ 📦 *RSS:* ${formatBytes(nodeUsage.rss)}
@@ -61,16 +61,14 @@ const handler = async (m, { conn }) => {
 │ ✦ 🎯 *Buffers:* ${formatBytes(nodeUsage.arrayBuffers)}
 ╰─────────────────────⬣
 
-${diskSpace ? `
-╭─❍ *𝘿𝙄𝙎𝘾𝙊 𝘿𝙐𝙍𝙊* ❍─╮
+${diskSpace ? `╭─❍ *𝘿𝙄𝙎𝘾𝙊 𝘿𝙐𝙍𝙊* ❍─╮
 │ ✦ 💽 *Total:* ${diskSpace.size}
 │ ✦ 📀 *Usado:* ${diskSpace.used}
 │ ✦ 🪐 *Libre:* ${diskSpace.available}
 │ ✦ 🔮 *Uso:* ${diskSpace.usePercent}
-╰──────────────────⬣ 
-` : '🚫 *No se pudo obtener el espacio en disco.*'}`;
+╰──────────────────⬣` : '🚫 *No se pudo obtener el espacio en disco.*'}`;
 
-    await conn.reply(m.chat, message.trim(), m, fakel, );
+    await conn.reply(m.chat, message.trim(), m, fake, );
 };
 
 handler.help = ['sistema'];
