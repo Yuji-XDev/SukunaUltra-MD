@@ -4,11 +4,11 @@ import fs from 'fs'
 import FormData from 'form-data'
 import { fileTypeFromBuffer } from 'file-type'
 
-const auddApiKey = '18a49217b6dea2e9ce6a143ad7a1d530' // Consigue una gratis en https://audd.io/
+const auddApiKey = '18a49217b6dea2e9ce6a143ad7a1d530' // Gratis en https://audd.io/
 
 let handler = async (m, { conn, usedPrefix, command }) => {
   if (!(m.quoted && (m.quoted.mimetype?.includes('audio') || m.quoted.mimetype?.includes('video')))) {
-    return m.reply(`🎧 *Responde a un audio o video para detectar la canción.*`)
+    return m.reply(`🎧 *Responde a un audio o video para detectar la canción.* ☘️`)
   }
 
   try {
@@ -16,14 +16,13 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     let type = await fileTypeFromBuffer(media)
     if (!type) return m.reply('❌ No se pudo determinar el tipo de archivo.')
 
-    // Guardar temporalmente
+    if (!fs.existsSync('./tmp')) fs.mkdirSync('./tmp')
     let filename = `./tmp/detect_audio.${type.ext}`
     fs.writeFileSync(filename, media)
 
-    // Preparar para enviar a Audd.io
     let form = new FormData()
     form.append('file', fs.createReadStream(filename))
-    form.append('return', 'apple_music,spotify') // info adicional
+    form.append('return', 'spotify,apple_music') // Orden correcto
     form.append('api_token', auddApiKey)
 
     const response = await axios.post('https://api.audd.io/', form, {
@@ -31,9 +30,9 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     })
 
     let json = response.data
-    if (!json || !json.result) {
+    if (json.status !== 'success' || !json.result) {
       fs.unlinkSync(filename)
-      return m.reply('❌ No se pudo detectar ninguna canción.')
+      return m.reply(`❌ No se pudo detectar ninguna canción.\n🔍 Estado: ${json.status}\n📝 Mensaje: ${json.error?.message || 'No disponible'}`)
     }
 
     let res = json.result
