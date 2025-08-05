@@ -50,7 +50,7 @@ const handler = async (m, { conn, text, command }) => {
       caption: textoInfo,
       contextInfo: {
         title: title,
-        body: grupo,
+        body: dev,
         thumbnailUrl: thumbnailBuffer,
         mediaType: 1,
         renderLargerThumbnail: false,
