@@ -68,7 +68,7 @@ ${diskSpace ? `╭─❍ *𝘿𝙄𝙎𝘾𝙊 𝘿𝙐𝙍𝙊* ❍─╮
 │ ✦ 🔮 *Uso:* ${diskSpace.usePercent}
 ╰──────────────────⬣` : '🚫 *No se pudo obtener el espacio en disco.*'}`;
 
-    await conn.reply(m.chat, message.trim(), m, fake, );
+    await conn.reply(m.chat, message.trim(), m, rcanal, );
 };
 
 handler.help = ['sistema'];
