@@ -72,8 +72,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
   }
 
   const chat = global.db.data.chats[m.chat];
-  const txt = `▧▧▧ 𝚆𝙴𝙻𝙲𝙾𝙼𝙴 :: SYSTEM ONLINE ▧▧▧`;
-  const txt1 = `▧▧▧ 𝙎𝙃𝙐𝙏𝙏𝙄𝙉𝙂 𝘿𝙊𝙒𝙉 :: USER LEFT ▧▧▧`;
+  const txt = `▧▧▧ BIENVENIDO / @ ▧▧▧`;
+  const txt1 = `▧▧▧ ADIOS ▧▧▧`;
    
   let redes = ' https://gituh.com/Yuji-XDev';
   let groupSize = participants.length;
@@ -84,38 +84,25 @@ export async function before(m, { conn, participants, groupMetadata }) {
   ) groupSize--;
 
   if (chat?.welcome && m.messageStubType == 27) {
-    let bienvenida = `⌬ ──[ 𝙉𝙐𝙀𝙑𝙊 𝙉𝙊𝘿𝙊 𝘾𝙊𝙉𝙀𝘾𝙏𝘼𝘿𝙊 ]── ⌬
-
-╭╼⃝🌸✦ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑵𝒚𝒂~ ✦🌸╾⃝╮
-┃
-┃ 🐾 *Nᴜᴇᴠ@:* @${numeroUsuario}
-┃ 🎀 *𝙐𝙨𝙚𝙧𝙨 𝙘𝙤𝙣𝙚𝙘𝙩𝙖𝙙𝙤𝙨:* ${groupSize}
-┃ 🗺️ *𝙇𝙤𝙘𝙖𝙡𝙞𝙯𝙖𝙘𝙞𝙤́𝙣:* ${pais}
-┃ 📆 *𝙏𝙞𝙢𝙚𝙨𝙩𝙖𝙢𝙥:* ${fecha} • ${hora}
-┃ 🏰 *𝙂𝙧𝙪𝙥𝙤 𝙙𝙚 𝙙𝙚𝙨𝙥𝙡𝙞𝙚𝙜𝙪𝙚:* ${groupMetadata.subject}
-┃
-╰━･ﾟ✧*:･ﾟ✿🌸✧ﾟ･:✿･ﾟ✧━╯
-
-💌 *¡Bienvenid@! Siéntete como en casa~*
-> 🛠 \`\`\`ᴜsᴀ #ᴍᴇɴᴜ ᴘᴀʀᴀ ᴠᴇʀ ʟᴏs ᴄᴏᴍᴀɴᴅᴏs ᴅɪsᴘᴏɴɪʙʟᴇs.\`\`\``;
+    let bienvenida = `┏━━━━━━ ◦ ❖ ◦ ━━━━━━┓
+┃ 🐾 𝙐𝙨𝙪𝙖𝙧𝙞𝙤 𝙉𝙪𝙚𝙫𝙤 𝘿𝙚𝙩𝙚𝙘𝙩𝙖𝙙𝙤
+┣➤ 👤 @${numeroUsuario}
+┣➤ 👥 Conectados: ${groupSize}
+┣➤ 🌍 País: ${pais}
+┣➤ 🕓 Timestamp: ${fecha} • ${hora}
+┣➤ 🏰 Grupo: ${groupMetadata.subject}
+┗━━━━━━━━━━━━━━━━━━━┛`;
 
     await conn.sendMini(m.chat, txt, dev, bienvenida, img, img, redes, fkontak);
   }
 
   if (chat?.welcome && (m.messageStubType == 28 || m.messageStubType == 32)) {
-    let bye = `╭─⃟🌹❖ 𝐇𝐀𝐒𝐓𝐀 𝐏𝐑𝐎𝐍𝐓𝐎 ❖🌹⃟─╮
-┃
-┃ 💔 *Se ha ido:* @${numeroUsuario}
-┃ 👥 *Miembros restantes:* ${groupSize}
-┃ 🌐 *País:* ${pais}
-┃ 🗓️ *Fecha:* ${fecha}
-┃ 🕰️ *Hora Peru:* ${hora}
-┃ 🏡 *Grupo:* ${groupMetadata.subject}
-┃
-╰─────────────✦
-
-🕊️ *Que los vientos te lleven a nuevos destinos...*
-> 🛠 \`\`\`ᴜsᴀ #ᴍᴇɴᴜ ᴘᴀʀᴀ ᴠᴇʀ ʟᴏs ᴄᴏᴍᴀɴᴅᴏs ᴅɪsᴘᴏɴɪʙʟᴇs.\`\`\``;
+    let bye = ` 💔 *Se ha ido:* @${numeroUsuario}
+👥 *Miembros restantes:* ${groupSize}
+🌐 *País:* ${pais}
+🗓️ *Fecha:* ${fecha}
+🕰️ *Hora Peru:* ${hora}
+🏡 *Grupo:* ${groupMetadata.subject}`;
 
     await conn.sendMini(m.chat, txt1, dev, bye, img, img, redes, fkontak);
   }
