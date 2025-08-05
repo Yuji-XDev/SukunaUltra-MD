@@ -67,7 +67,7 @@ const handler = async (m, { conn, text, command }) => {
           showAdAttribution: true,
           renderLargerThumbnail: true,
           title: title,
-          body: wm,
+          body: '☁️ ＳＵＫＵＮＡ - ＡＩ ☘️',
           containsAutoReply: true,
           mediaType: 1,
           thumbnailUrl: thumbnail,
