@@ -1,2 +1,129 @@
-/* Codigo creado Por @Rayo-ofc */
-const _0x36224a=_0x2212;(function(_0x50a5f1,_0x252c02){const _0x4b52c2=_0x2212,_0x224652=_0x50a5f1();while(!![]){try{const _0x155d95=parseInt(_0x4b52c2(0x131))/0x1*(-parseInt(_0x4b52c2(0xe1))/0x2)+parseInt(_0x4b52c2(0x10b))/0x3*(-parseInt(_0x4b52c2(0x12a))/0x4)+parseInt(_0x4b52c2(0x11e))/0x5*(-parseInt(_0x4b52c2(0x127))/0x6)+-parseInt(_0x4b52c2(0xf8))/0x7*(-parseInt(_0x4b52c2(0x135))/0x8)+-parseInt(_0x4b52c2(0xe3))/0x9+-parseInt(_0x4b52c2(0x118))/0xa+-parseInt(_0x4b52c2(0x117))/0xb*(-parseInt(_0x4b52c2(0x119))/0xc);if(_0x155d95===_0x252c02)break;else _0x224652['push'](_0x224652['shift']());}catch(_0x3d6401){_0x224652['push'](_0x224652['shift']());}}}(_0x38e3,0xdc68f));import _0x444e5b from'axios';function _0x38e3(){const _0x1858a1=['parse','No\x20se\x20pudo\x20generar\x20la\x20imagen.\x20Puede\x20que\x20el\x20efecto\x20cambió\x20o\x20la\x20web\x20está\x20protegida.','https://en.ephoto360.com/online-blackpink-style-logo-maker-effect-711.html','https://en.ephoto360.com/matrix-text-effect-154.html','sendMessage','https://en.ephoto360.com/neon-light-text-effect-online-882.html','Mozilla/5.0\x20(Windows\x20NT\x2010.0\x20Win64\x20x64)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/105.0.0.0\x20Safari/537.36','https://en.ephoto360.com/write-text-on-wet-glass-online-589.html','val','input[name=token]','https://en.ephoto360.com/foggy-rainy-text-effect-75.html','https://en.ephoto360.com/create-pixel-glitch-text-effect-online-769.html','POST','https://en.ephoto360.com/create-eraser-deleting-text-effect-online-717.html','error','619707TwkgsJ','https://en.ephoto360.com/neon-city-text-effect-online-803.html','toLowerCase','https://en.ephoto360.com/create-harry-potter-text-effect-online-853.html','https://en.ephoto360.com/free-bear-logo-maker-online-673.html','set-cookie','https://en.ephoto360.com/advanced-glow-effects-74.html','https://en.ephoto360.com/graffiti-color-199.html','*/*','https://en.ephoto360.com/music-equalizer-text-effect-259.html','message','headers','114279GRooDM','16889810SjCfdd','8076AwPqGo','*❗\x20Ingresa\x20un\x20texto*\x20*Ejemplo:*\x20','https://en.ephoto360.com/create-3d-gradient-text-effect-online-600.html','https://en.ephoto360.com/create-a-cloud-text-effect-in-the-sky-618.html','https://en.ephoto360.com/free-create-a-3d-hologram-text-effect-441.html','35erEPyy','reply','help','https://en.ephoto360.com/create-galaxy-wallpaper-mobile-online-528.html','text','input[name=build_server]','tags','https://en.ephoto360.com/create-a-watercolor-text-effect-online-655.html','data','374604hRHqbN','https://en.ephoto360.com/create-multicolored-neon-light-signatures-591.html','https://en.ephoto360.com/making-neon-light-text-effect-with-galaxy-style-521.html','20AOeJty','https://en.ephoto360.com/angel-wing-effect-329.html','⏳\x20Creando\x20tu\x20logo,\x20espera...','https://en.ephoto360.com/steel-text-effect-online-843.html','https://en.ephoto360.com/pubg-logo-maker-cute-character-online-617.html','input[name=form_value_input]','keys','223185empgWB','https://en.ephoto360.com/nigeria-3d-flag-text-effect-online-free-753.html','image','get','4328GCACkA','https://en.ephoto360.com/create-typography-text-effect-on-pavement-online-774.html','https://en.ephoto360.com/naruto-shippuden-logo-style-text-effect-online-808.html','join','https://en.ephoto360.com/create-dragon-ball-style-text-effects-online-809.html','12ZvXHiA','load','14937579kJCGmj','❌\x20Error\x20generando\x20el\x20logo.\x20Puede\x20que\x20el\x20efecto\x20ya\x20no\x20esté\x20disponible\x20o\x20la\x20web\x20esté\x20protegida.\x0a*Detalles:*\x20','chat','https://en.ephoto360.com/write-in-sand-summer-beach-online-576.html','https://en.ephoto360.com/create-galaxy-style-free-name-logo-438.html','https://en.ephoto360.com/royal-text-effect-online-free-471.html','command','https://en.ephoto360.com/create-awesome-fire-text-effect-online-877.html','https://en.ephoto360.com/write-in-sand-summer-beach-online-free-595.html','https://en.ephoto360.com/create-digital-glitch-text-effects-online-767.html','ephoto','https://en.ephoto360.com/create-a-cover-image-for-the-game-among-us-online-762.html','append','\x20rin itoshi','getHeaders','build_server','https://en.ephoto360.com/multicolor-3d-paper-cut-style-text-effect-658.html','https://en.ephoto360.com/create-impressive-neon-glitch-text-effects-online-768.html','build_server_id','https://en.ephoto360.com/write-text-effect-clouds-in-the-sky-online-619.html','https://en.ephoto360.com/create-a-luxury-gold-text-effect-online-594.html','889XXuDUF','https://en.ephoto360.com/create-glowing-text-effects-online-706.html','text[]','https://en.ephoto360.com/create-a-cartoon-style-graffiti-text-effect-online-668.html'];_0x38e3=function(){return _0x1858a1;};return _0x38e3();}import _0x113bb0 from'form-data';import _0x127605 from'cheerio';const modelos={'glitchtext':_0x36224a(0xec),'narutotext':_0x36224a(0x137),'dragonball':_0x36224a(0xe0),'neonlight':_0x36224a(0x101),'pubglogo':_0x36224a(0x12e),'harrypotter':_0x36224a(0x10e),'marvel':'https://en.ephoto360.com/create-marvel-studios-logo-style-text-effect-online-710.html','pixelglitch':_0x36224a(0x107),'amongustext':_0x36224a(0xee),'writetext':_0x36224a(0x103),'advancedglow':_0x36224a(0x111),'typographytext':_0x36224a(0x136),'neonglitch':_0x36224a(0xf4),'flagtext':_0x36224a(0x132),'flag3dtext':'https://en.ephoto360.com/free-online-american-flag-3d-text-effect-generator-725.html','deletingtext':_0x36224a(0x109),'blackpinkstyle':_0x36224a(0xfe),'glowingtext':_0x36224a(0xf9),'underwatertext':'https://en.ephoto360.com/3d-underwater-text-effect-online-682.html','logomaker':_0x36224a(0x10f),'cartoonstyle':_0x36224a(0xfb),'papercutstyle':_0x36224a(0xf3),'watercolortext':_0x36224a(0x125),'effectclouds':_0x36224a(0xf6),'blackpinklogo':'https://en.ephoto360.com/create-blackpink-logo-online-free-607.html','gradienttext':_0x36224a(0x11b),'summerbeach':_0x36224a(0xeb),'luxurygold':_0x36224a(0xf7),'multicoloredneon':_0x36224a(0x128),'sandsummer':_0x36224a(0xe6),'galaxywallpaper':_0x36224a(0x121),'style':'https://en.ephoto360.com/1917-style-text-effect-523.html','makingneon':_0x36224a(0x129),'royaltext':_0x36224a(0xe8),'freecreate':_0x36224a(0x11d),'galaxystyle':_0x36224a(0xe7),'rainytext':_0x36224a(0x106),'graffititext':_0x36224a(0x112),'colorfulltext':'https://en.ephoto360.com/create-colorful-neon-light-text-effects-online-797.html','equalizertext':_0x36224a(0x114),'angeltxt':_0x36224a(0x12b),'starlight':'https://en.ephoto360.com/stars-night-online-1-85.html','steel':_0x36224a(0x12d),'neoncity':_0x36224a(0x10c),'cloudsky':_0x36224a(0x11c),'matrix':_0x36224a(0xff),'minion':'https://en.ephoto360.com/create-minions-text-effect-online-858.html','papercut3d':_0x36224a(0xf3),'firetext':_0x36224a(0xea),'icecold':'https://en.ephoto360.com/create-ice-cold-text-effect-online-870.html','rainbowtext':'https://en.ephoto360.com/create-rainbow-shine-text-effect-online-874.html','sandwriting':'https://en.ephoto360.com/write-in-wet-sand-text-effect-online-878.html'},handler=async(_0x47c425,{conn:_0x3bad8d,text:_0x2a37ab,usedPrefix:_0x3204cf,command:_0x2ac6a1})=>{const _0xf20d17=_0x36224a;if(!_0x2a37ab)return _0x3bad8d[_0xf20d17(0x11f)](_0x47c425['chat'],_0xf20d17(0x11a)+(_0x3204cf+_0x2ac6a1)+_0xf20d17(0xf0),_0x47c425);_0x47c425[_0xf20d17(0x11f)](_0xf20d17(0x12c));const _0x3bdd34=modelos[_0x2ac6a1[_0xf20d17(0x10d)]()];if(!_0x3bdd34)return _0x47c425[_0xf20d17(0x11f)]('*❗\x20Modelo\x20de\x20texto\x20no\x20encontrado:*\x20'+_0x2ac6a1);try{const _0x27a8be=await ephoto(_0x3bdd34,_0x2a37ab);if(!_0x27a8be)throw new Error(_0xf20d17(0xfd));await _0x3bad8d[_0xf20d17(0x100)](_0x47c425[_0xf20d17(0xe5)],{'image':{'url':_0x27a8be}},{'quoted':_0x47c425});}catch(_0x17e3d4){console[_0xf20d17(0x10a)]('Error\x20ephoto:',_0x17e3d4),await _0x47c425[_0xf20d17(0x11f)](_0xf20d17(0xe4)+(_0x17e3d4[_0xf20d17(0x115)]||_0x17e3d4));}};function _0x2212(_0x211ee5,_0x506201){const _0x38e345=_0x38e3();return _0x2212=function(_0x22129a,_0x281b94){_0x22129a=_0x22129a-0xe0;let _0x36cc79=_0x38e345[_0x22129a];return _0x36cc79;},_0x2212(_0x211ee5,_0x506201);}async function ephoto(_0x2ece57,_0x5706d1){const _0x7c1964=_0x36224a,_0x2d7281=await _0x444e5b[_0x7c1964(0x134)](_0x2ece57,{'headers':{'user-agent':_0x7c1964(0x102)}}),_0xb1da00=_0x127605[_0x7c1964(0xe2)](_0x2d7281['data']),_0x27e4fd=_0xb1da00(_0x7c1964(0x105))[_0x7c1964(0x104)](),_0xe6d8fa=_0xb1da00(_0x7c1964(0x123))[_0x7c1964(0x104)](),_0xb8bb2a=_0xb1da00('input[name=build_server_id]')['val']();if(!_0x27e4fd||!_0xe6d8fa||!_0xb8bb2a)return null;const _0x3b89a4=new _0x113bb0();_0x3b89a4[_0x7c1964(0xef)](_0x7c1964(0xfa),_0x5706d1),_0x3b89a4['append']('token',_0x27e4fd),_0x3b89a4[_0x7c1964(0xef)](_0x7c1964(0xf2),_0xe6d8fa),_0x3b89a4['append'](_0x7c1964(0xf5),_0xb8bb2a);const _0x8d5bbb=await _0x444e5b({'url':_0x2ece57,'method':_0x7c1964(0x108),'data':_0x3b89a4,'headers':{'Accept':_0x7c1964(0x113),'user-agent':_0x7c1964(0x102),'cookie':_0x2d7281[_0x7c1964(0x116)][_0x7c1964(0x110)]?.['join']('\x20'),..._0x3b89a4[_0x7c1964(0xf1)]()}}),_0x2e883f=_0x127605[_0x7c1964(0xe2)](_0x8d5bbb[_0x7c1964(0x126)]),_0x20669a=JSON[_0x7c1964(0xfc)](_0x2e883f(_0x7c1964(0x12f))[_0x7c1964(0x104)]()||'{}');if(!_0x20669a||!_0x20669a[_0x7c1964(0x122)])return null;_0x20669a[_0x7c1964(0xfa)]=_0x20669a[_0x7c1964(0x122)],delete _0x20669a[_0x7c1964(0x122)];const _0x3dc532=await _0x444e5b['post']('https://en.ephoto360.com/effect/create-image',new URLSearchParams(_0x20669a),{'headers':{'user-agent':_0x7c1964(0x102),'cookie':_0x2d7281['headers']['set-cookie'][_0x7c1964(0x138)]('\x20')}});if(!_0x3dc532[_0x7c1964(0x126)]||!_0x3dc532['data'][_0x7c1964(0x133)])return null;return _0xe6d8fa+_0x3dc532[_0x7c1964(0x126)][_0x7c1964(0x133)];}handler[_0x36224a(0x120)]=Object[_0x36224a(0x130)](modelos),handler[_0x36224a(0x124)]=[_0x36224a(0xed)],handler[_0x36224a(0xe9)]=handler[_0x36224a(0x120)];export default handler;
+import axios from 'axios';
+import FormData from 'form-data';
+import cheerio from 'cheerio';
+
+const modelos = {
+  glitchtext: 'https://en.ephoto360.com/create-digital-glitch-text-effects-online-767.html',
+  narutotext: 'https://en.ephoto360.com/naruto-shippuden-logo-style-text-effect-online-808.html',
+  dragonball: 'https://en.ephoto360.com/create-dragon-ball-style-text-effects-online-809.html',
+  neonlight: 'https://en.ephoto360.com/neon-light-text-effect-online-882.html',
+  pubglogo: 'https://en.ephoto360.com/pubg-logo-maker-cute-character-online-617.html',
+  harrypotter: 'https://en.ephoto360.com/create-harry-potter-text-effect-online-853.html',
+  marvel: 'https://en.ephoto360.com/create-marvel-studios-logo-style-text-effect-online-710.html',
+  pixelglitch: 'https://en.ephoto360.com/create-pixel-glitch-text-effect-online-769.html',
+  amongustext: 'https://en.ephoto360.com/create-a-cover-image-for-the-game-among-us-online-762.html',
+  writetext: 'https://en.ephoto360.com/write-text-on-wet-glass-online-589.html',
+  advancedglow: 'https://en.ephoto360.com/advanced-glow-effects-74.html',
+  typographytext: 'https://en.ephoto360.com/create-typography-text-effect-on-pavement-online-774.html',
+  neonglitch: 'https://en.ephoto360.com/create-impressive-neon-glitch-text-effects-online-768.html',
+  flagtext: 'https://en.ephoto360.com/nigeria-3d-flag-text-effect-online-free-753.html',
+  flag3dtext: 'https://en.ephoto360.com/free-online-american-flag-3d-text-effect-generator-725.html',
+  deletingtext: 'https://en.ephoto360.com/create-eraser-deleting-text-effect-online-717.html',
+  blackpinkstyle: 'https://en.ephoto360.com/online-blackpink-style-logo-maker-effect-711.html',
+  glowingtext: 'https://en.ephoto360.com/create-glowing-text-effects-online-706.html',
+  underwatertext: 'https://en.ephoto360.com/3d-underwater-text-effect-online-682.html',
+  logomaker: 'https://en.ephoto360.com/free-bear-logo-maker-online-673.html',
+  cartoonstyle: 'https://en.ephoto360.com/create-a-cartoon-style-graffiti-text-effect-online-668.html',
+  papercutstyle: 'https://en.ephoto360.com/multicolor-3d-paper-cut-style-text-effect-658.html',
+  watercolortext: 'https://en.ephoto360.com/create-a-watercolor-text-effect-online-655.html',
+  effectclouds: 'https://en.ephoto360.com/write-text-effect-clouds-in-the-sky-online-619.html',
+  blackpinklogo: 'https://en.ephoto360.com/create-blackpink-logo-online-free-607.html',
+  gradienttext: 'https://en.ephoto360.com/create-3d-gradient-text-effect-online-600.html',
+  summerbeach: 'https://en.ephoto360.com/write-in-sand-summer-beach-online-576.html',
+  luxurygold: 'https://en.ephoto360.com/create-a-luxury-gold-text-effect-online-594.html',
+  multicoloredneon: 'https://en.ephoto360.com/create-multicolored-neon-light-signatures-591.html',
+  sandsummer: 'https://en.ephoto360.com/write-in-sand-summer-beach-online-free-595.html',
+  galaxywallpaper: 'https://en.ephoto360.com/create-galaxy-wallpaper-mobile-online-528.html',
+  style: 'https://en.ephoto360.com/1917-style-text-effect-523.html',
+  makingneon: 'https://en.ephoto360.com/making-neon-light-text-effect-with-galaxy-style-521.html',
+  royaltext: 'https://en.ephoto360.com/royal-text-effect-online-free-471.html',
+  freecreate: 'https://en.ephoto360.com/free-create-a-3d-hologram-text-effect-441.html',
+  galaxystyle: 'https://en.ephoto360.com/create-galaxy-style-free-name-logo-438.html',
+  rainytext: 'https://en.ephoto360.com/foggy-rainy-text-effect-75.html',
+  graffititext: 'https://en.ephoto360.com/graffiti-color-199.html',
+  equalizertext: 'https://en.ephoto360.com/music-equalizer-text-effect-259.html',
+  angeltxt: 'https://en.ephoto360.com/angel-wing-effect-329.html',
+  starlight: 'https://en.ephoto360.com/stars-night-online-1-85.html',
+  steel: 'https://en.ephoto360.com/steel-text-effect-online-843.html',
+  neoncity: 'https://en.ephoto360.com/neon-city-text-effect-online-803.html',
+  cloudsky: 'https://en.ephoto360.com/create-a-cloud-text-effect-in-the-sky-618.html',
+  matrix: 'https://en.ephoto360.com/matrix-text-effect-154.html',
+  minion: 'https://en.ephoto360.com/create-minions-text-effect-online-858.html',
+  firetext: 'https://en.ephoto360.com/create-awesome-fire-text-effect-online-877.html',
+  icecold: 'https://en.ephoto360.com/create-ice-cold-text-effect-online-870.html',
+  rainbowtext: 'https://en.ephoto360.com/create-rainbow-shine-text-effect-online-874.html',
+  sandwriting: 'https://en.ephoto360.com/write-in-wet-sand-text-effect-online-878.html'
+};
+
+async function ephoto(url, text) {
+  const getPage = await axios.get(url, {
+    headers: {
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0 Win64 x64)...',
+    }
+  });
+
+  const $ = cheerio.load(getPage.data);
+  const token = $('input[name=token]').val();
+  const buildServer = $('input[name=build_server]').val();
+  const buildServerId = $('input[name=build_server_id]').val();
+
+  if (!token || !buildServer || !buildServerId) return null;
+
+  const form = new FormData();
+  form.append('text[]', text);
+  form.append('token', token);
+  form.append('build_server', buildServer);
+  form.append('build_server_id', buildServerId);
+
+  const submit = await axios({
+    url,
+    method: 'POST',
+    data: form,
+    headers: {
+      'Accept': '*/*',
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0 Win64 x64)...',
+      'cookie': getPage.headers['set-cookie']?.join(' '),
+      ...form.getHeaders()
+    }
+  });
+
+  const $2 = cheerio.load(submit.data);
+  const jsonResult = JSON.parse($2('#form_value_input').val() || '{}');
+  if (!jsonResult || !jsonResult.image) return null;
+
+  jsonResult.text[] = jsonResult.image;
+  delete jsonResult.image;
+
+  const result = await axios.post('https://en.ephoto360.com/effect/create-image', new URLSearchParams(jsonResult), {
+    headers: {
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0 Win64 x64)...',
+      'cookie': getPage.headers['set-cookie'].join(' ')
+    }
+  });
+
+  if (!result.data || !result.data.image) return null;
+  return buildServer + result.data.image;
+}
+
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  if (!text) return conn.reply(m.chat, `*❗ Ingresa un texto*\n*Ejemplo:* ${usedPrefix + command} TuTexto`, m, fake);
+
+  m.reply('*⏳ Creando tu logo, espera...*');
+  const url = modelos[command.toLowerCase()];
+  if (!url) return m.reply(`*❗ Modelo de texto no encontrado:* ${command}`);
+
+  try {
+    const result = await ephoto(url, text);
+    if (!result) throw new Error('No se pudo generar la imagen. Puede que el efecto cambió o la web está protegida.');
+    await conn.sendMessage(m.chat, { image: { url: result } }, { quoted: m });
+  } catch (e) {
+    console.error('Error ephoto:', e);
+    await m.reply(`❌ Error generando el logo. Puede que el efecto ya no esté disponible o la web esté protegida.\n*Detalles:* ${e.message || e}`);
+  }
+};
+
+handler.help = Object.keys(modelos);
+handler.tags = ['ephoto'];
+handler.command = handler.help;
+
+export default handler;
