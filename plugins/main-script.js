@@ -19,7 +19,7 @@ txt += `┃🌟 𝙎𝙩𝙖𝙧𝙨: *${json.stargazers_count}*\n`
 txt += `╰━━━◇◆◇━━━━━━⬣\n\n`
 txt += `👾 𝘿𝙚𝙨𝙖𝙧𝙧𝙤𝙡𝙡𝙖𝙙𝙤𝙧:\n> *${dev}*`
 
-await conn.sendMessage(m.chat, {text: txt, contextInfo: { forwardingScore: 999, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterName: channelRD.name, newsletterJid: channelRD.id, }, externalAdReply: { title: packname, body: dev, thumbnailUrl: 'https://files.catbox.moe/1ips7f.jpg', sourceUrl: redes, mediaType: 1, renderLargerThumbnail: true }}}, {quoted: m})
+await conn.sendMessage(m.chat, {text: txt, contextInfo: { forwardingScore: 999, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterName: channelRD.name, newsletterJid: channelRD.id, }, externalAdReply: { title: packname, body: dev, thumbnailUrl: 'https://github.com/Yuji-XDev/Adiciones-DV.Shadow/blob/main/imagen/shadow.jpg', sourceUrl: redes, mediaType: 1, renderLargerThumbnail: true }}}, {quoted: m})
 
 } catch {
 await conn.reply(m.chat, `${msm} Ocurrió un error.`, m)
