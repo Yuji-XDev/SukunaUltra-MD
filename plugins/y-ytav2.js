@@ -80,11 +80,11 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       document: { url: info.download },
       fileName,
       mimetype: 'audio/mpeg',
-      caption: 'info.title',
+      caption: `*${info.title}*`,
       contextInfo: {
         externalAdReply: {
           title: info.title,
-          body: '🎧 YOUTUBE MP3 ☘️',
+          body: '🎧 YOUTUBE DOC ☘️',
           mediaUrl: info.url,
           sourceUrl: info.url,
           thumbnailUrl: info.thumb,
