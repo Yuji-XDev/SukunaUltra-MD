@@ -554,7 +554,7 @@ global.dfail = (type, m, conn, comando = '') => {
     admin: mensajes.smsadmin,
     private: mensajes.smsprivate,
     botAdmin: mensajes.smsbotAdmin,  
-    unreg: `*Para usar "${comando}" primero debes registrarte.*
+    unreg: `*Para usar " ${comando} " primero debes registrarte.*
 
 *Utiliza:* _#${verifyaleatorio} ${user2}.${edadaleatoria}_`,
     restrict: mensajes.smsrestrict
