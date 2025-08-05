@@ -13,14 +13,13 @@ const formatBytes = (bytes, decimals = 2) => {
 const getDiskSpace = () => {
     try {
         const stdout = execSync('df -h | grep -E "^/dev/root|^/dev/sda1"').toString();
-        const [ , size, used, available, usePercent ] = stdout.split(/\s+/);
+        const [ , size, used, available, usePercent ] = stdout.trim().split(/\s+/);
         return { size, used, available, usePercent };
     } catch (error) {
         console.error('✧ Error al obtener el espacio en disco:', error);
         return null;
     }
 };
-
 
 const handler = async (m, { conn }) => {
 
@@ -30,13 +29,13 @@ const handler = async (m, { conn }) => {
 ┃ 🚀 *𝙀𝙉𝙑𝙄𝘼𝙉𝘿𝙊 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊́𝙉 𝘿𝙀𝙇 𝙎𝙄𝙎𝙏𝙀𝙈𝘼...*
 ┃
 ╰━━━━━━〔 🛰️ 〕━━━━━━⬣`
-    await conn.reply(m.chat, rin.trim(), m)
+    await conn.reply(m.chat, rin.trim(), m, fake);
     
     const totalMem = os.totalmem();
     const freeMem = os.freemem();
     const usedMem = totalMem - freeMem;
-    const _muptime = process.uptime() * 1000
-    const muptime = clockString(_muptime)
+    const _muptime = process.uptime() * 1000;
+    const muptime = clockString(_muptime);
     const hostname = os.hostname();
     const platform = os.platform();
     const arch = os.arch();
@@ -50,7 +49,7 @@ const handler = async (m, { conn }) => {
 │ ✦ 🔋 *RAM Total:* ${formatBytes(totalMem)}
 │ ✦ 🪄 *RAM Libre:* ${formatBytes(freeMem)}
 │ ✦ 🧁 *RAM Usada:* ${formatBytes(usedMem)}
-│ ✦ ⏳ *Uptime:* ${uptime}
+│ ✦ ⏳ *Uptime:* ${muptime}
 ╰──────────────────⬣
 
 ╭─❍ *𝙈𝙀𝙈𝙊𝙍𝙄𝘼 𝙉𝙊𝘿𝙀.𝙅𝙎* ❍─╮
@@ -68,7 +67,7 @@ ${diskSpace ? `╭─❍ *𝘿𝙄𝙎𝘾𝙊 𝘿𝙐𝙍𝙊* ❍─╮
 │ ✦ 🔮 *Uso:* ${diskSpace.usePercent}
 ╰──────────────────⬣` : '🚫 *No se pudo obtener el espacio en disco.*'}`;
 
-    await conn.reply(m.chat, message.trim(), m, rcanal, );
+    await conn.reply(m.chat, message.trim(), m);
 };
 
 handler.help = ['sistema'];
@@ -79,7 +78,8 @@ handler.register = true;
 export default handler;
 
 function clockString(ms) {
-let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
+    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
+    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
+    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
+    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':');
+}
