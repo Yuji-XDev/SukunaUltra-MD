@@ -1,4 +1,4 @@
-import axios from 'axios';
+/*import axios from 'axios';
 
 const handler = async (m, { text, conn, usedPrefix, command }) => {
   const nombre = await conn.getName(m.sender)
@@ -44,10 +44,10 @@ renderLargerThumbnail: false
 handler.command = ['fgdlmp4'];
 export default handler;
 
+*/
 
 
-
-/* import fetch from 'node-fetch';
+import fetch from 'node-fetch';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) return conn.reply(m.chat, '❀ Ingresa un link de youtube', m);
@@ -87,8 +87,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }
 };
 
-handler.help = ['ytmp4 *<url>*'];
+handler.help = ['fgdlmp4 *<url>*'];
 handler.tags = ['dl'];
-handler.command = ['ytmp4'];
+handler.command = ['fgdlmp4'];
 
-export default handler; */
+export default handler;
