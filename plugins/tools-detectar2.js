@@ -40,8 +40,8 @@ var handler = async (m, { usedPrefix, command }) => {
     }
 }
 
-handler.command = ['detectarsyntax']
-handler.help = ['detectarsyntax']
+handler.command = ['detectarsyntax2']
+handler.help = ['detectarsyntax2']
 handler.tags = ['tools']
 handler.rowner = true
 handler.register = true

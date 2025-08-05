@@ -23,5 +23,5 @@ ${adminList}
   await m.reply(result)
 }
 
-handler.command = /^test$/i
+handler.command = /^test2$/i
 export default handler
