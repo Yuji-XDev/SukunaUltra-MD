@@ -1,3 +1,5 @@
+// codigo de dv.Shadow
+
 import fetch from 'node-fetch';
 import yts from 'yt-search';
 
@@ -6,7 +8,7 @@ const handler = async (m, { conn, text, command }) => {
     if (!text) {
       return conn.reply(m.chat, `╭━━⬣『 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝙇𝙄𝙉𝙆 』⬣━━╮
 ┃⛩️ 𝙄𝙣𝙜𝙧𝙚𝙨𝙖 𝙪𝙣 𝙚𝙣𝙡𝙖𝙘𝙚 𝙙𝙚 𝙔𝙤𝙪𝙏𝙪𝙗𝙚 🌲
-╰━━━〔 🌀 𝙎𝙐𝙆𝙐𝙉𝘼 𝘽𝙊𝙏 〕━━⬣`, m);
+╰━━━〔 🌀 𝙎𝙐𝙆𝙐𝙉𝘼 𝘽𝙊𝙏 〕━━⬣`, m, fake);
     }
 
     await conn.sendMessage(m.chat, { react: { text: '⏱️', key: m.key } });
@@ -56,7 +58,7 @@ const handler = async (m, { conn, text, command }) => {
         forwardedNewsletterMessageInfo: {
           newsletterJid: '120363401008003732@newsletter',
           serverMessageId: '',
-          newsletterName: 'sukuna ultra'
+          newsletterName: '☯︎︎⟬𖤐ꪶ 𝑺𝑼𝑲𝑼𝑵𝑨 𝑼𝑳𝑻𝑹𝑨 • 𝑪𝑯𝑨𝑵𝑵𝑬𝑳 ꪶ𖤐⟭☯︎︎'
         },
         forwardingScore: 9999999,
         isForwarded: true,

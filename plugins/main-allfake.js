@@ -37,7 +37,7 @@ global.listo = '- 🌀 *𝐓𝐔 𝐏𝐀𝐍𝐄𝐋 𝐄𝐒𝐓𝐀 𝐋𝐈�
 global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/vm6opf.jpg')
 
 global.canalIdM = ["120363401008003732@newsletter", "120363401008003732@newsletter"]
-global.canalNombreM = ["  ꙰⃟🎄  ⸸𝕊𝖚𝖐𝖚𝖓𝖆 𝑼𝒍𝒕𝒓𝒂 𝑴𝑫⸸  🎋★꙰⃟⸙", "🐉꙰⃟ 𖠺 SUKUNA ULTRA - 𝐌𝐃 𖠺🌴⃟ᰳᰬᰶ"]
+global.canalNombreM = ["  ꙰⃟🎄  ⸸𝕊𝖚𝖐𝖚𝖓𝖆 𝑼𝒍𝒕𝒓𝒂 𝑴𝑫⸸  🎋★꙰⃟⸙", "⟦͜͡⟬⃟⟭⟧ 𓆩⟬ ᳞ꪳ⃟ 𖤐 𝙎𝙐𝙆𝙐𝙉𝘼 𝙐𝙇𝙏𝙍𝘼 𝘾𝙃𝘼𝙉𝙉𝙀𝙇 𖤐 ᳞ꪳ⃟ ⟭⟬𓆪 ⟦͜͡⟬⃟⟭⟧"]
 global.channelRD = await getRandomChannel()
 
 global.d = new Date(new Date + 3600000)
