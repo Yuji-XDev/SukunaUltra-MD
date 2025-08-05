@@ -96,7 +96,7 @@ const handler = async (m, { conn, usedPrefix }) => {
 ┃ Ej: #menugame ┊ #menutools
 ╰━━━━━━━━━━━━━━━━━━━━━━━╯`;
     
-    const imgUrl = 'https://files.catbox.moe/97lre0.jpg';
+    const imgUrl = 'https://files.catbox.moe/rtrkoa.jpg';
     const imagenBuffer = await (await fetch(imgUrl)).buffer();    
     const thumb2 = await sharp(imagenBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
     
