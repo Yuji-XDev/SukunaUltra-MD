@@ -6,7 +6,7 @@ const handler = async (m, { conn, text, command }) => {
     if (!text) {
       return conn.reply(m.chat, `╭━━⬣『 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝙇𝙄𝙉𝙆 』⬣━━╮
 ┃⛩️ 𝙄𝙣𝙜𝙧𝙚𝙨𝙖 𝙪𝙣 𝙚𝙣𝙡𝙖𝙘𝙚 𝙙𝙚 𝙔𝙤𝙪𝙏𝙪𝙗𝙚 🌲
-╰━━━〔 🌀 𝙎𝙐𝙆𝙐𝙉𝘼 𝘽𝙊𝙏 〕━━⬣`, m, fake);
+╰━━━〔 🌀 𝙎𝙐𝙆𝙐𝙉𝘼 𝘽𝙊𝙏 〕━━⬣`, m);
     }
 
     await conn.sendMessage(m.chat, { react: { text: '⏱️', key: m.key } });
@@ -45,7 +45,7 @@ const handler = async (m, { conn, text, command }) => {
 
     const thumbnailBuffer = await (await fetch(thumbnail)).buffer();
 
-    await conn.sendMessage(m.chat, {
+    /*await conn.sendMessage(m.chat, {
       image: thumbnailBuffer,
       caption: textoInfo,
       contextInfo: {
@@ -60,6 +60,30 @@ const handler = async (m, { conn, text, command }) => {
           newsletterJid: '120363401008003732@newsletter',
           newsletterName: '=͟͟͞𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺',
           serverMessageId: -1
+        }
+      }
+    }, { quoted: m });*/
+    
+    
+    await conn.sendMessage(m.chat, { text: textoInfo,  
+      contextInfo:{  
+        forwardedNewsletterMessageInfo: { 
+          newsletterJid: '120363401008003732@newsletter', 
+          serverMessageId: '', 
+          newsletterName: 'sukuna ultra' 
+        },
+        forwardingScore: 9999999,  
+        isForwarded: true,   
+        mentionedJid: null,  
+        externalAdReply: {  
+          showAdAttribution: true,  
+          renderLargerThumbnail: true,  
+          title: title,   
+          body: wm,
+          containsAutoReply: true,  
+          mediaType: 1,     
+          thumbnailUrl: thumbnailBuffer, 
+          sourceUrl: "https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U"
         }
       }
     }, { quoted: m });
