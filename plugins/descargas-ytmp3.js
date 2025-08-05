@@ -19,10 +19,17 @@ const handler = async (m, { conn, text, command }) => {
 
     const { title, timestamp, views, ago, url, author, thumbnail } = video;
     const canal = author?.name || 'Desconocido';
-    const vistas = new Intl.NumberFormat('es-PE').format(views); // Con puntos
+    const vistas = new Intl.NumberFormat('es-PE').format(views);
 
-    const [min, seg] = timestamp.split(':');
-    const duracion = `${parseInt(min)} minutos, ${min === '1' ? '' : 's'}, ${parseInt(seg)} segundo${seg === '1' ? '' : 's'}`;
+    let duracion;
+    const partes = timestamp.split(':');
+    if (partes.length === 3) {
+      const [horas, min, seg] = partes;
+      duracion = `${parseInt(horas)} hora${horas === '1' ? '' : 's'}, ${parseInt(min)} minuto${min === '1' ? '' : 's'}, ${parseInt(seg)} segundo${seg === '1' ? '' : 's'}`;
+    } else {
+      const [min, seg] = partes;
+      duracion = `${parseInt(min)} minuto${min === '1' ? '' : 's'}, ${parseInt(seg)} segundo${seg === '1' ? '' : 's'}`;
+    }
 
     const api = `https://dark-core-api.vercel.app/api/download/YTMP3?key=api&url=${url}`;
     const res = await fetch(api);
@@ -41,52 +48,33 @@ const handler = async (m, { conn, text, command }) => {
 ┃ 🌱 *Publicado:* ${ago}
 ┃ 🔗 *Link:* ${url}
 ┃
-╰━━━━⬣\n\n*➭ El audio se está enviando... 🌸*`;
+╰━━━━⬣\n*➭ El audio se está enviando... 🌸*`;
 
-    const thumbnailBuffer = await (await fetch(thumbnail)).buffer();
-
-    /*await conn.sendMessage(m.chat, {
-      image: thumbnailBuffer,
-      caption: textoInfo,
+    await conn.sendMessage(m.chat, {
+      text: textoInfo,
       contextInfo: {
-        title: title,
-        body: dev,
-        thumbnailUrl: thumbnailBuffer,
-        mediaType: 1,
-        renderLargerThumbnail: false,
-        sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U',
-        isForwarded: true,
         forwardedNewsletterMessageInfo: {
           newsletterJid: '120363401008003732@newsletter',
-          newsletterName: '=͟͟͞𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺',
-          serverMessageId: -1
-        }
-      }
-    }, { quoted: m });*/
-    
-    
-    await conn.sendMessage(m.chat, { text: textoInfo,  
-      contextInfo:{  
-        forwardedNewsletterMessageInfo: { 
-          newsletterJid: '120363401008003732@newsletter', 
-          serverMessageId: '', 
-          newsletterName: 'sukuna ultra' 
+          serverMessageId: '',
+          newsletterName: 'sukuna ultra'
         },
-        forwardingScore: 9999999,  
-        isForwarded: true,   
-        mentionedJid: null,  
-        externalAdReply: {  
-          showAdAttribution: true,  
-          renderLargerThumbnail: true,  
-          title: title,   
+        forwardingScore: 9999999,
+        isForwarded: true,
+        mentionedJid: null,
+        externalAdReply: {
+          showAdAttribution: true,
+          renderLargerThumbnail: true,
+          title: title,
           body: wm,
-          containsAutoReply: true,  
-          mediaType: 1,     
-          thumbnailUrl: thumbnailBuffer, 
+          containsAutoReply: true,
+          mediaType: 1,
+          thumbnailUrl: thumbnail,
           sourceUrl: "https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U"
         }
       }
     }, { quoted: m });
+
+    const thumbnailBuffer = await (await fetch(thumbnail)).buffer();
 
     await conn.sendMessage(m.chat, {
       audio: { url: json.download },
@@ -116,6 +104,6 @@ const handler = async (m, { conn, text, command }) => {
 
 handler.command = ['ytmp3'];
 handler.tags = ['descargas'];
-handler.help = ['ytmp3 *<link o título>*'];
+handler.help = ['ytmp3 *<link>*'];
 
 export default handler;
