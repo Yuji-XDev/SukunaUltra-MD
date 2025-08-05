@@ -728,7 +728,7 @@ let handler = async (m, { conn, args }) => {
   await conn.sendMessage(
     m.chat,
     {
-      image: { url: 'https://files.catbox.moe/51he8c.jpg' },
+      image: { url: 'https://files.catbox.moe/gh3gbs.jpg' },
       caption: menuText,
       contextInfo: {
         externalAdReply: {
