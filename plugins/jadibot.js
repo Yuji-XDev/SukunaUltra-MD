@@ -62,11 +62,10 @@ if (!globalThis.db.data.settings[conn.user.jid].jadibotmd) return conn.reply(m.c
     ? '𝙉𝙤 𝙝𝙖𝙮 𝙎𝙪𝙗-𝘽𝙤𝙩𝙨 𝙖𝙘𝙩𝙞𝙫𝙤𝙨 𝙥𝙤𝙧 𝙖𝙝𝙤𝙧𝙖. 🌙'
     : `*✦ Sockets Activos de Sukuna Ultra-MD ✦*
 
-> ⌛ *Tiempo Activo:* _[ ${uptime} ]_
-> 🌳 *Sessions Libres:* _[ ${disponibles} ]_
-> 🎄 *Subs conectados:* _[ ${totalSubs} ]_
-⟢ 💾 *RAM usada:* ${format(totalmem() - freemem())}  
-⟢ 📦 *RAM total:* ${format(totalmem())}
+> ⟢ ⌛ *Tiempo Activo:* _[ ${uptime} ]_
+> ⟢ 🌳 *Sessions Libres:* _[ ${disponibles} ]_
+> ⟢ 🎄 *Subs conectados:* _[ ${totalSubs} ]_
+> ⟢ 💾 *RAM usada:* _[ ${format(totalmem() - freemem())} / ${format(totalmem())} ]_
 
     -  List de Subs Conectados  -
 
