@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 var handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) {
-        return conn.reply(m.chat, `🌾 Por favor, ingresa un enlace de TikTok.`, m, fake);
+        return conn.reply(m.chat, `*🌾 Por favor, ingresa un enlace de TikTok.*`, m, fake);
     }
 
     try {
@@ -18,17 +18,19 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
         const videoURL = data.play;
 
         if (videoURL) {
-            await conn.sendFile(m.chat, videoURL, "tiktok.mp4", `╭━━〔 *📥 TikTok Downloader* 〕━━⬣  
-📌 *Título:* ${data.title || 'Sin descripción'}
-
-💖 *Likes:* ${data.digg_count || 0}
-💬 *Comentarios:* ${data.comment_count || 0}  
-👀 *Vistas:* ${data.play_count || 0}
-🔁 *Compartido:* ${data.share_count || 0}
-⏱️ *Duración:* ${data.duration || 'Desconocida'} seg
-🖼️ *Calidad:* ${videoURL.includes('hd') ? 'HD 🎞️' : 'Estándar 📺'}
-
-╰─〔 🌪️ 𝙀𝙣𝙟𝙤𝙮 𝙮𝙤𝙪𝙧 𝙫𝙞𝙙𝙚𝙤! 🎬 〕⬣`, m);
+            await conn.sendFile(m.chat, videoURL, "tiktok.mp4", `╭─❍⃟🌸 𝑶𝒏𝒊𝒄𝒉𝒂𝒂𝒂𝒏~ 𝒂𝒘𝒖𝒖𝒖!! 💗  
+┃  
+┃ 📥 *TikTok Descargado nyan~!*  
+┃  
+┃ 🎀 *Título:* ${data.title || 'Sin descripción uwu'}  
+┃ 💖 *Likes:* ${data.digg_count || 0} 💕  
+┃ 💬 *Coments:* ${data.comment_count || 0} ✨  
+┃ 👁️ *Vistas:* ${data.play_count || 0} nya~  
+┃ 🔁 *Compartido:* ${data.share_count || 0} 💌  
+┃ ⏱️ *Duración:* ${data.duration || 'Desconocida'} seg ⌛  
+┃ 🖼️ *Calidad:* ${videoURL.includes('hd') ? 'HD 🎞️✨' : 'Normalito 📺💭'}  
+┃  
+╰─⟦ 💞 𝙀𝙣𝙟𝙤𝙮 𝙞𝙩 𝙤𝙣𝙞𝙘𝙝𝙖𝙣~! 🌈 𝙆𝙮𝙖𝙖𝙖 💕 ⟧`, m, fake);
         } else {
             return conn.reply(m.chat, "❌ No se pudo descargar.", m);
         }
