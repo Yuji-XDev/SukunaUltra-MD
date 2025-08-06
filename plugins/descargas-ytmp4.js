@@ -86,7 +86,7 @@ async function ytdl(url) {
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return conn.reply(m.chat, `🌴 Uso: ${usedPrefix}${command} https://youtube.com/watch?v=iQEVguV71sI`, m);
+    return conn.reply(m.chat, `🌴 Uso: ${usedPrefix}${command} https://youtube.com/watch?v=iQEVguV71sI`, m, fake);
   }
 
   if (!isValidYouTubeUrl(text)) {
@@ -121,7 +121,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         forwardedNewsletterMessageInfo: {
           newsletterJid: '120363401008003732@newsletter',
           serverMessageId: '',
-          newsletterName: '☯︎︎⟬𖤐ꪶ 𝑺𝑼𝑲𝑼𝑵𝑨 𝑼𝑳𝑻𝑹𝑨 • 𝑪𝑯𝑨𝑵𝑵𝑬𝑳 ꪶ𖤐⟭☯︎︎ ☘️'
+          newsletterName: '🌴 Sukuna Ultra - MD ☘️'
         },
         forwardingScore: 9999999,
         isForwarded: true,
