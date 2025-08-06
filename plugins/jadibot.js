@@ -65,9 +65,9 @@ if (!globalThis.db.data.settings[conn.user.jid].jadibotmd) return conn.reply(m.c
 > ⟢ ⌛ *Tiempo Activo:* _[ ${uptime} ]_
 > ⟢ 🌳 *Sessions Libres:* _[ ${disponibles} ]_
 > ⟢ 🎄 *Subs conectados:* _[ ${totalSubs} ]_
-> ⟢ 💾 *RAM usada:* _[ ${format(totalmem() - freemem())} / ${format(totalmem())} ]_
+> ⟢ 💾 *RAM usada:* _[ ${format(totalmem() - freemem())} / ${format(totalmem())} 🔥 ]_
 
-    -  List de Subs Conectados  -
+    -  *List de Subs Conectados*  -
 
 ${lista}
 
