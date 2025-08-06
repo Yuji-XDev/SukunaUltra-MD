@@ -105,15 +105,26 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       
     const thumbnailBuffer = await (await fetch(thumbnail)).buffer();
 
-    await conn.sendMessage(m.chat, {
-      image: thumbnailBuffer,
-      caption: textoInfo,
+       await conn.sendMessage(m.chat, {
+      text: textoInfo,
       contextInfo: {
-        isForwarded: true,
         forwardedNewsletterMessageInfo: {
           newsletterJid: '120363401008003732@newsletter',
-          newsletterName: '=͟͟͞🔥 𝑆𝑢𝑘𝑢𝑛𝑎 𝑈𝑙𝑡𝑟𝑎 • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺',
-          serverMessageId: -1
+          serverMessageId: '',
+          newsletterName: '☯︎︎⟬𖤐ꪶ 𝑺𝑼𝑲𝑼𝑵𝑨 𝑼𝑳𝑻𝑹𝑨 • 𝑪𝑯𝑨𝑵𝑵𝑬𝑳 ꪶ𖤐⟭☯︎︎ 🔥'
+        },
+        forwardingScore: 9999999,
+        isForwarded: true,
+        mentionedJid: null,
+        externalAdReply: {
+          showAdAttribution: true,
+          renderLargerThumbnail: true,
+          title: title,
+          body: '☁️ ＳＵＫＵＮＡ - ＡＩ ☘️',
+          containsAutoReply: true,
+          mediaType: 1,
+          thumbnailUrl: thumbnailBuffer,
+          sourceUrl: "https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U"
         }
       }
     }, { quoted: m });
