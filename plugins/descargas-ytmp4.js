@@ -102,20 +102,21 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     const video = search.videos[0];
     const { title, timestamp, views, ago, author, thumbnail, url: videoUrl } = video || {};
 
-    const textoInfo = `⬣ *🎲  \`YOUTUBE - MP4\` 🇦🇱* ⬣\n\n`
-      + ` 🌾 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title}\n`
-      + ` ⏱️ *𝑫𝒖𝒓𝒂𝒄𝒊𝒐𝒏:* ${formatDuration(timestamp)}\n`
-      + ` 🍰 *𝑪𝒂𝒏𝒂𝒍:* ${author?.name}\n`
-      + ` 🌧️ *𝑽𝒊𝒔𝒕𝒂𝒔:* ${formatViews(views)}\n`
-      + ` 🌳 *𝑷𝒖𝒃𝒍𝒊𝒄𝒂𝒅𝒐:* ${ago}\n`
-      + ` 🔗 *𝑳𝒊𝒏𝒌:* ${videoUrl}\n\n`
-      + ` *➭ 𝑬𝒍 𝒗𝒊𝒅𝒆𝒐 𝒔𝒆 𝒆𝒔𝒕𝒂 𝒆𝒏𝒗𝒊𝒂𝒏𝒅𝒐, 𝑬𝒔𝒑𝒆𝒓𝒆 𝒖𝒏 𝒎𝒐𝒎𝒆𝒏𝒕𝒊𝒕𝒐 𝒐𝒏𝒊𝒄𝒉𝒂𝒏~ 🌸*`;
+    const textoInfo = `╭━━⬣『 *🎲 YOUTUBE - MP4* 』⬣━━⬣
+┃
+┃ 🍃 *Titulo:* ${title}
+┃ ⏱️ *Duración:* ${formatDuration(timestamp)}
+┃ 🍰 *Canal:* ${author?.name}
+┃ 👀 *Vistas:* ${formatViews(views)}
+┃ 🌱 *Publicado:* ${ago}
+┃ 🔗 *Link:* ${videoUrl}
+┃
+╰━━━━⬣\n*➭ El video se está enviando... 🌸*`;
       
     const thumbnailBuffer = await (await fetch(thumbnail)).buffer();
 
     await conn.sendMessage(m.chat, {
-      image: thumbnailBuffer,
-      caption: textoInfo,
+      text: textoInfo,
       contextInfo: {
         forwardedNewsletterMessageInfo: {
           newsletterJid: '120363401008003732@newsletter',
@@ -124,6 +125,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         },
         forwardingScore: 9999999,
         isForwarded: true,
+        mentionedJid: null,
         externalAdReply: {
           showAdAttribution: true,
           renderLargerThumbnail: true,
@@ -131,7 +133,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
           body: '☁️ ＳＵＫＵＮＡ - ＡＩ ☘️',
           containsAutoReply: true,
           mediaType: 1,
-          thumbnail: thumbnailBuffer,
+          thumbnailUrl: thumbnailBuffer,
           sourceUrl: "https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U"
         }
       }
