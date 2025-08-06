@@ -95,7 +95,6 @@ return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}*/
 
 import ws from 'ws';
 import disk from 'diskusage';
-import { totalmem, freemem } from 'os';
 
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
   if (!globalThis.db.data.settings[conn.user.jid].jadibotmd) return conn.reply(m.chat, `🌳 El Comando *${command}* está desactivado temporalmente.`, m, fake);
@@ -147,10 +146,6 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
 
   const { used, total: totalDisk } = await getDiskUsage('/');
 
-  // RAM
-  const usedRAM = ((totalmem() - freemem()) / (1024 ** 3)).toFixed(2);
-  const totalRAM = (totalmem() / (1024 ** 3)).toFixed(2);
-
   const total = subbotsUnicos.length;
   const maxSubbots = 50;
   const disponibles = maxSubbots - total;
@@ -171,7 +166,6 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
 > 🌳 *Sessions Libres:* _[ ${disponibles} ]_
 > 🎄 *Subs conectados:* _[ ${total} ]_
 > 💾 *Tan usada:* _[ ${used} GB / ${totalDisk} GB ]_
-> 🧠 *RAM usada:* _[ ${usedRAM} GB / ${totalRAM} GB ]_
 
     -  List de Subs Conectados  -
 
