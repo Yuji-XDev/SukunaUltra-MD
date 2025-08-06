@@ -11,7 +11,7 @@ const handler = async (m, { conn, text, command }) => {
 ╰━━━〔 🌀 𝙎𝙐𝙆𝙐𝙉𝘼 𝘽𝙊𝙏 〕━━⬣`, m, fake);
     }
 
-    await conn.sendMessage(m.chat, { react: { text: '⏱️', key: m.key } });
+    await conn.sendMessage(m.chat, { react: { text: '💿', key: m.key } });
 
     const search = await yts(text);
     const video = search.videos[0];
@@ -58,7 +58,7 @@ const handler = async (m, { conn, text, command }) => {
         forwardedNewsletterMessageInfo: {
           newsletterJid: '120363401008003732@newsletter',
           serverMessageId: '',
-          newsletterName: '☯︎︎⟬𖤐ꪶ 𝑺𝑼𝑲𝑼𝑵𝑨 𝑼𝑳𝑻𝑹𝑨 • 𝑪𝑯𝑨𝑵𝑵𝑬𝑳 ꪶ𖤐⟭☯︎︎'
+          newsletterName: '☯︎︎⟬𖤐ꪶ 𝑺𝑼𝑲𝑼𝑵𝑨 𝑼𝑳𝑻𝑹𝑨 • 𝑪𝑯𝑨𝑵𝑵𝑬𝑳 ꪶ𖤐⟭☯︎︎ 🔥'
         },
         forwardingScore: 9999999,
         isForwarded: true,
