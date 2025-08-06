@@ -44,7 +44,7 @@ async function getSize(url) {
     const size = parseInt(response.headers['content-length'], 10);
     if (!size) throw new Error('Tamaño no disponible');
     return size;
-  } catch (e) {
+  } catch {
     throw new Error('No se pudo obtener el tamaño del archivo');
   }
 }
@@ -84,10 +84,9 @@ async function ytdl(url) {
   }
 }
 
-
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return conn.reply(m.chat, `🌴 Uso: ${usedPrefix}${command} https://youtube.com/watch?v=iQEVguV71sI`, m, fake);
+    return conn.reply(m.chat, `🌴 Uso: ${usedPrefix}${command} https://youtube.com/watch?v=iQEVguV71sI`, m);
   }
 
   if (!isValidYouTubeUrl(text)) {
@@ -111,9 +110,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 ┃ 🌱 *Publicado:* ${ago}
 ┃ 🔗 *Link:* ${videoUrl}
 ┃
-╰━━━━⬣\n*➭ El video se está enviando... 🌸*`;
-      
-    const thumbnailBuffer = await (await fetch(thumbnail)).buffer();
+╰━━━━⬣
+*➭ El video se está enviando... 🌸*`;
+
+    const thumbnailBuffer = await fetch(thumbnail).then(res => res.buffer()).catch(() => null);
 
     await conn.sendMessage(m.chat, {
       text: textoInfo,
@@ -121,19 +121,17 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         forwardedNewsletterMessageInfo: {
           newsletterJid: '120363401008003732@newsletter',
           serverMessageId: '',
-          newsletterName: '☯︎︎⟬𖤐ꪶ 𝑺𝑼𝑲𝑼𝑵𝑨 𝑼𝑳𝑻𝑹𝑨 • 𝑪𝑯𝑨𝑵𝑵𝑬𝑳 ꪶ𖤐⟭☯︎︎ 🔥'
+          newsletterName: '☯︎︎⟬𖤐ꪶ 𝑺𝑼𝑲𝑼𝑵𝑨 𝑼𝑳𝑻𝑹𝑨 • 𝑪𝑯𝑨𝑵𝑵𝑬𝑳 ꪶ𖤐⟭☯︎︎ ☘️'
         },
         forwardingScore: 9999999,
         isForwarded: true,
-        mentionedJid: null,
         externalAdReply: {
           showAdAttribution: true,
           renderLargerThumbnail: true,
           title: title,
           body: '☁️ ＳＵＫＵＮＡ - ＡＩ ☘️',
-          containsAutoReply: true,
           mediaType: 1,
-          thumbnailUrl: thumbnailBuffer,
+          thumbnail: thumbnailBuffer,
           sourceUrl: "https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U"
         }
       }
@@ -154,10 +152,11 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     if (size > HEAVY_FILE_THRESHOLD) {
       isProcessingHeavy = true;
-      await conn.reply(m.chat, '🤨 Espera, estoy lidiando con un archivo pesado', m, fake);
+      await conn.reply(m.chat, '🤨 Espera, estoy lidiando con un archivo pesado', m);
     }
 
     await m.react('✅️');
+
     const caption = `*💌 ${titleVid}*\n> ⚖️ Peso: ${formatSize(size)}\n> 🌎 URL: ${text}`;
     const isSmallVideo = size < VIDEO_THRESHOLD;
 
