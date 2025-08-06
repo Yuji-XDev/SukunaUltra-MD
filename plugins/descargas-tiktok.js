@@ -6,7 +6,11 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
     }
 
     try {
-        await conn.reply(m.chat, `*🌳 Espere un momento, estoy descargando su video...*`, m);
+        await conn.reply(m.chat, `
+           ʚ🍃ɞ *Onichan~*
+*🌳 Espere un momentito...*  
+*Estoy descargando su videíto~* 💖  
+*Awu~ 📥📺*`, m);
 
         const tiktokData = await tiktokdl(args[0]);
 
@@ -17,17 +21,24 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
         const data = tiktokData.data;
         const videoURL = data.play;
 
+        const formatNumber = (n = 0) => n.toLocaleString('es-PE');
+        const formatDuration = (seconds = 0) => {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins} min ${secs} seg`;
+        };
+
         if (videoURL) {
-            await conn.sendFile(m.chat, videoURL, "tiktok.mp4", `╭─❍⃟🌸 𝑶𝒏𝒊𝒄𝒉𝒂𝒂𝒂𝒏~ 𝒂𝒘𝒖𝒖𝒖!! 💗  
+            await conn.sendFile(m.chat, videoURL, "tiktok.mp4", `╭─❍⃟🌸 𝑶𝒏𝒊𝒄𝒉𝒂𝒂𝒂𝒏~ 𝒂𝒘𝒖𝒖𝒖!! 💗
 ┃  
 ┃ 📥 *TikTok Descargado nyan~!*  
 ┃  
 ┃ 🎀 *Título:* ${data.title || 'Sin descripción uwu'}  
-┃ 💖 *Likes:* ${data.digg_count || 0} 💕  
-┃ 💬 *Coments:* ${data.comment_count || 0} ✨  
-┃ 👁️ *Vistas:* ${data.play_count || 0} nya~  
-┃ 🔁 *Compartido:* ${data.share_count || 0} 💌  
-┃ ⏱️ *Duración:* ${data.duration || 'Desconocida'} seg ⌛  
+┃ 💖 *Likes:* ${formatNumber(data.digg_count)} 💕  
+┃ 💬 *Comentarios:* ${formatNumber(data.comment_count)} ✨  
+┃ 👁️ *Vistas:* ${formatNumber(data.play_count)} nya~  
+┃ 🔁 *Compartido:* ${formatNumber(data.share_count)} 💌  
+┃ ⏱️ *Duración:* ${formatDuration(data.duration)} ⌛  
 ┃ 🖼️ *Calidad:* ${videoURL.includes('hd') ? 'HD 🎞️✨' : 'Normalito 📺💭'}  
 ┃  
 ╰─⟦ 💞 𝙀𝙣𝙟𝙤𝙮 𝙞𝙩 𝙤𝙣𝙞𝙘𝙝𝙖𝙣~! 🌈 𝙆𝙮𝙖𝙖𝙖 💕 ⟧`, m, fake);
