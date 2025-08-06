@@ -53,7 +53,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         buttons: [
           { buttonId: `${usedPrefix}ytmp3 ${url}`, buttonText: { displayText: '💿 Audio' }, type: 1 },
           { buttonId: `${usedPrefix}ytmp4 ${url}`, buttonText: { displayText: '☘️ Video' }, type: 1 },
-          { buttonId: `${usedPrefix}yta-v2 ${url}`, buttonText: { displayText: '💚 Audio Doc' }, type: 1 },
+          { buttonId: `${usedPrefix}ytmp3doc${url}`, buttonText: { displayText: '💚 Audio Doc' }, type: 1 },
           { buttonId: `${usedPrefix}ytmp4doc ${url}`, buttonText: { displayText: '☁️ Video Doc' }, type: 1 },
         ],
         viewOnce: true,
