@@ -1,10 +1,8 @@
-// codigo creado por yo xd
-
+// codigo creado por dv.shadow
 import { generateWAMessageFromContent } from '@whiskeysockets/baileys'
 
 let handler = async (m, { conn }) => {
   let img = 'https://files.catbox.moe/2adu0w.jpg'
-  let txt1 = '💥 RETO DEL DIA ⚡'
   let reto = `
 ╭──────────────────🌹
 ╰─➤ \`R\` \`E\` \`T\` \`O\` ° ඬ⃟⚡
@@ -45,7 +43,7 @@ let handler = async (m, { conn }) => {
 
   await conn.sendMessage(m.chat, {
     image: { url: img },
-    caption: `${txt1}\n\n${reto}`,
+    caption: reto,
     contextInfo: rcanal
   }, { quoted: m })
 }

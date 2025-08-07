@@ -1,3 +1,5 @@
+// by dv.shadow - https://github.com/Yuji-XDev
+
 import { proto } from '@whiskeysockets/baileys';
 import PhoneNumber from 'awesome-phonenumber';
 
@@ -5,7 +7,7 @@ const handler = async (m, { conn }) => {
   const name = '𝙎𝙝𝙖𝙙𝙤𝙬 - 𝘾𝙧𝙚𝙖𝙙𝙤𝙧 👑';
   const numCreador = '51919199620';
   const empresa = 'Sukuna Bot Inc.';
-  const about = '🤖 Desarrollador de Sukuna Ultra - MD';
+  const about = '🧪 Desarrollador de Sukuna Ultra - MD';
   const correo = 'blackoficial2025@gmail.com';
   const web = 'https://gituhb.com/Yuji-XDev';
   const direccion = 'Tokyo, Japón 🇯🇵';
@@ -40,7 +42,7 @@ END:VCARD`.trim();
     },
     contextInfo: {
       externalAdReply: {
-        title: '👤 Contacto del Creador',
+        title: '🧪 Contacto del Creador oniichan 💌',
         body: 'Toca aquí para guardar el contacto o hablar con él',
         mediaType: 1,
         thumbnailUrl: fotoPerfil,
@@ -51,5 +53,7 @@ END:VCARD`.trim();
   }, { quoted: m });
 };
 
+handler.help = ['creador'];
+handler.tags = ['info'];
 handler.command = ['creador', 'creator', 'owner'];
 export default handler;

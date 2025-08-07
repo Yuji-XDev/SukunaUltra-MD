@@ -20,10 +20,12 @@ let info = `
 ┃ ✦🧠 *Creador:* ${etiqueta}
 ┃ ✦💬 *Prefijo:* [ ${usedPrefix} ]
 ┃ ✦🔖 *Versión:* ${vs}
+┃
 ┃ ✦💌 *Chats Privados:* ${chats.length - groupsIn.length}
 ┃ ✦🌐 *Total de Chats:* ${chats.length}
 ┃ ✦👥 *Usuarios:* ${totalreg}
 ┃ ✦👑 *Grupos:* ${groupsIn.length}
+┃
 ┃ ✦🕰️ *Actividad:* ${uptime}
 ┃ ✦⚡ *Velocidad:* ${(speed * 1000).toFixed(0) / 1000} ms
 ┃ ✦🤖 *Subbots Activos:* ${totalUsers || '0'}

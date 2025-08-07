@@ -2,7 +2,6 @@ import { generateWAMessageFromContent } from '@whiskeysockets/baileys'
 
 let handler = async (m, { conn }) => {
   let img = 'https://files.catbox.moe/vsb8f5.jpg';
-  let txt1 = '💥 VERDAD ⚡';
   let verdad = `
 ╭──────────────────🌹
 ╰─➤ \`V\` \`E\` \`R\` \`D\` \`A\` \`D\` ° ඬ⃟⚡
@@ -29,7 +28,7 @@ let handler = async (m, { conn }) => {
 
   await conn.sendMessage(m.chat, {
     image: { url: img },
-    caption: `${txt1}\n\n${verdad}`,
+    caption: verdad,
     contextInfo: rcanal
   }, { quoted: m })
 }
