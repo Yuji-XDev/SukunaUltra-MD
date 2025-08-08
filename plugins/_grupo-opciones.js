@@ -1,6 +1,6 @@
 const handler = async (m, { conn }) => {
-  const { welcome, antiPrivate, antiarabe, restrict, antiBot, autoAceptar, autoRechazar, antiBot2, modoadmin, reaction, nsfw, antiLink2, jadibotmd, detect, antiver, audios, antiLink, antifake } = global.db.data.chats[m.chat];  
-  
+  const { welcome, antiPrivate, antiarabe, restrict, antiBot, autoAceptar, autoRechazar, antiBot2, modoadmin, reaction, nsfw, antiLink2, jadibotmd, detect, antiver, audios, antiLink, antifake } = global.db.data.chats[m.chat] || {};
+    /*
         let thumbnail = 'https://files.catbox.moe/4dple4.jpg';  
         let rcanal = 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U';
         
@@ -15,84 +15,51 @@ const handler = async (m, { conn }) => {
                     sourceUrl: rcanal 
                 }
             }
-        });
-
+        });*/
+        
   const estado = (valor) => valor ? ' *`Activado`*' : ' *`Desactivado`*';
-
   const itoshi = `Estado:`;
-  const text = `*PANEL DE CONFIGURACIÓN* 
 
-Grupos :
+  const text = `╭━━━〔 *📋 PANEL DE CONFIGURACIÓN* 〕━━━⬣
+  
+╭─〔 *Grupos* 〕
+│ ☘️ Welcome: ${estado(welcome)}
+│ ☘️ Antibot: ${estado(antiBot)}
+│ ☘️ Autoaceptar: ${estado(autoAceptar)}
+│ ☘️ Autorechazar: ${estado(autoRechazar)}
+│ ☘️ AntiSub Bots: ${estado(antiBot2)}
+│ ☘️ Modo Admin: ${estado(modoadmin)}
+│ ☘️ Reacción: ${estado(reaction)}
+│ ☘️ NSFW: ${estado(nsfw)}
+│ ☘️ Anti Link2: ${estado(antiLink2)}
+│ ☘️ Avisos / Detect: ${estado(detect)}
+│ ☘️ Antiocultar / Antiver: ${estado(antiver)}
+│ ☘️ Audios: ${estado(audios)}
+│ ☘️ Antilink: ${estado(antiLink)}
+│ ☘️ Antifakes: ${estado(antifake)}
+╰─────────────⬣
 
-| ☘️ welcome:
-| ✓ ${itoshi} ${estado(welcome)} 
-|
-| ☘️ Antibot
-| ✓ ${itoshi} ${estado(antiBot)} 
-|
-| ☘️ Autoaceptar
-| ✓ ${itoshi} ${estado(autoAceptar)} 
-|
-| ☘️ Autorechazar
-| ✓ ${itoshi} ${estado(autoRechazar)}
-|
-| ☘️ AntiSub Bots
-| ✓ ${itoshi} ${estado(antiBot2)} 
-|
-| ☘️ Modo Admin
-| ✓ ${itoshi} ${estado(modoadmin)} 
-|
-| ☘️ Reaccion
-| ✓ ${itoshi} ${estado(reactiont)}
-|
-| ☘️ NSFW
-| ✓ ${itoshi} ${estado(nsfw)} 
-|
-| ☘️ Anti Link2
-| ✓ ${itoshi} ${estado(antiLink2)} 
-|
-| ☘️ avisos / detect
-| ✓ ${itoshi} ${estado(detect)} 
-|
-| ☘️ antiocultar / antiver
-| ✓ ${itoshi} ${estado(antiver)} 
-|
-| ☘️ audios
-| ✓ ${itoshi} ${estado(audios)} 
-|
-| ☘️ antilink
-| ✓ ${itoshi} ${estado(antiLink)}
-|
-| ☘️ antifakes
-| ✓ ${itoshi}: ${estado(antifake)} 
+╭─〔 *Owner / Creador* 〕
+│ 🌳 Antiprivado: ${estado(antiPrivate)}
+│ 🌳 Antiarabe: ${estado(antiarabe)}
+│ 🌳 Restringir: ${estado(restrict)}
+│ 🌳 Mode Jadibot: ${estado(jadibotmd)}
+╰─────────────⬣
 
+_*📝 Ejemplo:*_  \`.antilink on\``;
 
-
-owner • creador:
-
-| 🌳 Antiprivado
-| • ${itoshi} ${estado(antiPrivate)} 
-|
-| 🌳 Antiarabe
-| • ${itoshi} ${estado(antiarabe)} 
-|
-| 🌳 Retringir
-|• ${itoshi} ${estado(restrict)} 
-|
-| 🌳 modejadibot
-|• ${itoshi} ${estado(jadibotmd)} 
-|
-
-
-_*📝 Ejemplo de uso (#antilink on).*_`;
+  const fkontak = {
+    key: { fromMe: false, participant: '0@s.whatsapp.net' },
+    message: { contactMessage: { displayName: `${conn.getName(m.sender)}` } }
+  };
 
   await conn.sendMessage(m.chat, {
-    text: text,
+    text,
     contextInfo: {
       externalAdReply: {
-        title: 'Configuracion Rin itoshi',
+        title: '⚙️ Configuración Rin Itoshi',
         body: 'Gestión Avanzada del Reino',
-        thumbnailUrl: 'src/catalogo.jpg',
+        thumbnailUrl: 'https://files.catbox.moe/4dple4.jpg',
         mediaType: 1,
         showAdAttribution: true,
         renderLargerThumbnail: true
@@ -105,6 +72,5 @@ handler.help = ['on'];
 handler.tags = ['grupo'];
 handler.command = ['off', 'on', 'nable'];
 handler.register = true;
-//handler.group = true;
 
 export default handler;
