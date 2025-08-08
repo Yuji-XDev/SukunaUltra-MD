@@ -46,7 +46,7 @@ let handler = async (m, { conn, args }) => {
         title: '               ☘️ Dev.Shadow 🇦🇱',
         body: '   🌀꙰⃟ 𖤐 𝙎𝙐𝙆𝙐𝙉𝘼 𝘽𝙊𝙏 ∞ 𝐌𝐃 𖤐🎨⃟',
         thumbnailUrl: 'https://files.catbox.moe/q8b2br',
-        sourceUrl: '     sukuna.bot',
+        sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U',
         mediaType: 1,
         renderLargerThumbnail: false
       }
