@@ -750,7 +750,12 @@ function clockString(ms) {
   let h = Math.floor(ms / 3600000);
   let m = Math.floor((ms % 3600000) / 60000);
   let s = Math.floor((ms % 60000) / 1000);
-  return `${h}Horas ${m}Minutos ${s}Segundos`;
+
+  let horas = h === 1 ? 'hora' : 'horas';
+  let minutos = m === 1 ? 'minuto' : 'minutos';
+  let segundos = s === 1 ? 'segundo' : 'segundos';
+
+  return `${h} ${horas}, ${m} ${minutos}, ${s} ${segundos}`;
 }
 
 function ucapan() {
