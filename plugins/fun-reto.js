@@ -4,14 +4,13 @@ import { generateWAMessageFromContent } from '@whiskeysockets/baileys'
 let handler = async (m, { conn }) => {
   let img = 'https://files.catbox.moe/2adu0w.jpg'
   let reto = `
-╭──────────────────🌹
-╰─➤ \`R\` \`E\` \`T\` \`O\` ° ඬ⃟⚡
+╭─★・✦・★─╮
+  💮  R  E  T  O  💮
+╰─★・✦・★─╯
 
-┏━━━━━━━━━━━━━━━━━━━┓
+✦ ${pickRandom(global.bucin)}
 
-*⚄ ${pickRandom(global.bucin)}*
-
-┗━━「  𝐒𝐔𝐊𝐔𝐍𝐀 𝐁𝐎𝐓 」━━┛`.trim()
+━━━✦ 「 𝐒𝐔𝐊𝐔𝐍𝐀 𝐁𝐎𝐓 」✦━━━`.trim()
 
   const fkontak = {
     key: {

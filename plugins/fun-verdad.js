@@ -3,14 +3,10 @@ import { generateWAMessageFromContent } from '@whiskeysockets/baileys'
 let handler = async (m, { conn }) => {
   let img = 'https://files.catbox.moe/vsb8f5.jpg';
   let verdad = `
-╭──────────────────🌹
-╰─➤ \`V\` \`E\` \`R\` \`D\` \`A\` \`D\` ° ඬ⃟⚡
-
-┏━━━━━━━━━━━━━━━━━━━┓
-
-*⚄ ${pickRandom(global.verdad)}*
-
-┗━━「  𝐒𝐔𝐊𝐔𝐍𝐀 𝐁𝐎𝐓  」━━┛`.trim()
+╭─❏〔 🌹 𝑽𝒆𝒓𝒅𝒂𝒅 🌹 〕❏─╮
+│⚡ *${pickRandom(global.verdad)}*
+╰─┬──────────────────┬─╯
+   「 𝐒𝐔𝐊𝐔𝐍𝐀 𝐁𝐎𝐓 」`.trim()
 
   const rcanal = {
     forwardingScore: 999,
