@@ -176,48 +176,48 @@ let handler = async (m, { conn, args }) => {
 ⤷ ✦ #pausarai
 ╰┈┈┈▥
 
-╔══❖•ೋ🌿ೋ•❖══╗
-  𖤐 𓆩 *\`𝖣ᨣ𝗐𝗇𝗅ᨣ𝖺𝖽\`* 🌳 ᩚ꤬ᰨᰍ 𓆪
-╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #fb2
-⤷ ✦ #fdroid *<url>*
-⤷ ✦ #fb
-⤷ ✦ #sound
-⤷ ✦ #gitclone *<url git>*
-⤷ ✦ #gdrive
-⤷ ✦ #ig
-⤷ ✦ #mediafire *<url>*
-⤷ ✦ #mega
-⤷ ✦ #apk *<nombre>*
-⤷ ✦ #pinvid *<link>*
-⤷ ✦ #apk2 *<busqueda>*
-⤷ ✦ #npmdl
-⤷ ✦ #tt2
-⤷ ✦ #kwaidl
-⤷ ✦ #likee *<url>*
-⤷ ✦ #aplay2 • applemusic2
-⤷ ✦ #capcut *<url>*
-⤷ ✦ #play
-⤷ ✦ #play2
-⤷ ✦ #ytmp3doc
-⤷ ✦ #ytmp4doc
-⤷ ✦ #iaimg *<texto>*
-⤷ ✦ #yta
-⤷ ✦ #ytv
-⤷ ✦ #tiktokrandom
-⤷ ✦ #spotify
-⤷ ✦ #tiktokhd
-⤷ ✦ #tiktoktrends
-⤷ ✦ #snapchat *<link>*
-⤷ ✦ #terabox
-⤷ ✦ #tiktok *<url>*
-⤷ ✦ #tiktokmp3 *<url>*
-⤷ ✦ #tiktokimg *<url>*
-⤷ ✦ #twitter *<url>*
-⤷ ✦ #xvideosdl
-⤷ ✦ #xnxxdl
-⤷ ✦ #pindl
-╰┈┈┈▥
+
+⋆﹥━⌬ 𖤐 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿 𖤐 ⌬━﹤⋆
+✦ #fb2
+✦ #fdroid *<url>*
+✦ #fb
+✦ #sound
+✦ #gitclone *<url git>*
+✦ #gdrive
+✦ #ig
+✦ #mediafire *<url>*
+✦ #mega
+✦ #apk *<nombre>*
+✦ #pinvid *<link>*
+✦ #apk2 *<busqueda>*
+✦ #npmdl
+✦ #tt2
+✦ #kwaidl
+✦ #likee *<url>*
+✦ #aplay2 • applemusic2
+✦ #capcut *<url>*
+✦ #play
+✦ #play2
+✦ #ytmp3doc
+✦ #ytmp4doc
+✦ #iaimg *<texto>*
+✦ #yta
+✦ #ytv
+✦ #tiktokrandom
+✦ #spotify
+✦ #tiktokhd
+✦ #tiktoktrends
+✦ #snapchat *<link>*
+✦ #terabox
+✦ #tiktok *<url>*
+✦ #tiktokmp3 *<url>*
+✦ #tiktokimg *<url>*
+✦ #twitter *<url>*
+✦ #xvideosdl
+✦ #xnxxdl
+✦ #pindl
+⋆﹥━⌬━━━━━━⌬━﹤⋆
+
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`𝖥𝗎𝗇\`*  🥯 ᩚ꤬ᰨᰍ 𓆪
