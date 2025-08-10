@@ -71,7 +71,7 @@ var canal = 'https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39'
 var comunidad = 'https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39'
 var git = 'https://github.com/Yuji-XDev'
 var github = 'https://github.com/Yuji-XDev/SukunaBot-V2'
-var tiktok = 'https://tiktok.com/@the.black.xz'
+var tiktok = 'https://www.tiktok.com/@carlos.ramirez.fc13?_t=ZS-8yloqqAfxkP&_r=1'
 let correo = 'blackoficial2025@gmail.com'
 global.redes = [canal, comunidad, git, github, tiktok, correo].getRandom()
 
