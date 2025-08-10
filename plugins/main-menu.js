@@ -93,87 +93,80 @@ let handler = async (m, { conn, args }) => {
   🧪 Lista de comandos **Sukuna MD**
 
 ͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
-╔══❖•ೋ🌿ೋ•❖══╗
-  𖤐 𓆩 *\`𝖨𝗇ẜᨣ\`*  🌾 ᩚ꤬ᰨᰍ 𓆪
-╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #ᴀғᴋ [ᴀʟᴀsᴀɴ]
-⤷ ✦ #ᴍᴇɴᴜ
-⤷ ✦ #ᴜᴘᴛɪᴍᴇ
-⤷ ✦ #sᴄʀɪᴘᴛ
-⤷ ✦ #sᴛᴀғғ
-⤷ ✦ #ᴄʀᴇᴀᴅᴏʀ
-⤷ ✦ #ɢʀᴜᴘᴏs
-⤷ ✦ #ᴇsᴛᴀᴅᴏ
-⤷ ✦ #ɪɴғᴏʙᴏᴛ
-⤷ ✦ #sᴜɢ
-⤷ ✦ #ᴘɪɴɢ
-⤷ ✦ #ʀᴇᴘᴏʀᴛᴀʀ *<ᴛᴇxᴛ>*
-⤷ ✦ #ʀᴇɢʟᴀs
-⤷ ✦ #sᴘᴇᴇᴅ
-⤷ ✦ #sɪsᴛᴇᴍᴀ
-⤷ ✦ #ᴜsᴜᴀʀɪᴏs
-⤷ ✦ #ᴅs
-⤷ ✦ #ғᴜɴᴄɪᴏɴᴇs
-⤷ ✦ #ᴇᴅɪᴛᴀᴜᴛᴏʀᴇsᴘᴏɴᴅᴇʀ
-╰┈┈┈▥
+⋆﹥━⌬ 𖤐 𝙄𝙉𝙁𝙊 𖤐 ⌬━﹤⋆
+✦ #afk [alasan]
+✦ #menu
+✦ #uptime
+✦ #script
+✦ #staff
+✦ #creador
+✦ #grupos
+✦ #estado
+✦ #infobot
+✦ #sug
+✦ #ping
+✦ #reportar <txt>
+✦ #reglas
+✦ #speed
+✦ #sistema
+✦ #usuarios
+✦ #ds
+✦ #funciones
+✦ #editautoresponder
 
-╔══❖•ೋ🌿ೋ•❖══╗
-  𖤐 𓆩 *\`ᴍᧉɴᴜs\`*  🎄  ᩚ꤬ᰨᰍ 𓆪
-╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #ᴍᴇɴᴜʟɪsᴛ
-⤷ ✦ #ᴅᴇᴠ - *ᴍᴇɴᴜ ᴏᴡɴᴇʀ*
-⤷ ✦ #ᴍᴇɴᴜsᴛɪᴄᴋᴇʀ - *ᴍᴇɴᴜ sᴛɪᴄᴋᴇʀs*
-⤷ ✦ #ᴍᴇɴᴜsᴇ - *ᴍᴇɴᴜ sᴇᴀʀᴄʜ*
-⤷ ✦ #ᴍᴇɴᴜᴅʟ - *ᴍᴇɴᴜ ᴅᴇsᴄᴀʀɢᴀs*
-⤷ ✦ #ᴍᴇɴᴜʟᴏɢᴏs - *ʟᴏɢᴏs*
-⤷ ✦ #ᴍᴇɴᴜ18 - *ᴍᴇɴᴜ ʜᴏᴛ*
-⤷ ✦ #ᴍᴇɴᴜɢᴘ - *ᴍᴇɴᴜ ɢʀᴜᴘᴏ*
-⤷ ✦ #ᴍᴇɴᴜ2 - *ᴍᴇɴᴜ ᴀᴜᴅɪᴏs*
-⤷ ✦ #ᴍᴇɴᴜʀᴘɢ - *ᴍᴇɴᴜ ᴇᴄᴏɴᴏᴍɪᴀ*
-╰┈┈┈▥
+⋆﹥━⌬ 𖤐 𝙈𝙀𝙉𝙐𝙎 𖤐 ⌬━﹤⋆
+✦ .menulist
+✦ .dev - ᴍᴇɴᴜ ᴏᴡɴᴇʀ
+✦ .menusticker - ᴍᴇɴᴜ sᴛɪᴄᴋᴇʀs
+✦ .menusearch - ᴍᴇɴᴜ sᴇᴀʀᴄʜ
+✦ .menudl - ᴍᴇɴᴜ ᴅᴇsᴄᴀʀɢᴀs
+✦ .menulogos - ʟᴏɢᴏs
+✦ .menunsfw - ᴍᴇɴᴜ 18
+✦ .menugp - ᴍᴇɴᴜ ɢʀᴜᴘᴏ
+✦ .menu2 - ᴍᴇɴᴜ ᴀᴜᴅɪᴏs
+✦ .menurpg - ᴍᴇɴᴜ ʀᴘɢ
 
-╔══❖•ೋ🌿ೋ•❖══╗
-  𖤐 𓆩 *\`sᧉᴀᴄʜ\`*  🏮 ᩚ꤬ᰨᰍ 𓆪
-╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #ᴀɴɪᴍᴇɪɴғᴏ
-⤷ ✦ #ᴀɴɪᴍᴇsᴇᴀʀᴄʜ
-⤷ ✦ #ᴄᴜᴇᴠᴀɴᴀ
-⤷ ✦ #ɢɪᴛʜᴜʙsᴇᴀʀᴄʜ
-⤷ ✦ #sᴇᴀʀᴄʜʜᴇɴᴛᴀɪ
-⤷ ✦ #ɢᴏᴏɢʟᴇ *<ʙúsǫᴜᴇᴅᴀ>*
-⤷ ✦ #ɪᴍᴀɢᴇɴ *<ǫᴜᴇʀʏ>*
-⤷ ✦ #ɪɴғᴏᴀɴɪᴍᴇ
-⤷ ✦ #ɢɪᴛʜᴜʙsᴛᴀʟᴋ *<ǫᴜᴇʀʏ>*
-⤷ ✦ #sᴏᴜɴᴅᴄʟᴏᴜᴅsᴇᴀʀᴄʜ *<ᴛxᴛ>*
-⤷ ✦ #ᴘɪɴᴛᴇʀᴇsᴛ
-⤷ ✦ #ᴘᴏʀɴʜᴜʙsᴇᴀʀᴄʜ
-⤷ ✦ #sᴘᴏᴛɪғʏsᴇᴀʀᴄʜ *<ᴛᴇxᴛᴏ>*
-⤷ ✦ #ʏᴛsᴇᴀʀᴄʜ2 *<ᴛᴇxᴛ>*
-⤷ ✦ #ɴᴘᴍᴊs
-⤷ ✦ #ɢɴᴜʟᴀ
-⤷ ✦ #ᴀᴘᴋsᴇᴀʀᴄʜ
-⤷ ✦ #ᴡɪᴋɪs
-⤷ ✦ #ᴛɪᴋᴛᴏᴋsᴇᴀʀᴄʜ *<ᴛxᴛ>*
-⤷ ✦ #ᴛᴡᴇᴇᴛᴘᴏsᴛs
-⤷ ✦ #xɴxxs
-⤷ ✦ #xᴠsᴇᴀʀᴄʜ
-⤷ ✦ #ʏᴛs
-⤷ ✦ #ғᴅʀᴏɪᴅsᴇᴀʀᴄʜ *<ᴛéʀᴍɪɴᴏ>*
-⤷ ✦ #ʜᴀᴘᴘʏᴍᴏᴅsᴇᴀʀᴄʜ *<ʙúsǫᴜᴇᴅᴀ>*
-⤷ ✦ #ᴄɪɴᴇᴄᴀʟɪᴅᴀᴅsᴇᴀʀᴄʜ *<ʙúsǫᴜᴇᴅᴀ>*
-⤷ ✦ #ʏᴀʜᴏᴏsᴇᴀʀᴄʜ *<ʙúsǫᴜᴇᴅᴀ>*
-⤷ ✦ #ᴍᴏᴠɪᴇ *<ᴛéʀᴍɪɴᴏ>*
+
+⋆﹥━⌬ 𖤐 𝙎𝙀𝘼𝙍𝘾𝙃 𖤐 ⌬━﹤⋆
+✦ .ᴀɴɪᴍᴇɪɴғᴏ
+✦ .ᴀɴɪᴍᴇsᴇᴀʀᴄʜ
+✦ .ᴄᴜᴇᴠᴀɴᴀ
+✦ .ɢɪᴛʜᴜʙsᴇᴀʀᴄʜ
+✦ .sᴇᴀʀᴄʜʜᴇɴᴛᴀɪ
+✦ .ɢᴏᴏɢʟᴇ *<ʙúsǫᴜᴇᴅᴀ>*
+✦ .ɪᴍᴀɢᴇɴ *<ǫᴜᴇʀʏ>*
+✦ .ɪɴғᴏᴀɴɪᴍᴇ
+✦ .ɢɪᴛʜᴜʙsᴛᴀʟᴋ *<ǫᴜᴇʀʏ>*
+✦ .sᴏᴜɴᴅᴄʟᴏᴜᴅsᴇᴀʀᴄʜ *<ᴛxᴛ>*
+✦ .ᴘɪɴᴛᴇʀᴇsᴛ
+✦ .ᴘᴏʀɴʜᴜʙsᴇᴀʀᴄʜ
+✦ .sᴘᴏᴛɪғʏsᴇᴀʀᴄʜ *<ᴛᴇxᴛᴏ>*
+✦ .ʏᴛsᴇᴀʀᴄʜ2 *<ᴛᴇxᴛ>*
+✦ .ɴᴘᴍᴊs
+✦ .ɢɴᴜʟᴀ
+✦ .ᴀᴘᴋsᴇᴀʀᴄʜ
+✦ .ᴡɪᴋɪs
+✦ .ᴛɪᴋᴛᴏᴋsᴇᴀʀᴄʜ *<ᴛxᴛ>*
+✦ .ᴛᴡᴇᴇᴛᴘᴏsᴛs
+✦ .xɴxxs
+✦ .xᴠsᴇᴀʀᴄʜ
+✦ .ʏᴛs
+✦ .ғᴅʀᴏɪᴅsᴇᴀʀᴄʜ *<ᴛéʀᴍɪɴᴏ>*
+✦ .ʜᴀᴘᴘʏᴍᴏᴅsᴇᴀʀᴄʜ *<ʙúsǫᴜᴇᴅᴀ>*
+✦ .ᴄɪɴᴇᴄᴀʟɪᴅᴀᴅsᴇᴀʀᴄʜ *<ʙúsǫᴜᴇᴅᴀ>*
+✦ .ʏᴀʜᴏᴏsᴇᴀʀᴄʜ *<ʙúsǫᴜᴇᴅᴀ>*
+✦ .ᴍᴏᴠɪᴇ *<ᴛéʀᴍɪɴᴏ>*
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`Subs\`*  🍰 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #qr
-⤷ ✦ #code
-⤷ ✦ #token
-⤷ ✦ #sockets
-⤷ ✦ #deletesesion
-⤷ ✦ #pausarai
+✦ .qr
+✦ .code
+✦ .token
+✦ .sockets
+✦ .deletesesion
+✦ .pausarai
 ╰┈┈┈▥
 
 
@@ -222,495 +215,495 @@ let handler = async (m, { conn, args }) => {
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`𝖥𝗎𝗇\`*  🥯 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #gay *@tag* 
-⤷ ✦ #lesbiana *@tag* 
-⤷ ✦ #pajero *@tag* 
-⤷ ✦ #pajera *@tag* 
-⤷ ✦ #puto *@tag* 
-⤷ ✦ #puta *@tag* 
-⤷ ✦ #manco *@tag* 
-⤷ ✦ #manca *@tag* 
-⤷ ✦ #rata *@tag*
-⤷ ✦ #prostituta *@tag*
-⤷ ✦ #amigorandom
-⤷ ✦ #jalamela
-⤷ ✦ #simi
-⤷ ✦ #chiste
-⤷ ✦ #consejo
-⤷ ✦ #doxear *<mension>*
-⤷ ✦ #facto
-⤷ ✦ #reto
-⤷ ✦ #verdad
-⤷ ✦ #prostituto *<@tag>*
-⤷ ✦ #formarpareja
-⤷ ✦ #formarpareja5
-⤷ ✦ #huevo *@user*
-⤷ ✦ #chupalo *<mencion>*
-⤷ ✦ #aplauso *<mencion>*
-⤷ ✦ #marron *<mencion>*
-⤷ ✦ #suicidar
-⤷ ✦ #iqtest <mencion>*
-⤷ ✦ #meme
-⤷ ✦ #morse
-⤷ ✦ #nombreninja *<texto>*
-⤷ ✦ #paja
-⤷ ✦ #personalidad *<mencion>*
-⤷ ✦ #pregunta 
-⤷ ✦ #zodiac *2002 02 25*
-⤷ ✦ #ship 
-⤷ ✦ #sorte 
-⤷ ✦ #top *[texto]*
-⤷ ✦ #formartrio *<mencion>*
-⤷ ✦ #tt
+✦ .gay *@tag* 
+✦ .lesbiana *@tag* 
+✦ .pajero *@tag* 
+✦ .pajera *@tag* 
+✦ .puto *@tag* 
+✦ .puta *@tag* 
+✦ .manco *@tag* 
+✦ .manca *@tag* 
+✦ .rata *@tag*
+✦ .prostituta *@tag*
+✦ .amigorandom
+✦ .jalamela
+✦ .simi
+✦ .chiste
+✦ .consejo
+✦ .doxear *<mension>*
+✦ .facto
+✦ .reto
+✦ .verdad
+✦ .prostituto *<@tag>*
+✦ .formarpareja
+✦ .formarpareja5
+✦ .huevo *@user*
+✦ .chupalo *<mencion>*
+✦ .aplauso *<mencion>*
+✦ .marron *<mencion>*
+✦ .suicidar
+✦ .iqtest <mencion>*
+✦ .meme
+✦ .morse
+✦ .nombreninja *<texto>*
+✦ .paja
+✦ .personalidad *<mencion>*
+✦ .pregunta 
+✦ .zodiac *2002 02 25*
+✦ .ship 
+✦ .sorte 
+✦ .top *[texto]*
+✦ .formartrio *<mencion>*
+✦ .tt
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`𝖥𝗋𝖺𝗌ᧉ𝗌\`* 🖍️ ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #piropo
-⤷ ✦ #frase
+✦ .piropo
+✦ .frase
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`𝖩𝗎ᧉ𝗀ᨣ𝗌\`*  🥥 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #ahorcado
-⤷ ✦ #delxo
-⤷ ✦ #genio *<pregunta>*
-⤷ ✦ #math *<mode>*
-⤷ ✦ #ppt *texto*
-⤷ ✦ #pvp
-⤷ ✦ #sopa
-⤷ ✦ #acertijo
-⤷ ✦ #ttt *texto*
+✦ .ahorcado
+✦ .delxo
+✦ .genio *<pregunta>*
+✦ .math *<mode>*
+✦ .ppt *texto*
+✦ .pvp
+✦ .sopa
+✦ .acertijo
+✦ .ttt *texto*
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`𝖠𝗇ı𝗆ᧉ\`*  🍮 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #angry/enojado @tag
-⤷ ✦ #bath/bañarse @tag
-⤷ ✦ #bite/morder @tag
-⤷ ✦ #bleh/lengua @tag
-⤷ ✦ #blush/sonrojarse @tag
-⤷ ✦ #bored/aburrido @tag
-⤷ ✦ #nights/noches
-⤷ ✦ #dias/days
-⤷ ✦ #coffe/cafe @tag
-⤷ ✦ #cry/llorar @tag
-⤷ ✦ #cuddle/acurrucarse @tag
-⤷ ✦ #dance/bailar @tag
-⤷ ✦ #drunk/borracho @tag
-⤷ ✦ #eat/comer @tag
-⤷ ✦ #messi
-⤷ ✦ #cr7
-⤷ ✦ #facepalm/palmada @tag
-⤷ ✦ #happy/feliz @tag
-⤷ ✦ #hello/hola @tag
-⤷ ✦ #hug/abrazar @tag
-⤷ ✦ #kill/matar @tag
-⤷ ✦ #kiss2/besar2 @tag
-⤷ ✦ #kiss/besar @tag
-⤷ ✦ #laugh/reirse @tag
-⤷ ✦ #lick/lamer @tag
-⤷ ✦ #love2/enamorada @tag
-⤷ ✦ #patt/acariciar @tag
-⤷ ✦ #poke/picar @tag
-⤷ ✦ #pout/pucheros @tag
-⤷ ✦ #ppcouple
-⤷ ✦ #preg/embarazar @tag
-⤷ ✦ #punch/golpear @tag
-⤷ ✦ #run/correr @tag
-⤷ ✦ #sad/triste @tag
-⤷ ✦ #scared/asustada @tag
-⤷ ✦ #seduce/seducir @tag
-⤷ ✦ #shy/timida @tag
-⤷ ✦ #slap/bofetada @tag
-⤷ ✦ #sleep/dormir @tag
-⤷ ✦ #smoke/fumar @tag
-⤷ ✦ #think/pensando @tag
-⤷ ✦ #undress/encuerar @tag
-⤷ ✦ #waifu
+✦ .angry/enojado @tag
+✦ .bath/bañarse @tag
+✦ .bite/morder @tag
+✦ .bleh/lengua @tag
+✦ .blush/sonrojarse @tag
+✦ .bored/aburrido @tag
+✦ .nights/noches
+✦ .dias/days
+✦ .coffe/cafe @tag
+✦ .cry/llorar @tag
+✦ .cuddle/acurrucarse @tag
+✦ .dance/bailar @tag
+✦ .drunk/borracho @tag
+✦ .eat/comer @tag
+✦ .messi
+✦ .cr7
+✦ .facepalm/palmada @tag
+✦ .happy/feliz @tag
+✦ .hello/hola @tag
+✦ .hug/abrazar @tag
+✦ .kill/matar @tag
+✦ .kiss2/besar2 @tag
+✦ .kiss/besar @tag
+✦ .laugh/reirse @tag
+✦ .lick/lamer @tag
+✦ .love2/enamorada @tag
+✦ .patt/acariciar @tag
+✦ .poke/picar @tag
+✦ .pout/pucheros @tag
+✦ .ppcouple
+✦ .preg/embarazar @tag
+✦ .punch/golpear @tag
+✦ .run/correr @tag
+✦ .sad/triste @tag
+✦ .scared/asustada @tag
+✦ .seduce/seducir @tag
+✦ .shy/timida @tag
+✦ .slap/bofetada @tag
+✦ .sleep/dormir @tag
+✦ .smoke/fumar @tag
+✦ .think/pensando @tag
+✦ .undress/encuerar @tag
+✦ .waifu
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`Pᧉrẜil\`*  🩸 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #reg
-⤷ ✦ #unreg
-⤷ ✦ #profile
-⤷ ✦ #marry *[mension / etiquetar]*
-⤷ ✦ #divorce
-⤷ ✦ #setgenre *<text>*
-⤷ ✦ #delgenre
-⤷ ✦ #setbirth *<text>*
-⤷ ✦ #delbirth
-⤷ ✦ #setdesc *<text>*
-⤷ ✦ #deldesc
+✦ .reg
+✦ .unreg
+✦ .profile
+✦ .marry *[mension / etiquetar]*
+✦ .divorce
+✦ .setgenre *<text>*
+✦ .delgenre
+✦ .setbirth *<text>*
+✦ .delbirth
+✦ .setdesc *<text>*
+✦ .deldesc
 ╰┈┈┈▥
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`Logos\`*  🖼️ ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #glitchtext
-⤷ ✦ #narutotext
-⤷ ✦ #dragonball
-⤷ ✦ #neonlight
-⤷ ✦ #pubglogo
-⤷ ✦ #harrypotter
-⤷ ✦ #marvel
-⤷ ✦ #pixelglitch
-⤷ ✦ #amongustext
-⤷ ✦ #writetext
-⤷ ✦ #advancedglow
-⤷ ✦ #typographytext
-⤷ ✦ #neonglitch
-⤷ ✦ #flagtext
-⤷ ✦ #flag3dtext
-⤷ ✦ #deletingtext
-⤷ ✦ #blackpinkstyle
-⤷ ✦ #glowingtext
-⤷ ✦ #underwatertext
-⤷ ✦ #logomaker
-⤷ ✦ #cartoonstyle
-⤷ ✦ #papercutstyle
-⤷ ✦ #watercolortext
-⤷ ✦ #effectclouds
-⤷ ✦ #blackpinklogo
-⤷ ✦ #gradienttext
-⤷ ✦ #summerbeach
-⤷ ✦ #luxurygold
-⤷ ✦ #multicoloredneon
-⤷ ✦ #sandsummer
-⤷ ✦ #galaxywallpaper
-⤷ ✦ #style
-⤷ ✦ #makingneon
-⤷ ✦ #royaltext
-⤷ ✦ #freecreate
-⤷ ✦ #galaxystyle
-⤷ ✦ #rainytext
-⤷ ✦ #graffititext
-⤷ ✦ #colorfulltext
-⤷ ✦ #equalizertext
-⤷ ✦ #angeltxt
-⤷ ✦ #starlight
-⤷ ✦ #steel
-⤷ ✦ #neoncity
-⤷ ✦ #cloudsky
-⤷ ✦ #matrix
-⤷ ✦ #minion
-⤷ ✦ #papercut3d
-⤷ ✦ #firetext
-⤷ ✦ #icecold
-⤷ ✦ #rainbowtext
+✦ .glitchtext
+✦ .narutotext
+✦ .dragonball
+✦ .neonlight
+✦ .pubglogo
+✦ .harrypotter
+✦ .marvel
+✦ .pixelglitch
+✦ .amongustext
+✦ .writetext
+✦ .advancedglow
+✦ .typographytext
+✦ .neonglitch
+✦ .flagtext
+✦ .flag3dtext
+✦ .deletingtext
+✦ .blackpinkstyle
+✦ .glowingtext
+✦ .underwatertext
+✦ .logomaker
+✦ .cartoonstyle
+✦ .papercutstyle
+✦ .watercolortext
+✦ .effectclouds
+✦ .blackpinklogo
+✦ .gradienttext
+✦ .summerbeach
+✦ .luxurygold
+✦ .multicoloredneon
+✦ .sandsummer
+✦ .galaxywallpaper
+✦ .style
+✦ .makingneon
+✦ .royaltext
+✦ .freecreate
+✦ .galaxystyle
+✦ .rainytext
+✦ .graffititext
+✦ .colorfulltext
+✦ .equalizertext
+✦ .angeltxt
+✦ .starlight
+✦ .steel
+✦ .neoncity
+✦ .cloudsky
+✦ .matrix
+✦ .minion
+✦ .papercut3d
+✦ .firetext
+✦ .icecold
+✦ .rainbowtext
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`Stalk\`*  🌀 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #tiktokstalk *<usuario>*
-⤷ ✦ #kwaistalk *<usuario>*
-⤷ ✦ #telegramstalk *<nombre_usuario>*
-⤷ ✦ #youtubestalk *<nombre de usuario>*
-⤷ ✦ #instagramstalk *<usuario>*
+✦ .tiktokstalk *<usuario>*
+✦ .kwaistalk *<usuario>*
+✦ .telegramstalk *<nombre_usuario>*
+✦ .youtubestalk *<nombre de usuario>*
+✦ .instagramstalk *<usuario>*
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`Prᧉmιυɱ\`*  🍄 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #comprarpremium
-⤷ ✦ #premium
-⤷ ✦ #vip
-⤷ ✦ #spamwa <number>|<mesage>|<no of messages>
+✦ .comprarpremium
+✦ .premium
+✦ .vip
+✦ .spamwa <number>|<mesage>|<no of messages>
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`Rpg\`*  🥧 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #aventura
-⤷ ✦ #baltop
-⤷ ✦ #bank / bal
-⤷ ✦ #cazar 
-⤷ ✦ #codigo *<cantida de coins>*
-⤷ ✦ #canjear *<código>*
-⤷ ✦ #cartera
-⤷ ✦ #apostar *<cantidad>*
-⤷ ✦ #cf
-⤷ ✦ #cofre
-⤷ ✦ #crimen
-⤷ ✦ #daily
-⤷ ✦ #depositar 
-⤷ ✦ #explorar
-⤷ ✦ #gremio
-⤷ ✦ #regalo
-⤷ ✦ #halloween
-⤷ ✦ #heal
-⤷ ✦ #inventario 
-⤷ ✦ #mensual
-⤷ ✦ #mazmorra
-⤷ ✦ #minar
-⤷ ✦ #navidad
-⤷ ✦ #retirar
-⤷ ✦ #robar
-⤷ ✦ #robarxp
-⤷ ✦ #ruleta *<cantidad> <color>*
-⤷ ✦ #buyall
-⤷ ✦ #buy
-⤷ ✦ #protituirse
-⤷ ✦ #work
-⤷ ✦ #pay / transfer 
-⤷ ✦ #semanal
-⤷ ✦ #levelup
-⤷ ✦ #lvl @user
-⤷ ✦ #slot *<apuesta>*
+✦ .aventura
+✦ .baltop
+✦ .bank / bal
+✦ .cazar 
+✦ .codigo *<cantida de coins>*
+✦ .canjear *<código>*
+✦ .cartera
+✦ .apostar *<cantidad>*
+✦ .cf
+✦ .cofre
+✦ .crimen
+✦ .daily
+✦ .depositar 
+✦ .explorar
+✦ .gremio
+✦ .regalo
+✦ .halloween
+✦ .heal
+✦ .inventario 
+✦ .mensual
+✦ .mazmorra
+✦ .minar
+✦ .navidad
+✦ .retirar
+✦ .robar
+✦ .robarxp
+✦ .ruleta *<cantidad> <color>*
+✦ .buyall
+✦ .buy
+✦ .protituirse
+✦ .work
+✦ .pay / transfer 
+✦ .semanal
+✦ .levelup
+✦ .lvl @user
+✦ .slot *<apuesta>*
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`Gᴀᴄʜᴀ\`*  ☕ ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #rw
-⤷ ✦ #reclamar 
-⤷ ✦ #harem
-⤷ ✦ #waifuimage
-⤷ ✦ #charinfo
-⤷ ✦ #topwaifus *[pagina]*
-⤷ ✦ #regalar *<nombre del personaje> @usuario*
-⤷ ✦ #vote *<personaje>*
+✦ .rw
+✦ .reclamar 
+✦ .harem
+✦ .waifuimage
+✦ .charinfo
+✦ .topwaifus *[pagina]*
+✦ .regalar *<nombre del personaje> @usuario*
+✦ .vote *<personaje>*
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`Sᴛɪᴄᴋᴇʀs\`*  👾 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #sticker *<img>*
-⤷ ✦ #sticker *<url>*
-⤷ ✦ #setmeta
-⤷ ✦ #delmeta
-⤷ ✦ #bratvid *<texto>*
-⤷ ✦ #pfp *@user*
-⤷ ✦ #qc
-⤷ ✦ #toimg *(reply)*
-⤷ ✦ #brat
-⤷ ✦ #bratvid *<texto>*
-⤷ ✦ #emojimix  *<emoji+emoji>*
-⤷ ✦ #wm *<packname>|<author>*
+✦ .sticker *<img>*
+✦ .sticker *<url>*
+✦ .setmeta
+✦ .delmeta
+✦ .bratvid *<texto>*
+✦ .pfp *@user*
+✦ .qc
+✦ .toimg *(reply)*
+✦ .brat
+✦ .bratvid *<texto>*
+✦ .emojimix  *<emoji+emoji>*
+✦ .wm *<packname>|<author>*
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`𝖳ᨣᨣ𝗅𝗌\`*  🍚 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #letra *<texto>*
-⤷ ✦ #fake
-⤷ ✦ #hd
-⤷ ✦ #detectar
-⤷ ✦ #clima *<ciudad/país>*
-⤷ ✦ #join
-⤷ ✦ #nuevafotochannel
-⤷ ✦ #nosilenciarcanal
-⤷ ✦ #silenciarcanal
-⤷ ✦ #noseguircanal
-⤷ ✦ #seguircanal 
-⤷ ✦ #avisoschannel 
-⤷ ✦ #resiviravisos 
-⤷ ✦ #inspect 
-⤷ ✦ #inspeccionar 
-⤷ ✦ #eliminarfotochannel 
-⤷ ✦ #reactioneschannel 
-⤷ ✦ #reaccioneschannel 
-⤷ ✦ #nuevonombrecanal 
-⤷ ✦ #nuevadescchannel
-⤷ ✦ #setavatar
-⤷ ✦ #setbanner
-⤷ ✦ #seticono
-⤷ ✦ #setmoneda
-⤷ ✦ #setname nombre1/nombre2
-⤷ ✦ #cal *<ecuacion>*
-⤷ ✦ #horario
-⤷ ✦ #read
-⤷ ✦ #traducir <idoma>
-⤷ ✦ #say
-⤷ ✦ #whatmusic <audio/video>
-⤷ ✦ #paisinfo
-⤷ ✦ #ssweb
-⤷ ✦ #tamaño *<cantidad>*
-⤷ ✦ #document *<audio/video>*
-⤷ ✦ #translate
-⤷ ✦ #up
-⤷ ✦ #enhance
-⤷ ✦ #wikipedia
+✦ .letra *<texto>*
+✦ .fake
+✦ .hd
+✦ .detectar
+✦ .clima *<ciudad/país>*
+✦ .join
+✦ .nuevafotochannel
+✦ .nosilenciarcanal
+✦ .silenciarcanal
+✦ .noseguircanal
+✦ .seguircanal 
+✦ .avisoschannel 
+✦ .resiviravisos 
+✦ .inspect 
+✦ .inspeccionar 
+✦ .eliminarfotochannel 
+✦ .reactioneschannel 
+✦ .reaccioneschannel 
+✦ .nuevonombrecanal 
+✦ .nuevadescchannel
+✦ .setavatar
+✦ .setbanner
+✦ .seticono
+✦ .setmoneda
+✦ .setname nombre1/nombre2
+✦ .cal *<ecuacion>*
+✦ .horario
+✦ .read
+✦ .traducir <idoma>
+✦ .say
+✦ .whatmusic <audio/video>
+✦ .paisinfo
+✦ .ssweb
+✦ .tamaño *<cantidad>*
+✦ .document *<audio/video>*
+✦ .translate
+✦ .up
+✦ .enhance
+✦ .wikipedia
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`𝖮𝗇-𝖮ẜẜ\`*  🧋 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #welcome
-⤷ ✦ #bienvenida
-⤷ ✦ #antiprivado
-⤷ ✦ #antiprivate
-⤷ ✦ #restrict
-⤷ ✦ #restringir
-⤷ ✦ #antibot
-⤷ ✦ #antibots
-⤷ ✦ #autoaceptar
-⤷ ✦ #aceptarauto
-⤷ ✦ #autorechazar
-⤷ ✦ #rechazarauto
-⤷ ✦ #autoresponder
-⤷ ✦ #autorespond
-⤷ ✦ #antisubbots
-⤷ ✦ #antibot2
-⤷ ✦ #modoadmin
-⤷ ✦ #soloadmin
-⤷ ✦ #reaction
-⤷ ✦ #reaccion
-⤷ ✦ #nsfw
-⤷ ✦ #modohorny
-⤷ ✦ #antispam
-⤷ ✦ #jadibotmd
-⤷ ✦ #modejadibot
-⤷ ✦ #subbots
-⤷ ✦ #detect
-⤷ ✦ #avisos
-⤷ ✦ #antilink
-⤷ ✦ #audios
-⤷ ✦ #antiver
-⤷ ✦ #antiocultar
-⤷ ✦ #antilink2
-⤷ ✦ #antiarabe
+✦ .welcome
+✦ .bienvenida
+✦ .antiprivado
+✦ .antiprivate
+✦ .restrict
+✦ .restringir
+✦ .antibot
+✦ .antibots
+✦ .autoaceptar
+✦ .aceptarauto
+✦ .autorechazar
+✦ .rechazarauto
+✦ .autoresponder
+✦ .autorespond
+✦ .antisubbots
+✦ .antibot2
+✦ .modoadmin
+✦ .soloadmin
+✦ .reaction
+✦ .reaccion
+✦ .nsfw
+✦ .modohorny
+✦ .antispam
+✦ .jadibotmd
+✦ .modejadibot
+✦ .subbots
+✦ .detect
+✦ .avisos
+✦ .antilink
+✦ .audios
+✦ .antiver
+✦ .antiocultar
+✦ .antilink2
+✦ .antiarabe
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`Grupos\`*  ⚙️ ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #admins
-⤷ ✦ #agregar
-⤷ ✦ #advertencia <@user>
-⤷ ✦ #delwarn
-⤷ ✦ #grupo abrir / cerrar
-⤷ ✦ #group open / close
-⤷ ✦ #delete
-⤷ ✦ #demote <@user>
-⤷ ✦ #promote <@user>
-⤷ ✦ #encuesta <text|text2>
-⤷ ✦ #kickfantasmas
-⤷ ✦ #gpbanner
-⤷ ✦ #gpdesc
-⤷ ✦ #gpname
-⤷ ✦ #hidetag
-⤷ ✦ #infogrupo
-⤷ ✦ #kickall
-⤷ ✦ #kick <@user>
-⤷ ✦ #kicknum
-⤷ ✦ #listonline
-⤷ ✦ #link
-⤷ ✦ #listadv
-⤷ ✦ #mute
-⤷ ✦ #unmute
-⤷ ✦ #config
-⤷ ✦ #restablecer
-⤷ ✦ #setbye
-⤷ ✦ #setwelcome
-⤷ ✦ #testwelcome
-⤷ ✦ #setemoji <emoji>
-⤷ ✦ #invocar *<mensaje opcional>*
+✦ .admins
+✦ .agregar
+✦ .advertencia <@user>
+✦ .delwarn
+✦ .grupo abrir / cerrar
+✦ .group open / close
+✦ .delete
+✦ .demote <@user>
+✦ .promote <@user>
+✦ .encuesta <text|text2>
+✦ .kickfantasmas
+✦ .gpbanner
+✦ .gpdesc
+✦ .gpname
+✦ .hidetag
+✦ .infogrupo
+✦ .kickall
+✦ .kick <@user>
+✦ .kicknum
+✦ .listonline
+✦ .link
+✦ .listadv
+✦ .mute
+✦ .unmute
+✦ .config
+✦ .restablecer
+✦ .setbye
+✦ .setwelcome
+✦ .testwelcome
+✦ .setemoji <emoji>
+✦ .invocar *<mensaje opcional>*
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`Nsfw\`*  🪼 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #sixnine/69 @tag
-⤷ ✦ #anal/culiar @tag
-⤷ ✦ #blowjob/mamada @tag
-⤷ ✦ #boobjob/rusa @tag
-⤷ ✦ #cum/leche @tag
-⤷ ✦ #fap/paja @tag
-⤷ ✦ #follar @tag
-⤷ ✦ #fuck/coger @tag
-⤷ ✦ #footjob/pies @tag
-⤷ ✦ #fuck2/coger2 @tag
-⤷ ✦ #grabboobs/agarrartetas @tag
-⤷ ✦ #grop/manosear @tag
-⤷ ✦ #penetrar @user
-⤷ ✦ #lickpussy/coño @tag
-⤷ ✦ #r34 <tag>
-⤷ ✦ #sexo/sex @tag
-⤷ ✦ #spank/nalgada @tag
-⤷ ✦ #suckboobs/chupartetas @tag
-⤷ ✦ #violar/perra @tag
-⤷ ✦ #lesbianas/tijeras @tag
-⤷ ✦ #pack
-⤷ ✦ #tetas
-⤷ ✦ #undress/encuerar
+✦ .sixnine/69 @tag
+✦ .anal/culiar @tag
+✦ .blowjob/mamada @tag
+✦ .boobjob/rusa @tag
+✦ .cum/leche @tag
+✦ .fap/paja @tag
+✦ .follar @tag
+✦ .fuck/coger @tag
+✦ .footjob/pies @tag
+✦ .fuck2/coger2 @tag
+✦ .grabboobs/agarrartetas @tag
+✦ .grop/manosear @tag
+✦ .penetrar @user
+✦ .lickpussy/coño @tag
+✦ .r34 <tag>
+✦ .sexo/sex @tag
+✦ .spank/nalgada @tag
+✦ .suckboobs/chupartetas @tag
+✦ .violar/perra @tag
+✦ .lesbianas/tijeras @tag
+✦ .pack
+✦ .tetas
+✦ .undress/encuerar
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`Owner\`*  🌷 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #addcoins *<@user>*
-⤷ ✦ #addowner / delowner
-⤷ ✦ #addprem [@user] <days>
-⤷ ✦ #añadirxp
-⤷ ✦ #copia
-⤷ ✦ #autoadmin
-⤷ ✦ #banuser *@tag <razón>*
-⤷ ✦ #banlist
-⤷ ✦ #bcgc
-⤷ ✦ #block / unblock
-⤷ ✦ #blocklist
-⤷ ✦ #chetar *@user* / *<número>*
-⤷ ✦ #cleartmp
-⤷ ✦ #creargc
-⤷ ✦ #deletefile
-⤷ ✦ #delprem <@user>
-⤷ ✦ #deschetar *@user* / *<número>*
-⤷ ✦ #dsowner
+✦ .addcoins *<@user>*
+✦ .addowner / delowner
+✦ .addprem [@user] <days>
+✦ .añadirxp
+✦ .copia
+✦ .autoadmin
+✦ .banuser *@tag <razón>*
+✦ .banlist
+✦ .bcgc
+✦ .block / unblock
+✦ .blocklist
+✦ .chetar *@user* / *<número>*
+✦ .cleartmp
+✦ .creargc
+✦ .deletefile
+✦ .delprem <@user>
+✦ .deschetar *@user* / *<número>*
+✦ .dsowner
 ⤷ ✦ =>
 ⤷ ✦ >
-⤷ ✦ #fetch
-⤷ ✦ #getplugin
-⤷ ✦ #grouplist
-⤷ ✦ #salir
-⤷ ✦ #let
-⤷ ✦ #prefix [prefix]
-⤷ ✦ #quitarcoin *<@user>* / all
-⤷ ✦ #quitarxp *<@user>*
-⤷ ✦ #resetprefix
-⤷ ✦ #restablecerdatos
-⤷ ✦ #restart / reiniciar
-⤷ ✦ #reunion
-⤷ ✦ #savefile <ruta/nombre>
-⤷ ✦ #saveplugin
-⤷ ✦ #setcmd *<texto>*
-⤷ ✦ #delcmd
-⤷ ✦ #listcmd
-⤷ ✦ #setimage
-⤷ ✦ #setstatus <teks>
-⤷ ✦ #spam2
-⤷ ✦ #unbanuser <@tag>
-⤷ ✦ #ip <alamat ip>
-⤷ ✦ #update / fix
+✦ .fetch
+✦ .getplugin
+✦ .grouplist
+✦ .salir
+✦ .let
+✦ .prefix [prefix]
+✦ .quitarcoin *<@user>* / all
+✦ .quitarxp *<@user>*
+✦ .resetprefix
+✦ .restablecerdatos
+✦ .restart / reiniciar
+✦ .reunion
+✦ .savefile <ruta/nombre>
+✦ .saveplugin
+✦ .setcmd *<texto>*
+✦ .delcmd
+✦ .listcmd
+✦ .setimage
+✦ .setstatus <teks>
+✦ .spam2
+✦ .unbanuser <@tag>
+✦ .ip <alamat ip>
+✦ .update / fix
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`𝖨𝗇ƚᧉ𝖨ı𝗀ᧉ𝗇𝖼ı𝖺𝗌\`*  💭 ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #dalle
-⤷ ✦ #demo *<texto>*
-⤷ ✦ #flux *<texto>*
-⤷ ✦ #gemini
-⤷ ✦ #ia
-⤷ ✦ #llama
+✦ .dalle
+✦ .demo *<texto>*
+✦ .flux *<texto>*
+✦ .gemini
+✦ .ia
+✦ .llama
 ╰┈┈┈▥
 
 ╔══❖•ೋ🌿ೋ•❖══╗
   𖤐 𓆩 *\`𝖢ᨣ𝗇𝗏ᧉ𝗋ƚᧉ𝗋𝗌\`*  🌪️ ᩚ꤬ᰨᰍ 𓆪
 ╚══❖•ೋ🌿ೋ•❖══╝
-⤷ ✦ #tourl <imagen>
-⤷ ✦ #catbox
-⤷ ✦ #tourl3
-⤷ ✦ #togifaud
-⤷ ✦ #tomp3
-⤷ ✦ #tovideo
-⤷ ✦ #tts <lang> <teks>
-⤷ ✦ #tts2
+✦ .tourl <imagen>
+✦ .catbox
+✦ .tourl3
+✦ .togifaud
+✦ .tomp3
+✦ .tovideo
+✦ .tts <lang> <teks>
+✦ .tts2
 ╰┈┈┈▥
 
 
