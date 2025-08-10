@@ -76,8 +76,8 @@ global.logo = 'https://files.catbox.moe/ha863t.jpg'
 
 global.gp1 = 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
 global.comunidad1 = 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
-global.channel = ' 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
-global.channel2 = 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
+global.channel = ' https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
+global.channel2 = ' https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
 global.md = 'https://github.com/Yuji-XDev/SukunaUltra-MD'
 global.correo = 'blackoficial2025@gmail.com'
 
