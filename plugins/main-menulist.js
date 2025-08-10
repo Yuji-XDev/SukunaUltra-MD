@@ -67,12 +67,12 @@ const handler = async (m, { conn, usedPrefix }) => {
          title: "💖 menu list",
          highlight_label: "dv.shadow",
          rows: [
-           { title: "🌟 menu All", description: "menu completo", id: `${usedPrefix}menu` }
+           { title: "🌟 menu All", description: "menu completo", id: `${usedPrefix}menu`, footer: "Hola soy shadow" }
          ]
       },
       {
         title: "🌟 Comandos Principales",
-        highlight_label: "by shadow",
+        //highlight_label: "by shadow",
         rows: [
           { 
             title: "📥 Mᴇɴᴜ [ 𝗗𝗟 ]",
