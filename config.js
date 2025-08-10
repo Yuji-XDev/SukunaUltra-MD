@@ -68,7 +68,7 @@ global.etiqueta = '@sʜᴀᴅᴏᴡ°ᴄᴏʀᴇ'
 global.moneda = 'llamas'
 //global.welcom1 = '💥 𝐄ძі𝗍ᥲ ᥱᥣ ᥕᥱᥣᥴ᥆mᥱ ᥴ᥆ᥒ #sᥱ𝗍ᥕᥱᥣᥴ᥆mᥱ'
 //global.welcom2 = '💥 𝐄ძі𝗍ᥲ ᥱᥣ ᥕᥱᥣᥴ᥆mᥱ ᥴ᥆ᥒ #sᥱ𝗍ᑲᥡᥱ'
-global.banner = 'https://files.catbox.moe/r3jdyl.jpg'
+global.banner = 'https://i.postimg.cc/R0zG7sw0/1754525596737.jpg'
 global.avatar = 'https://files.catbox.moe/kjh6ga.jpg'
 global.logo = 'https://files.catbox.moe/ha863t.jpg'
 
