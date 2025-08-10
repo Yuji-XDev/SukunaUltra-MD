@@ -64,10 +64,10 @@ const handler = async (m, { conn, usedPrefix }) => {
 
     const sections = [
       {
-         title: "💖 menu list",
-         highlight_label: "dv.shadow",
+         title: "💖 sukuna proyect",
+         highlight_label: "soporte",
          rows: [
-           { title: "🌟 menu All", description: "menu completo", id: `${usedPrefix}menu` }
+           { title: "🌟 Doar via Pix", description: "Ajude o projeto con su contribución!", id: `${usedPrefix}donar` }
          ]
       },
       {
