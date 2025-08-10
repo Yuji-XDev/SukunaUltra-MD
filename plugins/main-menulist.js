@@ -24,7 +24,7 @@ const handler = async (m, { conn, usedPrefix }) => {
 👥 𝗨ꜱᴜᴀʀɪᴏꜱ: *${totalUsers}*
 🧰 𝗖ᴏᴍᴀɴᴅᴏꜱ: *${totalCommands}*
 🔐 𝗠ᴏᴅᴏ: *Privado*
-📚 𝗟ɪʙʀᴇʀɪᴀ: *Baileys‑MD*
+📚 𝗟ɪʙʀᴇʀɪᴀ: *Baileys-MD*
 ⏱️ 𝗔ᴄᴛɪᴠᴏ: *${uptime}*
 
 
@@ -56,44 +56,49 @@ const handler = async (m, { conn, usedPrefix }) => {
     const thumb = await sharp(imgBuffer).resize(400, 400).jpeg({ quality: 70 }).toBuffer();
     const docBuffer = await sharp(imagenBuffer).webp({ quality: 90 }).toBuffer();
     
-    
-
     const buttons = [
       { buttonId: `${usedPrefix}creador`, buttonText: { displayText: '📞 Creador' }, type: 1 },
       { buttonId: `${usedPrefix}reg dv.Shadow.18`, buttonText: { displayText: '👤 Auto Verificar' }, type: 1 },
       { buttonId: `${usedPrefix}sistema`, buttonText: { displayText: '🌾 Ver Sistema del Bot' }, type: 1 }
     ];
 
-     const sections = [{
-          buttonId: 'action',
-          buttonText: { displayText: '🌐 Comandos do Bot' },
-          type: 4,
-          nativeFlowInfo: {
-            name: 'single_select',
-            paramsJson: JSON.stringify({
-              title: "🌐 Lista completa",
-              sections: [
-                {
-                  title: "🌟 Comandos Principais",
-                  highlight_label: "By Fenrys V4",
-                  rows: [
-                    { title: "📜 Menu Principal", description: "Comandos básicos e mais utilizados.", id: `${prefix}menupp` },
-                    { title: "🆕 Novos Comandos", description: "Veja o que há de novo no bot.", id: `${prefix}menunovo` },
-                    { title: "👑 Menu do Dono", description: "Acesso exclusivo do criador.", id: `${prefix}menudono` },
-                    { title: "🛡 Administração", description: "Ferramentas para gerenciar grupos.", id: `${prefix}menuadm` },
-                    { title: "💠 Premium", description: "Funções especiais para usuários VIP.", id: `${prefix}menupremium` },
-                    { title: "🎉 Brincadeiras", description: "Comandos para diversão no grupo.", id: `${prefix}brincadeiras` },
-                    { title: "🖼 Efeitos Visuais", description: "Aplique efeitos com estilo.", id: `${prefix}Efeitosimg` },
-                    { title: "🪙 Sistema de Coins", description: "Ganhe e use moedas virtuais.", id: `${prefix}menucoins` },
-                    { title: "⚔️ Mundo RPG", description: "Aventuras, batalhas e evolução.", id: `${prefix}menurpg` },
-                    { title: "🎨 Criação de Logos", description: "Gere logos personalizados.", id: `${prefix}menulogos` }
-      ]
-    }];
-
+    const sections = [
+      {
+        title: "🌟 Comandos Principales",
+        highlight_label: "by shadow",
+        rows: [
+          { title: "📜 Menu Principal", description: "Comandos básicos y más utilizados.", id: `${usedPrefix}menupp` },
+          { title: "🆕 Novos Comandos", description: "Veja o que há de novo no bot.", id: `${usedPrefix}menunovo` },
+          { title: "👑 Menu do Dono", description: "Acesso exclusivo do criador.", id: `${usedPrefix}menudono` },
+          { title: "🛡 Administración", description: "Ferramentas para gerenciar grupos.", id: `${usedPrefix}menuadm` },
+          { title: "💠 Premium", description: "Funções especiais para usuários VIP.", id: `${usedPrefix}menupremium` },
+          { title: "🎉 Brincadeiras", description: "Comandos para diversão no grupo.", id: `${usedPrefix}brincadeiras` },
+          { title: "🖼 Efeitos Visuais", description: "Aplique efeitos com estilo.", id: `${usedPrefix}Efeitosimg` },
+          { title: "🪙 Sistema de Coins", description: "Ganhe e use moedas virtuais.", id: `${usedPrefix}menucoins` },
+          { title: "⚔️ Mundo RPG", description: "Aventuras, batalhas e evolução.", id: `${usedPrefix}menurpg` },
+          { title: "🎨 Criação de Logos", description: "Gere logos personalizados.", id: `${usedPrefix}menulogos` }
+        ]
+      },
+      {
+        title: "💖 Apoie el Proyecto",
+        highlight_label: "Doações & Suporte",
+        rows: [
+          { title: "🌟 Doar via Pix", description: "Ajude o projeto con su contribución!", id: `${usedPrefix}donar` }
+        ]
+      },
+      {
+        title: "📢 Comunidade Fenrys",
+        highlight_label: "Fique por dentro!",
+        rows: [
+          { title: "💬 Grupo Oficial", description: "Participe do nosso grupo!", id: `${usedPrefix}grupos` },
+          { title: "🤝 Parcerias", description: "Seja um parceiro do projeto!", id: `${usedPrefix}alv` }
+        ]
+      }
+    ];
     await conn.sendMessage(m.chat, {
       document: docBuffer,
       fileName: `SUKUNA ULTRA 💚`,
-      mimetype: 'image/PNG',
+      mimetype: 'image/webp',
       caption: texto,
       jpegThumbnail: thumb2,
       footer: '[⚙] Sistema: *SU₭Ʉ₦₳.EXΞ*',
