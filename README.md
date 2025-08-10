@@ -1,4 +1,4 @@
-<h1 align="center"> ⛩️ 𝐒𝐔𝐊𝐔𝐍𝐀 𝐔𝐋𝐓𝐑𝐀 𝐌𝐃 ⛩️</h1>
+<h1 align="center"> ⛩️ SANTAFLOW BOT 𝐌𝐃 ⛩️</h1>
 <p align="center">
   <img src="https://files.catbox.moe/7d1l2i.jpg" width="300">
 </p>
@@ -13,7 +13,7 @@
 
 ---
 
-## 🧩 ғᴜɴᴄɪᴏɴᴇs ᴅᴇ sᴜᴋᴜɴᴀ ʙᴏᴛ ᴍᴅ
+## 🧩 ғᴜɴᴄɪᴏɴᴇs ᴅᴇ SANTAFLOW ʙᴏᴛ ᴍᴅ
 
 <details>
  <summary><b> ☄️ INFO - BOT 👀</b></summary>
