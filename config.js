@@ -53,14 +53,14 @@ global.shadowJadibts = true
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.packname = '🎄  ⸸ 𝕊𝖚𝖐𝖚𝖓𝖆 𝕭𝖔𝖙 𝑴𝑫 ⸸  🎋'
+global.packname = '🎄  ⸸ ✦⃟⛧ _SANTAFLOW 𝕭𝖔𝖙 𝑴𝑫 ⸸  🎋'
 global.botname = '✦⃟⛧ _SANTAFLOW⛧ 𝑩𝑶𝑻_ 🎄┋⃟✧'
-global.wm = '◟𝐒𝐮𝐤𝐮𝐧𝐚 𝐁𝐨𝐭◞'
+global.wm = '◟✦⃟⛧ _SANTAFLOW 𝐁𝐨𝐭◞'
 global.author = '★彡[𝓜𝓪𝓭𝓮 𝓫𝔂 𝓢ʜᴀᴅᴏᴡ𝓬𝓸𝓻𝓮]彡★'
 global.dev = '୧ㅤミ★ 》 Tʜᴇ sʜᴀᴅᴏᴡ`ᴄᴏʀᴇ《★彡 🎋'
-global.bot = '𝑺𝒖𝒌𝒖𝒏𝒂 𝑩𝒐𝒕'
+global.bot = '✦⃟⛧ _SANTAFLOW 𝑩𝒐𝒕'
 global.club = '͞⋆⬪࣪ꥈ🥮★ 𝖯𑄜𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 𝖲𝗁⍺𝖽ᦅ𝗐′core 𝖢𝗅𝗎𝖻𓆪'
-global.textbot = '𝚂𝚄𝙺𝚄𝙽𝙰 𝙱𝙾𝚃 𝕏 𝕊ℍ𝔸𝔻𝕆𝕎•ℂ𝕆ℝ𝔼'
+global.textbot = '✦⃟⛧ _SANTAFLOW 𝙱𝙾𝚃 𝕏 𝕊ℍ𝔸𝔻𝕆𝕎•ℂ𝕆ℝ𝔼'
 global.etiqueta = '@sʜᴀᴅᴏᴡ°ᴄᴏʀᴇ'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
