@@ -55,7 +55,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
           mediaUrl: url,
           sourceUrl: url,
           thumbnail: thumb,
-          renderLargerThumbnail: false
+          renderLargerThumbnail: true
         }
       }
     }
@@ -86,7 +86,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
           thumbnail: thumb,
           mediaUrl: url,
           sourceUrl: url,
-          renderLargerThumbnail: true
+          renderLargerThumbnail: false
         }
       }
     }, { quoted: Shadow })
