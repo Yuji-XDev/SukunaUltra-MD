@@ -36,7 +36,7 @@ global.namecomu = '=͟͟͞Santaflow bot • 𝑪𝒐𝒎𝒖𝒏𝒊𝒕𝒚 ˟�
 global.listo = '- 🌀 *𝐓𝐔 𝐏𝐀𝐍𝐄𝐋 𝐄𝐒𝐓𝐀 𝐋𝐈𝐒𝐓𝐎...*'
 global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/vm6opf.jpg')
 
-global.canalIdM = ["120363401008003732@newsletter", "120363401008003732@newsletter"]
+global.canalIdM = ["120363402079893698@newsletter", "120363402079893698@newsletter"]
 global.canalNombreM = ["  ꙰⃟⛅  santaflow ᵇᵒᵗ | ° ᴄʜᴀɴɴᴇʟ ᵒᶠⁱᶜⁱᵃˡ  🧪꙰⃟⸙", "⟬ ᳞ꪳ⃟ 𖤐 𝙎ANTAFLOW BOT 𝘾𝙃𝘼𝙉𝙉𝙀𝙇 ᴼᶠᴵᶜᴵᴬᴸ𖤐 ᳞ꪳ⃟ ⟭"]
 global.channelRD = await getRandomChannel()
 
