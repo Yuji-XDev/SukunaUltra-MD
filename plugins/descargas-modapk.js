@@ -23,14 +23,14 @@ var handler = async (m, { conn, usedPrefix, command, text }) => {
   await conn.sendMessage(
     m.chat,
     {
-      image: { url: 'https://files.catbox.moe/9l7hcn.jpg' },
+      image: { url: data5.icon },
       caption: txt,
       contextInfo: {
         externalAdReply: {
           title: '                          ☘️ Dev.Shadow 🇦🇱',
           body: '   🌀꙰⃟ 𖤐 𝙍𝙄𝙉 𝙄𝙏𝙊𝙎𝙃𝙄 ∞ 𝐌𝐃 𖤐🎨⃟',
           mediaType: 1,
-          thumbnailUrl: data5.icon,
+          thumbnailUrl: 'https://files.catbox.moe/9l7hcn.jpg',
           mediaUrl: 'https://github.com/Yuji-XDev/SukunaUltra-MD',
           sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U',
           renderLargerThumbnail: true
@@ -50,7 +50,7 @@ var handler = async (m, { conn, usedPrefix, command, text }) => {
       document: { url: data5.dllink },
       fileName: `${data5.name}.apk`,
       mimetype: 'application/vnd.android.package-archive',
-      caption: `${data5.name}\n> 🔋 Descarga Exitosamente.`,
+      caption: `*${data5.name}*\n> *🔋 Descarga Exitosamente.*`,
       thumbnail: data5.icon,
       contextInfo: {
         externalAdReply: {
