@@ -27,17 +27,17 @@ return res.data
 console.log(`Error : ${e}`)
 }}
   
-global.creador = 'wa.me/51919199620'
+global.creador = 'wa.me/51946200884'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
-global.namechannel = '=͟͟͞Sukuna bot • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺'
-global.namechannel2 = '=͟͟͞Sukuna bot • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺'
-global.namegrupo = '=͟͟͞Sukuna bot • 𝒐𝒇𝒊𝒄𝒊𝒂𝒍 ⌺'
-global.namecomu = '=͟͟͞Sukuna bot • 𝑪𝒐𝒎𝒖𝒏𝒊𝒕𝒚 ˟꘏꙳'
+global.namechannel = '=͟͟͞Santaflow bot • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺'
+global.namechannel2 = '=͟͟͞Santaflow bot • 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⌺'
+global.namegrupo = '=͟͟͞Santaflow bot • 𝒐𝒇𝒊𝒄𝒊𝒂𝒍 ⌺'
+global.namecomu = '=͟͟͞Santaflow bot • 𝑪𝒐𝒎𝒖𝒏𝒊𝒕𝒚 ˟꘏꙳'
 global.listo = '- 🌀 *𝐓𝐔 𝐏𝐀𝐍𝐄𝐋 𝐄𝐒𝐓𝐀 𝐋𝐈𝐒𝐓𝐎...*'
 global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/vm6opf.jpg')
 
 global.canalIdM = ["120363401008003732@newsletter", "120363401008003732@newsletter"]
-global.canalNombreM = ["  ꙰⃟⛅  sᴜᴋᴜɴᴀ ᴜʟᴛʀᴀ | ° ᴄʜᴀɴɴᴇʟ 🧪꙰⃟⸙", "⟬ ᳞ꪳ⃟ 𖤐 𝙎𝙐𝙆𝙐𝙉𝘼 𝙐𝙇𝙏𝙍𝘼 𝘾𝙃𝘼𝙉𝙉𝙀𝙇 𖤐 ᳞ꪳ⃟ ⟭"]
+global.canalNombreM = ["  ꙰⃟⛅  santaflow ᵇᵒᵗ | ° ᴄʜᴀɴɴᴇʟ ᵒᶠⁱᶜⁱᵃˡ  🧪꙰⃟⸙", "⟬ ᳞ꪳ⃟ 𖤐 𝙎ANTAFLOW BOT 𝘾𝙃𝘼𝙉𝙉𝙀𝙇 ᴼᶠᴵᶜᴵᴬᴸ𖤐 ᳞ꪳ⃟ ⟭"]
 global.channelRD = await getRandomChannel()
 
 global.d = new Date(new Date + 3600000)
@@ -67,8 +67,8 @@ global.waittt = '✧͢☁️ 𝐏𝐑𝐎𝐂𝐄𝐒𝐀𝐍𝐃𝐎...⚙️�
 global.waitttt = '✧͢☁️ 𝐏𝐑𝐎𝐂𝐄𝐒𝐀𝐍𝐃𝐎...⚙️༄  \n=͟͟͞💠 𝑬𝒔𝒑𝒆𝒓𝒆 𝒑𝒐𝒓 𝒇𝒂𝒗𝒐𝒓...';
 
 
-var canal = 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'  
-var comunidad = 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
+var canal = 'https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39'  
+var comunidad = 'https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39'
 var git = 'https://github.com/Yuji-XDev'
 var github = 'https://github.com/Yuji-XDev/SukunaBot-V2'
 var tiktok = 'https://tiktok.com/@the.black.xz'
