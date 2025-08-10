@@ -65,58 +65,28 @@ const handler = async (m, { conn, usedPrefix }) => {
     ];
 
      const sections = [{
-      title: "🥮 MENÚS DISPONIBLES 🐛",
-      rows: [
-        { 
-          title: "📥 Mᴇɴᴜ [ 𝗗𝗟 ]",
-          description: "🎧 ᴠᴇʀ ғᴜɴᴄɪᴏɴᴇs ᴅᴇ ᴅᴇsᴄᴀʀɢᴀs",
-          id: `${usedPrefix}menudl`
-        },       
-        {
-           title: "⛏️ Mᴇɴᴜ [ 𝗥𝗣𝗚 ]", 
-           description: "🎮 ᴠᴇʀ ᴍᴇɴᴜ ʀᴘɢ", 
-           id: `${usedPrefix}menurpg` 
-        },
-        { 
-          title: "🔍 Mᴇɴᴜ [ 𝗦𝗘𝗔𝗥𝗖𝗛 ]", 
-          description: "🌾 ʙᴜsᴄᴀʀ ᴄᴏɴᴛᴇɴɪᴅᴏ", 
-          id: `${usedPrefix}menuse` 
-        },
-        { 
-          title: "🖍️ Mᴇɴᴜ [ 𝗢𝗪𝗡𝗘𝗥 ]", 
-          description: "🧙‍♂️ ᴘᴀʀᴀ ᴏᴡɴᴇʀ", 
-          id: `${usedPrefix}dev`
-        },
-        { 
-          title: "🌈 Mᴇɴᴜ [ 𝗔𝗨𝗗𝗜𝗢𝗦 ]", 
-          description: "🎃 sᴏɴɪᴅᴏs ᴅɪᴠᴇʀᴛɪᴅᴏs", 
-          id: `${usedPrefix}menu2` 
-        },
-        { 
-          title: "⛩️ Mᴇɴᴜ [ 𝗣𝗘𝗥𝗙𝗜𝗟 ]", 
-          description: "☂️ ᴄᴜᴇɴᴛᴀs ʏ ᴇsᴛᴀᴅᴏs", 
-          id: `${usedPrefix}perfildates` 
-        },
-        { 
-          title: "🌞 Mᴇɴᴜ [ 𝗚𝗥𝗨𝗣𝗢 ]", 
-          description: "💫 ᴀᴅᴍɪɴ ʏ ᴄᴏɴᴛʀᴏʟ", 
-          id: `${usedPrefix}menugp` 
-        },
-        { 
-          title: "🔞 Mᴇɴᴜ [ 𝗡𝗦𝗙𝗪 ]", 
-          description: "💨 ᴄᴏɴᴛᴇɴɪᴅᴏ ᴘʀɪᴠᴀᴅᴏ",
-          id: `${usedPrefix}menu18` 
-        },
-        { 
-          title: "💖 Mᴇɴᴜ [ 𝗟𝗢𝗚𝗢𝗧𝗜𝗣𝗢𝗦 ]", 
-          description: "🐥 ᴄʀᴇᴀ ᴛᴜ ʟᴏɢᴏ", 
-          id: `${usedPrefix}menulogos` 
-        },
-        { 
-          title: "🐛 Mᴇɴᴜ [ 𝗦𝗧𝗜𝗖𝗞𝗘𝗥𝗦 ]", 
-          description: "🐾 ᴘᴇɢᴀᴛɪɴᴀs ᴅɪᴠᴇʀᴛɪᴅᴀs", 
-          id: `${usedPrefix}menusticker` 
-        }
+          buttonId: 'action',
+          buttonText: { displayText: '🌐 Comandos do Bot' },
+          type: 4,
+          nativeFlowInfo: {
+            name: 'single_select',
+            paramsJson: JSON.stringify({
+              title: "🌐 Lista completa",
+              sections: [
+                {
+                  title: "🌟 Comandos Principais",
+                  highlight_label: "By Fenrys V4",
+                  rows: [
+                    { title: "📜 Menu Principal", description: "Comandos básicos e mais utilizados.", id: `${prefix}menupp` },
+                    { title: "🆕 Novos Comandos", description: "Veja o que há de novo no bot.", id: `${prefix}menunovo` },
+                    { title: "👑 Menu do Dono", description: "Acesso exclusivo do criador.", id: `${prefix}menudono` },
+                    { title: "🛡 Administração", description: "Ferramentas para gerenciar grupos.", id: `${prefix}menuadm` },
+                    { title: "💠 Premium", description: "Funções especiais para usuários VIP.", id: `${prefix}menupremium` },
+                    { title: "🎉 Brincadeiras", description: "Comandos para diversão no grupo.", id: `${prefix}brincadeiras` },
+                    { title: "🖼 Efeitos Visuais", description: "Aplique efeitos com estilo.", id: `${prefix}Efeitosimg` },
+                    { title: "🪙 Sistema de Coins", description: "Ganhe e use moedas virtuais.", id: `${prefix}menucoins` },
+                    { title: "⚔️ Mundo RPG", description: "Aventuras, batalhas e evolução.", id: `${prefix}menurpg` },
+                    { title: "🎨 Criação de Logos", description: "Gere logos personalizados.", id: `${prefix}menulogos` }
       ]
     }];
 
