@@ -43,10 +43,10 @@ const tags = {
 
 // Fuentes decoradas
 const fonts = [
-  txt => txt.replace(/[A-Za-z]/g, c => String.fromCodePoint(c.charCodeAt(0) + 0x1D00)), // ᴀʜᴊ...
-  txt => txt.replace(/[A-Za-z]/g, c => String.fromCodePoint(c.charCodeAt(0) + 0x1D400)), // 𝐉𝐬...
-  txt => txt.replace(/[A-Za-z]/g, c => String.fromCodePoint(c.charCodeAt(0) + 0x1D4D0)), // 𝒋𝒅...
-  txt => txt.replace(/[A-Za-z]/g, c => String.fromCodePoint(c.charCodeAt(0) + 0x1D5A0))  // 𝑠𝑘...
+  txt => txt.replace(/[A-Za-z]/g, c => String.fromCodePoint(c.charCodeAt(0) + 0x1D00)), // pequeña
+  txt => txt.replace(/[A-Za-z]/g, c => String.fromCodePoint(c.charCodeAt(0) + 0x1D400)), // negrita
+  txt => txt.replace(/[A-Za-z]/g, c => String.fromCodePoint(c.charCodeAt(0) + 0x1D4D0)), // cursiva
+  txt => txt.replace(/[A-Za-z]/g, c => String.fromCodePoint(c.charCodeAt(0) + 0x1D5A0))  // redonda
 ]
 
 let handler = async (m, { conn }) => {
@@ -70,9 +70,8 @@ let handler = async (m, { conn }) => {
         premium: p.premium
       }))
 
-    // Generar el menú con diferentes estilos
-    for (let fontFunc of fonts) {
-      let menuText = fontFunc(`
+    // Título decorado con fuente 2 (negrita)
+    let menuText = fonts[1](`
 ╭════〔 ⚡ SUKUNA - BOT ⚡ 〕════╮
 │ 🧃 Usuario: @${userId.split('@')[0]}
 │ ⚡ Tipo: ${(conn.user.jid === global.conn.user.jid ? 'Principal 🅥' : 'Prem Bot 🅑')}
@@ -84,30 +83,28 @@ let handler = async (m, { conn }) => {
 📋 COMANDOS DISPONIBLES ⚡
 ${readMore}`)
 
-      for (let tag in tags) {
-        const comandos = help.filter(menu => menu.tags.includes(tag))
-        if (!comandos.length) continue
-        menuText += `\n╭─🧃 ${tags[tag]} ${getRandomEmoji()}\n`
-        menuText += comandos.map(menu =>
-          menu.help.map(cmd =>
-            `│ ✦ ${cmd}${menu.limit ? ' ⭐' : ''}${menu.premium ? ' 🪪' : ''}`
-          ).join('\n')
+    // Comandos por categoría
+    for (let tag in tags) {
+      const comandos = help.filter(menu => menu.tags.includes(tag))
+      if (!comandos.length) continue
+      menuText += `\n╭─🧃 ${tags[tag]} ${getRandomEmoji()}\n`
+      menuText += comandos.map(menu =>
+        menu.help.map(cmd =>
+          `│ ✦ ${cmd}${menu.limit ? ' ⭐' : ''}${menu.premium ? ' 🪪' : ''}`
         ).join('\n')
-        menuText += `\n╰────────────────────────────╯`
-      }
-
-      menuText += `\n\n👑 © Powered by Shadow'Core - Sukuna`
-
-      const imageUrl = 'https://kirito-bot-md.vercel.app/IMG-20250606-WA0167.jpg'
-      const imageBuffer = await (await fetch(imageUrl)).buffer()
-      const media = await prepareWAMessageMedia({ image: imageBuffer }, { upload: conn.waUploadToServer })
-
-      await conn.sendMessage(m.chat, {
-        image: imageBuffer,
-        caption: menuText,
-        contextInfo: { mentionedJid: [m.sender] }
-      }, { quoted: m })
+      ).join('\n')
+      menuText += `\n╰────────────────────────────╯`
     }
+
+    menuText += `\n\n👑 © Powered by Shadow'Core - Sukuna`
+
+    const imageUrl = 'https://kirito-bot-md.vercel.app/IMG-20250606-WA0167.jpg'
+    const imageBuffer = await (await fetch(imageUrl)).buffer()
+    await conn.sendMessage(m.chat, {
+      image: imageBuffer,
+      caption: menuText,
+      contextInfo: { mentionedJid: [m.sender] }
+    }, { quoted: m })
 
   } catch (e) {
     console.error(e)
@@ -119,7 +116,6 @@ handler.help = ['menu1']
 handler.tags = ['main']
 handler.command = ['menu1']
 handler.register = true
-
 export default handler
 
 // Extras
