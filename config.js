@@ -37,7 +37,7 @@ global.owner = [
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.mods = []
-global.suittag = ['51919199620'] 
+global.suittag = ['51946200884'] 
 global.prems = []
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
@@ -54,7 +54,7 @@ global.shadowJadibts = true
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.packname = '🎄  ⸸ 𝕊𝖚𝖐𝖚𝖓𝖆 𝕭𝖔𝖙 𝑴𝑫 ⸸  🎋'
-global.botname = '✦⃟⛧ _𝑺𝑼𝑲𝑼𝑵𝑨⛧ 𝑩𝑶𝑻_ 🎄┋⃟✧'
+global.botname = '✦⃟⛧ _SANTAFLOW⛧ 𝑩𝑶𝑻_ 🎄┋⃟✧'
 global.wm = '◟𝐒𝐮𝐤𝐮𝐧𝐚 𝐁𝐨𝐭◞'
 global.author = '★彡[𝓜𝓪𝓭𝓮 𝓫𝔂 𝓢ʜᴀᴅᴏᴡ𝓬𝓸𝓻𝓮]彡★'
 global.dev = '୧ㅤミ★ 》 Tʜᴇ sʜᴀᴅᴏᴡ`ᴄᴏʀᴇ《★彡 🎋'
