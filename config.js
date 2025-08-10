@@ -74,10 +74,10 @@ global.logo = 'https://files.catbox.moe/ha863t.jpg'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.gp1 = 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
-global.comunidad1 = 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
-global.channel = ' https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
-global.channel2 = ' https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U'
+global.gp1 = 'https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39'
+global.comunidad1 = 'https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39'
+global.channel = ' https://https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39'
+global.channel2 = ' https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39'
 global.md = 'https://github.com/Yuji-XDev/SukunaUltra-MD'
 global.correo = 'blackoficial2025@gmail.com'
 
