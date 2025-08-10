@@ -3,34 +3,7 @@ import fetch from 'node-fetch';
 
 const handler = async (m, { conn, usedPrefix }) => {
   await m.react('🌳');
-//------------------------------------------------------------------------------------------
-  let loading = [
-  '⚽ CARGANDO MENU - LIST\n> 🌘 [█░░░░░░░░░] 10%',
-  '⚽ CARGANDO MENU - LIST\n> 🌗 [██░░░░░░░░] 20%',
-  '⚽ CARGANDO MENU - LIST\n> 🌖 [███░░░░░░░] 30%',
-  '⚽ CARGANDO MENU - LIST\n> 🌕 [████░░░░░░] 40%',
-  '⚽ CARGANDO MENU - LIST\n> ✨ [█████░░░░░] 50%',
-  '⚽ CARGANDO MENU - LIST\n> ⚡ [██████░░░░] 60%',
-  '⚽ CARGANDO MENU - LIST\n> 🔥 [███████░░░] 70%',
-  '⚽ CARGANDO MENU - LIST\n> 💥 [████████░░] 80%',
-  '⚽ CARGANDO MENU - LIST\n> 🌀 [█████████░] 90%',
-  '⚽ CARGANDO MENU - LIST\n> 🌟 [██████████] 100%',
-  '✅ 𝗖𝗔𝗥𝗚𝗔 𝗠𝗔́𝗫𝗜𝗠𝗔 𝗔𝗟𝗖𝗔𝗡𝗭𝗔𝗗𝗔\n> ☘️ ENVIANDO MENU LIST ESPERE UNOS SEGUNDOS....'
-];
-
-let { key } = await conn.sendMessage(m.chat, {
-  text: '_Cargando..._',
-  quoted: m
-});
-
-for (let paso of loading) {
-  await conn.sendMessage(m.chat, {
-    text: paso,
-    edit: key
-  });
-  await new Promise(r => setTimeout(r, 500));
-}
-//------------------------------------------------------------------------------------------
+  
   try {
     const uptime = clockString(process.uptime() * 1000);
     const now = new Date();
