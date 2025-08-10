@@ -1,7 +1,7 @@
 import { search, download } from 'aptoide-scraper';
 
 var handler = async (m, { conn, usedPrefix, command, text }) => {
-  if (!text) return conn.reply(m.chat, `❗ Por favor, ingrese el nombre de la apk para descargarla.`, m, rcanal);
+  if (!text) return conn.reply(m.chat, `*🧪 Por favor, ingrese el nombre de la apk para descargarla.*`, m, rcanal);
 
   try {
     await m.react(rwait);
@@ -10,37 +10,57 @@ var handler = async (m, { conn, usedPrefix, command, text }) => {
     let searchA = await search(text);
     let data5 = await download(searchA[0].id);
 
-    let txt = `⚽ APK DOWNLOAD\n`;
-    txt += `\n`;
-    txt += `📌 *Nombre:* ${data5.name}\n`;
-    txt += `🧩 *Paquete:* ${data5.package}\n`;
-    txt += `🕒 *Actualización:* ${data5.lastup}\n`;
-    txt += `📁 *Peso:* ${data5.size}\n\n`;
-    txt += `> \`🍰 Descargando su aplicación...\``;
+    let txt = `  *\`⚽ APK DOWNLOAD\`*\n\n`;
+    txt += `🍩 *ɴᴏᴍʙʀᴇ:* ${data5.name}\n`;
+    txt += `🏮 *ᴘᴀǫᴜᴇᴛᴇ:* ${data5.package}\n`;
+    txt += `⚡ *ᴜʟᴛɪᴍᴀ ᴀᴄᴛᴜᴀʟɪᴢᴀᴄɪᴏɴ:* ${data5.lastup}\n`;
+    txt += `📦 *ᴛᴀᴍᴀɴ̃ᴏ:* ${data5.size}\n\n`;
+    txt += `> \`\`\`🌀 Descargando su aplicación...\`\`\``
 
-    await conn.sendFile(m.chat, data5.icon, 'thumbnail.jpg', txt, m);
+    //await conn.sendFile(m.chat, data5.icon, 'thumbnail.jpg', txt, m);
+    
+
+  await conn.sendMessage(
+    m.chat,
+    {
+      image: { url: 'https://files.catbox.moe/9l7hcn.jpg' },
+      caption: txt,
+      contextInfo: {
+        externalAdReply: {
+          title: '                          ☘️ Dev.Shadow 🇦🇱',
+          body: '   🌀꙰⃟ 𖤐 𝙍𝙄𝙉 𝙄𝙏𝙊𝙎𝙃𝙄 ∞ 𝐌𝐃 𖤐🎨⃟',
+          mediaType: 1,
+          thumbnailUrl: data5.icon,
+          mediaUrl: 'https://github.com/Yuji-XDev/SukunaUltra-MD',
+          sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U',
+          renderLargerThumbnail: true
+        }
+      }
+    },
+    { quoted: m }
+  );
     await m.react(done);
 
     let pesoMB = parseFloat(data5.size.replace(' MB', '').replace(',', '.'));
     if (data5.size.includes('GB') || pesoMB > 999) {
-      return await conn.reply(m.chat, `⚠️ El archivo es demasiado pesado.`, m);
+      return await conn.reply(m.chat, `${emoji4} El archivo es demasiado pesado.`, m);
     }
 
     await conn.sendMessage(m.chat, {
       document: { url: data5.dllink },
       fileName: `${data5.name}.apk`,
       mimetype: 'application/vnd.android.package-archive',
-      caption: club,
+      caption: `${data5.name}\n> 🔋 Descarga Exitosamente.`,
       thumbnail: data5.icon,
       contextInfo: {
         externalAdReply: {
-          title: data5.name,
-          body: `Powered by Dev.Shadow 👻`,
+          title: '⁖ฺ۟̇࣪·֗٬̤⃟✦ 𝕊ʜᴀᴅᴏᴡ `𝕮ᴏʀᴇ ｡ﾟ･',
+          body: data5.name,
           mediaUrl: null,
           sourceUrl: null,
           thumbnailUrl: data5.icon,
           mediaType: 1,
-          renderLargerThumbnail: true
+          renderLargerThumbnail: false
         }
       }
     }, { quoted: m });
@@ -54,7 +74,7 @@ var handler = async (m, { conn, usedPrefix, command, text }) => {
 handler.tags = ['descargas'];
 handler.help = ['apkmod'];
 handler.command = ['apk', 'modapk', 'aptoide'];
-handler.group = true;
+//handler.group = true;
 handler.register = true;
 handler.coin = 5;
 
