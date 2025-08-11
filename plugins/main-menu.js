@@ -14,45 +14,7 @@ let handler = async (m, { conn, args }) => {
   let totalreg = Object.keys(global.db.data.users).length;
   let totalCommands = Object.values(global.plugins).filter(v => v.help && v.tags).length;
   
-  const imgRandom = [
-    "https://iili.io/FKVDVAN.jpg",
-    "https://iili.io/FKVbUrJ.jpg"
-  ].getRandom();
-
-  const text = [
-    "*✦ 𝐈𝐍𝐕𝐎𝐂𝐀𝐂𝐈𝐎́𝐍 𝐌𝐀𝐒𝐈𝐕𝐀 𝐁𝐘 𝐒𝐡𝐚𝐝𝐨𝐰'𝐂𝐨𝐫𝐞 ✦*",
-    "⚜️ 𝐌𝐞𝐧𝐬𝐚𝐣𝐞 𝐜𝐨𝐥𝐞𝐜𝐭𝐢𝐯𝐨 𝐞𝐧 𝐜𝐮𝐫𝐬𝐨...",
-    "🔮 𝐄𝐭𝐢𝐪𝐮𝐞𝐭𝐚𝐧𝐝𝐨 𝐚 𝐥𝐚𝐬 𝐚𝐥𝐦𝐚𝐬 𝐩𝐞𝐫𝐝𝐢𝐝𝐚𝐬"
-  ].getRandom();
-
-  const thumbnailBuffer = Buffer.from((await axios.get(imgRandom, { responseType: 'arraybuffer' })).data);
-
-  const shadow = {
-    key: { participants: "0@s.whatsapp.net", fromMe: false, id: "Halo" },
-    message: {
-      locationMessage: {
-        name: text,
-        jpegThumbnail: thumbnailBuffer
-      }
-    },
-    participant: "0@s.whatsapp.net"
-  };
   
-  await conn.sendMessage(m.chat, {
-    text: '╭─〔 ⚙️ 𝐂𝐀𝐑𝐆𝐀𝐍𝐃𝐎... 〕─⬣\n┃ 🛰️ *Conectando a la base de datos...*\n┃ 📡 *Sincronizando menú principal...*\n╰───────────────⬣',
-    mentions: [m.sender],
-    contextInfo: {
-      externalAdReply: {
-        title: '               ☘️ Dev.Shadow 🇦🇱',
-        body: '   🌀꙰⃟ 𖤐 𝙎𝙐𝙆𝙐𝙉𝘼 𝘽𝙊𝙏 ∞ 𝐌𝐃 𖤐🎨⃟',
-        thumbnailUrl: 'https://files.catbox.moe/q8b2br',
-        sourceUrl: 'https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U',
-        mediaType: 1,
-        renderLargerThumbnail: false
-      }
-    }
-  }, { quoted: m });
-
   await new Promise(resolve => setTimeout(resolve, 2000));
       
    let hora = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima' });
@@ -730,7 +692,7 @@ let handler = async (m, { conn, args }) => {
         }
       }
     },
-    { quoted: shadow }
+    { quoted: m }
   );
 };
 
