@@ -36,8 +36,8 @@ global.namecomu = '=͟͟͞Santaflow bot • 𝑪𝒐𝒎𝒖𝒏𝒊𝒕𝒚 ˟�
 global.listo = '- 🌀 *𝐓𝐔 𝐏𝐀𝐍𝐄𝐋 𝐄𝐒𝐓𝐀 𝐋𝐈𝐒𝐓𝐎...*'
 global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/vm6opf.jpg')
 
-global.canalIdM = ["120363402079893698@newsletter", "120363402079893698@newsletter"]
-global.canalNombreM = ["  ꙰⃟⛅  santaflow ᵇᵒᵗ | ° ᴄʜᴀɴɴᴇʟ ᵒᶠⁱᶜⁱᵃˡ  🧪꙰⃟⸙", "⟬ ᳞ꪳ⃟ 𖤐 𝙎ANTAFLOW BOT 𝘾𝙃𝘼𝙉𝙉𝙀𝙇 ᴼᶠᴵᶜᴵᴬᴸ𖤐 ᳞ꪳ⃟ ⟭"]
+global.canalIdM = ["120363402079893698@newsletter", "120363402079893698@newsletter", "120363401008003732@newsletter"]
+global.canalNombreM = ["  ꙰⃟⛅  santaflow ᵇᵒᵗ | ° ᴄʜᴀɴɴᴇʟ ᵒᶠⁱᶜⁱᵃˡ  🧪꙰⃟⸙", "⟬ ᳞ꪳ⃟ 𖤐 𝙎ANTAFLOW BOT 𝘾𝙃𝘼𝙉𝙉𝙀𝙇 ᴼᶠᴵᶜᴵᴬᴸ𖤐 ᳞ꪳ⃟ ⟭", "✦ 𝗥𝗶𝗻 𝗜𝘁𝗼𝘀𝗵𝗶 - 𝗖𝗵𝗮𝗻𝗻𝗲𝗹 ✦"]
 global.channelRD = await getRandomChannel()
 
 global.d = new Date(new Date + 3600000)
@@ -54,11 +54,11 @@ global.error = '✖️'
 global.msm = '⚠︎'
 
 global.emoji = '🍀'
-global.emoji2 = '☆⌒(ゝ。∂)'
-global.emoji3 = '(✧ω✧)'
-global.emoji4 = '(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧'
-global.emoji5 = '(づ｡◕‿‿◕｡)づ'
-global.emoji6 = '★~(◠‿◕✿)'
+global.emoji2 = '🌾'
+global.emoji3 = '👻'
+global.emoji4 = '✧'
+global.emoji5 = '🌲''
+global.emoji6 = '★'
 global.emojis = [emoji, emoji2, emoji3, emoji4, emoji5, emoji6].getRandom()
 
 global.wait = '✧͢☁️ 𝐏𝐑𝐎𝐂𝐄𝐒𝐀𝐍𝐃𝐎...⚙️༄  \n=͟͟͞💠 𝑬𝒔𝒑𝒆𝒓𝒆 𝒑𝒐𝒓 𝒇𝒂𝒗𝒐𝒓...';
