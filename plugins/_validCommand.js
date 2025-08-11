@@ -33,9 +33,9 @@ export async function before(m, { conn }) {
         mentions: [m.sender],
         contextInfo: {
           externalAdReply: {
-            title: 'Dev.Shadow 🇦🇱',
-            body: '🌾◌*̥₊ Sukuna MD ◌❐🎋༉',
-            thumbnailUrl: 'https://files.catbox.moe/mez710.jpg',
+            title: 'manguito,Carlos 🇦🇱',
+            body: '🌾◌*̥₊ Santaflow MD ◌❐🎋༉',
+            thumbnailUrl: 'https://i.postimg.cc/T3gjVWDJ/IMG-20250808-WA0306-1.jpg',
             sourceUrl: 'https://github.com/Yuji-XDev',
             mediaType: 1,
             renderLargerThumbnail: true
