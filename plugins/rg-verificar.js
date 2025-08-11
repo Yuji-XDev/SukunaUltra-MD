@@ -81,26 +81,28 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   global.db.data.users[m.sender].exp += 300
   global.db.data.users[m.sender].joincount += 20
   let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20)
-let regbot = `✅ VERIFICACIÓN EXITOSA ✅
+let regbot = `╔═══ ❖ ═══╗
+✅ 𝒱𝐸𝑅𝐼𝐹𝐼𝐶𝐴𝐶𝐼Ó𝒩 𝐸𝒳𝐼𝒯𝒪𝒮𝒜 ✅
+╚═══ ❖ ═══╝
 
-🌾 \`NOMBRE\` » \`\`\`${name}\`\`\`
-🌀 \`EDAD\` » \`\`\`${age} años\`\`\`
+🌙 𓆩 𝒩𝒪𝑀𝐵𝑅𝐸 𓆪:: 『${name}』
+🌀 𓆩 𝐸𝒟𝒜𝒟 𓆪:: 『${age} años』
 
-🕸️ \`FECHA\` » \`\`\`${fecha}\`\`\`
-🐋 \`HORA\` » \`\`\`${hora}\`\`\`
-🌿 \`DIA\` » \`\`\`${dia}\`\`\`
+🕰️ 𓆩 𝐹𝐸𝒞𝐻𝒜 𓆪:: 『${fecha}』
+🐚 𓆩 𝐻𝒪𝑅𝒜 𓆪:: 『${hora}』
+🍃 𓆩 𝒟𝐼𝒜 𓆪:: 『${dia}』
 
-🍹 RECOMPENSAS 🧪
-🪙 \`COINS:\` +40
-🏮 \`EXP:\` +300
-🔰 \`TOKENS:\` +20\n`;
+🎁 𝑅𝐸𝒞𝒪𝑀𝒫𝐸𝒩𝒮𝒜𝒮 🎁
+🪙 𝒞𝒪𝐼𝒩𝒮:: +40
+📛 𝐸𝒳𝒫:: +300
+🔮 𝒯𝒪𝒦𝐸𝒩𝒮:: +20`;
 
 await m.react('📩')
 await conn.sendButton(m.chat, regbot, club, pp, [
 ['👤 𝗢𝗪𝗡𝗘𝗥', '#owner'],
 ['🌾 𝗣𝗘𝗥𝗙𝗜𝗟', '#perfil'],
 ['☘️ 𝗠𝗘𝗡𝗨 • 𝗔𝗟𝗟', '#menu']], null, [
-['🌐 𝗖𝗔𝗡𝗔𝗟', `https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U`]], fkontak)}
+['🌐 𝗖𝗔𝗡𝗔𝗟', `https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39`]], fkontak)}
 
 /*  await conn.sendMessage(m.chat, {
     image: { url: pp },
