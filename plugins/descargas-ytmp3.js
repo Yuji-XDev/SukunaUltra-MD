@@ -93,7 +93,7 @@ const handler = async (m, { conn, text, command }) => {
           renderLargerThumbnail: false
         }
       }
-    }, { quoted: fkontak });
+    }, { quoted: m });
 
     await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
 

@@ -166,7 +166,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       buffer,
       `${titleVid}.mp4`,
       caption,
-      fkontak,
+      m,
       null,
       {
         mimetype: 'video/mp4',
