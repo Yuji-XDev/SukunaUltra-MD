@@ -33,7 +33,7 @@ export async function before(m, { conn }) {
         mentions: [m.sender],
         contextInfo: {
           externalAdReply: {
-            title: 'manguito,Carlos 🇦🇱',
+            title: 'manguito,Carlos 13 🇦🇱',
             body: '🌾◌*̥₊ Santaflow MD ◌❐🎋༉',
             thumbnailUrl: 'https://i.postimg.cc/T3gjVWDJ/IMG-20250808-WA0306-1.jpg',
             sourceUrl: 'https://github.com/Yuji-XDev',
