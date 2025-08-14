@@ -674,7 +674,7 @@ let handler = async (m, { conn, args }) => {
 > 🔐 ➋ *#code* – Usa un 𝖢𝗈𝖽𝗂𝗀𝗈 de 8 dígitos
 `.trim();
 
-  await m.react('⚙️');
+  await m.react('🎤');
   await conn.sendMessage(
     m.chat,
     {
@@ -682,10 +682,10 @@ let handler = async (m, { conn, args }) => {
       caption: menuText,
       contextInfo: {
         externalAdReply: {
-          title: '🌾 Santaflow - la respuesta ',
+          title: '🌾 Santaflow - La respuesta ',
           body: '☯︎ by carlos\'manguito',
           mediaType: 1,
-          thumbnailUrl: 'https://ibb.co/7tbDc5b9',
+          thumbnailUrl: 'https://i.postimg.cc/rFMXV507/FB-IMG-1755130556014.jpg',
           mediaUrl: 'https://github.com/Yuji-XDev/SukunaUltra-MD',
           sourceUrl: 'https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39',
           renderLargerThumbnail: false
