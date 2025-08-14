@@ -58,7 +58,7 @@ const handler = async (m, { conn, text, command }) => {
         forwardedNewsletterMessageInfo: {
           newsletterJid: '120363401008003732@newsletter',
           serverMessageId: '',
-          newsletterName: '˗ˏˋ🎀 sᴜᴋuna_ʙᴏᴛ⋆.ᴍᴅ ᯓ✧💌 ˎˊ˗'
+          newsletterName: '˗ˏˋ🎤 𝐒𝐚𝐧𝐭𝐚𝐟𝐥𝐨𝐰_ʙᴏᴛ⋆.ᴍᴅ ᯓ✧💌 ˎˊ˗'
         },
         forwardingScore: 9999999,
         isForwarded: true,
@@ -67,11 +67,11 @@ const handler = async (m, { conn, text, command }) => {
           showAdAttribution: true,
           renderLargerThumbnail: true,
           title: title,
-          body: '┈ ⋞ 〈 ☘️ ʀɪɴ ɪᴛᴏsʜɪ - ᴀɪ ⛅ 〉 ⋟ ┈',
+          body: '┈ ⋞ 〈 🎤 𝑺𝑨𝑵𝑻𝑨𝑭𝑳𝑶𝑾 - 𝑷𝑬𝑪𝑨𝑫𝑶𝑺 𝑪𝑨𝑷𝑰𝑻𝑨𝑳𝑬𝑺 ⛅ 〉 ⋟ ┈',
           containsAutoReply: true,
           mediaType: 1,
           thumbnailUrl: thumbnail,
-          sourceUrl: "https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U"
+          sourceUrl: "https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39"
         }
       }
     }, { quoted: m });
