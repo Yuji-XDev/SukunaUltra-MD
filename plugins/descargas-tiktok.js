@@ -1,13 +1,15 @@
+
+
 import fetch from 'node-fetch';
 
 var handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) {
-        return conn.reply(m.chat, `*🌾 Por favor, ingresa un enlace de TikTok.*`, m, fake);
+        return conn.reply(m.chat, `*🌾 Por favor, ingresa un enlace de TikTok.*`, m);
     }
 
     try {
         await conn.reply(m.chat, `
-           ʚ🍃ɞ *Onichan~*
+           ʚ🍃ɞ *𝗠𝗔𝗚𝗡𝗢𝗦 𝗜𝗡𝗧𝗘𝗥𝗣𝗥𝗜𝗦𝗘~*
 *🌳 Espere un momentito...*  
 *Estoy descargando su videíto~* 💖  
 *Awu~ 📥📺*`, m);
@@ -29,8 +31,7 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
         };
 
         if (videoURL) {
-            await conn.sendFile(m.chat, videoURL, "tiktok.mp4", `╭─❍⃟🌸 𝑶𝒏𝒊𝒄𝒉𝒂𝒂𝒂𝒏~ 𝒂𝒘𝒖𝒖𝒖!! 💗
-┃  
+            await conn.sendFile(m.chat, videoURL, "tiktok.mp4", `Descarga completa santflow`, m);
 ┃ 📥 *TikTok Descargado nyan~!*  
 ┃  
 ┃ 🎀 *Título:* ${data.title || 'Sin descripción uwu'}  
@@ -41,7 +42,7 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
 ┃ ⏱️ *Duración:* ${formatDuration(data.duration)} ⌛  
 ┃ 🖼️ *Calidad:* ${videoURL.includes('hd') ? 'HD 🎞️✨' : 'Normalito 📺💭'}  
 ┃  
-╰─⟦ 💞 𝙀𝙣𝙟𝙤𝙮 𝙞𝙩 𝙤𝙣𝙞𝙘𝙝𝙖𝙣~! 🌈 𝙆𝙮𝙖𝙖𝙖 💕 ⟧`, m, fake);
+╰─⟦ 💞 𝙀𝙣𝙟𝙤𝙮 𝙞𝙩 MAGNOSINTERPRISE~! 🌈 SANTAFLOW 💕 ⟧`, m, fake);
         } else {
             return conn.reply(m.chat, "❌ No se pudo descargar.", m);
         }
@@ -63,4 +64,4 @@ async function tiktokdl(url) {
     let tikwm = `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`;
     let response = await (await fetch(tikwm)).json();
     return response;
-}
+        }
