@@ -56,7 +56,7 @@ const handler = async (m, { conn, text, command }) => {
       text: textoInfo,
       contextInfo: {
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363401008003732@newsletter',
+          newsletterJid: '120363402079893698@newsletter',
           serverMessageId: '',
           newsletterName: '˗ˏˋ🎤 𝐒𝐚𝐧𝐭𝐚𝐟𝐥𝐨𝐰_ʙᴏᴛ⋆.ᴍᴅ ᯓ✧💌 ˎˊ˗'
         },
