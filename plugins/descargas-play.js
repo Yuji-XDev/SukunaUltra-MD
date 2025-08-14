@@ -81,7 +81,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       contextInfo: {
         externalAdReply: {
           title: title,
-          body: '🎃 𝖲𝖴𝖪𝖴𝖭𝖠 𝖴𝖫𝖳𝖱𝖠 𝖬𝖣 💨',
+          body: '🎃 𝖲ANTAFLOW 𝖴𝖫𝖳𝖱𝖠 𝖬𝖣 💨',
           mediaType: 1,
           thumbnail: thumb,
           mediaUrl: url,
