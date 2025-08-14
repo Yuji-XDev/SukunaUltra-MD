@@ -27,7 +27,7 @@ let handler = async (m, { conn, args }) => {
 ☁️ ${ucapan()} @${userId.split('@')[0]}
 
 ╔════ ❖ •❁• ✦ •❁• ❖ ════╗
-║  🖤 𝐒𝐀𝐍𝐓𝐀𝐅𝐋𝐎𝐖 - 𝐁𝐎𝐓 🖤
+║   🖤 𝐒𝐀𝐍𝐓𝐀𝐅𝐋𝐎𝐖 - 𝐁𝐎𝐓 🖤
 ╚════ ❖ •❁• ✦ •❁• ❖ ════╝
 ┃ ✦ 𝗨𝘀𝘂𝗮𝗿𝗶𝗼: ${name}
 ┃ ✦ 𝗡𝗶𝘃𝗲𝗹: ${level}
@@ -683,9 +683,9 @@ let handler = async (m, { conn, args }) => {
       contextInfo: {
         externalAdReply: {
           title: '🌾 Santaflow - la respuesta ',
-          body: '☯︎ Dev by carlos\'manguito',
+          body: '☯︎ by carlos\'manguito',
           mediaType: 1,
-          thumbnailUrl: 'https://i.postimg.cc/pXgrNmP3/SANTAFLOW-7.png',
+          thumbnailUrl: 'https://ibb.co/7tbDc5b9',
           mediaUrl: 'https://github.com/Yuji-XDev/SukunaUltra-MD',
           sourceUrl: 'https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39',
           renderLargerThumbnail: false
