@@ -75,25 +75,6 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         }, { quoted: m })*/
     await m.react('✅');
     await conn.sendMessage(m.chat, {
-        text: textoInfo,
-      contextInfo: {
-        forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363402079893698@newsletter',
-          serverMessageId: '',
-          newsletterName: '˗ˏˋ🎤 𝐒𝐚𝐧𝐭𝐚𝐟𝐥𝐨𝐰_ʙᴏᴛ⋆.ᴍᴅ ᯓ✧💌 ˎˊ˗'
-        },
-        forwardingScore: 9999999,
-        isForwarded: true,
-        mentionedJid: null,
-        externalAdReply: {
-          showAdAttribution: true,
-          renderLargerThumbnail: true,
-          title: title,
-          body: '┈ ⋞ 〈 🎤 𝑺𝑨𝑵𝑻𝑨𝑭𝑳𝑶𝑾 - 𝑷𝑬𝑪𝑨𝑫𝑶𝑺 𝑪𝑨𝑷𝑰𝑻𝑨𝑳𝑬𝑺 ⛅ 〉 ⋟ ┈',
-          containsAutoReply: true,
-          mediaType: 1,
-          thumbnailUrl: thumbnail,
-          sourceUrl: "https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39"
       audio: { url: json.result.download.url },
       mimetype: 'audio/mpeg',
       fileName: `${json.result.title}.mp3`,
