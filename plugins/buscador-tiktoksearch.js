@@ -1,7 +1,6 @@
 import axios 
   from 'axios';
-const {
-  proto,
+const {proto,
   generateWAMessageFromContent,
   prepareWAMessageMedia,
   generateWAMessageContent,
