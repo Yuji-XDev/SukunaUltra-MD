@@ -1,10 +1,10 @@
-import axios 
-  from 'axios';
-const {proto,
+import axios from 'axios';
+const {
+  proto,
   generateWAMessageFromContent,
   prepareWAMessageMedia,
   generateWAMessageContent,
-  getDevice
+  getDevice'
 } = (await import("@whiskeysockets/baileys")).default;
 
 let handler = async (message, { conn, text, usedPrefix, command }) => {
