@@ -119,9 +119,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       text: textoInfo,
       contextInfo: {
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363401008003732@newsletter',
+          newsletterJid: '120363402079893698@newsletter',
           serverMessageId: '',
-          newsletterName: '˗ˏˋ🎀 sᴜᴋuna_ʙᴏᴛ⋆.ᴍᴅ ᯓ✧💌 ˎˊ˗'
+          newsletterName: '˗ˏˋ🎤SANTAFLOW🎤😈 ˎˊ˗'
         },
         forwardingScore: 9999999,
         isForwarded: true,
@@ -129,10 +129,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
           showAdAttribution: true,
           renderLargerThumbnail: true,
           title: title,
-          body: '┈ ⋞ 〈 👾 ʀɪɴ ɪᴛᴏsʜɪ - ᴀɪ ⚽ 〉 ⋟ ┈',
+          body: '┈ ⋞ 〈 🎤CARLOS - RAMIREZ⚽ 〉 ⋟ ┈',
           mediaType: 1,
           thumbnail: thumbnailBuffer,
-          sourceUrl: "https://whatsapp.com/channel/0029VbAtbPA84OmJSLiHis2U"
+          sourceUrl: "https://whatsapp.com/channel/0029Vb6iXGDISTkKY8fxUa39"
         }
       }
     }, { quoted: m });
