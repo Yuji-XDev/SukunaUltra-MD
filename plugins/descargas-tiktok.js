@@ -25,7 +25,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 
     await conn.sendMessage(m.chat, {
       video: { url: videoUrl },
-      caption: '*[ TIKTOK HD SIN MARCA DE AGUA ]* 🎬'
+      caption: '*[ SANTAFLOW TE DA TU VIDEO DE TIKTOK HD SIN MARCA DE AGUA ]* 🎬'
     }, { quoted: m });
 
     await m.react('✅');
