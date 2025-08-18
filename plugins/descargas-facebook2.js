@@ -1,5 +1,3 @@
-
-
 const handler = async (m, { conn, args, usedPrefix, command }) => {
   if (!args[0]) {
     return conn.reply(m.chat, `🌲 *Ingresa un enlace válido de Facebook.*\n\nEjemplo:\n${usedPrefix + command} https://www.facebook.com/share/v/12DoEUCoFji/`, m, rcanal);
