@@ -12,7 +12,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     try {
       await conn.sendMessage(m.chat, {
         video: { url },
-        caption: '╭━━━〔 SUKUNA.OFC 〕━━━╮\n┃ ✅ Video descargado exitosamente.\n╰━━━━━━━━━━━━━━━━━╯'
+        caption: '╭━━━〔 SANTAFLOW.OFC 〕━━━╮\n┃ ✅ Video descargado exitosamente.\n╰━━━━━━━━━━━━━━━━━╯'
       }, { quoted: m });
       return;
     } catch (e) {
@@ -48,7 +48,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     const listMessage = {
       text: `┃➤ 🎬 *Facebook Video Detectado*\n╰━━━━━━━━━━━━━━━━━╯`,
       footer: `Selecciona una resolución para descargar el video.`,
-      title: `╭━━━〔 SUKUNA MD 〕━━━╮\n┃➤🎞️ Resultado Encontrado\n┃`,
+      title: `╭━━━〔 SANTAFLOW 〕━━━╮\n┃➤🎞️ Resultado Encontrado\n┃`,
       buttonText: "📥 Descargar resolución",
       sections: listSections,
       jpegThumbnail: await (await fetch(thumbnail)).buffer()
