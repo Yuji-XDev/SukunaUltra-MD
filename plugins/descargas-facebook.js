@@ -1,68 +1,48 @@
-const handler = async (m, { conn, args, usedPrefix, command }) => {
+import { igdl } from 'ruhend-scraper';
+
+const handler = async (m, { text, conn, args, usedPrefix, command }) => {
   if (!args[0]) {
-    return conn.reply(m.chat, `🌲 *Ingresa un enlace válido de Facebook.*\n\nEjemplo:\n${usedPrefix + command} https://www.facebook.com/share/v/12DoEUCoFji/`, m, rcanal);
+    return conn.reply(m.chat, '*\`Ingresa El link Del vídeo a descargar 💥\`*', m, fake);
   }
 
   await m.react('🕒');
-
-  const url = args[0];
-
-  
-  if (url.startsWith('https://') && url.includes('token=')) {
-    try {
-      await conn.sendMessage(m.chat, {
-        video: { url },
-        caption: '╭━━━〔 𝗦𝗔𝗡𝗧𝗔𝗙𝗟𝗢𝗪 〕━━━╮\n┃ ✅ Video descargado exitosamente.\n╰━━━━━━━━━━━━━━━━━╯'
-      }, { quoted: m });
-      return;
-    } catch (e) {
-      console.error(e);
-      return conn.reply(m.chat, '⚠️ No se pudo enviar el video. Es posible que sea demasiado grande.', m);
-    }
+  let res;
+  try {
+    res = await igdl(args[0]);
+  } catch (error) {
+    return conn.reply(m.chat, '*`Error al obtener datos. Verifica el enlace.`*', m);
   }
 
- 
-  if (!url.startsWith('http')) {
-    return conn.reply(m.chat, '❗ Enlace no válido.', m);
+  let result = res.data;
+  if (!result || result.length === 0) {
+    return conn.reply(m.chat, '*`No se encontraron resultados.`*', m);
   }
+
+  let data;
+  try {
+    data = result.find(i => i.resolution === "720p (HD)") || result.find(i => i.resolution === "360p (SD)");
+  } catch (error) {
+    return conn.reply(m.chat, '*`Error al procesar los datos.`*', m);
+  }
+
+  if (!data) {
+    return conn.reply(m.chat, '*`No se encontró una resolución adecuada.`*', m);
+  }
+
+  await m.react('✅');
+  let video = data.url;
 
   try {
-    const res = await fetch(`https://api.dorratz.com/fbvideo?url=${url}`);
-    const json = await res.json();
-
-    if (!json || !Array.isArray(json) || json.length === 0) {
-      return conn.reply(m.chat, '⚠️ No se encontraron videos o la API falló.', m);
-    }
-
-    const thumbnail = 'https://i.imgur.com/JP52fdP.jpeg';
-
-    const listSections = [{
-      title: "🧩 Selecciona la resolución",
-      rows: json.map(video => ({
-        title: video.resolution,
-        description: `🎞️ Descargar en ${video.resolution}`,
-        rowId: `${usedPrefix + command} ${video.url}`
-      }))
-    }];
-
-    const listMessage = {
-      text: `┃➤ 🎬 *Facebook Video Detectado*\n╰━━━━━━━━━━━━━━━━━╯`,
-      footer: `Selecciona una resolución para descargar el video.`,
-      title: `╭━━━〔 SANTAFLOW 〕━━━╮\n┃➤🎞️ Resultado Encontrado\n┃`,
-      buttonText: "📥 Descargar resolución",
-      sections: listSections,
-      jpegThumbnail: await (await fetch(thumbnail)).buffer()
-    };
-
-    await conn.sendMessage(m.chat, listMessage, { quoted: m });
-  } catch (e) {
-    console.error(e);
-    return conn.reply(m.chat, '❌ Error al procesar el video. Intenta con otro enlace.', m);
+    await conn.sendMessage(m.chat, { video: { url: video }, caption: dev, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m });
+  } catch (error) {
+    return conn.reply(m.chat, '*`Error al enviar el video.`*', m);
+  await m.react('❌');
   }
 };
 
-handler.command = ['fb'];
-handler.help = ['fb2 <enlace>'];
-handler.tags = ['downloader'];
+handler.help = ['fb *<link>*'];
+handler.estrellas = 2
+handler.tags = ['downloader']
+handler.command = /^(fb|facebook|fbdl)$/i;
 
-export default handler;
+export default handler;                
