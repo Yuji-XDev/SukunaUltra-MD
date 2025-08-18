@@ -62,7 +62,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     await conn.reply(m.chat, infoMessage, m, external)
 
-    if (['play'].includes(command)) {
+    if (['playaudio'].includes(command)) {
       try {
         const res = await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)
         const json = await res.json()
@@ -95,7 +95,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       }
     }
 
-    else if (['play2'].includes(command)) {
+    else if (['playvideo'].includes(command)) {
       try {
         const res = await fetch(`https://dark-core-api.vercel.app/api/download/ytmp4/v2?key=api&url=${url}`)
         const json = await res.json()
