@@ -3,11 +3,6 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 import {tiktok} from '@xct007/frieren-scraper';
 import {generateWAMessageFromContent} from '@whiskeysockets/baileys';
-import {tiktokdl} from '@bochilteam/scraper';
-const CFROSAPI = global.APIs.CFROSAPI;
-const handler = async (m, {conn, text, args, usedPrefix, command}) => {
-//m.react('🕒') 
-
 let handler = async (message, { conn, text, usedPrefix, command }) => {
   if (!text) {
     return conn.reply(message.chat, "❀ Por favor, ingrese un texto para realizar una búsqueda en tiktok.", message, rcanal);
