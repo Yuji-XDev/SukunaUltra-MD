@@ -1,66 +1,76 @@
-import fetch from 'node-fetch';
+import axios from "axios";
 
-var handler = async (m, { conn, args, usedPrefix, command }) => {
-    if (!args[0]) {
-        return conn.reply(m.chat, `*🌱 Por favor, ingresa un enlace de TikTok.*`, m, fake);
+const MAX_MB = 10;
+
+let handler = async (m, { conn, usedPrefix, command, text }) => {
+  if (!text || !text.includes('tiktok')) {
+    return conn.reply(m.chat, '❤️ *Ingresa un enlace válido de TikTok*', m);
+  }
+
+  try {
+    await m.react('⏳');
+
+    let videoUrl = await getTiktokHDPrimary(text);
+    if (!videoUrl) videoUrl = await getTiktokHDBackup(text);
+
+    if (!videoUrl) throw new Error('No se pudo obtener el video HD.');
+
+    const head = await axios.head(videoUrl);
+    const contentLength = head.headers['content-length'];
+    const fileSizeMB = parseInt(contentLength) / (1024 * 1024);
+
+    if (fileSizeMB > MAX_MB) {
+      return conn.reply(m.chat, `❌ El video pesa *${fileSizeMB.toFixed(2)} MB* y excede el límite de ${MAX_MB}MB.\n\n💡 Puedes descargarlo manualmente:\n${videoUrl}`, m);
     }
 
-    try {
-        await conn.reply(m.chat, `
-           ʚ🍃ɞ *Onichan~*
-*🌳 Espere un momentito...*  
-*Estoy descargando su videíto~* 💖  
-*Awu~ 📥📺*`, m);
+    await conn.sendMessage(m.chat, {
+      video: { url: videoUrl },
+      caption: '*[ TIKTOK HD SIN MARCA DE AGUA ]* 🎬'
+    }, { quoted: m });
 
-        const tiktokData = await tiktokdl(args[0]);
-
-        if (!tiktokData || !tiktokData.data || !tiktokData.data.play) {
-            return conn.reply(m.chat, "❌ Error: No se pudo obtener el video.", m);
-        }
-
-        const data = tiktokData.data;
-        const videoURL = data.play;
-
-        const formatNumber = (n = 0) => n.toLocaleString('es-PE');
-        const formatDuration = (seconds = 0) => {
-            const mins = Math.floor(seconds / 60);
-            const secs = seconds % 60;
-            return `${mins} min ${secs} seg`;
-        };
-
-        if (videoURL) {
-            await conn.sendFile(m.chat, videoURL, "tiktok.mp4", `╭─❍⃟🌸 𝑶𝒏𝒊𝒄𝒉𝒂𝒂𝒂𝒏~ 𝒂𝒘𝒖𝒖𝒖!! 💗
-┃  
-┃ 📥 *TikTok Descargado nyan~!*  
-┃  
-┃ 🎀 *Título:* ${data.title || 'Sin descripción uwu'}  
-┃ 💖 *Likes:* ${formatNumber(data.digg_count)} 💕  
-┃ 💬 *Comentarios:* ${formatNumber(data.comment_count)} ✨  
-┃ 👁️ *Vistas:* ${formatNumber(data.play_count)} nya~  
-┃ 🔁 *Compartido:* ${formatNumber(data.share_count)} 💌  
-┃ ⏱️ *Duración:* ${formatDuration(data.duration)} ⌛  
-┃ 🖼️ *Calidad:* ${videoURL.includes('hd') ? 'HD 🎞️✨' : 'Normalito 📺💭'}  
-┃  
-╰─⟦ 💞 𝙀𝙣𝙟𝙤𝙮 𝙞𝙩 𝙤𝙣𝙞𝙘𝙝𝙖𝙣~! 🌈 𝙆𝙮𝙖𝙖𝙖 💕 ⟧`, m);
-        } else {
-            return conn.reply(m.chat, "❌ No se pudo descargar.", m);
-        }
-    } catch (error1) {
-        return conn.reply(m.chat, `❌ Error: ${error1.message}`, m);
-    }
+    await m.react('✅');
+  } catch (e) {
+    console.error(e);
+    await m.react('❌');
+    conn.reply(m.chat, '*Ocurrió un error al procesar el video 😢*', m);
+  }
 };
 
-handler.help = ['tiktok'].map((v) => v + ' *<link>*');
+handler.help = ['tiktok', 'tt',' <url>'];
 handler.tags = ['descargas'];
 handler.command = ['tiktok', 'tt'];
-handler.register = true;
-handler.coin = 2;
-handler.limit = true;
 
 export default handler;
 
-async function tiktokdl(url) {
-    let tikwm = `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`;
-    let response = await (await fetch(tikwm)).json();
-    return response;
+// ─────────────── FUNCIONES API ───────────────
+
+async function getTiktokHDPrimary(url) {
+  try {
+    const { data } = await axios.get('https://www.tikwm.com/api/', {
+      params: { url },
+      headers: {
+        'User-Agent': 'Mozilla/5.0'
+      }
+    });
+
+    const result = data?.data;
+    if (!result) return null;
+
+    return result.hdplay || result.play_2 || result.play;
+  } catch (e) {
+    console.error('Error API primaria:', e);
+    return null;
+  }
+}
+
+async function getTiktokHDBackup(url) {
+  try {
+    const { data } = await axios.get(`https://api.tiklydown.me/download?url=${encodeURIComponent(url)}`);
+    const video = data?.video?.no_watermark_hd || data?.video?.no_watermark;
+
+    return video || null;
+  } catch (e) {
+    console.error('Error API backup:', e);
+    return null;
+  }
 }
